@@ -33,4 +33,3 @@ func _process(delta):
 			get_node("Sprite").texture = load("res://textures/player/left-1.png")
 		if(type == false and Input.is_key_pressed(KEY_A)):
 			get_node("Sprite").texture = load("res://textures/player/left-2.png")
-	

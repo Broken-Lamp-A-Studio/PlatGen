@@ -25,6 +25,10 @@ func _process(delta):
 		get_node("map").generate = true
 		if(OS.get_system_time_msecs() - time > 500):
 			get_node("map").generate = false
+			print(get_node("map").upc)
+			print(get_node("map").downc)
+			print(get_node("map").rightc)
+			print(get_node("map").leftc)
 			get_node("map").set_process(false)
 			get_node("map").visible = true
 			get_node("playerengine").visible = true
