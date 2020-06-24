@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://textures/mapgen2.png" type="Texture" id=1]
+[ext_resource path="res://textures/mapgen.png" type="Texture" id=2]
+[ext_resource path="res://scripts/Maploader.gd" type="Script" id=3]
+
+[node name="Maploader" type="Node2D"]
+script = ExtResource( 3 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2( -25.21, -25.21 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PoolVector2Array( 50.2343, 0.117466, 50.2343, 95.9154, 0.444595, 95.9154, -0.185654, -1.77328 )
+
+[node name="dirt" type="Sprite" parent="."]
+position = Vector2( 0, -0.630249 )
+scale = Vector2( 5, 5 )
+texture = ExtResource( 2 )
+
+[node name="cobble" type="Sprite" parent="."]
+position = Vector2( 0, 45.0217 )
+scale = Vector2( 5, 5 )
+texture = ExtResource( 1 )
