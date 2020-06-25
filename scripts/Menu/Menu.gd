@@ -39,6 +39,9 @@ func _process(delta):
 		time = OS.get_system_time_msecs()
 		get_node("Loading").visible = false
 		
+	
+		
+		
 		
 		
 	

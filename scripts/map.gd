@@ -26,7 +26,7 @@ var childn3 = "0"
 var downc = [downc]
 var upc = [upc]
 var rightc = [rightc]
-var leftc = [leftc]
+var leftc = [ ]
 
 func _ready():
 	
@@ -37,7 +37,7 @@ func _process(_delta):
 	
 	if(generate == true and clear == false):
 		childname = childname+childscount2
-		childlist = [childlist, childname]
+		childlist = [childlist, childname ]
 		print(childname)
 		cc = map2.instance()
 		cc.name = childname
@@ -54,38 +54,38 @@ func _process(_delta):
 		childname2 = childname+"/ss"
 		get_node(childname2).position.x = random2
 		get_node(childname2).position.y = random3+25
-		cc2 = pleft.instance()
-		childn3 = childname+"left"
-		cc2.name = childn3
-		self.add_child(cc2)
-		childn3 = childname+"left"+"/StaticBody2D"
-		leftc = [leftc, childn3]
-		get_node(childn3).position.x = random2
-		get_node(childn3).position.y = random3
-		cc2 = pright.instance()
-		childn3 = childname+"right"
-		cc2.name = childn3
-		self.add_child(cc2)
-		childn3 = childname+"right"+"/StaticBody2D"
-		rightc = [rightc, childn3]
-		get_node(childn3).position.x = random2
-		get_node(childn3).position.y = random3
-		cc2 = pup.instance()
-		childn3 = childname+"up"
-		cc2.name = childn3
-		self.add_child(cc2)
-		childn3 = childname+"up"+"/StaticBody2D"
-		upc = [upc, childn3]
-		get_node(childn3).position.x = random2
-		get_node(childn3).position.y = random3
-		cc2 = pdown.instance()
-		childn3 = childname+"down"
-		cc2.name = childn3
-		self.add_child(cc2)
-		childn3 = childname+"down"+"/StaticBody2D"
-		downc = [downc, childn3]
-		get_node(childn3).position.x = random2
-		get_node(childn3).position.y = random3
+		#cc2 = pleft.instance()
+		#childn3 = childname+"left"
+		#cc2.name = childn3
+		#self.add_child(cc2)
+		#childn3 = childname+"left"+"/StaticBody2D"
+		#leftc = [leftc, childn3 ]
+		#get_node(childn3).position.x = random2
+		#get_node(childn3).position.y = random3
+		#cc2 = pright.instance()
+		#childn3 = childname+"right"
+		#cc2.name = childn3
+		#self.add_child(cc2)
+		#childn3 = childname+"right"+"/StaticBody2D"
+		#rightc = [rightc, childn3 ]
+		#get_node(childn3).position.x = random2
+		#get_node(childn3).position.y = random3
+		#cc2 = pup.instance()
+		#childn3 = childname+"up"
+		#cc2.name = childn3
+		#self.add_child(cc2)
+		#childn3 = childname+"up"+"/StaticBody2D"
+		#upc = [upc, childn3 ]
+		#get_node(childn3).position.x = random2
+		#get_node(childn3).position.y = random3
+		#cc2 = pdown.instance()
+		#childn3 = childname+"down"
+		#cc2.name = childn3
+		#self.add_child(cc2)
+		#childn3 = childname+"down"+"/StaticBody2D"
+		#downc = [downc, childn3 ]
+		#get_node(childn3).position.x = random2
+		#get_node(childn3).position.y = random3
 
 		
 		
