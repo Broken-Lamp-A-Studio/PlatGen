@@ -17,7 +17,7 @@ func _ready():
 
 	
 func _physics_process(delta):
-	if(): #only information, is colliding
+	if(get_node("KinematicBody2D").collider1 == true or get_node("KinematicBody2D").collider2 == true): #i don't have information about collisions
 		if(Input.is_key_pressed(KEY_W) or Input.is_key_pressed(KEY_SPACE)):
 			self.position.y += JUMP
 			g2 = 1
