@@ -4,12 +4,14 @@ onready var last_time = OS.get_system_time_secs()
 var type = false
 onready var time = OS.get_system_time_msecs()
 const SPEED = 0.8
-var GRAVITY = 1
-const JUMP = -4
+var GRAVITY = 0.5
+const JUMP = -5
 var rotate2 = 1
 var g2 = 2
 var ff = 0
 var adder = 0
+var t = 0
+var colliding = false
 func _ready():
 	set_process(false)
 	set_process_input(false)
@@ -17,29 +19,10 @@ func _ready():
 
 	
 func _physics_process(delta):
-	if(get_node("KinematicBody2D").collider1 == true or get_node("KinematicBody2D").collider2 == true): #i don't have information about collisions
+	if(colliding == true):
 		if(Input.is_key_pressed(KEY_W) or Input.is_key_pressed(KEY_SPACE)):
 			self.position.y += JUMP
-			g2 = 1
-			ff = 4
-		if(g2 == 1):
-			self.position.y += 1
-		if(g2 == 2):
-			self.position.y -= 1
-		if(g2 == 3):
-			self.position.x -= 1
-		if(g2 == 4):
-			self.position.x += 1
-		
-	if(self.position.y >= 60):
-		GRAVITY = 0
-	else:
-		GRAVITY = 1
 	self.position.y += GRAVITY
-	ff -= 1
-	if(ff <= 0):
-		ff = 0
-		g2 = 2
 	if(Input.is_key_pressed(KEY_D)):
 		rotate2 = 1
 		self.position.x += SPEED
@@ -48,6 +31,8 @@ func _physics_process(delta):
 		rotate2 = 2
 		self.position.x -= SPEED
 		g2 = 3
+	if(self.position.y >= 60):
+		self.position.y -= GRAVITY
 	
 	
 func _process(delta):
