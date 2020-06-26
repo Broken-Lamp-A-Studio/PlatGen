@@ -20,6 +20,13 @@ run/main_scene="res://scenes/Menu.tscn"
 boot_splash/image="res://icon.png"
 config/icon="res://icon.png"
 
+[layer_names]
+
+2d_physics/layer_1="Ground"
+2d_physics/layer_2="player"
+2d_physics/layer_3="Wall"
+2d_physics/layer_4="enemy"
+
 [rendering]
 
 environment/default_environment="res://default_env.tres"

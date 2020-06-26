@@ -14,8 +14,10 @@
 [ext_resource path="res://textures/loading.png" type="Texture" id=12]
 [ext_resource path="res://scenes/player.tscn" type="PackedScene" id=13]
 [ext_resource path="res://scripts/map.gd" type="Script" id=14]
-[ext_resource path="res://scripts/playerengine.gd" type="Script" id=15]
 [ext_resource path="res://videos/ig.webm" type="VideoStream" id=16]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 11.2268, 1.31997 )
 
 [node name="Menu" type="Node2D"]
 script = ExtResource( 8 )
@@ -28,12 +30,11 @@ script = ExtResource( 14 )
 
 [node name="Maploader" parent="map" instance=ExtResource( 9 )]
 visible = false
+collision_layer = 5
+collision_mask = 0
 
-[node name="mapdefault" type="Sprite" parent="."]
-visible = false
-position = Vector2( 528.188, 572.209 )
-scale = Vector2( 4, 7 )
-texture = ExtResource( 11 )
+[node name="player" parent="." instance=ExtResource( 13 )]
+collision_mask = 28
 
 [node name="Control" type="Control" parent="."]
 margin_right = 1024.0
@@ -79,14 +80,6 @@ visible = false
 position = Vector2( 587.265, 320.06 )
 texture = ExtResource( 12 )
 
-[node name="playerengine" type="Node2D" parent="."]
-visible = false
-position = Vector2( 3.05176e-05, 0.00012207 )
-script = ExtResource( 15 )
-
-[node name="player" parent="playerengine" instance=ExtResource( 13 )]
-position = Vector2( 53.9474, 386.579 )
-
 [node name="VideoPlayer" type="VideoPlayer" parent="."]
 margin_right = 1036.0
 margin_bottom = 606.0
@@ -96,3 +89,20 @@ script = ExtResource( 10 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Area2D" type="KinematicBody2D" parent="."]
+collision_layer = 5
+collision_mask = 0
+collision/safe_margin = 0.12
+motion/sync_to_physics = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2( 534.74, 592.318 )
+scale = Vector2( 50, 30 )
+shape = SubResource( 1 )
+
+[node name="mapdefault" type="Sprite" parent="Area2D"]
+visible = false
+position = Vector2( 528.188, 572.209 )
+scale = Vector2( 4, 7 )
+texture = ExtResource( 11 )
