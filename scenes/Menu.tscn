@@ -24,15 +24,6 @@ script = ExtResource( 8 )
 
 [node name="background" parent="." instance=ExtResource( 2 )]
 
-[node name="map" type="Node2D" parent="."]
-visible = false
-script = ExtResource( 14 )
-
-[node name="Maploader" parent="map" instance=ExtResource( 9 )]
-visible = false
-collision_layer = 5
-collision_mask = 0
-
 [node name="player" parent="." instance=ExtResource( 13 )]
 position = Vector2( 503.812, 417.268 )
 collision_mask = 28
@@ -76,6 +67,15 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="map" type="Node2D" parent="."]
+position = Vector2( -1.12244, 404.591 )
+script = ExtResource( 14 )
+
+[node name="Maploader" parent="map" instance=ExtResource( 9 )]
+position = Vector2( 203.475, 69.9974 )
+collision_layer = 5
+collision_mask = 0
+
 [node name="Loading" type="Sprite" parent="."]
 visible = false
 position = Vector2( 587.265, 320.06 )
@@ -93,13 +93,14 @@ __meta__ = {
 }
 
 [node name="Area2D" type="KinematicBody2D" parent="."]
+position = Vector2( -2.99658, 5.99323 )
 collision_layer = 5
 collision_mask = 0
 collision/safe_margin = 0.12
 motion/sync_to_physics = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2( 534.74, 592.318 )
+position = Vector2( 534.74, 583.045 )
 scale = Vector2( 50, 30 )
 shape = SubResource( 1 )
 

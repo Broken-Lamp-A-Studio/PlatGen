@@ -34,6 +34,7 @@ func _process(delta):
 			get_node("player").visible = true
 			get_node("player").set_process(true)
 			get_node("player").set_process_input(true)
+			get_node("player").set_physics_process(true)
 			boot = 0
 	if(boot == 0):
 		time = OS.get_system_time_msecs()

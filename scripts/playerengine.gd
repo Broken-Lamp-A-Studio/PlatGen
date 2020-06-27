@@ -17,6 +17,7 @@ var jp = 0
 var jump = 0
 func _ready():
 	set_process(false)
+	set_physics_process(false)
 	set_process_input(false)
 	
 
@@ -31,6 +32,8 @@ func _physics_process(delta):
 		x -= 0.8
 	self.position.x = x
 	
+	
+	#if(get_node("RayCast2D").is_colliding()):
 	if(Input.is_key_pressed(KEY_W) or Input.is_key_pressed(KEY_SPACE)):
 		jump = -5
 	if not(jump == 0):
