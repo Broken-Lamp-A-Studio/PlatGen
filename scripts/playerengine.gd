@@ -29,10 +29,10 @@ func _physics_process(delta):
 	if(Input.is_key_pressed(KEY_A)):
 		rotate2 = 2
 		x -= 0.8
-	self.position.x += x
+	self.position.x = x
 	
 	if(Input.is_key_pressed(KEY_W) or Input.is_key_pressed(KEY_SPACE)):
-		jump = -20
+		jump = -5
 	if not(jump == 0):
 		self.position.y += jump
 		jump += 0.5
@@ -55,7 +55,5 @@ func _process(delta):
 			get_node("Sprite").texture = load("res://textures/player/left-1.png")
 		if(type == false and Input.is_key_pressed(KEY_A)):
 			get_node("Sprite").texture = load("res://textures/player/left-2.png")
-	print(self.position.x)
-	print(self.position.y)
 
 	

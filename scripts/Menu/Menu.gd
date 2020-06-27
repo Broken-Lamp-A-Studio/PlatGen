@@ -38,7 +38,7 @@ func _process(delta):
 	if(boot == 0):
 		time = OS.get_system_time_msecs()
 		get_node("Loading").visible = false
-		
+	#get_node("Area2D").position.x = get_node("player").position.x - 500
 	
 		
 		

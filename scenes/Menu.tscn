@@ -34,6 +34,7 @@ collision_layer = 5
 collision_mask = 0
 
 [node name="player" parent="." instance=ExtResource( 13 )]
+position = Vector2( 503.812, 417.268 )
 collision_mask = 28
 
 [node name="Control" type="Control" parent="."]
@@ -81,6 +82,7 @@ position = Vector2( 587.265, 320.06 )
 texture = ExtResource( 12 )
 
 [node name="VideoPlayer" type="VideoPlayer" parent="."]
+visible = false
 margin_right = 1036.0
 margin_bottom = 606.0
 stream = ExtResource( 16 )
