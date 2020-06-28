@@ -16,6 +16,8 @@ var x = 0
 var jp = 0
 var jump = 0
 func _ready():
+	self.position.x = 70
+	self.position.y = 50
 	set_process(false)
 	set_physics_process(false)
 	set_process_input(false)

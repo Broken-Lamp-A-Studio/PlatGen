@@ -1,0 +1,73 @@
+Godot Engine v3.2.2.stable.official - https://godotengine.org
+OpenGL ES 3.0 Renderer: GeForce GT 420/PCIe/SSE2
+ 
+mapgen2
+53.1828
+mapgen22
+83.348923
+mapgen222
+88.106979
+mapgen2222
+76.415619
+mapgen22222
+42.096848
+mapgen222222
+56.544029
+mapgen2222222
+96.198975
+mapgen22222222
+47.830959
+mapgen222222222
+85.173477
+mapgen2222222222
+38.610962
+mapgen22222222222
+95.040833
+mapgen222222222222
+70.416809
+mapgen2222222222222
+34.348461
+mapgen22222222222222
+57.030327
+mapgen222222222222222
+43.857246
+mapgen2222222222222222
+80.730042
+mapgen22222222222222222
+81.017944
+mapgen222222222222222222
+86.249039
+mapgen2222222222222222222
+59.201488
+mapgen22222222222222222222
+76.753494
+mapgen222222222222222222222
+57.258774
+mapgen2222222222222222222222
+66.921875
+mapgen22222222222222222222222
+74.307632
+mapgen222222222222222222222222
+35.197151
+mapgen2222222222222222222222222
+70.75618
+mapgen22222222222222222222222222
+63.700539
+mapgen222222222222222222222222222
+50.653259
+mapgen2222222222222222222222222222
+43.188705
+mapgen22222222222222222222222222222
+77.260132
+mapgen222222222222222222222222222222
+60.543182
+[Null]
+[Null]
+[Null]
+[]
+**WARNING**: ObjectDB instances leaked at exit (run with --verbose for details).
+   At: core/object.cpp:2135:cleanup() - ObjectDB instances leaked at exit (run with --verbose for details).
+**ERROR**: Resources still in use at exit (run with --verbose for details).
+   At: core/resource.cpp:477:clear() - Resources still in use at exit (run with --verbose for details).
+**ERROR**: There are still MemoryPool allocs in use at exit!
+   At: core/pool_vector.cpp:69:cleanup() - Condition "allocs_used > 0" is true.

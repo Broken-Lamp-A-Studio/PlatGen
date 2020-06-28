@@ -1,0 +1,135 @@
+Godot Engine v3.2.2.stable.official - https://godotengine.org
+OpenGL ES 3.0 Renderer: GeForce GT 420/PCIe/SSE2
+ 
+**ERROR**: Node not found: particle1.
+   At: scene/main/node.cpp:1381:get_node() - Condition "!node" is true. Returned: __null
+**ERROR**: Node not found: particle1.
+   At: scene/main/node.cpp:1381:get_node() - Condition "!node" is true. Returned: __null
+**ERROR**: Node not found: particle1.
+   At: scene/main/node.cpp:1381:get_node() - Condition "!node" is true. Returned: __null
+**ERROR**: Node not found: particle1.
+   At: scene/main/node.cpp:1381:get_node() - Condition "!node" is true. Returned: __null
+**ERROR**: Node not found: particle1.
+   At: scene/main/node.cpp:1381:get_node() - Condition "!node" is true. Returned: __null
+**ERROR**: Node not found: particle1.
+   At: scene/main/node.cpp:1381:get_node() - Condition "!node" is true. Returned: __null
+**ERROR**: Node not found: particle1.
+   At: scene/main/node.cpp:1381:get_node() - Condition "!node" is true. Returned: __null
+**ERROR**: Node not found: particle1.
+   At: scene/main/node.cpp:1381:get_node() - Condition "!node" is true. Returned: __null
+**ERROR**: Node not found: particle1.
+   At: scene/main/node.cpp:1381:get_node() - Condition "!node" is true. Returned: __null
+**ERROR**: Node not found: particle1.
+   At: scene/main/node.cpp:1381:get_node() - Condition "!node" is true. Returned: __null
+**ERROR**: Node not found: particle1.
+   At: scene/main/node.cpp:1381:get_node() - Condition "!node" is true. Returned: __null
+**ERROR**: Node not found: particle1.
+   At: scene/main/node.cpp:1381:get_node() - Condition "!node" is true. Returned: __null
+**ERROR**: Node not found: particle1.
+   At: scene/main/node.cpp:1381:get_node() - Condition "!node" is true. Returned: __null
+**ERROR**: Node not found: particle1.
+   At: scene/main/node.cpp:1381:get_node() - Condition "!node" is true. Returned: __null
+**ERROR**: Node not found: particle1.
+   At: scene/main/node.cpp:1381:get_node() - Condition "!node" is true. Returned: __null
+**ERROR**: Node not found: particle1.
+   At: scene/main/node.cpp:1381:get_node() - Condition "!node" is true. Returned: __null
+**ERROR**: Node not found: particle1.
+   At: scene/main/node.cpp:1381:get_node() - Condition "!node" is true. Returned: __null
+**ERROR**: Node not found: particle1.
+   At: scene/main/node.cpp:1381:get_node() - Condition "!node" is true. Returned: __null
+**ERROR**: Node not found: particle1.
+   At: scene/main/node.cpp:1381:get_node() - Condition "!node" is true. Returned: __null
+**ERROR**: Node not found: particle1.
+   At: scene/main/node.cpp:1381:get_node() - Condition "!node" is true. Returned: __null
+**ERROR**: Node not found: particle1.
+   At: scene/main/node.cpp:1381:get_node() - Condition "!node" is true. Returned: __null
+**ERROR**: Node not found: particle1.
+   At: scene/main/node.cpp:1381:get_node() - Condition "!node" is true. Returned: __null
+**ERROR**: Node not found: particle1.
+   At: scene/main/node.cpp:1381:get_node() - Condition "!node" is true. Returned: __null
+**ERROR**: Node not found: particle1.
+   At: scene/main/node.cpp:1381:get_node() - Condition "!node" is true. Returned: __null
+**ERROR**: Node not found: particle1.
+   At: scene/main/node.cpp:1381:get_node() - Condition "!node" is true. Returned: __null
+**ERROR**: Node not found: particle1.
+   At: scene/main/node.cpp:1381:get_node() - Condition "!node" is true. Returned: __null
+**ERROR**: Node not found: particle1.
+   At: scene/main/node.cpp:1381:get_node() - Condition "!node" is true. Returned: __null
+**ERROR**: Node not found: particle1.
+   At: scene/main/node.cpp:1381:get_node() - Condition "!node" is true. Returned: __null
+**ERROR**: Node not found: particle1.
+   At: scene/main/node.cpp:1381:get_node() - Condition "!node" is true. Returned: __null
+**ERROR**: Node not found: particle1.
+   At: scene/main/node.cpp:1381:get_node() - Condition "!node" is true. Returned: __null
+**ERROR**: Node not found: particle1.
+   At: scene/main/node.cpp:1381:get_node() - Condition "!node" is true. Returned: __null
+**ERROR**: Node not found: particle1.
+   At: scene/main/node.cpp:1381:get_node() - Condition "!node" is true. Returned: __null
+**ERROR**: Node not found: particle1.
+   At: scene/main/node.cpp:1381:get_node() - Condition "!node" is true. Returned: __null
+**ERROR**: Node not found: particle1.
+   At: scene/main/node.cpp:1381:get_node() - Condition "!node" is true. Returned: __null
+**ERROR**: Node not found: particle1.
+   At: scene/main/node.cpp:1381:get_node() - Condition "!node" is true. Returned: __null
+**ERROR**: Node not found: particle1.
+   At: scene/main/node.cpp:1381:get_node() - Condition "!node" is true. Returned: __null
+**ERROR**: Node not found: particle1.
+   At: scene/main/node.cpp:1381:get_node() - Condition "!node" is true. Returned: __null
+**ERROR**: Node not found: particle1.
+   At: scene/main/node.cpp:1381:get_node() - Condition "!node" is true. Returned: __null
+**ERROR**: Node not found: particle1.
+   At: scene/main/node.cpp:1381:get_node() - Condition "!node" is true. Returned: __null
+**ERROR**: Node not found: particle1.
+   At: scene/main/node.cpp:1381:get_node() - Condition "!node" is true. Returned: __null
+**ERROR**: Node not found: particle1.
+   At: scene/main/node.cpp:1381:get_node() - Condition "!node" is true. Returned: __null
+**ERROR**: Node not found: particle1.
+   At: scene/main/node.cpp:1381:get_node() - Condition "!node" is true. Returned: __null
+**ERROR**: Node not found: particle1.
+   At: scene/main/node.cpp:1381:get_node() - Condition "!node" is true. Returned: __null
+**ERROR**: Node not found: particle1.
+   At: scene/main/node.cpp:1381:get_node() - Condition "!node" is true. Returned: __null
+**ERROR**: Node not found: particle1.
+   At: scene/main/node.cpp:1381:get_node() - Condition "!node" is true. Returned: __null
+**ERROR**: Node not found: particle1.
+   At: scene/main/node.cpp:1381:get_node() - Condition "!node" is true. Returned: __null
+**ERROR**: Node not found: particle1.
+   At: scene/main/node.cpp:1381:get_node() - Condition "!node" is true. Returned: __null
+**ERROR**: Node not found: particle1.
+   At: scene/main/node.cpp:1381:get_node() - Condition "!node" is true. Returned: __null
+**ERROR**: Node not found: particle1.
+   At: scene/main/node.cpp:1381:get_node() - Condition "!node" is true. Returned: __null
+**ERROR**: Node not found: particle1.
+   At: scene/main/node.cpp:1381:get_node() - Condition "!node" is true. Returned: __null
+**ERROR**: Node not found: particle1.
+   At: scene/main/node.cpp:1381:get_node() - Condition "!node" is true. Returned: __null
+**ERROR**: Node not found: particle1.
+   At: scene/main/node.cpp:1381:get_node() - Condition "!node" is true. Returned: __null
+**ERROR**: Node not found: particle1.
+   At: scene/main/node.cpp:1381:get_node() - Condition "!node" is true. Returned: __null
+**ERROR**: Node not found: particle1.
+   At: scene/main/node.cpp:1381:get_node() - Condition "!node" is true. Returned: __null
+**ERROR**: Node not found: particle1.
+   At: scene/main/node.cpp:1381:get_node() - Condition "!node" is true. Returned: __null
+**ERROR**: Node not found: particle1.
+   At: scene/main/node.cpp:1381:get_node() - Condition "!node" is true. Returned: __null
+**ERROR**: Node not found: particle1.
+   At: scene/main/node.cpp:1381:get_node() - Condition "!node" is true. Returned: __null
+**ERROR**: Node not found: particle1.
+   At: scene/main/node.cpp:1381:get_node() - Condition "!node" is true. Returned: __null
+**ERROR**: Node not found: particle1.
+   At: scene/main/node.cpp:1381:get_node() - Condition "!node" is true. Returned: __null
+**ERROR**: Node not found: particle1.
+   At: scene/main/node.cpp:1381:get_node() - Condition "!node" is true. Returned: __null
+**ERROR**: Node not found: particle1.
+   At: scene/main/node.cpp:1381:get_node() - Condition "!node" is true. Returned: __null
+**ERROR**: Node not found: particle1.
+   At: scene/main/node.cpp:1381:get_node() - Condition "!node" is true. Returned: __null
+**ERROR**: Node not found: particle1.
+   At: scene/main/node.cpp:1381:get_node() - Condition "!node" is true. Returned: __null
+**ERROR**: Node not found: particle1.
+   At: scene/main/node.cpp:1381:get_node() - Condition "!node" is true. Returned: __null
+**ERROR**: Node not found: particle1.
+   At: scene/main/node.cpp:1381:get_node() - Condition "!node" is true. Returned: __null
+**ERROR**: Condition "!p_rid.is_valid()" is true. Returned: __null
+   At: ./core/rid.h:149:get() - Condition "!p_rid.is_valid()" is true. Returned: __null

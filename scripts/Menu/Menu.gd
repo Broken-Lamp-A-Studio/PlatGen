@@ -16,7 +16,6 @@ func _process(delta):
 		get_node("Control").visible = false
 		get_node("Control").set_process(false)
 		get_node("Control").set_process_input(false)
-		get_node("Area2D/mapdefault").visible = true
 		get_node("Loading").visible = true
 		boot = 1
 	if(boot == 1):

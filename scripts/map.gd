@@ -15,8 +15,8 @@ var random = 0
 var childlist = [childlist]
 var childlist2 = [childlist2]
 var childscount2 = "2"
-var random2 = 30
-var random3 = 0
+var random2 = 0
+var random3 = 20
 var cc2 = "0"
 var childpath2 = "0"
 var cc3 = "0"
@@ -48,17 +48,9 @@ func _process(_delta):
 		self.add_child(cc)
 		get_node(childname).visible = true
 		random2 += rng.randf_range(50, 60)
-		if(y2 == 10):
-			y2 = 0
-			
-		else:
-			y2 += 1
-			random = rng.randf_range(1, 5)
-			if(random == 1):
-				random3 += rng.randf_range(0, 50)
-			if(random == 2):
-				random3 -= rng.randf_range(0, 50)
-			print(random3)
+		
+		random3 = rng.randf_range(30, 100)
+		print(random3)
 		childname2 = childname+"/dirt"
 		get_node(childname2).position.x = random2
 		get_node(childname2).position.y = random3
@@ -66,6 +58,9 @@ func _process(_delta):
 		get_node(childname2).position.x = random2
 		get_node(childname2).position.y = random3+50
 		childname2 = childname+"/ss"
+		get_node(childname2).position.x = random2
+		get_node(childname2).position.y = random3+25
+		childname2 = childname+"/ss2"
 		get_node(childname2).position.x = random2
 		get_node(childname2).position.y = random3+25
 		

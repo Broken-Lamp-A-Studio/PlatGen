@@ -1,26 +1,25 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://textures/logo.png" type="Texture" id=1]
 [ext_resource path="res://scenes/background.tscn" type="PackedScene" id=2]
-[ext_resource path="res://textures/exit_pressed.png" type="Texture" id=3]
-[ext_resource path="res://textures/exit.png" type="Texture" id=4]
-[ext_resource path="res://textures/Play.png" type="Texture" id=5]
-[ext_resource path="res://textures/play_pressed.png" type="Texture" id=6]
+[ext_resource path="res://textures/default_buttons/play_button_2.png" type="Texture" id=3]
+[ext_resource path="res://textures/default_buttons/exit_button_1.png" type="Texture" id=4]
+[ext_resource path="res://textures/default_buttons/play_button_1.png" type="Texture" id=5]
+[ext_resource path="res://textures/default_buttons/exit_button_2.png" type="Texture" id=6]
 [ext_resource path="res://scripts/Menu/exit.gd" type="Script" id=7]
 [ext_resource path="res://scripts/Menu/Menu.gd" type="Script" id=8]
 [ext_resource path="res://scenes/Maploader.tscn" type="PackedScene" id=9]
 [ext_resource path="res://scripts/VideoPlayer.gd" type="Script" id=10]
-[ext_resource path="res://textures/mapdefault.png" type="Texture" id=11]
 [ext_resource path="res://textures/loading.png" type="Texture" id=12]
 [ext_resource path="res://scenes/player.tscn" type="PackedScene" id=13]
 [ext_resource path="res://scripts/map.gd" type="Script" id=14]
 [ext_resource path="res://videos/ig.webm" type="VideoStream" id=16]
 
-[sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 11.2268, 1.31997 )
-
 [node name="Menu" type="Node2D"]
 script = ExtResource( 8 )
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+color = Color( 0.0470588, 0.0588235, 0.0470588, 1 )
 
 [node name="background" parent="." instance=ExtResource( 2 )]
 
@@ -36,36 +35,51 @@ __meta__ = {
 }
 
 [node name="logo" type="TextureRect" parent="Control"]
-margin_left = 382.864
-margin_top = 76.8743
-margin_right = 617.864
-margin_bottom = 143.874
+margin_left = -7.75311
+margin_top = 9.52652
+margin_right = 652.247
+margin_bottom = 259.527
+texture = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Light2D" type="Light2D" parent="Control/logo"]
+position = Vector2( 326.219, 125.672 )
 texture = ExtResource( 1 )
 
 [node name="exit" type="TextureButton" parent="Control"]
-margin_left = 372.595
-margin_top = 342.385
-margin_right = 872.595
-margin_bottom = 592.385
+margin_left = 23.3669
+margin_top = 440.804
+margin_right = 523.367
+margin_bottom = 690.804
 rect_scale = Vector2( 0.5, 0.5 )
 texture_normal = ExtResource( 4 )
-texture_hover = ExtResource( 3 )
+texture_hover = ExtResource( 6 )
 script = ExtResource( 7 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Light2D" type="Light2D" parent="Control/exit"]
+position = Vector2( 247.635, 126.992 )
+texture = ExtResource( 4 )
+
 [node name="play" type="TextureButton" parent="Control"]
-margin_left = 365.042
-margin_top = 191.333
-margin_right = 865.042
-margin_bottom = 441.333
+margin_left = 22.1635
+margin_top = 296.102
+margin_right = 522.163
+margin_bottom = 546.102
 rect_scale = Vector2( 0.5, 0.5 )
 texture_normal = ExtResource( 5 )
-texture_hover = ExtResource( 6 )
+texture_hover = ExtResource( 3 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Light2D" type="Light2D" parent="Control/play"]
+position = Vector2( 249.133, 125.494 )
+texture = ExtResource( 5 )
 
 [node name="map" type="Node2D" parent="."]
 position = Vector2( -1.12244, 404.591 )
@@ -91,21 +105,3 @@ script = ExtResource( 10 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
-
-[node name="Area2D" type="KinematicBody2D" parent="."]
-position = Vector2( -2.99658, 5.99323 )
-collision_layer = 5
-collision_mask = 0
-collision/safe_margin = 0.12
-motion/sync_to_physics = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2( 534.74, 583.045 )
-scale = Vector2( 50, 30 )
-shape = SubResource( 1 )
-
-[node name="mapdefault" type="Sprite" parent="Area2D"]
-visible = false
-position = Vector2( 528.188, 572.209 )
-scale = Vector2( 4, 7 )
-texture = ExtResource( 11 )

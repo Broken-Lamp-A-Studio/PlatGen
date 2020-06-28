@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Play.png-ddc892def99e973ab90f0ea7c1b639f5.stex"
+path="res://.import/vine_1.png-72b7f13e364cf8b9b71a2df48b0d587d.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://textures/Play.png"
-dest_files=[ "res://.import/Play.png-ddc892def99e973ab90f0ea7c1b639f5.stex" ]
+source_file="res://textures/map/default/vine_1.png"
+dest_files=[ "res://.import/vine_1.png-72b7f13e364cf8b9b71a2df48b0d587d.stex" ]
 
 [params]
 
