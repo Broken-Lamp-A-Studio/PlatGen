@@ -6,8 +6,7 @@
 [sub_resource type="RectangleShape2D" id=1]
 
 [sub_resource type="OccluderPolygon2D" id=2]
-cull_mode = 1
-polygon = PoolVector2Array( 22.2565, 55.4958, 24.4618, -47.4174, -24.7895, -45.9472, -25.5246, 56.966 )
+polygon = PoolVector2Array( 23.6516, 56.3522, 24.4618, -47.4174, -24.7895, -45.9472, -25.5246, 56.966 )
 
 [node name="Maploader" type="StaticBody2D"]
 position = Vector2( 0.735107, -0.735092 )
@@ -28,4 +27,5 @@ scale = Vector2( 2.5, 5 )
 shape = SubResource( 1 )
 
 [node name="ss2" type="LightOccluder2D" parent="."]
+visible = false
 occluder = SubResource( 2 )

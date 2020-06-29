@@ -38,6 +38,7 @@ var map3 = map2.instance()
 func _process(_delta):
 	if(s2 == 1):
 		random3 += 400
+		random2 = -50
 		s2 = 0
 	if(generate == true and clear == false):
 		childname = childname+childscount2

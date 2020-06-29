@@ -36,7 +36,7 @@ shapes/collision/shape_color=Color( 0, 0.6, 0.701961, 0.501961 )
 [logging]
 
 file_logging/enable_file_logging=true
-file_logging/log_path="res://logs/log.txt"
+file_logging/log_path="user://.PlatGen/logs/log.txt"
 file_logging/max_log_files=25
 
 [rendering]

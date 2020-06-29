@@ -3,6 +3,7 @@ extends Node2D
 onready var time = OS.get_system_time_msecs()
 var boot = 0
 func _ready():
+	get_node("mapstart").visible = false
 	get_node("player").visible = false
 	get_node("map").visible = false
 	get_node("map").clear = true
@@ -30,6 +31,7 @@ func _process(delta):
 			print(get_node("map").leftc)
 			get_node("map").set_process(false)
 			get_node("map").visible = true
+			get_node("mapstart").visible = true
 			get_node("player").visible = true
 			get_node("player").set_process(true)
 			get_node("player").set_process_input(true)
