@@ -3,10 +3,10 @@ extends Node2D
 onready var time = OS.get_system_time_msecs()
 var rng = RandomNumberGenerator.new()
 var clonename = "particle"
-var clonecount2 = "1"
+var clonecount2 = 1
 var color = 1
 var random = 0
-var active = 0
+var active = 1
 var clonetype = Sprite.new()
 var actualclone = ""
 var clonelist = ""
@@ -17,10 +17,11 @@ var defy = 0
 func _ready():
 	rng.randomize()
 
-func _process(delta):
+func _process(_delta):
 	if(active == 1):
 		if(OS.get_system_time_msecs() - time > 200):
-			clonename = clonename+clonecount2
+			clonecount2 += 1
+			clonename = "obj2%d" % clonecount2
 			clonelist = [clonelist, clonename]
 			clonetype.name = clonename
 			self.add_child(clonetype)

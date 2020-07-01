@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/climate-msc-2.ogg-4b0c14405d8617c86eeeb626de562318.oggstr"
+
+[deps]
+
+source_file="res://sounds/climate-msc-2.ogg"
+dest_files=[ "res://.import/climate-msc-2.ogg-4b0c14405d8617c86eeeb626de562318.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

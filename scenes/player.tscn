@@ -21,20 +21,21 @@ texture = ExtResource( 1 )
 position = Vector2( 26.5368, 52.4102 )
 shape = SubResource( 1 )
 
-[node name="RayCast2D" type="RayCast2D" parent="."]
-enabled = true
-cast_to = Vector2( 30, 50 )
-collide_with_areas = true
-
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2( 27.5563, 53.4297 )
 smoothing_enabled = true
 
 [node name="Light2D" type="Light2D" parent="."]
-position = Vector2( 28.5351, 46.3995 )
+position = Vector2( 29.5351, 54.576 )
 scale = Vector2( 0.275335, 0.352683 )
 texture = ExtResource( 3 )
 color = Color( 0.819608, 0.792157, 0.133333, 1 )
 energy = 0.48
 shadow_enabled = true
 shadow_color = Color( 0.87451, 0.898039, 0.0705882, 0 )
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+position = Vector2( 20.3899, 17.9107 )
+enabled = true
+cast_to = Vector2( 0, 6 )
+collision_mask = 5

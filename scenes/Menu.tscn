@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://textures/logo.png" type="Texture" id=1]
 [ext_resource path="res://scenes/background.tscn" type="PackedScene" id=2]
@@ -16,6 +16,10 @@
 [ext_resource path="res://scripts/map.gd" type="Script" id=14]
 [ext_resource path="res://scenes/mapdefault/mapstart.tscn" type="PackedScene" id=15]
 [ext_resource path="res://videos/ig.webm" type="VideoStream" id=16]
+[ext_resource path="res://sounds/sound-1.ogg" type="AudioStream" id=17]
+[ext_resource path="res://sounds/climate-msc-1.ogg" type="AudioStream" id=18]
+[ext_resource path="res://sounds/climate-msc-2.ogg" type="AudioStream" id=19]
+[ext_resource path="res://scenes/fog.tscn" type="PackedScene" id=20]
 
 [node name="Menu" type="Node2D"]
 script = ExtResource( 8 )
@@ -34,9 +38,14 @@ position = Vector2( 203.475, 69.9974 )
 collision_layer = 5
 collision_mask = 0
 
+[node name="mapstart" parent="." instance=ExtResource( 15 )]
+position = Vector2( 82.7601, 408.461 )
+
 [node name="player" parent="." instance=ExtResource( 13 )]
 position = Vector2( 503.812, 417.268 )
 collision_mask = 28
+
+[node name="fog" parent="." instance=ExtResource( 20 )]
 
 [node name="Control" type="Control" parent="."]
 margin_right = 1024.0
@@ -106,5 +115,11 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="mapstart" parent="." instance=ExtResource( 15 )]
-position = Vector2( 82.7601, 408.461 )
+[node name="SFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 17 )
+
+[node name="SFX2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 18 )
+
+[node name="SFX3" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 19 )

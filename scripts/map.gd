@@ -14,7 +14,7 @@ var cc = "0"
 var random = 0
 var childlist = [childlist]
 var childlist2 = [childlist2]
-var childscount2 = "2"
+var childscount2 = 1
 var random2 = 0
 var random3 = 20
 var cc2 = "0"
@@ -41,7 +41,8 @@ func _process(_delta):
 		random2 = -50
 		s2 = 0
 	if(generate == true and clear == false):
-		childname = childname+childscount2
+		childscount2 += 1
+		childname = "obj%d" % childscount2
 		childlist = [childlist, childname ]
 		print(childname)
 		cc = map2.instance()
@@ -64,6 +65,12 @@ func _process(_delta):
 		childname2 = childname+"/ss2"
 		get_node(childname2).position.x = random2
 		get_node(childname2).position.y = random3+25
+		childname2 = childname+"/ss3/s1"
+		get_node(childname2).position.x = random2
+		get_node(childname2).position.y = random3+26
+		childname2 = childname+"/ss4/s2"
+		get_node(childname2).position.x = random2
+		get_node(childname2).position.y = random3+29
 		
 		
 		

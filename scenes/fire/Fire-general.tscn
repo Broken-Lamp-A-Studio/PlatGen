@@ -7,9 +7,9 @@
 [node name="Fire-general" type="Node2D"]
 
 [node name="fire-micro" parent="." instance=ExtResource( 3 )]
+script = null
 
 [node name="fire-main" parent="." instance=ExtResource( 1 )]
-visible = false
 
 [node name="Light2D" type="Light2D" parent="."]
 position = Vector2( 1.72094, 1.35704 )
