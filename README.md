@@ -11,6 +11,7 @@
  - Physics and gravity.
  - Render errors.
  - some light.
+ - torches.
 
 ===Added elements===
  - Helmet with light.
@@ -19,7 +20,6 @@
 ===Problems===
  - not big render.
  - biomes.
- - torches.
  - Saving/loading world.
 
 ===Ideas===
