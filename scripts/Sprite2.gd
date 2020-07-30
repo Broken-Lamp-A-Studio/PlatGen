@@ -6,7 +6,7 @@ func move_cloud():
 	self.offset.x += 1
 func _ready():
 	rng.randomize()
-	set_process(true)
+	set_process(false)
 func _process(delta):
 	if(OS.get_system_time_msecs() - last_time > 100):
 		move_cloud()

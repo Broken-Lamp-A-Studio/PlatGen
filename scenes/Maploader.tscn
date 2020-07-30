@@ -7,15 +7,17 @@
 extents = Vector2( 10, 9.61724 )
 
 [sub_resource type="OccluderPolygon2D" id=2]
-polygon = PoolVector2Array( 23.6516, 56.3522, 24.4618, -47.4174, -24.7895, -45.9472, -25.5246, 56.966 )
+cull_mode = 1
+polygon = PoolVector2Array( 23.6516, 20.6357, 25.239, -40.4793, -23.1768, -38.8919, -23.1768, 20.6357 )
 
 [sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 22.8579, 10 )
 
-[node name="Maploader" type="StaticBody2D"]
+[node name="Maploader" type="KinematicBody2D"]
 position = Vector2( 0.735107, -0.735092 )
-collision_layer = 512
-collision_mask = 2
+collision_layer = 5
+collision_mask = 0
+collision/safe_margin = 0.12
 
 [node name="dirt" type="Sprite" parent="."]
 position = Vector2( 0, -0.630249 )
@@ -31,21 +33,23 @@ scale = Vector2( 2.5, 5 )
 shape = SubResource( 1 )
 
 [node name="ss2" type="LightOccluder2D" parent="."]
-visible = false
+position = Vector2( -0.793701, 27.7795 )
 occluder = SubResource( 2 )
 
-[node name="ss3" type="StaticBody2D" parent="."]
-collision_layer = 0
-collision_mask = 2
+[node name="ss3" type="KinematicBody2D" parent="."]
+collision_layer = 5
+collision_mask = 0
+collision/safe_margin = 0.12
 
 [node name="s1" type="CollisionPolygon2D" parent="ss3"]
 modulate = Color( 0.133333, 0.72549, 0.294118, 1 )
 build_mode = 1
 polygon = PoolVector2Array( 24.4453, 53.9711, 25.239, 0.793136, -23.9705, -0.000564754, -23.1768, 54.7648 )
 
-[node name="ss4" type="StaticBody2D" parent="."]
-collision_layer = 0
-collision_mask = 2
+[node name="ss4" type="KinematicBody2D" parent="."]
+collision_layer = 5
+collision_mask = 0
+collision/safe_margin = 0.12
 
 [node name="s2" type="CollisionShape2D" parent="ss4"]
 position = Vector2( -0.793701, 30.9543 )

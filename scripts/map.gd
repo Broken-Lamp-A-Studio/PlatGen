@@ -23,12 +23,10 @@ var cc3 = "0"
 var shape = RectangleShape2D.new()
 var PlatformSize = 10
 var childn3 = "0"
-var downc = [downc]
-var upc = [upc]
-var rightc = [rightc]
-var leftc = [ ]
 var y2 = 0
 var s2 = 1
+#render
+var move = 0
 
 func _ready():
 	
@@ -36,6 +34,10 @@ func _ready():
 	set_process(true)
 var map3 = map2.instance()
 func _process(_delta):
+	if(Input.is_action_just_pressed("ui_left")):
+		self.position.x += 0.8
+	if(Input.is_action_just_pressed("ui_right")):
+		self.position.x -= 0.8
 	if(s2 == 1):
 		random3 += 400
 		random2 = -50
@@ -43,7 +45,7 @@ func _process(_delta):
 	if(generate == true and clear == false):
 		childscount2 += 1
 		childname = "obj%d" % childscount2
-		childlist = [childlist, childname ]
+		childlist = [childlist, childname]
 		print(childname)
 		cc = map2.instance()
 		cc.name = childname
