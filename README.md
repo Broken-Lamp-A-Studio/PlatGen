@@ -20,6 +20,7 @@
  - not big render.
  - biomes.
  - torches.
+ - Saving/loading world.
 
 ===Ideas===
  - Digging.
