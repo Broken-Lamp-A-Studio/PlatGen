@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://scenes/game/main-game.gd" type="Script" id=1]
 [ext_resource path="res://textures/background/sky.png" type="Texture" id=2]
@@ -6,6 +6,8 @@
 [ext_resource path="res://scenes/game/TileMap.gd" type="Script" id=4]
 [ext_resource path="res://scripts/mouse/mouse-light.gd" type="Script" id=5]
 [ext_resource path="res://scripts/player/spawnplatform.gd" type="Script" id=6]
+[ext_resource path="res://sounds/soundtracks/micro/soundtrack-1.ogg" type="AudioStream" id=7]
+[ext_resource path="res://scripts/music/AudioStreamPlayer.gd" type="Script" id=8]
 [ext_resource path="res://scenes/Maploader.tscn" type="PackedScene" id=9]
 [ext_resource path="res://scenes/player.tscn" type="PackedScene" id=13]
 [ext_resource path="res://scripts/map.gd" type="Script" id=14]
@@ -87,4 +89,10 @@ position = Vector2( 104.881, 431.512 )
 visible = false
 texture = ExtResource( 3 )
 script = ExtResource( 5 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 7 )
+volume_db = -17.537
+pitch_scale = 2.0
+script = ExtResource( 8 )
 [connection signal="body_exited" from="player" to="player" method="_on_player_body_exited"]
