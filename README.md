@@ -1,2 +1,30 @@
 # Plat-Gen
-Godot platformer game with generating terrain. This is old version of game. I working at fixed versionof PlatGen.
+
+===Last informations===
+ - Godot platformer game with generating terrain. I'm continue this 2D version.
+
+===Game Version===
+ - PlatGen v.0.1.2
+
+===Bug fixed===
+ - Weird background.
+ - Physics and gravity.
+ - Render errors.
+ - some light.
+
+===Added elements===
+ - Helmet with light.
+ - New background.
+
+===Problems===
+ - not big render.
+ - biomes.
+ - torches.
+ - Saving/loading world.
+
+===Ideas===
+ - Digging.
+ - Inventory.
+ - Crafting.
+ 
+
