@@ -85,7 +85,7 @@ ui_jump={
 
 file_logging/enable_file_logging=true
 file_logging/log_path="user://.PlatGen/logs/log.txt"
-file_logging/max_log_files=25
+file_logging/max_log_files=8
 
 [rendering]
 

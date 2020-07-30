@@ -1,9 +1,11 @@
 extends Node2D
 
+onready var time1 = OS.get_system_time_secs()
 var n = 0
 var colliding = 0
 var jp = false
 var jump = 0
+var tjump = 0
 func _ready():
 	self.position.x = 70
 	self.position.y = 50
@@ -11,10 +13,24 @@ func _ready():
 	set_physics_process(false)
 	set_process_input(false)
 func _process(delta):
-	if(self.position.y >= 1000):
+	if(jp == false):
+		if(OS.get_system_time_secs() - time1 > 1):
+			tjump += 1
+			print("Jump time:"+"%d"%tjump)
+			time1 = OS.get_system_time_secs()
+		
+	elif(jp == true):
+		tjump = 0
+		
+	if(tjump > 4):
+		print("Respawning...")
 		self.position.x = 70
 		self.position.y = 50
-	
+		jp = true
+		tjump = 0
+		get_tree().get_root().get_node("game/spawnplatform").spawn(self.position.x-300, self.position.y+300)
+		
+
 	
 func _physics_process(delta):
 	if(Input.is_key_pressed(KEY_A)):
@@ -26,10 +42,8 @@ func _physics_process(delta):
 		jump += 0.5
 	if(jp == true and Input.is_key_pressed(KEY_W) or jp == true and Input.is_key_pressed(KEY_SPACE)):
 		jump = -10
-		jp = false
 
 func _on_player_body_entered(body):
-	n = body.get_name()
-	print(n)
 	jp = true
- 
+func _on_player_body_exited(body):
+	jp = false

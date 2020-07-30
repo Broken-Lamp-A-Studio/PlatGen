@@ -1,4 +1,4 @@
-extends Sprite
+extends Node2D
 
 onready var time1 = OS.get_system_time_msecs()
 var rng = RandomNumberGenerator.new()
@@ -41,4 +41,3 @@ func _process(delta):
 			self.texture = load("res://textures/fire/main/yellow.png")
 		self.visible = true
 		type = 2
-	
