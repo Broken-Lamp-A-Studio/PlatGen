@@ -27,4 +27,6 @@
  - Inventory.
  - Crafting.
  
+===Used elements===
+ - Torch Fire /PlatGen/master/scenes/torch.tscn: by Pixel Man - https://www.youtube.com/channel/UCtjoe_Bd6igN7XiYBYYyACw | vid: https://www.youtube.com/watch?v=tJ-SMxCA8sM
 
