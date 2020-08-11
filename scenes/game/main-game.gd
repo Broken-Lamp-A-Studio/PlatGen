@@ -16,8 +16,6 @@ func _ready():
 	get_node("player").set_process(true)
 	get_node("player").set_process_input(true)
 	get_node("player").set_physics_process(true)
-	get_node("fog").visible = true
-	get_node("fog").set_process(true)
 	set_process_input(true)
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	set_process(true)

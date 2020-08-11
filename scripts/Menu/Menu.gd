@@ -15,7 +15,7 @@ func _ready():
 	
 func _process(delta):
 	if(get_node("Menu/play").pressed):
-		get_tree().change_scene("res://scenes/game/main-game.tscn")
+		get_tree().change_scene("res://scenes/game/fabula-game.tscn")
 
 
 
