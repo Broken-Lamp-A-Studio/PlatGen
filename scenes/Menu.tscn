@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://textures/logo.png" type="Texture" id=1]
 [ext_resource path="res://textures/background/sky.png" type="Texture" id=2]
@@ -18,6 +18,8 @@
 [ext_resource path="res://videos/ig.webm" type="VideoStream" id=16]
 [ext_resource path="res://textures/map/default/dirt_with_grass.png" type="Texture" id=17]
 [ext_resource path="res://scenes/torches/torch_on_1.tscn" type="PackedScene" id=18]
+[ext_resource path="res://textures/discord.png" type="Texture" id=19]
+[ext_resource path="res://scripts/discord.gd" type="Script" id=20]
 
 [sub_resource type="TileSet" id=1]
 0/name = "sky.png 0"
@@ -214,6 +216,37 @@ position = Vector2( 751.459, 222.455 )
 
 [node name="torch_on_2" parent="torches" instance=ExtResource( 18 )]
 position = Vector2( 1002.42, 425.978 )
+
+[node name="discord" type="Node2D" parent="."]
+position = Vector2( 700, 450 )
+scale = Vector2( 0.2, 0.2 )
+script = ExtResource( 20 )
+
+[node name="Control" type="Control" parent="discord"]
+margin_left = -11.0
+margin_top = -11.0
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureButton" type="TextureButton" parent="discord/Control"]
+margin_left = 748.018
+margin_top = 29.2865
+margin_right = 1608.02
+margin_bottom = 738.286
+texture_normal = ExtResource( 19 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Light2D" type="Light2D" parent="discord"]
+position = Vector2( 1174.03, 382.755 )
+scale = Vector2( 1.02162, 1.01956 )
+texture = ExtResource( 19 )
+color = Color( 0.298039, 0.913725, 0.854902, 1 )
+energy = 2.29
 
 [node name="pl" type="Node2D" parent="."]
 
