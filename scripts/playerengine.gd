@@ -13,6 +13,9 @@ func _ready():
 	set_physics_process(false)
 	set_process_input(false)
 func _process(delta):
+
+	
+	
 	if(jp == false):
 		if(OS.get_system_time_secs() - time1 > 1):
 			tjump += 1
@@ -48,7 +51,12 @@ func _physics_process(delta):
 
 func _on_player_body_entered(body):
 	jp = true
-	
+	if(body.name == "star"):
+		self.position.x = 70
+		self.position.y = 50
+		jp = true
+		tjump = 0
+		get_tree().get_root().get_node("game/spawnplatform").spawn(self.position.x-300, self.position.y+300)
 
 
 

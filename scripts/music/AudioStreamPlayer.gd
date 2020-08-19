@@ -1,11 +1,11 @@
 extends AudioStreamPlayer
 
-var music = true
+var music = false
 
 func _ready():
 	self.autoplay = true
 	self.playing = true
-	self.stream_paused = false
+	self.stream_paused = true
 	set_process(true)
 	set_process_input(true)
 	
