@@ -6,6 +6,7 @@ var x = 0
 var f = File.new()
 var n = "res://saved/worlds"+"obj%d" % OS.get_system_time_secs()
 var mouse = 1
+var t = false
 
 func _ready():
 	get_node("map").set_process(true)
@@ -25,8 +26,14 @@ func _process(delta):
 	get_node("TileMap").multiy = get_node("player").position.y
 	get_node("LightMouse").x = get_node("player").position.x
 	get_node("LightMouse").y = get_node("player").position.y
-	if(OS.get_system_time_secs() - time > 10):
+	if(t == false and OS.get_system_time_secs() - time > 10):
 		get_node("map").generate = false
+		get_node("star").position.y = get_node("map").random3
+		get_node("star").position.x = 50
+		print("Star X:%d"%get_node("star").position.x)
+		print("Star Y:%d"%get_node("star").position.y)
+		t = true
+		
 	if(Input.is_action_just_pressed("ui_cancel")):
 		if(mouse == 0):
 			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)

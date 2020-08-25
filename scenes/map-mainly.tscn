@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://scenes/Maploader.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scripts/map.gd" type="Script" id=2]
+
+[node name="map" type="Node2D" groups=[
+"Persist",
+]]
+position = Vector2( -1.12244, 404.591 )
+script = ExtResource( 2 )
+
+[node name="Mapbox" parent="." instance=ExtResource( 1 )]
+position = Vector2( 203.475, 69.9974 )

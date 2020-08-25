@@ -39,21 +39,21 @@ func _process(_delta):
 	if(Input.is_action_just_pressed("ui_right")):
 		self.position.x -= 0.8
 	if(s2 == 1):
-		random3 += 400
+		random3 = -50
 		random2 = -50
 		s2 = 0
 	if(generate == true and clear == false):
 		childscount2 += 1
-		childname = "obj%d" % childscount2
+		childname = "main%d" % childscount2
 		childlist = [childlist, childname]
 		print(childname)
 		cc = map2.instance()
 		cc.name = childname
 		self.add_child(cc)
 		get_node(childname).visible = true
-		random2 += rng.randf_range(50, 60)
+		random2 = rng.randf_range(-200, 200)
 		
-		random3 = rng.randf_range(30, 100)
+		random3 += rng.randf_range(-50, -100)
 		print(random3)
 		childname2 = childname+"/dirt"
 		get_node(childname2).position.x = random2

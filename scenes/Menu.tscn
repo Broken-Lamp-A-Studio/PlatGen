@@ -218,8 +218,8 @@ position = Vector2( 751.459, 222.455 )
 position = Vector2( 1002.42, 425.978 )
 
 [node name="discord" type="Node2D" parent="."]
-position = Vector2( 700, 450 )
-scale = Vector2( 0.2, 0.2 )
+position = Vector2( 863, 528 )
+scale = Vector2( 0.1, 0.1 )
 script = ExtResource( 20 )
 
 [node name="Control" type="Control" parent="discord"]
@@ -242,7 +242,7 @@ __meta__ = {
 }
 
 [node name="Light2D" type="Light2D" parent="discord"]
-position = Vector2( 1174.03, 382.755 )
+position = Vector2( 1169.03, 367.755 )
 scale = Vector2( 1.02162, 1.01956 )
 texture = ExtResource( 19 )
 color = Color( 0.298039, 0.913725, 0.854902, 1 )
@@ -255,7 +255,7 @@ position = Vector2( 671.928, 400.056 )
 texture = ExtResource( 9 )
 
 [node name="torch_on_3" parent="pl" instance=ExtResource( 18 )]
-position = Vector2( 668.368, 375.504 )
+position = Vector2( 664.638, 376.769 )
 
 [node name="arm" type="Sprite" parent="pl"]
 position = Vector2( 672.868, 401.898 )

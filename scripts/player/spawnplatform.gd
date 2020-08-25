@@ -1,6 +1,8 @@
 extends Node2D
 
 onready var time = OS.get_system_time_secs()
+var txt = 0
+var t = 0
 
 func _ready():
 	get_node("mapstart").position.x = 82.76
@@ -10,6 +12,9 @@ func _ready():
 	set_process(true)
 	
 func _process(delta):
+	t = 30-(OS.get_system_time_secs() - time)
+	txt = "Start platform will be despawned in: %d"%t
+	get_node("Label").text = txt
 	if(OS.get_system_time_secs() - time > 30):
 		print("Despawing start platform!")
 		self.visible = false
