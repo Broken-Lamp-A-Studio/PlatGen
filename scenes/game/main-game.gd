@@ -34,6 +34,8 @@ func _ready():
 	set_process(true)
 
 func _process(delta):
+	if(Input.is_action_just_pressed("ui_exit")):
+		get_tree().change_scene("res://scenes/Menu.tscn")
 	get_node("TileMap").multix = get_node("player").position.x
 	get_node("TileMap").multiy = get_node("player").position.y
 	get_node("LightMouse").x = get_node("player").position.x
