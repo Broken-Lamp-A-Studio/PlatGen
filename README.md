@@ -1,7 +1,7 @@
 # Plat-Gen
 
 ===Last informations===
- - Godot platformer game with generating terrain. I'm continue this 2D version.
+ - Godot platformer game with generating terrain. Default game is done! Sometimes I will add some more blocks. Actually I'm working on Story Mode.
 
 ===Game Version=== 
  - PlatGen v.1.1.0
