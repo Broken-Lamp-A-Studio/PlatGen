@@ -15,8 +15,8 @@
  - Modes
 
 ===Problems===
- - not big render.
- - biomes.
+ - In Story Mode: not big render.
+ - In Story Mode: biomes.
 
 ===Ideas===
  - Digging.
