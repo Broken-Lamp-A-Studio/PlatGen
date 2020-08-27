@@ -19,7 +19,7 @@ func _process(delta):
 		o = OS.get_system_time_secs()-time
 		
 	if(finish == true):
-		if(o>best):
+		if(o<best):
 			best = o
 		o = 0
 		time = OS.get_system_time_secs()

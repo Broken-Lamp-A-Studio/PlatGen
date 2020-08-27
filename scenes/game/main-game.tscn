@@ -28,7 +28,7 @@ color = Color( 0, 0, 0, 1 )
 [node name="map" parent="." instance=ExtResource( 6 )]
 
 [node name="star" parent="." instance=ExtResource( 4 )]
-position = Vector2( 1087.14, 331.198 )
+position = Vector2( 607.089, -487.534 )
 
 [node name="player" parent="." groups=[
 "Persist",

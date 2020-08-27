@@ -1,0 +1,300 @@
+[gd_scene load_steps=24 format=2]
+
+[ext_resource path="res://scenes/TileMap.tscn" type="PackedScene" id=1]
+[ext_resource path="res://textures/default_buttons/s_choose_game_1.png" type="Texture" id=2]
+[ext_resource path="res://textures/default_buttons/d_choose_game_1.png" type="Texture" id=3]
+[ext_resource path="res://textures/map/default/stone_1.png" type="Texture" id=4]
+[ext_resource path="res://textures/default_buttons/s_choose_game_2.png" type="Texture" id=5]
+[ext_resource path="res://textures/default_buttons/d_choose_game_2.png" type="Texture" id=6]
+[ext_resource path="res://textures/cg.png" type="Texture" id=7]
+[ext_resource path="res://textures/background.png" type="Texture" id=8]
+[ext_resource path="res://textures/map/default/dirt_with_grass.png" type="Texture" id=9]
+[ext_resource path="res://scenes/torches/torch_on_1.tscn" type="PackedScene" id=10]
+[ext_resource path="res://textures/light-default.png" type="Texture" id=11]
+[ext_resource path="res://textures/default_buttons/easy_button_1.png" type="Texture" id=12]
+[ext_resource path="res://textures/default_buttons/start_button_1.png" type="Texture" id=13]
+[ext_resource path="res://textures/default_buttons/hard_button_1.png" type="Texture" id=14]
+[ext_resource path="res://textures/default_buttons/Mode.png" type="Texture" id=15]
+[ext_resource path="res://textures/default_buttons/start_button_2.png" type="Texture" id=16]
+[ext_resource path="res://textures/default_buttons/easy_button_2.png" type="Texture" id=17]
+[ext_resource path="res://textures/default_buttons/normal_button_1.png" type="Texture" id=18]
+[ext_resource path="res://scripts/choose-game/choose-game.gd" type="Script" id=19]
+[ext_resource path="res://scripts/choose-game/Start.gd" type="Script" id=20]
+[ext_resource path="res://scripts/choose-game/default.gd" type="Script" id=21]
+[ext_resource path="res://textures/default_buttons/hard_button_2.png" type="Texture" id=22]
+[ext_resource path="res://textures/default_buttons/normal_button_2.png" type="Texture" id=23]
+
+[node name="choose-game" type="Node2D"]
+script = ExtResource( 19 )
+
+[node name="TileMap" parent="." instance=ExtResource( 1 )]
+script = null
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+color = Color( 0.00784314, 0.00784314, 0.00784314, 1 )
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 550.603, 114.164 )
+scale = Vector2( 0.613319, 0.657509 )
+texture = ExtResource( 7 )
+
+[node name="Light2D" type="Light2D" parent="Sprite"]
+texture = ExtResource( 7 )
+
+[node name="map" type="Node2D" parent="."]
+
+[node name="background" type="Node2D" parent="map"]
+
+[node name="Sprite" type="Sprite" parent="map/background"]
+position = Vector2( 643.215, 354.723 )
+texture = ExtResource( 8 )
+
+[node name="Light2D" type="Light2D" parent="map/background"]
+position = Vector2( 641.161, 349.526 )
+scale = Vector2( 505.36, 296.547 )
+texture = ExtResource( 11 )
+energy = 0.5
+
+[node name="dirt_with_grass" type="Node2D" parent="map"]
+
+[node name="6" type="Sprite" parent="map/dirt_with_grass"]
+position = Vector2( 413.69, 225.829 )
+texture = ExtResource( 9 )
+
+[node name="7" type="Sprite" parent="map/dirt_with_grass"]
+position = Vector2( 463.69, 224.829 )
+texture = ExtResource( 9 )
+
+[node name="8" type="Sprite" parent="map/dirt_with_grass"]
+position = Vector2( 512.69, 224.829 )
+texture = ExtResource( 9 )
+
+[node name="9" type="Sprite" parent="map/dirt_with_grass"]
+position = Vector2( 562.69, 224.829 )
+texture = ExtResource( 9 )
+
+[node name="10" type="Sprite" parent="map/dirt_with_grass"]
+position = Vector2( 613.69, 224.829 )
+texture = ExtResource( 9 )
+
+[node name="11" type="Sprite" parent="map/dirt_with_grass"]
+position = Vector2( 664.69, 221.829 )
+texture = ExtResource( 9 )
+
+[node name="12" type="Sprite" parent="map/dirt_with_grass"]
+position = Vector2( 716.69, 221.829 )
+texture = ExtResource( 9 )
+
+[node name="13" type="Sprite" parent="map/dirt_with_grass"]
+position = Vector2( 766.69, 221.829 )
+texture = ExtResource( 9 )
+
+[node name="14" type="Sprite" parent="map/dirt_with_grass"]
+position = Vector2( 815.69, 221.829 )
+texture = ExtResource( 9 )
+
+[node name="15" type="Sprite" parent="map/dirt_with_grass"]
+position = Vector2( 865.69, 221.829 )
+texture = ExtResource( 9 )
+
+[node name="stone" type="Node2D" parent="map"]
+
+[node name="1" type="Sprite" parent="map/stone"]
+position = Vector2( 412.458, 275.223 )
+texture = ExtResource( 4 )
+
+[node name="2" type="Sprite" parent="map/stone"]
+position = Vector2( 413.349, 325.113 )
+texture = ExtResource( 4 )
+
+[node name="3" type="Sprite" parent="map/stone"]
+position = Vector2( 414.24, 372.781 )
+texture = ExtResource( 4 )
+
+[node name="4" type="Sprite" parent="map/stone"]
+position = Vector2( 416.465, 421.78 )
+texture = ExtResource( 4 )
+
+[node name="6" type="Sprite" parent="map/stone"]
+position = Vector2( 415.578, 469.499 )
+texture = ExtResource( 4 )
+
+[node name="7" type="Sprite" parent="map/stone"]
+position = Vector2( 463.82, 469.737 )
+texture = ExtResource( 4 )
+
+[node name="8" type="Sprite" parent="map/stone"]
+position = Vector2( 513.172, 472.407 )
+texture = ExtResource( 4 )
+
+[node name="9" type="Sprite" parent="map/stone"]
+position = Vector2( 562.973, 473.596 )
+texture = ExtResource( 4 )
+
+[node name="10" type="Sprite" parent="map/stone"]
+position = Vector2( 611.439, 476.731 )
+texture = ExtResource( 4 )
+
+[node name="11" type="Sprite" parent="map/stone"]
+position = Vector2( 663.676, 477.326 )
+texture = ExtResource( 4 )
+
+[node name="12" type="Sprite" parent="map/stone"]
+position = Vector2( 714.493, 478.195 )
+texture = ExtResource( 4 )
+
+[node name="13" type="Sprite" parent="map/stone"]
+position = Vector2( 766.964, 478.196 )
+texture = ExtResource( 4 )
+
+[node name="15" type="Sprite" parent="map/stone"]
+position = Vector2( 815.43, 478.515 )
+texture = ExtResource( 4 )
+
+[node name="16" type="Sprite" parent="map/stone"]
+position = Vector2( 867.489, 476.845 )
+texture = ExtResource( 4 )
+
+[node name="17" type="Sprite" parent="map/stone"]
+position = Vector2( 866.98, 288.956 )
+texture = ExtResource( 4 )
+
+[node name="18" type="Sprite" parent="map/stone"]
+position = Vector2( 866.98, 334.513 )
+texture = ExtResource( 4 )
+
+[node name="19" type="Sprite" parent="map/stone"]
+position = Vector2( 866.98, 385.368 )
+texture = ExtResource( 4 )
+
+[node name="20" type="Sprite" parent="map/stone"]
+position = Vector2( 868.04, 433.043 )
+texture = ExtResource( 4 )
+
+[node name="22" type="Sprite" parent="map/stone"]
+position = Vector2( 867.531, 256.897 )
+texture = ExtResource( 4 )
+
+[node name="light" type="Node2D" parent="map"]
+
+[node name="torch_on_1" parent="map/light" instance=ExtResource( 10 )]
+position = Vector2( 486.925, 282.497 )
+
+[node name="torch_on_2" parent="map/light" instance=ExtResource( 10 )]
+position = Vector2( 791.112, 286.987 )
+
+[node name="Buttons" type="Control" parent="."]
+margin_right = 1022.0
+margin_bottom = 602.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="main" type="Control" parent="Buttons"]
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="Light2D" type="Light2D" parent="Buttons/main"]
+position = Vector2( 233.085, 297.302 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 3 )
+
+[node name="Default" type="TextureButton" parent="Buttons/main"]
+margin_left = 107.243
+margin_top = 235.838
+margin_right = 607.243
+margin_bottom = 485.838
+rect_scale = Vector2( 0.5, 0.5 )
+texture_normal = ExtResource( 3 )
+texture_hover = ExtResource( 6 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Light2D2" type="Light2D" parent="Buttons/main"]
+position = Vector2( 233.085, 431.682 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 2 )
+
+[node name="Story" type="TextureButton" parent="Buttons/main"]
+margin_left = 108.218
+margin_top = 369.843
+margin_right = 608.218
+margin_bottom = 619.843
+rect_scale = Vector2( 0.5, 0.5 )
+texture_normal = ExtResource( 2 )
+texture_hover = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="default" type="Control" parent="Buttons"]
+margin_right = 40.0
+margin_bottom = 40.0
+script = ExtResource( 21 )
+
+[node name="Start" type="TextureButton" parent="Buttons/default"]
+margin_left = 727.275
+margin_top = 398.044
+margin_right = 1227.27
+margin_bottom = 648.044
+rect_scale = Vector2( 0.2, 0.2 )
+texture_normal = ExtResource( 13 )
+texture_hover = ExtResource( 16 )
+script = ExtResource( 20 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="mode" type="TextureRect" parent="Buttons/default"]
+margin_left = 459.967
+margin_top = 295.191
+margin_right = 992.967
+margin_bottom = 545.191
+rect_scale = Vector2( 0.2, 0.2 )
+texture = ExtResource( 15 )
+
+[node name="Easy" type="TextureButton" parent="Buttons/default"]
+margin_left = 568.178
+margin_top = 297.675
+margin_right = 1068.18
+margin_bottom = 547.675
+rect_scale = Vector2( 0.2, 0.2 )
+texture_normal = ExtResource( 12 )
+texture_hover = ExtResource( 17 )
+
+[node name="Normal" type="TextureButton" parent="Buttons/default"]
+margin_left = 567.639
+margin_top = 347.525
+margin_right = 1067.64
+margin_bottom = 597.525
+rect_scale = Vector2( 0.2, 0.2 )
+texture_normal = ExtResource( 18 )
+texture_hover = ExtResource( 23 )
+
+[node name="Hard" type="TextureButton" parent="Buttons/default"]
+margin_left = 568.918
+margin_top = 398.216
+margin_right = 1068.92
+margin_bottom = 648.216
+rect_scale = Vector2( 0.2, 0.2 )
+texture_normal = ExtResource( 14 )
+texture_hover = ExtResource( 22 )
+
+[node name="story" type="Control" parent="Buttons"]
+visible = false
+margin_left = -1.0
+margin_right = 39.0
+margin_bottom = 40.0
+
+[node name="Label" type="Label" parent="Buttons/story"]
+modulate = Color( 0.180392, 0.356863, 0.341176, 1 )
+margin_left = 491.0
+margin_top = 307.0
+margin_right = 787.0
+margin_bottom = 338.0
+text = "Story Mode is unavailable.
+Check infromations on PlatGen discord server."
+__meta__ = {
+"_edit_use_anchors_": false
+}

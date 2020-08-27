@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://textures/map/default/stone_1.png" type="Texture" id=1]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 25.0479, 25.4797 )
+
+[sub_resource type="OccluderPolygon2D" id=2]
+polygon = PoolVector2Array( -24.7708, -16.8644, -25.1454, 17.9712, -16.9047, 25.4628, 18.3055, 25.4628, 25.0479, 17.2221, 24.6733, -17.239, 16.4326, -25.1051, -19.1522, -25.1051 )
+
+[node name="stone" type="Node2D"]
+
+[node name="stone" type="StaticBody2D" parent="."]
+collision_layer = 5
+collision_mask = 0
+
+[node name="Sprite" type="Sprite" parent="stone"]
+texture = ExtResource( 1 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="stone"]
+shape = SubResource( 1 )
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="stone"]
+occluder = SubResource( 2 )

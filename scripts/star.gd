@@ -6,6 +6,7 @@ var zmienna = 0
 var y = self.position.y
 
 func _ready():
+	spawn = true
 	self.visible = false
 	zmienna = 1
 	set_process(true)

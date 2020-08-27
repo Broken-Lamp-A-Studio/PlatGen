@@ -46,7 +46,6 @@ func _process(_delta):
 		childscount2 += 1
 		childname = "main%d" % childscount2
 		childlist = [childlist, childname]
-		print(childname)
 		cc = map2.instance()
 		cc.name = childname
 		self.add_child(cc)
@@ -54,7 +53,6 @@ func _process(_delta):
 		random2 = rng.randf_range(-200, 200)
 		
 		random3 += rng.randf_range(-50, -100)
-		print(random3)
 		childname2 = childname+"/dirt"
 		get_node(childname2).position.x = random2
 		get_node(childname2).position.y = random3
