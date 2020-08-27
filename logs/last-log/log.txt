@@ -1,0 +1,25 @@
+Godot Engine v3.2.2.stable.official - https://godotengine.org
+OpenGL ES 3.0 Renderer: GeForce GT 420/PCIe/SSE2
+ 
+**WARNING**: World already has an environment (Another WorldEnvironment?), overriding.
+   At: scene/3d/world_environment.cpp:40:_notification() - World already has an environment (Another WorldEnvironment?), overriding.
+**WARNING**: World already has an environment (Another WorldEnvironment?), overriding.
+   At: scene/3d/world_environment.cpp:40:_notification() - World already has an environment (Another WorldEnvironment?), overriding.
+test
+**WARNING**: World already has an environment (Another WorldEnvironment?), overriding.
+   At: scene/3d/world_environment.cpp:40:_notification() - World already has an environment (Another WorldEnvironment?), overriding.
+**WARNING**: World already has an environment (Another WorldEnvironment?), overriding.
+   At: scene/3d/world_environment.cpp:40:_notification() - World already has an environment (Another WorldEnvironment?), overriding.
+Mode:Normal
+Jump time:1
+Star X:50
+Star Y:-27278
+Despawing start platform!
+Jump time:1
+Jump time:2
+Jump time:3
+Respawning...
+Spawing platform!
+Despawing start platform!
+Jump time:1
+Jump time:2

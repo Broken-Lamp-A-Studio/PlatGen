@@ -1,12 +1,10 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://textures/map/default/torch_on_1.png" type="Texture" id=1]
 [ext_resource path="res://scenes/torches/torch.tscn" type="PackedScene" id=2]
 [ext_resource path="res://textures/light fix patch1.png" type="Texture" id=3]
-[ext_resource path="res://scenes/fire/fire-micro.gd" type="Script" id=5]
 
 [node name="torch_on_1" type="Node2D"]
-script = ExtResource( 5 )
 
 [node name="Sprite" type="Sprite" parent="."]
 texture = ExtResource( 1 )

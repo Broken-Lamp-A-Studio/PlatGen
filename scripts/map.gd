@@ -1,9 +1,5 @@
 extends Node2D
 const map2 = preload("res://scenes/Maploader.tscn")
-const pleft = preload("res://scenes/physics_scenes/physicsleft.tscn")
-const pright = preload("res://scenes/physics_scenes/physicsright.tscn")
-const pup = preload("res://scenes/physics_scenes/physicsup.tscn")
-const pdown = preload("res://scenes/physics_scenes/physicsdown.tscn")
 var generate = false
 var clear = false
 var childscount = 0

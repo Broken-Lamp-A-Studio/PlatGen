@@ -9,6 +9,8 @@ var random = 0
 var v1 = 0
 onready var time3 = OS.get_system_time_secs()
 func _ready():
+	print("test")
+	self.visible = true
 	rng.randomize()
 	set_process(true)
 	set_process_input(true)

@@ -30,6 +30,8 @@ color = Color( 0, 0, 0, 1 )
 [node name="star" parent="." instance=ExtResource( 4 )]
 position = Vector2( 607.089, -487.534 )
 
+[node name="spawnplatform" parent="." instance=ExtResource( 7 )]
+
 [node name="player" parent="." groups=[
 "Persist",
 ] instance=ExtResource( 13 )]
@@ -121,8 +123,6 @@ script = ExtResource( 12 )
 stream = ExtResource( 14 )
 volume_db = -18.929
 autoplay = true
-
-[node name="spawnplatform" parent="." instance=ExtResource( 7 )]
 
 [node name="LightMouse" type="Light2D" parent="."]
 visible = false

@@ -40,7 +40,7 @@ func _process(delta):
 	get_node("LightMouse").y = get_node("player").position.y
 	if(t == false and OS.get_system_time_secs() - time > render_time):
 		get_node("map").generate = false
-		get_node("star").position.y = get_node("map").random3
+		get_node("star").position.y = get_node("map").random3-200
 		get_node("star").position.x = 50
 		print("Star X:%d"%get_node("star").position.x)
 		print("Star Y:%d"%get_node("star").position.y)
