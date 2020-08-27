@@ -2,7 +2,7 @@ extends TextureButton
 
 var save_data = File.new()
 var name_data = "res://data/settings.info"
-var info_data = "res://data/main.txt"
+var info_data = "res://data/main.json"
 var mode = "Easy"
 var active = false
 var main_data = 0

@@ -7,13 +7,13 @@ var n = "res://saved/worlds"+"obj%d" % OS.get_system_time_secs()
 var mouse = 1
 var t = false
 var load_data = File.new()
-var data = "res://data/main.txt"
+var data = "res://data/main.json"
 var mode = "Easy"
 var render_time = 3
 var type2 = "default"
 var node_data = 0
 func _ready():
-	start("res://data/main.txt")
+	start("res://data/main.json")
 	if(mode == "Easy"):
 		render_time = 3
 	elif(mode == "Normal"):
