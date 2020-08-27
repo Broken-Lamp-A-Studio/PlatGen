@@ -3,29 +3,26 @@
 ===Last informations===
  - Godot platformer game with generating terrain. I'm continue this 2D version.
 
-===Game Version===
- - PlatGen v.0.1.2
+===Game Version=== 
+ - PlatGen v.1.1.0
+
+
 
 ===Bug fixed===
- - Weird background.
- - Physics and gravity.
- - Render errors.
- - some light.
- - torches.
+ - Intro
 
 ===Added elements===
- - Helmet with light.
- - New background.
+ - Modes
 
 ===Problems===
  - not big render.
  - biomes.
- - Saving/loading world.
 
 ===Ideas===
  - Digging.
  - Inventory.
  - Crafting.
+ - Story Mode.
  
 ===Used elements===
  - Torch Fire /PlatGen/master/scenes/torch.tscn: by Pixel Man - https://www.youtube.com/channel/UCtjoe_Bd6igN7XiYBYYyACw | vid: https://www.youtube.com/watch?v=tJ-SMxCA8sM
