@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://scenes/game/main-game.gd" type="Script" id=1]
 [ext_resource path="res://scenes/TileMap.tscn" type="PackedScene" id=2]
@@ -14,6 +14,7 @@
 [ext_resource path="res://scenes/game/water.gd" type="Script" id=12]
 [ext_resource path="res://scenes/player.tscn" type="PackedScene" id=13]
 [ext_resource path="res://sounds/soundtracks/full/full-soundtrack-9.ogg" type="AudioStream" id=14]
+[ext_resource path="res://scenes/game/dirt-walk.gd" type="Script" id=15]
 
 [node name="game" type="Node2D" groups=[
 "Persist",
@@ -113,6 +114,7 @@ __meta__ = {
 stream = ExtResource( 10 )
 volume_db = 3.0
 autoplay = true
+script = ExtResource( 15 )
 
 [node name="water" type="AudioStreamPlayer" parent="player"]
 stream = ExtResource( 11 )

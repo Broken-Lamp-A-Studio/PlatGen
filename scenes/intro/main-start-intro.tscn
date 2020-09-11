@@ -1,0 +1,25 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://textures/intro/backgrounds/black.png" type="Texture" id=1]
+[ext_resource path="res://textures/intro/texts/gpp.png" type="Texture" id=2]
+[ext_resource path="res://scripts/intro/intro-text-1.gd" type="Script" id=3]
+[ext_resource path="res://scripts/intro/background-1.gd" type="Script" id=4]
+[ext_resource path="res://scripts/intro/main-start-intro.gd" type="Script" id=5]
+
+[node name="main-start-intro" type="Node2D"]
+script = ExtResource( 5 )
+
+[node name="background" type="Sprite" parent="."]
+position = Vector2( 513.788, 303.564 )
+scale = Vector2( 5, 5 )
+texture = ExtResource( 1 )
+script = ExtResource( 4 )
+
+[node name="text" type="Sprite" parent="."]
+position = Vector2( 513.788, 303.564 )
+scale = Vector2( 1.61753, 1.54238 )
+texture = ExtResource( 2 )
+script = ExtResource( 3 )
+
+[node name="Light2D" type="Light2D" parent="text"]
+texture = ExtResource( 2 )

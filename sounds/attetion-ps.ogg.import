@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/attetion-ps.ogg-99126f839d6511bd724ae3bae67064fa.oggstr"
+
+[deps]
+
+source_file="res://sounds/attetion-ps.ogg"
+dest_files=[ "res://.import/attetion-ps.ogg-99126f839d6511bd724ae3bae67064fa.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

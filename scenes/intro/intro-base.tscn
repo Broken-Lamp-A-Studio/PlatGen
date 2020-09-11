@@ -1,0 +1,115 @@
+[gd_scene load_steps=17 format=2]
+
+[ext_resource path="res://scripts/intro/background.gd" type="Script" id=1]
+[ext_resource path="res://textures/intro/base/floor-cable.png" type="Texture" id=2]
+[ext_resource path="res://textures/intro/base/lamp-sustain.png" type="Texture" id=3]
+[ext_resource path="res://textures/intro/base/background.png" type="Texture" id=4]
+[ext_resource path="res://textures/intro/base/lamp.png" type="Texture" id=5]
+[ext_resource path="res://textures/intro/base/floor.png" type="Texture" id=6]
+[ext_resource path="res://scripts/intro/door-1-2.gd" type="Script" id=7]
+[ext_resource path="res://scripts/intro/door-1-1.gd" type="Script" id=8]
+[ext_resource path="res://textures/light fix patch1.png" type="Texture" id=9]
+[ext_resource path="res://scripts/intro/intro-base.gd" type="Script" id=10]
+[ext_resource path="res://scripts/intro/Light2D.gd" type="Script" id=11]
+
+[sub_resource type="OccluderPolygon2D" id=1]
+polygon = PoolVector2Array( -162.653, -5.00728, -272.39, -5.84817, -272.39, 3.82215, -163.915, 4.24258, -163.494, 4.24258 )
+
+[sub_resource type="OccluderPolygon2D" id=2]
+polygon = PoolVector2Array( 168.641, 5.92493, 309.637, 5.92491, 309.637, -3.59949, 167.565, -3.59949 )
+
+[sub_resource type="OccluderPolygon2D" id=3]
+polygon = PoolVector2Array( -36.7245, 4.50995, -36.7245, -3.99005, 54.7755, -3.99005, 54.7755, 4.50995 )
+
+[sub_resource type="OccluderPolygon2D" id=4]
+polygon = PoolVector2Array( -80.3969, -3.34407, 79.1031, -3.34407, 79.1031, 5.15593, -79.8969, 5.15593 )
+
+[sub_resource type="OccluderPolygon2D" id=5]
+polygon = PoolVector2Array( -79.5, -3.36222, 80, -3.86222, 80, 4.63778, -79.5, 5.63778 )
+
+[node name="intro-base" type="Node2D"]
+script = ExtResource( 10 )
+
+[node name="background" type="Sprite" parent="."]
+texture = ExtResource( 4 )
+script = ExtResource( 1 )
+
+[node name="doors" type="Node2D" parent="."]
+
+[node name="door-1-1" type="Sprite" parent="doors"]
+position = Vector2( -58.337, 121.039 )
+rotation = 1.5708
+texture = ExtResource( 6 )
+script = ExtResource( 8 )
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="doors/door-1-1"]
+occluder = SubResource( 1 )
+
+[node name="door-1-2" type="Sprite" parent="doors"]
+position = Vector2( -57.5433, -123.024 )
+rotation = 1.5708
+texture = ExtResource( 6 )
+script = ExtResource( 7 )
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="doors/door-1-2"]
+occluder = SubResource( 2 )
+
+[node name="wall" type="Sprite" parent="doors"]
+position = Vector2( 75.5099, -3.7755 )
+rotation = 1.5708
+texture = ExtResource( 6 )
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="doors/wall"]
+occluder = SubResource( 3 )
+
+[node name="lamps" type="Node2D" parent="."]
+
+[node name="sustain-1" type="Sprite" parent="lamps"]
+position = Vector2( -29.5653, -30.7559 )
+scale = Vector2( 0.611087, 0.547591 )
+texture = ExtResource( 3 )
+
+[node name="lamp-1" type="Sprite" parent="lamps/sustain-1"]
+position = Vector2( 0.270405, 16.503 )
+scale = Vector2( 1.05852, 1.18126 )
+texture = ExtResource( 5 )
+
+[node name="Light2D" type="Light2D" parent="lamps/sustain-1"]
+position = Vector2( 10.5706, 52.7113 )
+scale = Vector2( 0.448916, 0.460163 )
+texture = ExtResource( 9 )
+energy = 1.5
+script = ExtResource( 11 )
+
+[node name="sustain-2" type="Sprite" parent="lamps"]
+position = Vector2( 35.8181, -31.0365 )
+scale = Vector2( 0.611087, 0.547591 )
+texture = ExtResource( 3 )
+
+[node name="lamp-2" type="Sprite" parent="lamps/sustain-2"]
+position = Vector2( 0.270405, 16.503 )
+scale = Vector2( 1.05852, 1.18126 )
+texture = ExtResource( 5 )
+
+[node name="Light2D2" type="Light2D" parent="lamps/sustain-2"]
+position = Vector2( -13.7162, 56.8913 )
+scale = Vector2( 0.429456, 0.451137 )
+texture = ExtResource( 9 )
+energy = 1.5
+script = ExtResource( 11 )
+
+[node name="floors" type="Node2D" parent="."]
+
+[node name="1" type="Sprite" parent="floors"]
+position = Vector2( 0.396851, 44.8441 )
+texture = ExtResource( 6 )
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="floors/1"]
+occluder = SubResource( 4 )
+
+[node name="2" type="Sprite" parent="floors"]
+position = Vector2( 0, -45.6378 )
+texture = ExtResource( 2 )
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="floors/2"]
+occluder = SubResource( 5 )

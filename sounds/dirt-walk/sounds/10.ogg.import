@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/10.ogg-f2070934c6c72fe35fcd3e8b1d296d0d.oggstr"
+
+[deps]
+
+source_file="res://sounds/dirt-walk/sounds/10.ogg"
+dest_files=[ "res://.import/10.ogg-f2070934c6c72fe35fcd3e8b1d296d0d.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

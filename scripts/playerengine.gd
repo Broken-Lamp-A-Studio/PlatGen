@@ -12,7 +12,6 @@ var jump = 0
 var tjump = 0
 func _ready():
 	get_node("music").playing = true
-	get_node("dirt-walk").playing = true
 	self.position.x = 70
 	self.position.y = 50
 	set_process(false)
@@ -20,9 +19,9 @@ func _ready():
 	set_process_input(false)
 func _process(delta):
 	if(m == true and Input.is_key_pressed(KEY_D) or m == true and Input.is_key_pressed(KEY_A)):
-		get_node("dirt-walk").stream_paused = false
+		get_node("dirt-walk").pla = false
 	else:
-		get_node("dirt-walk").stream_paused = true
+		get_node("dirt-walk").pla = true
 	if(OS.get_system_time_msecs() - time3 > 300):
 		get_node("Camera2D/GUI").finish = false
 	
