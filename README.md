@@ -6,18 +6,9 @@
 ===Game Version=== 
  - PlatGen v.1.1.5
 
-
-
-===Bug fixed===
- - Intro
-
 ===Added elements===
  - Modes
-
-===Problems===
- - In Story Mode: not big render.
- - In Story Mode: biomes.
-
+ 
 ===Ideas===
  - Digging.
  - Inventory.
