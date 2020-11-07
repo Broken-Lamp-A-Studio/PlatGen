@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/soundtrack-24.ogg-0ccbea8360f360dfba6cf2b113e41308.oggstr"
+
+[deps]
+
+source_file="res://sounds/soundtracks/micro/soundtrack-24.ogg"
+dest_files=[ "res://.import/soundtrack-24.ogg-0ccbea8360f360dfba6cf2b113e41308.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

@@ -1,0 +1,38 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=4
+
+_global_script_classes=[  ]
+_global_script_class_icons={
+
+}
+
+[application]
+
+config/name="PlatGen"
+run/main_scene="res://scenes/VideoPlayer.tscn"
+boot_splash/image="res://boot.png"
+boot_splash/bg_color=Color( 0, 0, 0, 1 )
+config/icon="res://icon.png"
+
+[layer_names]
+
+2d_render/layer_1="Main"
+2d_physics/layer_1="Player"
+2d_render/layer_2="second"
+2d_physics/layer_2="block"
+2d_render/layer_3="3"
+
+[physics]
+
+2d/physics_engine="GodotPhysics"
+
+[rendering]
+
+environment/default_environment="res://default_env.tres"

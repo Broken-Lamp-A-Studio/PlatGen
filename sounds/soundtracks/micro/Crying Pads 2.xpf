@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<!DOCTYPE lmms-project>
+<lmms-project version="1.0" creator="LMMS" creatorversion="1.2.1" type="instrumenttracksettings">
+  <head/>
+  <instrumenttracksettings name="Crying Pads 2" muted="0" solo="0" type="0">
+    <instrumenttrack basenote="57" fxch="0" pitch="0" pitchrange="1" vol="55" pan="0" usemasterpitch="1">
+      <instrument name="tripleoscillator">
+        <tripleoscillator finel0="0" finer0="0" finel1="-1" phoffset0="0" stphdetun0="0" finer1="0" phoffset1="0" finel2="0" stphdetun1="0" finer2="0" phoffset2="0" stphdetun2="0" userwavefile0="" userwavefile1="" userwavefile2="" coarse0="0" coarse1="-12" coarse2="-12" vol0="33" vol1="33" wavetype0="0" wavetype1="0" vol2="33" modalgo1="0" pan0="0" wavetype2="3" pan1="0" modalgo2="3" pan2="0" modalgo3="2"/>
+      </instrument>
+      <eldata fres="0.5" ftype="0" fcut="12990" fwet="1">
+        <elvol lamt="0" userwavefile="" rel="0.1" lspd_syncmode="0" lshp="0" dec="0.541" x100="0" att="0.112" ctlenvamt="0" amt="1" lspd_denominator="4" lspd="0.1" lpdel="0" pdel="0" sustain="0.915" hold="0" lspd_numerator="4" latt="0"/>
+        <elcut lamt="0" userwavefile="" rel="0" lspd_syncmode="0" lshp="0" dec="0.673" x100="0" att="0.031" ctlenvamt="0" amt="0" lspd_denominator="4" lspd="0.1" lpdel="0" pdel="0" sustain="0" hold="0" lspd_numerator="4" latt="0"/>
+        <elres lamt="0" userwavefile="" rel="0.1" lspd_syncmode="0" lshp="0" dec="0.5" x100="0" att="0" ctlenvamt="0" amt="0" lspd_denominator="4" lspd="0.1" lpdel="0" pdel="0" sustain="0.5" hold="0.5" lspd_numerator="4" latt="0"/>
+      </eldata>
+      <chordcreator chord="0" chordrange="1" chord-enabled="0"/>
+      <arpeggiator arp="5" arprange="1" arpgate="42" arptime_syncmode="0" arptime_numerator="4" arpdir="4" arptime_denominator="4" arp-enabled="1" arpcycle="0" arpmiss="0" arpmode="0" arpskip="0" arptime="247"/>
+      <midiport fixedoutputnote="-1" outputchannel="1" outputprogram="1" basevelocity="127" inputcontroller="0" outputcontroller="0" inputchannel="0" fixedinputvelocity="-1" fixedoutputvelocity="-1" readable="0" writable="0"/>
+      <fxchain numofeffects="1" enabled="1">
+        <effect autoquit_syncmode="0" autoquit="8000" wet="1" gate="0" name="ladspaeffect" on="1" autoquit_denominator="4" autoquit_numerator="4">
+          <ladspacontrols ports="4">
+            <port02 data="0.99897"/>
+            <port03 data="0.670355"/>
+            <port04 data="0.249875"/>
+            <port05 data="0.3275"/>
+          </ladspacontrols>
+          <key>
+            <attribute value="caps" name="file"/>
+            <attribute value="Plate2x2" name="plugin"/>
+          </key>
+        </effect>
+      </fxchain>
+    </instrumenttrack>
+  </instrumenttracksettings>
+</lmms-project>
