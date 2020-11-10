@@ -36,7 +36,6 @@ scale = Vector2( 1, 0.3 )
 texture = ExtResource( 4 )
 mode = 2
 range_height = 440.4
-shadow_enabled = true
 shadow_gradient_length = 396.4
 
 [node name="Camera2D" type="Camera2D" parent="."]

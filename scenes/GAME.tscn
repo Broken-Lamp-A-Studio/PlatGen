@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://scripts/world.gd" type="Script" id=1]
 [ext_resource path="res://scenes/player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scenes/TileMap.tscn" type="PackedScene" id=3]
 [ext_resource path="res://scripts/GAME.gd" type="Script" id=4]
+[ext_resource path="res://scenes/inv/inv.tscn" type="PackedScene" id=5]
 
 [node name="GAME" type="Node2D"]
 script = ExtResource( 4 )
@@ -20,6 +21,8 @@ script = ExtResource( 1 )
 collision_mask = 3
 contacts_reported = 4
 contact_monitor = true
+
+[node name="inv" parent="player" instance=ExtResource( 5 )]
 
 [node name="GUI" type="Control" parent="."]
 margin_right = 40.0

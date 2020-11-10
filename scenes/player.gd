@@ -42,7 +42,7 @@ func move_body():
 		position.x += 5
 	elif((Input.is_key_pressed(KEY_W) or Input.is_key_pressed(KEY_SPACE)) and jump_access == true):
 		gravity_scale = -5
-		self.position.y -= 5
+		self.position.y -= 30
 		jump_sys = true
 	if(jump_sys == true and OS.get_system_time_msecs() - time2 > 10):
 		if not(gravity_scale >= 1):
@@ -62,11 +62,3 @@ func _on_player_body_entered(body):
 
 func _on_player_body_exited(body):
 	jump_access = false
-#onready var time5 = OS.get_system_time_secs()
-#func _process(delta):
-#	if(OS.get_system_time_secs() - time5 > 5):
-#		self.gravity_scale = 1
-#		set_physics_process(true)
-#	else:
-##		self.gravity_scale = 0
-#		set_physics_process(false)

@@ -100,16 +100,16 @@ func VM_chunk_sync():
 		chunk_gen_run = true
 func add_block(name2, texture2, gui2, effects2, collision, light, x, y):
 	var n2 = name2
-	if not(x > (50+get_viewport_rect().size.x/2+get_tree().get_root().get_node("GAME/player").position.x) or x < (50-get_tree().get_root().get_node("GAME/player").position.x-get_viewport_rect().size.x/2) or y > (50+get_viewport_rect().size.y/2+get_tree().get_root().get_node("GAME/player").position.y) or y < (50-get_tree().get_root().get_node("GAME/player").position.y-get_viewport_rect().size.y/2)):
-		var n = "%d"%x+"%d"%y
-		if not(get_node_or_null("%d"%x+"%d"%y)):
-			var obj = worldelement.instance()
-			obj.name = n
-			self.add_child(obj) #get_node("%d"%chunk)
-			get_node(n).setup(n2, n, texture2, gui2, effects2, collision, light, x, y)
-		else:
-			get_node(n).setup(n2, n, texture2, gui2, effects2, collision, light, x, y)
-			print("replace: %d"%x+":%d"%y)
+	#if not(x > (50+get_viewport_rect().size.x/2+get_tree().get_root().get_node("GAME/player").position.x) or x < (50-get_tree().get_root().get_node("GAME/player").position.x-get_viewport_rect().size.x/2) or y > (50+get_viewport_rect().size.y/2+get_tree().get_root().get_node("GAME/player").position.y) or y < (50-get_tree().get_root().get_node("GAME/player").position.y-get_viewport_rect().size.y/2)):
+	var n = "%d"%x+"%d"%y
+	if not(get_node_or_null("%d"%x+"%d"%y)):
+		var obj = worldelement.instance()
+		obj.name = n
+		self.add_child(obj) #get_node("%d"%chunk)
+		get_node(n).setup(n2, n, texture2, gui2, effects2, collision, light, x, y)
+	else:
+		get_node(n).setup(n2, n, texture2, gui2, effects2, collision, light, x, y)
+		print("replace: %d"%x+":%d"%y)
 func layer_0(x, y): #layer of blocks, in tests
 	var texture_type = round(rng.randf_range(0, 3))
 	add_block(block_names[texture_type], block_list[texture_type], false, false, true, false, x, y)
@@ -136,12 +136,16 @@ func layer_1(x, y):
 var chunk_load_type = 1
 func chunk_player_gen():
 	if not(get_node_or_null("%d"%(px2-200+VM_chunk_X)+"%d"%(py2-200+VM_chunk_Y))):
+		print("Make chunk:%d"%(px2-200+VM_chunk_X)+"%d"%(py2-200+VM_chunk_Y))
 		chunk_gen(px2-200+VM_chunk_X, py2-200+VM_chunk_Y)
 	if not(get_node_or_null("%d"%(px2-200+VM_chunk_X+chunk_size)+"%d"%(py2-200+VM_chunk_Y+chunk_size))):
+		print("Make chunk:%d"%(px2-200+VM_chunk_X+chunk_size)+"%d"%(py2-200+VM_chunk_Y+chunk_size))
 		chunk_gen(px2-200+VM_chunk_X+chunk_size, py2-200+VM_chunk_Y+chunk_size)
 	if not(get_node_or_null("%d"%(px2-200+VM_chunk_X-chunk_size)+"%d"%(py2-200+VM_chunk_Y+chunk_size))):
+		print("Make chunk:%d"%(px2-200+VM_chunk_X-chunk_size)+"%d"%(py2-200+VM_chunk_Y+chunk_size))
 		chunk_gen(px2-200+VM_chunk_X-chunk_size, py2-200+VM_chunk_Y+chunk_size)
 	if not(get_node_or_null("%d"%(px2-200+VM_chunk_X+chunk_size)+"%d"%(py2-200+VM_chunk_Y-chunk_size))):
+		print("Make chunk:%d"%(px2-200+VM_chunk_X+chunk_size)+"%d"%(py2-200+VM_chunk_Y-chunk_size))
 		chunk_gen(px2-200+VM_chunk_X+chunk_size, py2-200+VM_chunk_Y-chunk_size)
 	if not(get_node_or_null("%d"%(px2-200+VM_chunk_X)+"%d"%(py2-200+VM_chunk_Y+chunk_size))):
 		chunk_gen(px2-200+VM_chunk_X, py2-200+VM_chunk_Y+chunk_size)
