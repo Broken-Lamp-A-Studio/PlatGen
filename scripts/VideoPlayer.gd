@@ -17,6 +17,6 @@ func _ready():
 	set_process(true)
 	set_process_input(true)
 func _process(delta):
-	if(OS.get_system_time_secs() - time > 18 or Input.is_key_pressed(KEY_ESCAPE)):
+	if(OS.get_system_time_secs() - time > 25 or Input.is_key_pressed(KEY_ESCAPE)):
 		self.visible = false
 		get_tree().change_scene("res://scenes/Menu.tscn")
