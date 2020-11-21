@@ -41,17 +41,12 @@ func move_body():
 	elif(Input.is_key_pressed(KEY_D)):
 		position.x += 5
 	elif((Input.is_key_pressed(KEY_W) or Input.is_key_pressed(KEY_SPACE)) and jump_access == true):
-		gravity_scale = -5
+		gravity_scale = -1
 		self.position.y -= 30
 		jump_sys = true
-	if(jump_sys == true and OS.get_system_time_msecs() - time2 > 10):
-		if not(gravity_scale >= 1):
-			if(gravity_scale < 0):
-				gravity_scale += 1
-			else:
-				gravity_scale += 0.1
-		else:
-			jump_sys = false
+	if(jump_sys == true and OS.get_system_time_msecs() - time2 > 300):
+		gravity_scale = 1
+		jump_sys = false
 		time2 = OS.get_system_time_msecs()
 
 

@@ -39,8 +39,8 @@ func setup(name2, node2, texture2, gui2, effects2, collision, light, x2, y2):
 	else:
 		print("ERROR: Node doesn't have name!")
 	var dir = Directory.new()
-	if(dir.file_exists(game_path+"/blocks/%d"%position.x+"%d"%position.y+".node")):
-		load_node()
+	#if(dir.file_exists(game_path+"/blocks/%d"%position.x+"%d"%position.y+".node")):
+	#	load_node()
 	var px2 = get_tree().get_root().get_node("GAME/player").position.x
 	var py2 = get_tree().get_root().get_node("GAME/player").position.y
 	if(node_data.x2 < px2+200 and node_data.x2 > px2-200 and node_data.y2 < py2+200 and node_data.y2 > py2-200):
@@ -80,28 +80,20 @@ func _process(delta):
 	replace_self("near", 0, -50, "air", "dirt_with_grass", "dirt", 5)
 func replace_self(type, nodeposx, nodeposy, input, input2, output, waittime):
 	if(type == "near"):
-		if(get_tree().get_root().get_node_or_null("../%d"%(self.position.x+nodeposx)+"%d"%(self.position.y+nodeposy)) and node == input2):
-			if(get_tree().get_root().get_node_or_null("../%d"%(self.position.x+nodeposx)+"%d"%(self.position.y+nodeposy)).node != input):
+		if(get_tree().get_root().get_node_or_null("GAME/world/%d"%(self.position.x+nodeposx)+"%d"%(self.position.y+nodeposy)) and node == input2):
+			if(get_tree().get_root().get_node_or_null("GAME/world/%d"%(self.position.x+nodeposx)+"%d"%(self.position.y+nodeposy)).node != input):
 				if(OS.get_system_time_secs() - replace_self_time > waittime):
 					node = output
 					get_node("texture").texture = load("res://textures/map/default/"+output+".png")
 					replace_self_time = OS.get_system_time_secs()
 	elif(type == "exactly"):
-			if(get_tree().get_root().get_node_or_null("../%d"%(nodeposx)+"%d"%(nodeposy)) and node == input2):
-				if(get_tree().get_root().get_node_or_null("../%d"%nodeposx+"%d"%nodeposy).node != input):
+			if(get_tree().get_root().get_node_or_null("GAME/world/%d"%(nodeposx)+"%d"%(nodeposy)) and node == input2):
+				if(get_tree().get_root().get_node_or_null("GAME/world/%d"%nodeposx+"%d"%nodeposy).node != input):
 					if(OS.get_system_time_secs() - replace_self_time > waittime):
 						node = output
 						get_node("texture").texture = load("res://textures/map/default/"+output+".png")
 func save_node():
 	var file2 = File.new()
-	var dir = Directory.new()
-	if not(dir.dir_exists(game_path)):
-		dir.make_dir(game_path)
-	if not(dir.dir_exists(game_path+"/blocks")):
-		dir.make_dir(game_path+"/blocks")
-	if not(dir.file_exists(game_path+"/blocks/"+name+".node")):
-		file2.open(game_path+"/blocks/"+name+".node", File.WRITE)
-		file2.close()
 	file2.open(game_path+"/blocks/"+name+".node", File.WRITE)
 	file2.store_line(to_json(node_data))
 	file2.close()

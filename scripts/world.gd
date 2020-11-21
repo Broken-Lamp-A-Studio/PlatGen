@@ -119,7 +119,7 @@ func layer_1(x, y):
 	if(get_node_or_null("%d"%x+"%d"%(y-50))):
 		if(get_node_or_null("%d"%x+"%d"%(y-50)).node == "air"):
 			access = true
-	var rand1 = round(rng.randf_range(0, 2))
+	var rand1 = round(rng.randf_range(0, 1))
 	if(rand1 == 1 and access == true):
 		add_block("air", "", false, false, false, false, x, y)
 		
@@ -168,10 +168,11 @@ func chunk_player_gen():
 	if not(get_node_or_null("%d"%(px2-200+VM_chunk_X-chunk_size*2)+"%d"%(py2-200+VM_chunk_Y-chunk_size*2))):
 		chunk_gen(px2-200+VM_chunk_X-chunk_size*2, py2-200+VM_chunk_Y-chunk_size*2)
 	px2 += 50
+	progress += 0.8
 	if(px2 > 500):
 		py2 += 50
 		px2 = 0
-		progress += 10
+		
 	
 	if(py2 > 500):
 		py2 = 0
