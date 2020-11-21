@@ -60,3 +60,8 @@ text = "Generating world..."
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Light2D" type="Light2D" parent="."]
+position = Vector2( -25.4271, 45.5569 )
+scale = Vector2( 1018.08, 554.04 )
+texture = ExtResource( 1 )

@@ -35,25 +35,42 @@ func _physics_process(delta):
 func light():
 	get_node("helmet-light").rotation = 3.15+(get_global_mouse_position() - self.position).angle()
 var jump_sys = false
+var t = 0
+var entered_body = 0
+var jump_in_execute = false
 func move_body():
 	if(Input.is_key_pressed(KEY_A)):
 		position.x -= 5
 	elif(Input.is_key_pressed(KEY_D)):
 		position.x += 5
-	elif((Input.is_key_pressed(KEY_W) or Input.is_key_pressed(KEY_SPACE)) and jump_access == true):
-		gravity_scale = -1
-		self.position.y -= 30
-		jump_sys = true
-	if(jump_sys == true and OS.get_system_time_msecs() - time2 > 300):
-		gravity_scale = 1
-		jump_sys = false
-		time2 = OS.get_system_time_msecs()
-
+	elif((Input.is_key_pressed(KEY_W) or Input.is_key_pressed(KEY_SPACE)) and jump_access == true and jump_in_execute == false):
+		t = 1
+		jump_in_execute = true
+	if(t == 1):
+		if(gravity_scale > -3):
+			gravity_scale -= 1.2
+		elif(gravity_scale <= -3):
+			gravity_scale -= 0.5
+		if(gravity_scale <= -5):
+			t = 2
+	elif(t == 2):
+		if(gravity_scale <= -1):
+			gravity_scale += 0.5
+		elif(gravity_scale >= -1):
+			gravity_scale += 0.8
+		if(gravity_scale >= 1):
+			t = 0
+			jump_in_execute = false
+	if(entered_body > 0):
+		jump_access = true
+	else:
+		jump_access = false
 
 func _on_player_body_entered(body):
-	jump_access = true
-	
+	entered_body += 1
+	print("Touching:"+body.name)
 
 
 func _on_player_body_exited(body):
-	jump_access = false
+	entered_body -= 1
+	print("End of touching:"+body.name)

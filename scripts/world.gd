@@ -95,11 +95,13 @@ func add_block(name2, texture2, gui2, effects2, collision, light, x, y):
 		var obj = worldelement.instance()
 		obj.name = n
 		self.add_child(obj) #get_node("%d"%chunk)
-		get_node(n).setup(n2, n, texture2, gui2, effects2, collision, light, x, y)
 		get_node(n).game_path = game_path
+		get_node(n).setup(n2, n, texture2, gui2, effects2, collision, light, x, y)
+		
 	else:
-		get_node(n).setup(n2, n, texture2, gui2, effects2, collision, light, x, y)
 		get_node(n).game_path = game_path
+		get_node(n).setup(n2, n, texture2, gui2, effects2, collision, light, x, y)
+		
 func layer_0(x, y): #layer of blocks, in tests
 	var texture_type = round(rng.randf_range(0, 3))
 	add_block(block_names[texture_type], block_list[texture_type], false, false, true, false, x, y)
