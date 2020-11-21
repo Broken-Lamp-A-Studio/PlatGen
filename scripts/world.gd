@@ -57,13 +57,11 @@ func _ready():
 	rng.randomize()
 onready var time5 = OS.get_system_time_secs()
 func _process(delta):
-	if(game_path != "" and chunk_gen_run == true):
+	if(chunk_gen_run == true):
 		chunk_player_gen()
 	#VM_chunk_sync()
 	viewport_changed()
 	VM_micro_chunk()
-	#if(chunk_gen_run == true):
-	#	chunk_player_gen()
 func VM_chunk_sync():
 	var px = get_tree().get_root().get_node("GAME/player").position.x
 	var py = get_tree().get_root().get_node("GAME/player").position.y

@@ -26,9 +26,9 @@ func setup(name2, node2, texture2, gui2, effects2, collision, light, x2, y2):
 	var dir = Directory.new()
 	if(dir.file_exists(game_path+"/blocks/%d"%position.x+"%d"%position.y+".node")):
 		load_node()
-		print("loading node!")
+		
 	else:
-		print("making node!")
+		
 	#if(1 == 1):
 		node_data = {
 			"name2":name2,
@@ -82,17 +82,18 @@ func _process(delta):
 	visible2()
 	gui_move()
 	interact_in_block()
-	
-		
-	replace_self("near", 0, -50, "air", "dirt_with_grass", "dirt", 5)
+	replace_self("near", 0, -50, "air", "dirt_with_grass", "dirt", 1)
 func replace_self(type, nodeposx, nodeposy, input, input2, output, waittime):
 	if(type == "near"):
-		if(get_tree().get_root().get_node_or_null("GAME/world/%d"%(self.position.x+nodeposx)+"%d"%(self.position.y+nodeposy)) and node == input2):
-			if(get_tree().get_root().get_node_or_null("GAME/world/%d"%(self.position.x+nodeposx)+"%d"%(self.position.y+nodeposy)).node != input):
+		if(get_tree().get_root().get_node_or_null("GAME/world/%d"%(position.x+nodeposx)+"%d"%(position.y+nodeposy)) and node_data.name2 == input2):
+			if(get_tree().get_root().get_node_or_null("GAME/world/%d"%(position.x+nodeposx)+"%d"%(position.y+nodeposy)).node_data.name2 != input):
 				if(OS.get_system_time_secs() - replace_self_time > waittime):
 					node = output
 					get_node("texture").texture = load("res://textures/map/default/"+output+".png")
 					replace_self_time = OS.get_system_time_secs()
+					node_data.name2 = output
+					node_data.texture2 = "res://textures/map/default/"+output+".png"
+					save_node()
 	elif(type == "exactly"):
 			if(get_tree().get_root().get_node_or_null("GAME/world/%d"%(nodeposx)+"%d"%(nodeposy)) and node == input2):
 				if(get_tree().get_root().get_node_or_null("GAME/world/%d"%nodeposx+"%d"%nodeposy).node != input):
@@ -108,10 +109,6 @@ func load_node():
 	var file = File.new()
 	file.open(game_path+"/blocks/%d"%position.x+"%d"%position.y+".node", File.READ)
 	node_data = parse_json(file.get_as_text())
-	print("Loading:")
-	print("%d"%position.x+"%d"%position.y)
-	print(parse_json(file.get_as_text()))
-	print(node_data)
 
 func interact_in_block():
 	var mx = get_global_mouse_position().x
