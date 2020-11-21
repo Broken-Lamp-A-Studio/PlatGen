@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://scripts/world.gd" type="Script" id=1]
 [ext_resource path="res://scenes/player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scenes/TileMap.tscn" type="PackedScene" id=3]
 [ext_resource path="res://scripts/GAME.gd" type="Script" id=4]
 [ext_resource path="res://scenes/inv/inv.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scenes/loading-world-screen.tscn" type="PackedScene" id=6]
 
 [node name="GAME" type="Node2D"]
 script = ExtResource( 4 )
@@ -52,7 +53,10 @@ margin_left = 332.0
 margin_top = 280.0
 margin_right = 502.0
 margin_bottom = 294.0
-text = "PlatGen v.0.2 SNAPSHOT"
+text = "PlatGen v.0.3 SNAPSHOT"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="l" parent="player/GUI" instance=ExtResource( 6 )]
+visible = false

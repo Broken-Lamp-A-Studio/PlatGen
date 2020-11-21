@@ -93,11 +93,18 @@ func replace_self(type, nodeposx, nodeposy, input, input2, output, waittime):
 						node = output
 						get_node("texture").texture = load("res://textures/map/default/"+output+".png")
 func save_node():
-	var file = File.new()
-	file.open(game_path+"/blocks/"+name+".node", File.WRITE)
-	var json_data = node_data
-	file.store_line(to_json(json_data))
-	file.close()
+	var file2 = File.new()
+	var dir = Directory.new()
+	if not(dir.dir_exists(game_path)):
+		dir.make_dir(game_path)
+	if not(dir.dir_exists(game_path+"/blocks")):
+		dir.make_dir(game_path+"/blocks")
+	if not(dir.file_exists(game_path+"/blocks/"+name+".node")):
+		file2.open(game_path+"/blocks/"+name+".node", File.WRITE)
+		file2.close()
+	file2.open(game_path+"/blocks/"+name+".node", File.WRITE)
+	file2.store_line(to_json(node_data))
+	file2.close()
 func load_node():
 	var file = File.new()
 	file.open(game_path+"/blocks/%d"%position.x+"%d"%position.y, File.READ)

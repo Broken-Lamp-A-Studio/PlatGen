@@ -4,7 +4,7 @@
  - Godot platformer game with generating terrain. Default game is done! Sometimes I will add some more blocks. Actually I'm working on Story Mode.
 
 ===Game Version=== 
- - PlatGen v.0.1 (game re-builded)
+ - PlatGen v.0.3
 
 ===Added elements===
  - Modes

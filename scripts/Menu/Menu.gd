@@ -9,7 +9,6 @@ var random = 0
 var v1 = 0
 onready var time3 = OS.get_system_time_secs()
 func _ready():
-	print("test")
 	self.visible = true
 	rng.randomize()
 	set_process(true)
@@ -17,7 +16,7 @@ func _ready():
 	
 func _process(delta):
 	if(get_node("Menu/play").pressed):
-		get_tree().change_scene("res://scenes/GAME.tscn")
+		get_tree().change_scene("res://scenes/world-change.tscn")
 
 
 

@@ -12,7 +12,7 @@ func change_texture():
 	var my = get_global_mouse_position().y
 	if not(Input.is_key_pressed(KEY_W) or Input.is_key_pressed(KEY_S) or Input.is_key_pressed(KEY_A) or Input.is_key_pressed(KEY_D)):
 		m = 1
-	if(OS.get_system_time_msecs() - textur2 > 500 and (Input.is_key_pressed(KEY_W) or Input.is_key_pressed(KEY_S) or Input.is_key_pressed(KEY_A) or Input.is_key_pressed(KEY_D))):
+	if(OS.get_system_time_msecs() - textur2 > 250 and (Input.is_key_pressed(KEY_W) or Input.is_key_pressed(KEY_S) or Input.is_key_pressed(KEY_A) or Input.is_key_pressed(KEY_D))):
 		m += 1
 		if(m > 2):
 			m = 1

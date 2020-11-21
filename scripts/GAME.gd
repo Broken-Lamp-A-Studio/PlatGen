@@ -4,6 +4,7 @@ func _ready():
 	get_node("player").set_process(false)
 	get_node("player").set_physics_process(false)
 	get_node("world").set_process(false)
+	get_node("player/helmet-light").enabled = false
 	get_node("player").gravity_scale = 0
 	make_game()
 	get_node("world").set_process(true)
@@ -21,8 +22,8 @@ func read_file(path):
 	file.close()
 	return data
 func make_game():
-	var game_name = read_file("res://data/worldname.world")
-	var game_path = read_file("res://data/save_files.data")+"/"+game_name
+	var game_name = read_file("user://save/worldname.world")
+	var game_path = read_file("user://save/save_files.data")+"/"+game_name
 	make_dir(game_path)
 	make_dir(game_path+"/blocks")
 	make_file(game_path+"/world.world", "", "normal")

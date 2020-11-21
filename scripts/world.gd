@@ -123,9 +123,11 @@ func layer_1(x, y):
 	if(rand1 == 1 and access == true):
 		add_block("air", "", false, false, false, false, x, y)
 		
-
+var progress = 0
 var chunk_load_type = 1
 func chunk_player_gen():
+	if(get_tree().get_root().get_node("GAME/player/GUI/l").visible == false):
+		get_tree().get_root().get_node("GAME/player/GUI/l").visible2()
 	if not(get_node_or_null("%d"%(px2-200+VM_chunk_X)+"%d"%(py2-200+VM_chunk_Y))):
 		#print("Make chunk:%d"%(px2-200+VM_chunk_X)+"%d"%(py2-200+VM_chunk_Y))
 		chunk_gen(px2-200+VM_chunk_X, py2-200+VM_chunk_Y)
@@ -169,12 +171,18 @@ func chunk_player_gen():
 	if(px2 > 500):
 		py2 += 50
 		px2 = 0
+		progress += 10
+	
 	if(py2 > 500):
 		py2 = 0
+		progress = 100
 		chunk_gen_run = false
 		get_tree().get_root().get_node("GAME/player").set_process(true)
 		get_tree().get_root().get_node("GAME/player").set_physics_process(true)
 		get_tree().get_root().get_node("GAME/player").gravity_scale = 1
+		get_tree().get_root().get_node("GAME/player/GUI/l").unvisible()
+		get_tree().get_root().get_node("GAME/player/helmet-light").enabled = true
+	get_tree().get_root().get_node("GAME/player/GUI/l").change_progress("Generating world...", "set", progress)
 var VM_m_x = 0
 var VM_m_y = 0
 var block_size = 50

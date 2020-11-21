@@ -5,14 +5,12 @@ onready var time = OS.get_system_time_secs()
 
 func _ready():
 	dir.open("user://")
-	if not(dir.dir_exists("user://PlatGen")):
-		dir.make_dir("user://PlatGen")
-	if not(dir.dir_exists("user://PlatGen/logs")):
-		dir.make_dir("user://PlatGen/logs")
-	if not(dir.dir_exists("user://PlatGen/save")):
-		dir.make_dir("user://PlatGen/save")
-	if not(dir.dir_exists("user://PlatGen/user-settings")):
-		dir.make_dir("user://PlatGen/user-settings")
+	if not(dir.dir_exists("user://logs")):
+		dir.make_dir("user://logs")
+	if not(dir.dir_exists("user:///save")):
+		dir.make_dir("user:///save")
+	if not(dir.dir_exists("user://user-settings")):
+		dir.make_dir("user:///user-settings")
 	self.visible = true
 	set_process(true)
 	set_process_input(true)
