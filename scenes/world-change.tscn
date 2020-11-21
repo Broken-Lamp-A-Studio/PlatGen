@@ -1,0 +1,50 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://textures/default_buttons/start_button_2.png" type="Texture" id=1]
+[ext_resource path="res://textures/background.png" type="Texture" id=2]
+[ext_resource path="res://textures/default_buttons/start_button_1.png" type="Texture" id=3]
+[ext_resource path="res://scripts/world-change.gd" type="Script" id=4]
+[ext_resource path="res://new_dynamicfont.tres" type="DynamicFont" id=5]
+
+[node name="world-change" type="Node2D"]
+script = ExtResource( 4 )
+
+[node name="background" type="Sprite" parent="."]
+texture = ExtResource( 2 )
+
+[node name="start" type="TextureButton" parent="."]
+margin_left = -232.193
+margin_top = 51.9131
+margin_right = 267.807
+margin_bottom = 301.913
+rect_scale = Vector2( 0.2, 0.2 )
+texture_normal = ExtResource( 3 )
+texture_hover = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="text" type="Label" parent="."]
+margin_left = -225.0
+margin_top = -46.0
+margin_right = 220.0
+margin_bottom = 40.0
+custom_fonts/font = ExtResource( 5 )
+text = "World name:"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextEdit" type="TextEdit" parent="."]
+margin_left = -224.0
+margin_top = -20.0
+margin_bottom = 10.0
+custom_fonts/font = ExtResource( 5 )
+text = "Unnamed"
+highlight_current_line = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Camera2D" type="Camera2D" parent="."]
+current = true
