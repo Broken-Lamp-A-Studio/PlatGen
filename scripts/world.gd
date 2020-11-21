@@ -95,11 +95,13 @@ func add_block(name2, texture2, gui2, effects2, collision, light, x, y):
 		var obj = worldelement.instance()
 		obj.name = n
 		self.add_child(obj) #get_node("%d"%chunk)
-		get_node(n).setup(n2, n, texture2, gui2, effects2, collision, light, x, y)
 		get_node(n).game_path = game_path
+		get_node(n).setup(n2, n, texture2, gui2, effects2, collision, light, x, y)
+		
 	else:
-		get_node(n).setup(n2, n, texture2, gui2, effects2, collision, light, x, y)
 		get_node(n).game_path = game_path
+		get_node(n).setup(n2, n, texture2, gui2, effects2, collision, light, x, y)
+		
 func layer_0(x, y): #layer of blocks, in tests
 	var texture_type = round(rng.randf_range(0, 3))
 	add_block(block_names[texture_type], block_list[texture_type], false, false, true, false, x, y)
@@ -119,7 +121,7 @@ func layer_1(x, y):
 	if(get_node_or_null("%d"%x+"%d"%(y-50))):
 		if(get_node_or_null("%d"%x+"%d"%(y-50)).node == "air"):
 			access = true
-	var rand1 = round(rng.randf_range(0, 2))
+	var rand1 = round(rng.randf_range(0, 1))
 	if(rand1 == 1 and access == true):
 		add_block("air", "", false, false, false, false, x, y)
 		
@@ -168,10 +170,11 @@ func chunk_player_gen():
 	if not(get_node_or_null("%d"%(px2-200+VM_chunk_X-chunk_size*2)+"%d"%(py2-200+VM_chunk_Y-chunk_size*2))):
 		chunk_gen(px2-200+VM_chunk_X-chunk_size*2, py2-200+VM_chunk_Y-chunk_size*2)
 	px2 += 50
+	progress += 0.8
 	if(px2 > 500):
 		py2 += 50
 		px2 = 0
-		progress += 10
+		
 	
 	if(py2 > 500):
 		py2 = 0

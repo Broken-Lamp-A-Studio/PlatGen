@@ -44,12 +44,14 @@ func _ready():
 	get_node("animation").visible = true
 	get_node("logo").visible = true
 	self.visible = true
+	get_node("Light2D").enabled = true
 	set_process(true)
 
 func unvisible():
 	get_node("loading").visible = false
 	get_node("animation").visible = false
 	get_node("logo").visible = false
+	get_node("Light2D").enabled = false
 	progress = 0
 	unvisible_all = 1
 onready var time1 = OS.get_system_time_msecs()
@@ -68,4 +70,5 @@ func visible2():
 	get_node("logo").visible = true
 	get_node("background").modulate.a = 1
 	self.visible = true
+	get_node("Light2D").enabled = true
 	set_process(true)

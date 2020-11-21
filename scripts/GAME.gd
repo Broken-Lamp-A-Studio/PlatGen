@@ -14,7 +14,6 @@ func viewport_info(data):
 
 func _process(delta):
 	viewport_info("%d"%get_node("player").position.x+"\n%d"%get_node("player").position.y+"\n%d"%get_node("world").VM_m_x+"\n%d"%get_node("world").VM_m_y)
-	
 func read_file(path):
 	var file = File.new()
 	file.open(path, File.READ)
@@ -49,3 +48,8 @@ func make_file(path, data, type):
 		var json_data = parse_json(data)
 		file.store_line(to_json(json_data))
 	file.close()
+#func area_sync():
+#	get_node("touch").position.x = get_node("player").position.x
+#	get_node("touch").position.y = get_node("player").position.y+50
+
+
