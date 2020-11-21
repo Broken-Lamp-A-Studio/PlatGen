@@ -10,7 +10,7 @@ func create_inv_and_show(name2, configuration):
 		var l = 0
 		while not(l == configuration.size()):
 			l += 1
-			if(configuration[l].obj == "clear"):
+			if(configuration[l].clear == true):
 				new_inv.name = name2
 				self.remove_child(new_inv)
 				self.add_child(new_inv)
@@ -22,7 +22,8 @@ func create_inv_and_show(name2, configuration):
 			#	get_node(name2+"/"+configuration[l].name).position = configuration[l].pos
 			#	get_node(name2+"/"+configuration[l].name).scale = configuration[l].scale
 			elif(configuration[l].obj == "addscene"):
-				var ni2 = (configuration[l].path).instance()
+				var n = load(configuration[l].path)
+				var ni2 = n.instance()
 				ni2.name = configuration[l].name
 				get_child(name2).add_child(ni2)
 		get_node(name2).visible = true
@@ -31,6 +32,6 @@ func create_inv_and_show(name2, configuration):
 	
 func main_inv():
 	if(Input.is_key_pressed(KEY_E)):
-		create_inv_and_show("inv_mm", {{"obj":"clear"}:{"obj":"addscene", "path":"", "name":"inv_mm"}})
+		create_inv_and_show("inv_mm", {{"clear":false}:{"obj":"addscene", "path":"", "name":"inv_mm"}})
 func _process(delta):
 	pass

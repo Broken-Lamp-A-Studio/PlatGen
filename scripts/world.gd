@@ -43,19 +43,6 @@ var chunk_size = 500
 var chunk_gen_run = true
 var view_x = 0
 var view_y = 0
-var VM_player_X = 0
-var VM_player_Y = 0
-func VM_player():
-	var px = get_tree().get_root().get_node("GAME/player").position.x
-	var py = get_tree().get_root().get_node("GAME/player").position.y
-	if(px - VM_player_X> 50):
-		VM_player_X += 50
-	elif(px - VM_player_X < -50):
-		VM_player_X -= 50
-	if(py - VM_player_Y> 50):
-		VM_player_X += 50
-	elif(py - VM_player_Y < -50):
-		VM_player_X -= 50
 var px7 = 0
 var py7 = 0
 func smart_rend(direction):
@@ -71,10 +58,11 @@ func _ready():
 	rng.randomize()
 onready var time5 = OS.get_system_time_secs()
 func _process(delta):
-	VM_chunk_sync()
+	#VM_chunk_sync()
 	viewport_changed()
-	if(chunk_gen_run == true):
-		chunk_player_gen()
+	VM_micro_chunk()
+	#if(chunk_gen_run == true):
+	#	chunk_player_gen()
 func VM_chunk_sync():
 	var px = get_tree().get_root().get_node("GAME/player").position.x
 	var py = get_tree().get_root().get_node("GAME/player").position.y
@@ -114,8 +102,9 @@ func layer_0(x, y): #layer of blocks, in tests
 	var texture_type = round(rng.randf_range(0, 3))
 	add_block(block_names[texture_type], block_list[texture_type], false, false, true, false, x, y)
 func chunk_gen(x, y):
-	layer_0(x, y)
-	layer_1(x, y)
+	if not(get_node_or_null("%d"%x+"%d"%y)):
+		layer_0(x, y)
+		layer_1(x, y)
 var active_mapgen = []
 func layer_1(x, y):
 	var access = false
@@ -157,7 +146,7 @@ func chunk_player_gen():
 		chunk_gen(px2-200+VM_chunk_X, py2-200+VM_chunk_Y-chunk_size)
 	if not(get_node_or_null("%d"%(px2-200+VM_chunk_X-chunk_size)+"%d"%(py2-200+VM_chunk_Y-chunk_size))):
 		chunk_gen(px2-200+VM_chunk_X-chunk_size, py2-200+VM_chunk_Y-chunk_size)
-	
+
 	if not(get_node_or_null("%d"%(px2-200+VM_chunk_X+chunk_size*2)+"%d"%(py2-200+VM_chunk_Y+chunk_size*2))):
 		chunk_gen(px2-200+VM_chunk_X+chunk_size*2, py2-200+VM_chunk_Y+chunk_size*2)
 	if not(get_node_or_null("%d"%(px2-200+VM_chunk_X-chunk_size*2)+"%d"%(py2-200+VM_chunk_Y+chunk_size*2))):
@@ -181,3 +170,70 @@ func chunk_player_gen():
 	if(py2 > 500):
 		py2 = 0
 		chunk_gen_run = false
+var VM_m_x = 0
+var VM_m_y = 0
+var block_size = 50
+var time_of_return = 0
+var ttt = ""
+func VM_micro_chunk():
+	var px = get_tree().get_root().get_node("GAME/player").position.x
+	var py = get_tree().get_root().get_node("GAME/player").position.y
+	if(px > VM_m_x+block_size/2):
+		VM_m_x += block_size
+		load_2_chunk("+x")
+	if(px < VM_m_x-block_size/2):
+		VM_m_x -= block_size
+		load_2_chunk("-x")
+	if(py > VM_m_y+block_size/2):
+		VM_m_y += block_size
+		load_2_chunk("+y")
+	if(py < VM_m_y-block_size/2):
+		VM_m_y -= block_size
+		load_2_chunk("-y")
+var x2 = 0
+var y2 = 0
+var t2 = ""
+var t3 = 0
+var t4 = 0
+func load_2_chunk(direction):
+	ttt = direction
+	t3 = rng.randf_range(-9999, 9999)
+	if(direction == "+x" or direction == "-x"):
+		time_of_return = round(get_viewport_rect().size.y/50)
+	if(direction == "+y" or direction == "-y"):
+		time_of_return = round(get_viewport_rect().size.x/50)
+	while not(time_of_return == 0):
+			time_of_return -= 1
+			if(ttt == "+x"):
+				if(ttt != t2 or t3 != t4):
+					t2 = ttt
+					t4 = t3
+					y2 = VM_m_y
+				y2 += 50
+				#print("+X: %d"%(VM_m_x+50*round(get_viewport_rect().size.x/50))+"-!-%d"%(y2-50*round(get_viewport_rect().size.y/50)))
+				chunk_gen(VM_m_x+(50*round(get_viewport_rect().size.x/2/50)), y2-(50*round(get_viewport_rect().size.y/2/50)))
+			if(ttt == "-x"):
+				if(ttt != t2 or t3 != t4):
+					t2 = ttt
+					t4 = t3
+					y2 = VM_m_y
+				y2 += 50
+				#print("-X: %d"%(VM_m_x-50*round(get_viewport_rect().size.x/50))+"-!-%d"%(y2-50*round(get_viewport_rect().size.y/50)))
+				chunk_gen(VM_m_x-(50*round(get_viewport_rect().size.x/2/50)), y2-(50*round(get_viewport_rect().size.y/2/50)))
+			if(ttt == "+y"):
+				if(ttt != t2 or t3 != t4):
+					t2 = ttt
+					t4 = t3
+					x2 = VM_m_x
+				x2 += 50
+				#print("+Y: %d"%(x2-50*round(get_viewport_rect().size.x/50))+"-!-%d"%(VM_m_y+50*round(get_viewport_rect().size.y/50)))
+				chunk_gen(x2-(50*round(get_viewport_rect().size.x/2/50)), VM_m_y+(50*round(get_viewport_rect().size.y/2/50)))
+			if(ttt == "-y"):
+				if(ttt != t2 or t3 != t4):
+					t2 = ttt
+					t4 = t3
+					x2 = VM_m_x
+				x2 += 50
+				#print("-Y: %d"%(x2-50*round(get_viewport_rect().size.x/50))+"-!-%d"%(VM_m_y-50*round(get_viewport_rect().size.y/50)))
+				chunk_gen(x2-(50*round(get_viewport_rect().size.x/2/50)), VM_m_y-(50*round(get_viewport_rect().size.y/2/50)))
+	ttt = ""

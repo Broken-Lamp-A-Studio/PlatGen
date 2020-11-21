@@ -24,32 +24,35 @@ contact_monitor = true
 
 [node name="inv" parent="player" instance=ExtResource( 5 )]
 
-[node name="GUI" type="Control" parent="."]
+[node name="GUI" type="Control" parent="player"]
 margin_right = 40.0
 margin_bottom = 40.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Info" type="Control" parent="GUI"]
+[node name="Info" type="Control" parent="player/GUI"]
 margin_right = 40.0
 margin_bottom = 40.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="player-info" type="Label" parent="GUI/Info"]
+[node name="player-info" type="Label" parent="player/GUI/Info"]
 margin_left = -140.0
 margin_top = -93.0
 margin_right = 214.0
 margin_bottom = 99.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
-[node name="version" type="Label" parent="GUI/Info"]
+[node name="version" type="Label" parent="player/GUI/Info"]
 margin_left = 332.0
 margin_top = 280.0
 margin_right = 502.0
 margin_bottom = 294.0
-text = "PlatGen v.0.1 SNAPSHOT"
+text = "PlatGen v.0.2 SNAPSHOT"
 __meta__ = {
 "_edit_use_anchors_": false
 }

@@ -56,11 +56,11 @@ func setup(name2, node2, texture2, gui2, effects2, collsion, light, x2, y2):
 	else:
 		get_node("CollisionShape2D").disabled = false
 func visible2():
-	var range_x = self.position.x+get_viewport_rect().size.x/2+30
-	var range_y = self.position.y+get_viewport_rect().size.y/2+30
+	var range_x = self.position.x+get_viewport_rect().size.x/2+50*5
+	var range_y = self.position.y+get_viewport_rect().size.y/2+50*5
 	var x = get_tree().get_root().get_node("GAME/player").position.x
 	var y = get_tree().get_root().get_node("GAME/player").position.y
-	if not(y < range_y and y > range_y-(get_viewport_rect().size.y/2+30)*2 and x < range_x and x > range_x-(get_viewport_rect().size.x/2+30)*2):
+	if not(y < range_y and y > range_y-(get_viewport_rect().size.y/2+50*5)*2 and x < range_x and x > range_x-(get_viewport_rect().size.x/2+50*5)*2):
 		self.queue_free()
 func _process(delta):
 	visible2()
