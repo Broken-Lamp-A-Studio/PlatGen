@@ -21,6 +21,12 @@ boot_splash/image="res://boot.png"
 boot_splash/bg_color=Color( 0, 0, 0, 1 )
 config/icon="res://icon.png"
 
+[display]
+
+window/size/width=1360
+window/size/height=768
+window/size/resizable=false
+
 [layer_names]
 
 2d_render/layer_1="Main"

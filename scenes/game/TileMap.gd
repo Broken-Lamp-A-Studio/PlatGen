@@ -1,5 +1,6 @@
 extends TileMap
 
+var type = "GAME"
 var cells = self.get_used_cells()
 var multix = 0
 var multiy = 0
@@ -16,15 +17,16 @@ func _ready():
 	set_process(true)
 	
 func _physics_process(delta):
-	multix = get_tree().get_root().get_node("GAME/player").position.x
-	multiy = get_tree().get_root().get_node("GAME/player").position.y
-	if(multix - x <= -wielkoscx):
-		x -= wielkoscx
-	if(multix - x >= wielkoscx):
-		x += wielkoscx
-	if(multiy - y <= -wielkoscy):
-		y -= wielkoscy
-	if(multiy - y >= wielkoscy):
-		y += wielkoscy
-	self.position.x = x
-	self.position.y = y
+	if(type == "GAME"):
+		multix = get_tree().get_root().get_node("GAME/player").position.x
+		multiy = get_tree().get_root().get_node("GAME/player").position.y
+		if(multix - x <= -wielkoscx):
+			x -= wielkoscx
+		if(multix - x >= wielkoscx):
+			x += wielkoscx
+		if(multiy - y <= -wielkoscy):
+			y -= wielkoscy
+		if(multiy - y >= wielkoscy):
+			y += wielkoscy
+		self.position.x = x
+		self.position.y = y

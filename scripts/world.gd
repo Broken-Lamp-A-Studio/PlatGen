@@ -57,13 +57,11 @@ func _ready():
 	rng.randomize()
 onready var time5 = OS.get_system_time_secs()
 func _process(delta):
-	if(game_path != "" and chunk_gen_run == true):
+	if(chunk_gen_run == true):
 		chunk_player_gen()
 	#VM_chunk_sync()
 	viewport_changed()
 	VM_micro_chunk()
-	#if(chunk_gen_run == true):
-	#	chunk_player_gen()
 func VM_chunk_sync():
 	var px = get_tree().get_root().get_node("GAME/player").position.x
 	var py = get_tree().get_root().get_node("GAME/player").position.y
@@ -100,7 +98,7 @@ func add_block(name2, texture2, gui2, effects2, collision, light, x, y):
 		
 	else:
 		get_node(n).game_path = game_path
-		get_node(n).setup(n2, n, texture2, gui2, effects2, collision, light, x, y)
+		get_node(n).replace_it(n2, n, texture2, gui2, effects2, collision, light, x, y)
 		
 func layer_0(x, y): #layer of blocks, in tests
 	var texture_type = round(rng.randf_range(0, 3))
@@ -128,8 +126,8 @@ func layer_1(x, y):
 var progress = 0
 var chunk_load_type = 1
 func chunk_player_gen():
-	if(get_tree().get_root().get_node("GAME/player/GUI/l").visible == false):
-		get_tree().get_root().get_node("GAME/player/GUI/l").visible2()
+	if(get_tree().get_root().get_node("GAME/player/l").visible == false):
+		get_tree().get_root().get_node("GAME/player/l").visible2()
 	if not(get_node_or_null("%d"%(px2-200+VM_chunk_X)+"%d"%(py2-200+VM_chunk_Y))):
 		#print("Make chunk:%d"%(px2-200+VM_chunk_X)+"%d"%(py2-200+VM_chunk_Y))
 		chunk_gen(px2-200+VM_chunk_X, py2-200+VM_chunk_Y)
@@ -183,9 +181,9 @@ func chunk_player_gen():
 		get_tree().get_root().get_node("GAME/player").set_process(true)
 		get_tree().get_root().get_node("GAME/player").set_physics_process(true)
 		get_tree().get_root().get_node("GAME/player").gravity_scale = 1
-		get_tree().get_root().get_node("GAME/player/GUI/l").unvisible()
+		get_tree().get_root().get_node("GAME/player/l").unvisible()
 		get_tree().get_root().get_node("GAME/player/helmet-light").enabled = true
-	get_tree().get_root().get_node("GAME/player/GUI/l").change_progress("Generating world...", "set", progress)
+	get_tree().get_root().get_node("GAME/player/l").change_progress("Generating world...", "set", progress)
 var VM_m_x = 0
 var VM_m_y = 0
 var block_size = 50

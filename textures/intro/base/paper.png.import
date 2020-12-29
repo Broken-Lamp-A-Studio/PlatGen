@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/helmet-light.png-c39b7df6f7d4eaf8278e0e3060a141f1.stex"
+path="res://.import/paper.png-9ed21b21e65518cfd607e1b9a0018553.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://textures/player/helmet-light.png"
-dest_files=[ "res://.import/helmet-light.png-c39b7df6f7d4eaf8278e0e3060a141f1.stex" ]
+source_file="res://textures/intro/base/paper.png"
+dest_files=[ "res://.import/paper.png-9ed21b21e65518cfd607e1b9a0018553.stex" ]
 
 [params]
 
