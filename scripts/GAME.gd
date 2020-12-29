@@ -8,12 +8,12 @@ func _ready():
 	get_node("player").gravity_scale = 0
 	make_game()
 	get_node("world").set_process(true)
-
-func viewport_info(data):
-	get_node("player/GUI/Info/player-info").text = data
-
+onready var time = OS.get_system_time_msecs()
 func _process(delta):
-	viewport_info("%d"%get_node("player").position.x+"\n%d"%get_node("player").position.y+"\n%d"%get_node("world").VM_m_x+"\n%d"%get_node("world").VM_m_y)
+	if(Input.is_key_pressed(KEY_F11)):
+		if(OS.get_system_time_msecs() - time > 100):
+			OS.window_fullscreen = not OS.window_fullscreen
+			time = OS.get_system_time_msecs()
 func read_file(path):
 	var file = File.new()
 	file.open(path, File.READ)

@@ -127,3 +127,44 @@ func interact_in_block():
 				save_node()
 		else:
 			get_node("texture").modulate.b = 1
+func replace_it(name2, node2, texture2, gui2, effects2, collision, light, x2, y2):
+	position.x = x2
+	position.y = y2
+	var dir = Directory.new()
+	node_data = {
+		"name2":name2,
+		"node2":node2,
+		"texture2":texture2,
+		"gui2":gui2,
+		"effects2":effects2,
+		"collision":collision,
+		"light":light,
+		"x2":x2,
+		"y2":y2
+	}
+	if(node2 != null or node2 != false or node2 != ""):
+		node = node_data.node2
+	else:
+		print("ERROR: Node doesn't have name!")
+	var px2 = get_tree().get_root().get_node("GAME/player").position.x
+	var py2 = get_tree().get_root().get_node("GAME/player").position.y
+	if(node_data.x2 < px2+200 and node_data.x2 > px2-200 and node_data.y2 < py2+200 and node_data.y2 > py2-200):
+		node_data.name2 = "air"
+		node_data.texture2 = ""
+		node_data.collision = false
+		name2 = "air"
+		get_node("texture").texture = null
+		get_node("CollisionShape2D").disabled = true
+	if(dir.file_exists(node_data.texture2)):
+		get_node("texture").texture = load(node_data.texture2)
+	else:
+		get_node("texture").visible = false
+	if(node_data.collision):
+		get_node("CollisionShape2D").disabled = true
+	else:
+		get_node("CollisionShape2D").disabled = false
+	object_scale()
+	if(node_data.node2 == "air" or node_data.texture2 == ""):
+		get_node("CollisionShape2D").disabled = true
+	else:
+		get_node("CollisionShape2D").disabled = false

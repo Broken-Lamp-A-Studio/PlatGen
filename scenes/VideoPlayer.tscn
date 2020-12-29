@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://videos/ig2.webm" type="VideoStream" id=1]
+[ext_resource path="res://textures/skip.png" type="Texture" id=2]
 [ext_resource path="res://scripts/VideoPlayer.gd" type="Script" id=3]
+[ext_resource path="res://scripts/Sprite2.gd" type="Script" id=4]
 
 [node name="VideoPlayer" type="VideoPlayer"]
 margin_right = 1036.0
@@ -16,3 +18,8 @@ __meta__ = {
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2( 511.143, 301.606 )
 current = true
+
+[node name="Sprite" type="Sprite" parent="."]
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 2 )
+script = ExtResource( 4 )
