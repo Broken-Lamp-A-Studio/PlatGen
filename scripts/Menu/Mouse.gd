@@ -37,7 +37,8 @@ func read_file(path, type):
 
 var active = true
 func _ready():
-	active = get_tree().get_root().get_node("Menu2").game_mouse
+	pass
+	#active = get_tree().get_root().get_node("Menu2").game_mouse
 onready var time = OS.get_system_time_msecs()
 func _process(delta):
 	display()

@@ -34,7 +34,8 @@ func read_file(path, type):
 	else:
 		return null
 func _ready():
-	OS.window_fullscreen = get_tree().get_root().get_node("Menu2").config.fullscreen
+	pass
+	#OS.window_fullscreen = get_tree().get_root().get_node("Menu2").config.fullscreen
 onready var time = OS.get_system_time_msecs()
 
 func _process(delta):
