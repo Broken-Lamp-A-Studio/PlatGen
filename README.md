@@ -30,9 +30,6 @@
 ## Control
  - W/S/A/D to move.
  - Space/W to jump.
- 
-## Used elements
- - Torch Fire /PlatGen/master/scenes/torch.tscn: by Pixel Man - https://www.youtube.com/channel/UCtjoe_Bd6igN7XiYBYYyACw | vid: https://www.youtube.com/watch?v=tJ-SMxCA8sM
 
 ## Project Copyright
 **Copyright © 2021 GamePlayer**
