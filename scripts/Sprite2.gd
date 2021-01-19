@@ -3,8 +3,8 @@ extends Sprite
 var type = 0
 onready var time = OS.get_system_time_msecs()
 func viewport_sync():
-	position.y = get_viewport_rect().size.y-120
-	position.x = get_viewport_rect().size.x-310
+	position.y = get_viewport_rect().size.y-self.texture.get_size().y
+	position.x = get_viewport_rect().size.x-self.texture.get_size().x/1.2
 func _ready():
 	vframes = 10
 	set_process(true)

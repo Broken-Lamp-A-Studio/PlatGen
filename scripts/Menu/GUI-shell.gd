@@ -10,6 +10,7 @@ func _process(delta):
 func animationstart():
 	if(OS.get_system_time_msecs() - time > 50):
 		self.modulate.a += 0.05
+		
 		time = OS.get_system_time_msecs()
 		if(self.modulate.a >= 1):
 			sa = false

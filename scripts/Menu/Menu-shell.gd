@@ -17,9 +17,10 @@ func enable_light():
 	get_node("Background/objects/torch_on_1").visible = true
 onready var time = OS.get_system_time_msecs()
 func _process(delta):
-	if(OS.get_system_time_msecs() - time > 500):
-		make_file("user://config.data", config, "json")
-		time = OS.get_system_time_msecs()
+	pass
+	#if(OS.get_system_time_msecs() - time > 500):
+	#	make_file("user://config.data", config, "json")
+	#	time = OS.get_system_time_msecs()
 func _ready():
 	var dir = Directory.new()
 	if not(dir.file_exists("user://config.data")):
@@ -37,8 +38,8 @@ func _ready():
 			"mod_path":null,
 			"game_mouse":true,
 		}
-		make_file("user://config.data", json_data, "json")
-	config = read_file("user://config.data", "json")
+		#make_file("user://config.data", json_data, "json")
+	#config = read_file("user://config.data", "json")
 func execute_quit():
 	get_tree().quit()
 func read_dir(path):
