@@ -1,9 +1,8 @@
 # PlatGen
 
 ## Repository data
-Roadmap of the project:
- - [Roadmap on github](https://github.com/Broken-Lamp-A-Studio/PlatGen/projects/1)
- 
+Roadmap of the project: [Link](https://github.com/Broken-Lamp-A-Studio/PlatGen/projects/1)
+
 ## Setup
 
 ### Modding
