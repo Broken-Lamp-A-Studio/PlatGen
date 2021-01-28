@@ -2,7 +2,7 @@
 
 ## Repository data
 Roadmap of the project:
- - [Roadmap on github](github/Project.md)
+ - [Roadmap on github](https://github.com/Broken-Lamp-A-Studio/PlatGen/projects/1)
  
 ## Setup
 
