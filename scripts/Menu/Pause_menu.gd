@@ -45,9 +45,9 @@ func _process(_delta):
 	pos()
 	if($Panel/Resume.pressed):
 		animation = -1
-		#get_tree().get_root().get_node("GAME").game_play()
+		get_tree().get_root().get_node("GAME").game_play()
 	if(Input.is_key_pressed(KEY_ESCAPE) and OS.get_system_time_msecs() - time2 > 300):
-		#get_tree().get_root().get_node("GAME").game_stop()
+		get_tree().get_root().get_node("GAME").game_stop()
 		animation = 1
 		time2 = OS.get_system_time_msecs()
 	if($Panel/Options.pressed):

@@ -23,9 +23,11 @@ color = Color( 0.129412, 0.129412, 0.129412, 1 )
 [node name="TileMap" parent="." instance=ExtResource( 3 )]
 
 [node name="world" type="Node2D" parent="."]
+pause_mode = 2
 script = ExtResource( 1 )
 
 [node name="player" parent="." instance=ExtResource( 2 )]
+pause_mode = 2
 collision_mask = 3
 physics_material_override = SubResource( 1 )
 contacts_reported = 4
@@ -71,4 +73,5 @@ texture = ExtResource( 9 )
 script = ExtResource( 8 )
 
 [node name="l" parent="player" instance=ExtResource( 6 )]
+pause_mode = 2
 visible = false

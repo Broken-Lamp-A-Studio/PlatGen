@@ -52,20 +52,10 @@ func make_file(path, data, type):
 var render = false
 
 func game_stop():
-	if(render == true):
-		get_tree().paused = true
-		get_node("player").set_process(false)
-		get_node("player").set_physics_process(false)
-		get_node("player").set_process_input(false)
-		get_node("world").PAUSE_MODE_PROCESS
-		get_node("player/CanvasLayer/inv").PAUSE_MODE_PROCESS
-
+	$player.get_stop()
+	$world.get_stop()
+	get_node("player/l").get_stop()
 func game_play():
-	if(render == true):
-		get_tree().paused = false
-		get_node("player").set_process(true)
-		get_node("player").set_physics_process(true)
-		get_node("player").set_process_input(true)
-		get_node("world").PAUSE_MODE_STOP
-		get_node("player/CanvasLayer/inv").PAUSE_MODE_STOP
-
+	$player.get_play()
+	$world.get_play()
+	get_node("player/l").get_play()
