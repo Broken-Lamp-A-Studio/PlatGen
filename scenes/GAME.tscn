@@ -54,7 +54,7 @@ margin_left = 332.0
 margin_top = 280.0
 margin_right = 502.0
 margin_bottom = 294.0
-text = "PlatGen v.0.3 SNAPSHOT"
+text = "PlatGen v.0.55 Pre-release"
 script = ExtResource( 7 )
 __meta__ = {
 "_edit_use_anchors_": false
