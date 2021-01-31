@@ -74,3 +74,6 @@ func _on_player_body_entered(body):
 func _on_player_body_exited(body):
 	entered_body -= 1
 	print("End of touching:"+body.name)
+
+func get_stop():
+	self.pause_mode = true

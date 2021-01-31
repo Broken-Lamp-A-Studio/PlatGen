@@ -5,11 +5,11 @@ var sx = 0
 var sy = 0
 onready var time = OS.get_system_time_msecs()
 func _ready():
-	position.x = sx
-	position.y = sx
+	position.x = sx+500
+	position.y = sx+200
 var v1 = 0
 var v2 = 0
-var v3 = false
+var v3 = true
 func animationstart():
 	if(OS.get_system_time_msecs() - time > 1):
 		position.x += 5

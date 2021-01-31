@@ -1,0 +1,79 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://scripts/Menu/Singleplayer.gd" type="Script" id=1]
+[ext_resource path="res://textures/theme/main.tres" type="Theme" id=2]
+
+[node name="Singleplayer" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 2 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="."]
+margin_left = 191.881
+margin_top = 128.52
+margin_right = 1162.88
+margin_bottom = 655.52
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Start" type="Button" parent="Panel"]
+margin_left = 801.438
+margin_top = 435.515
+margin_right = 949.438
+margin_bottom = 506.515
+text = "Start"
+
+[node name="Delete" type="Button" parent="Panel"]
+margin_left = 637.513
+margin_top = 435.515
+margin_right = 785.513
+margin_bottom = 506.515
+text = "Delete"
+
+[node name="Back" type="Button" parent="Panel"]
+margin_left = 32.119
+margin_top = 447.48
+margin_right = 105.119
+margin_bottom = 495.48
+text = "Back"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="World-name" type="LineEdit" parent="Panel"]
+margin_left = 144.566
+margin_top = 133.0
+margin_right = 597.566
+margin_bottom = 170.0
+text = "Unnamed"
+
+[node name="WN" type="Label" parent="Panel/World-name"]
+margin_left = -101.0
+margin_top = 10.0
+margin_right = -5.0
+margin_bottom = 29.0
+text = "World name:"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Worlds" type="Label" parent="Panel"]
+margin_left = 842.578
+margin_top = 23.5451
+margin_right = 901.578
+margin_bottom = 42.5451
+text = "Worlds:"
+
+[node name="ItemList" type="ItemList" parent="Panel"]
+margin_left = 801.0
+margin_top = 67.0
+margin_right = 949.0
+margin_bottom = 356.0
+allow_reselect = true
+auto_height = true
+[connection signal="item_selected" from="Panel/ItemList" to="." method="_on_ItemList_item_selected"]
