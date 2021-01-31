@@ -251,3 +251,13 @@ func load_2_chunk(direction):
 				#print("-Y: %d"%(x2-50*round(get_viewport_rect().size.x/50))+"-!-%d"%(VM_m_y-50*round(get_viewport_rect().size.y/50)))
 				chunk_gen(x2-(50*round(get_viewport_rect().size.x/2/50)), VM_m_y-(50*round(get_viewport_rect().size.y/2/50)))
 	ttt = ""
+
+func get_stop():
+	set_process(false)
+	set_process_input(false)
+	set_physics_process(false)
+
+func get_play():
+	set_process(true)
+	set_process_input(true)
+	set_physics_process(true)

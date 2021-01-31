@@ -27,20 +27,20 @@ region_rect = Rect2( 0, 0, 500, 250 )
 texture = ExtResource( 6 )
 region_rect = Rect2( 0, 0, 500, 250 )
 
-[sub_resource type="StyleBoxEmpty" id=10]
+[sub_resource type="StyleBoxEmpty" id=6]
 
-[sub_resource type="StyleBoxEmpty" id=11]
-
-[sub_resource type="StyleBoxFlat" id=6]
-bg_color = Color( 0.164706, 0.301961, 0.32549, 0.521569 )
-
-[sub_resource type="StyleBoxFlat" id=7]
-bg_color = Color( 0, 0.203922, 0.215686, 0.47451 )
+[sub_resource type="StyleBoxEmpty" id=7]
 
 [sub_resource type="StyleBoxFlat" id=8]
-bg_color = Color( 0.0823529, 0.0823529, 0.0823529, 0.498039 )
+bg_color = Color( 0.164706, 0.301961, 0.32549, 0.521569 )
 
 [sub_resource type="StyleBoxFlat" id=9]
+bg_color = Color( 0, 0.203922, 0.215686, 0.47451 )
+
+[sub_resource type="StyleBoxFlat" id=10]
+bg_color = Color( 0.0823529, 0.0823529, 0.0823529, 0.498039 )
+
+[sub_resource type="StyleBoxFlat" id=11]
 bg_color = Color( 0, 0.0823529, 0.0784314, 0.47451 )
 
 [resource]
@@ -194,8 +194,8 @@ ItemList/constants/icon_margin = 4
 ItemList/constants/line_separation = 2
 ItemList/constants/vseparation = 2
 ItemList/fonts/font = null
-ItemList/styles/bg = SubResource( 10 )
-ItemList/styles/bg_focus = SubResource( 11 )
+ItemList/styles/bg = SubResource( 6 )
+ItemList/styles/bg_focus = SubResource( 7 )
 ItemList/styles/cursor = null
 ItemList/styles/cursor_unfocused = null
 ItemList/styles/selected = null
@@ -219,9 +219,9 @@ LineEdit/colors/selection_color = Color( 0.258824, 0.54902, 0, 1 )
 LineEdit/constants/minimum_spaces = 12
 LineEdit/fonts/font = null
 LineEdit/icons/clear = null
-LineEdit/styles/focus = SubResource( 6 )
-LineEdit/styles/normal = SubResource( 7 )
-LineEdit/styles/read_only = SubResource( 8 )
+LineEdit/styles/focus = SubResource( 8 )
+LineEdit/styles/normal = SubResource( 9 )
+LineEdit/styles/read_only = SubResource( 10 )
 LinkButton/colors/font_color = Color( 0, 0, 0, 1 )
 LinkButton/colors/font_color_hover = Color( 0, 0, 0, 1 )
 LinkButton/colors/font_color_pressed = Color( 0, 0, 0, 1 )
@@ -256,7 +256,7 @@ OptionButton/styles/focus = null
 OptionButton/styles/hover = null
 OptionButton/styles/normal = null
 OptionButton/styles/pressed = null
-Panel/styles/panel = SubResource( 9 )
+Panel/styles/panel = SubResource( 11 )
 PanelContainer/styles/panel = null
 PopupDialog/styles/panel = null
 PopupMenu/colors/font_color = Color( 0, 0, 0, 1 )
