@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://scripts/world.gd" type="Script" id=1]
 [ext_resource path="res://scenes/player.tscn" type="PackedScene" id=2]
@@ -7,6 +7,10 @@
 [ext_resource path="res://scenes/inv/inv.tscn" type="PackedScene" id=5]
 [ext_resource path="res://scenes/loading-world-screen.tscn" type="PackedScene" id=6]
 [ext_resource path="res://scripts/version.gd" type="Script" id=7]
+[ext_resource path="res://scripts/mouse.gd" type="Script" id=8]
+[ext_resource path="res://textures/mouse.png" type="Texture" id=9]
+[ext_resource path="res://scenes/menu/Options.tscn" type="PackedScene" id=10]
+[ext_resource path="res://scenes/menu/Pause_menu.tscn" type="PackedScene" id=11]
 
 [sub_resource type="PhysicsMaterial" id=1]
 
@@ -27,21 +31,23 @@ physics_material_override = SubResource( 1 )
 contacts_reported = 4
 contact_monitor = true
 
-[node name="GUI" type="Control" parent="player"]
+[node name="CanvasLayer" type="CanvasLayer" parent="player"]
+
+[node name="GUI" type="Control" parent="player/CanvasLayer"]
 margin_right = 40.0
 margin_bottom = 40.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Info" type="Control" parent="player/GUI"]
+[node name="Info" type="Control" parent="player/CanvasLayer/GUI"]
 margin_right = 40.0
 margin_bottom = 40.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="version" type="Label" parent="player/GUI/Info"]
+[node name="version" type="Label" parent="player/CanvasLayer/GUI/Info"]
 margin_left = 332.0
 margin_top = 280.0
 margin_right = 502.0
@@ -52,7 +58,17 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="inv" parent="player" instance=ExtResource( 5 )]
+[node name="Pause_menu" parent="player/CanvasLayer/GUI" instance=ExtResource( 11 )]
+
+[node name="Options" parent="player/CanvasLayer/GUI" instance=ExtResource( 10 )]
+visible = false
+
+[node name="inv" parent="player/CanvasLayer" instance=ExtResource( 5 )]
+
+[node name="mouse" type="Sprite" parent="player/CanvasLayer"]
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 9 )
+script = ExtResource( 8 )
 
 [node name="l" parent="player" instance=ExtResource( 6 )]
 visible = false

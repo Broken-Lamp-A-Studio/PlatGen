@@ -62,6 +62,7 @@ func anim2():
 		else:
 			self.visible = false
 			unvisible_all = 2
+			get_tree().get_root().get_node("GAME").render = true
 		time1 = OS.get_system_time_msecs()
 func visible2():
 	unvisible_all = 0

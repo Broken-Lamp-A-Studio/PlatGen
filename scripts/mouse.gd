@@ -1,14 +1,9 @@
 extends Sprite
 
 
-func go_to_mouse():
-	position.x = get_global_mouse_position().x
-	position.y = get_global_mouse_position().y
+func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
-func _process(delta):
-	if(get_tree().get_root().get_node("Menu2/Camera2D/GUI/options/Mouse").active == true):
-		go_to_mouse()
-		self.visible = true
-	else:
-		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-		self.visible = false
+
+func _process(_delta):
+	position.x = get_global_mouse_position().x+texture.get_size().x*scale.x-15
+	position.y = get_global_mouse_position().y+12#-texture.get_size().y*scale.y

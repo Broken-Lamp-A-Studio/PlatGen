@@ -48,8 +48,24 @@ func make_file(path, data, type):
 		var json_data = parse_json(data)
 		file.store_line(to_json(json_data))
 	file.close()
-#func area_sync():
-#	get_node("touch").position.x = get_node("player").position.x
-#	get_node("touch").position.y = get_node("player").position.y+50
 
+var render = false
+
+func game_stop():
+	if(render == true):
+		get_tree().paused = true
+		get_node("player").set_process(false)
+		get_node("player").set_physics_process(false)
+		get_node("player").set_process_input(false)
+		get_node("world").PAUSE_MODE_PROCESS
+		get_node("player/CanvasLayer/inv").PAUSE_MODE_PROCESS
+
+func game_play():
+	if(render == true):
+		get_tree().paused = false
+		get_node("player").set_process(true)
+		get_node("player").set_physics_process(true)
+		get_node("player").set_process_input(true)
+		get_node("world").PAUSE_MODE_STOP
+		get_node("player/CanvasLayer/inv").PAUSE_MODE_STOP
 

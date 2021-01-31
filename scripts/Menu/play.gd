@@ -1,7 +1,6 @@
-extends TextureButton
+extends Button
 
 
-func viewport_sync():
-	rect_position.x = get_viewport_rect().size.x/5
-func _process(delta):
-	viewport_sync()
+func _process(_delta):
+	if(self.pressed):
+		get_tree().change_scene("res://scenes/GAME.tscn")
