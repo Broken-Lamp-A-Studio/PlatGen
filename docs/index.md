@@ -39,7 +39,7 @@ Roadmap of the project: [Link](https://github.com/Broken-Lamp-A-Studio/PlatGen/p
 
 ### Discord
  PlatGen Discord server it's not very maintained and full of people because the server is little known.
- - Discord invite: https://discord.gg/4Qg3xet
+ - Discord invite: [https://discord.gg/4Qg3xet](url)
 
 ### Itch
  Actually doesn't exist.
@@ -49,4 +49,3 @@ Roadmap of the project: [Link](https://github.com/Broken-Lamp-A-Studio/PlatGen/p
 
 # Repository Copyright
 **Copyright © 2020-2021 GamePlayer**
-
