@@ -1,5 +1,6 @@
 extends StaticBody2D
 
+var occluder = false
 var node = ""
 var gui = false
 var node_data = {}
@@ -18,8 +19,8 @@ func object_scale():
 		var scal2 = get_node("texture").texture.get_size()
 		get_node("CollisionShape2D").shape.extents.x = scal2.x/2
 		get_node("CollisionShape2D").shape.extents.y = scal2.y/2
-		get_node("LightOccluder2D").scale.x = scal2.x/2
-		get_node("LightOccluder2D").scale.y = scal2.y/2
+		if(occluder == true):
+			get_node("light").get_scale2(scal2.x*10, scal2.y*10)
 func setup(name2, node2, texture2, gui2, effects2, collision, light, x2, y2):
 	position.x = x2
 	position.y = y2
@@ -70,6 +71,7 @@ func setup(name2, node2, texture2, gui2, effects2, collision, light, x2, y2):
 		get_node("CollisionShape2D").disabled = true
 	else:
 		get_node("CollisionShape2D").disabled = false
+		add_ocluder()
 func visible2():
 	var range_x = self.position.x+get_viewport_rect().size.x/2+50*5
 	var range_y = self.position.y+get_viewport_rect().size.y/2+50*5
@@ -78,10 +80,11 @@ func visible2():
 	if not(y < range_y and y > range_y-(get_viewport_rect().size.y/2+50*5)*2 and x < range_x and x > range_x-(get_viewport_rect().size.x/2+50*5)*2):
 		save_node()
 		self.queue_free()
-func _process(delta):
+func _process(_delta):
 	visible2()
 	gui_move()
 	interact_in_block()
+	occluder_process()
 	replace_self("near", 0, -50, "air", "dirt_with_grass", "dirt", 1)
 func replace_self(type, nodeposx, nodeposy, input, input2, output, waittime):
 	if(type == "near"):
@@ -122,6 +125,7 @@ func interact_in_block():
 				node_data.name2 = "air"
 				node_data.texture2 = ""
 				node_data.collision = false
+				remove_ocluder()
 				get_node("CollisionShape2D").disabled = true
 				get_node("texture").texture = null
 				save_node()
@@ -168,3 +172,16 @@ func replace_it(name2, node2, texture2, gui2, effects2, collision, light, x2, y2
 		get_node("CollisionShape2D").disabled = true
 	else:
 		get_node("CollisionShape2D").disabled = false
+
+func add_ocluder():
+	var init = load("res://scenes/lightoccluder.tscn").instance()
+	self.add_child(init)
+	occluder = true
+
+func remove_ocluder():
+	if(get_node_or_null("light")):
+		get_node_or_null("light").queue_free()
+
+func occluder_process():
+	pass
+	#print(node_data)

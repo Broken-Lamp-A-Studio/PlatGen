@@ -13,7 +13,7 @@ func random_pos():
 	position.x = rng.randf_range(-vx, vx)+cx
 	position.y = rng.randf_range(-vy, vy)+cy
 var type = 0
-func _process(delta):
+func _process(_delta):
 	if(OS.get_system_time_msecs() - time > round(rng.randf_range(50, 500)) and type == 0):
 		self.energy = 0
 		self.visible = false

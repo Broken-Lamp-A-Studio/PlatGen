@@ -1,16 +1,9 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://textures/design/torch/smoke.tres" type="Material" id=1]
 [ext_resource path="res://textures/design/torch/main-fire.tres" type="Material" id=2]
 [ext_resource path="res://textures/design/torch/dark-smoke.tres" type="Material" id=3]
 [ext_resource path="res://textures/design/torch/glow.tres" type="Material" id=4]
-
-[sub_resource type="Environment" id=1]
-background_mode = 4
-glow_enabled = true
-glow_intensity = 0.15
-glow_strength = 0.97
-glow_blend_mode = 0
 
 [node name="torch" type="Node2D"]
 
@@ -34,6 +27,3 @@ amount = 55
 speed_scale = 0.3
 visibility_rect = Rect2( -10, -10, 20, 20 )
 process_material = ExtResource( 2 )
-
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource( 1 )

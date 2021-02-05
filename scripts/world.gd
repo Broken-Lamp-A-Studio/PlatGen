@@ -56,7 +56,7 @@ func viewport_changed():
 func _ready():
 	rng.randomize()
 onready var time5 = OS.get_system_time_secs()
-func _process(delta):
+func _process(_delta):
 	if(chunk_gen_run == true):
 		chunk_player_gen()
 	#VM_chunk_sync()
@@ -103,6 +103,7 @@ func add_block(name2, texture2, gui2, effects2, collision, light, x, y):
 func layer_0(x, y): #layer of blocks, in tests
 	var texture_type = round(rng.randf_range(0, 3))
 	add_block(block_names[texture_type], block_list[texture_type], false, false, true, false, x, y)
+# warning-ignore:function_conflicts_variable
 func chunk_gen(x, y):
 	if not(get_node_or_null("%d"%x+"%d"%y)):
 		layer_0(x, y)
@@ -126,8 +127,8 @@ func layer_1(x, y):
 var progress = 0
 var chunk_load_type = 1
 func chunk_player_gen():
-	if(get_tree().get_root().get_node("GAME/player/l").visible == false):
-		get_tree().get_root().get_node("GAME/player/l").visible2()
+	if(get_tree().get_root().get_node("GAME/l").visible == false):
+		get_tree().get_root().get_node("GAME/l").visible2()
 	if not(get_node_or_null("%d"%(px2-200+VM_chunk_X)+"%d"%(py2-200+VM_chunk_Y))):
 		#print("Make chunk:%d"%(px2-200+VM_chunk_X)+"%d"%(py2-200+VM_chunk_Y))
 		chunk_gen(px2-200+VM_chunk_X, py2-200+VM_chunk_Y)
@@ -181,9 +182,9 @@ func chunk_player_gen():
 		get_tree().get_root().get_node("GAME/player").set_process(true)
 		get_tree().get_root().get_node("GAME/player").set_physics_process(true)
 		get_tree().get_root().get_node("GAME/player").gravity_scale = 1
-		get_tree().get_root().get_node("GAME/player/l").unvisible()
+		get_tree().get_root().get_node("GAME/l").unvisible()
 		get_tree().get_root().get_node("GAME/player/helmet-light").enabled = true
-	get_tree().get_root().get_node("GAME/player/l").change_progress("Generating world...", "set", progress)
+	get_tree().get_root().get_node("GAME/l").change_progress("Generating world...", "set", progress)
 var VM_m_x = 0
 var VM_m_y = 0
 var block_size = 50

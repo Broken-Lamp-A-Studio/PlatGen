@@ -9,7 +9,7 @@ func _ready():
 	make_game()
 	get_node("world").set_process(true)
 onready var time = OS.get_system_time_msecs()
-func _process(delta):
+func _process(_delta):
 	if(Input.is_key_pressed(KEY_F11)):
 		if(OS.get_system_time_msecs() - time > 100):
 			OS.window_fullscreen = not OS.window_fullscreen
@@ -54,8 +54,8 @@ var render = false
 func game_stop():
 	$player.get_stop()
 	$world.get_stop()
-	get_node("player/l").get_stop()
+	get_node("l").get_stop()
 func game_play():
 	$player.get_play()
 	$world.get_play()
-	get_node("player/l").get_play()
+	get_node("l").get_play()

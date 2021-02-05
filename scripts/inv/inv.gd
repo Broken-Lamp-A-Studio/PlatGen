@@ -33,5 +33,5 @@ func create_inv_and_show(name2, configuration):
 func main_inv():
 	if(Input.is_key_pressed(KEY_E)):
 		create_inv_and_show("inv_mm", {{"clear":false}:{"obj":"addscene", "path":"", "name":"inv_mm"}})
-func _process(delta):
+func _process(_delta):
 	pass

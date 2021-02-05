@@ -30,15 +30,14 @@ texture = ExtResource( 2 )
 position = Vector2( -0.785583, -70.0371 )
 scale = Vector2( 0.6, 0.6 )
 
-[node name="helmet-light" type="Light2D" parent="."]
-position = Vector2( -1, -50.9406 )
-scale = Vector2( 1, 0.3 )
-texture = ExtResource( 4 )
-mode = 2
-range_height = 440.4
-shadow_gradient_length = 396.4
-
 [node name="Camera2D" type="Camera2D" parent="."]
 current = true
+
+[node name="helmet-light" type="Light2D" parent="."]
+position = Vector2( 0, -50 )
+scale = Vector2( 1, 0.5 )
+texture = ExtResource( 4 )
+shadow_enabled = true
+shadow_gradient_length = 1.2
 [connection signal="body_entered" from="." to="." method="_on_player_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_player_body_exited"]

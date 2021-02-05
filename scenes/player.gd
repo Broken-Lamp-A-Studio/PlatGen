@@ -67,14 +67,16 @@ func move_body():
 	else:
 		jump_access = false
 
+# warning-ignore:unused_argument
 func _on_player_body_entered(body):
 	entered_body += 1
-	print("Touching:"+body.name)
+	#print("Touching:"+body.name)
 
 
+# warning-ignore:unused_argument
 func _on_player_body_exited(body):
 	entered_body -= 1
-	print("End of touching:"+body.name)
+	#print("End of touching:"+body.name)
 
 func get_stop():
 	set_process(false)

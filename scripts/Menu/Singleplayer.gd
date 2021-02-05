@@ -52,6 +52,8 @@ func _ready():
 		write_file("user://save/worldsx.var", "var", [])
 	list = read_file("user://save/worldsx.var", "var")
 	var tick = 0
+	print("Menu opened.")
+	print("Available worlds:")
 	print(list)
 	while not(tick == list.size()):
 		
@@ -116,11 +118,12 @@ func _process(_delta):
 		write_file("user://save/worldname.world", "", get_node("Panel/World-name").text)
 		if not(list.has(get_node("Panel/World-name").text)):
 			list += [get_node("Panel/World-name").text]
-			print(list)
+			#print(list)
 			write_file("user://save/worldsx.var", "var", list)
 			time2 = OS.get_system_time_msecs()
 		if(OS.get_system_time_msecs() - time > 50):
-			get_tree().change_scene("res://scenes/GAME.tscn")
+# warning-ignore:return_value_discarded
+			get_tree().change_scene("res://scenes/intro/intro.tscn")
 
 func check_dir(path):
 	var dir = Directory.new()

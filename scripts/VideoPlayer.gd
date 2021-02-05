@@ -34,7 +34,7 @@ func _ready():
 	set_process(true)
 	set_process_input(true)
 var s2 = 0
-func _process(delta):
+func _process(_delta):
 	size = stream_position
 	if(s2 < size):
 		s2 += 1
@@ -46,4 +46,5 @@ func _process(delta):
 			print("Countdown canceled...")
 		print("Running game!")
 		#self.visible = false
+# warning-ignore:return_value_discarded
 		get_tree().change_scene("res://scenes/Menu2.tscn")

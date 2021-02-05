@@ -54,6 +54,7 @@ func _process(_delta):
 		get_menu("Options")
 		animation = -1
 	if($Panel/savequit.pressed):
+# warning-ignore:return_value_discarded
 		get_tree().change_scene("res://scenes/Menu2.tscn")
 
 func pos():

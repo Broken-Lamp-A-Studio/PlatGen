@@ -17,6 +17,6 @@ func animationstart():
 		if(v1 > 100):
 			v3 = true
 		time = OS.get_system_time_msecs()
-func _process(delta):
+func _process(_delta):
 	if(v3 == false):
 		animationstart()

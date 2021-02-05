@@ -13,6 +13,6 @@ func animation():
 		if(self.modulate.a <= 0):
 			self.visible = false
 			self.modulate.a = 1
-func _process(delta):
+func _process(_delta):
 	if(self.visible == true):
 		animation()

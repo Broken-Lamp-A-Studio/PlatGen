@@ -15,7 +15,7 @@ func animation():
 var progress = 0
 func loading():
 	get_node("loading/loading").position.x = -1000+progress*10
-func _process(delta):
+func _process(_delta):
 	if(unvisible_all == 0):
 		animation()
 		loading()
