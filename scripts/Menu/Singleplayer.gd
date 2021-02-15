@@ -123,7 +123,7 @@ func _process(_delta):
 			time2 = OS.get_system_time_msecs()
 		if(OS.get_system_time_msecs() - time > 50):
 # warning-ignore:return_value_discarded
-			get_tree().change_scene("res://scenes/intro/intro.tscn")
+			get_tree().change_scene("res://scenes/GAME.tscn")
 
 func check_dir(path):
 	var dir = Directory.new()
