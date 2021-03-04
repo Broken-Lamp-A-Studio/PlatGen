@@ -17,9 +17,11 @@ func animation():
 				self.modulate.a += 0.1
 				vframes -= 1
 			elif(vframes > 3):
+# warning-ignore:narrowing_conversion
 				vframes -= 0.5
 				self.modulate.a += 0.05
 			elif(vframes > 1):
+# warning-ignore:narrowing_conversion
 				vframes -= 0.1
 				self.modulate.a += 0.01
 			elif(vframes == 1):
@@ -36,6 +38,6 @@ func animation():
 	if(OS.get_system_time_msecs() - time > 2000 and type != 3):
 		type = 2
 		time = OS.get_system_time_msecs()
-func _process(delta):
+func _process(_delta):
 	viewport_sync()
 	animation()

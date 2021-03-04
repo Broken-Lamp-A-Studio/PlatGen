@@ -15,7 +15,7 @@ func animation():
 var progress = 0
 func loading():
 	get_node("loading/loading").position.x = -1000+progress*10
-func _process(delta):
+func _process(_delta):
 	if(unvisible_all == 0):
 		animation()
 		loading()
@@ -23,12 +23,14 @@ func _process(delta):
 		anim2()
 	elif(unvisible_all == 2):
 		set_process(false)
+		
 onready var t_time = OS.get_system_time_msecs()
 func test():
 	if(OS.get_system_time_msecs() - t_time > 100):
 		progress += 1
 		if(progress == 100):
 			progress = 0
+			
 		t_time = OS.get_system_time_msecs()
 func change_progress(information, type, progress2):
 	get_node("loading/information").text = information
@@ -62,6 +64,7 @@ func anim2():
 		else:
 			self.visible = false
 			unvisible_all = 2
+			
 		time1 = OS.get_system_time_msecs()
 func visible2():
 	unvisible_all = 0
@@ -72,3 +75,13 @@ func visible2():
 	self.visible = true
 	get_node("Light2D").enabled = true
 	set_process(true)
+
+func get_stop():
+	set_process(false)
+	set_process_input(false)
+	set_physics_process(false)
+
+func get_play():
+	set_process(true)
+	set_process_input(true)
+	set_physics_process(true)

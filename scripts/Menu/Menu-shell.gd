@@ -16,30 +16,11 @@ func enable_light():
 	get_node("effects/Light2D4").enabled = true
 	get_node("Background/objects/torch_on_1").visible = true
 onready var time = OS.get_system_time_msecs()
-func _process(delta):
+func _process(_delta):
 	pass
 	#if(OS.get_system_time_msecs() - time > 500):
 	#	make_file("user://config.data", config, "json")
 	#	time = OS.get_system_time_msecs()
-func _ready():
-	var dir = Directory.new()
-	if not(dir.file_exists("user://config.data")):
-		var json_data = {
-			"save_game_path":"user://save",
-			"fullscreen":false,
-			"viewport_x_size":get_viewport_rect().size.x,
-			"viewport_y_size":get_viewport_rect().size.y,
-			"sound_all":100,
-			"music_all":100,
-			"effects_all":100,
-			"inv_effects_all":100,
-			"gui_scale":100,
-			"language":"English",
-			"mod_path":null,
-			"game_mouse":true,
-		}
-		#make_file("user://config.data", json_data, "json")
-	#config = read_file("user://config.data", "json")
 func execute_quit():
 	get_tree().quit()
 func read_dir(path):

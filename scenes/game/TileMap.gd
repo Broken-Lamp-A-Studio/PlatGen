@@ -16,7 +16,7 @@ func _ready():
 	self.position.y = y
 	set_process(true)
 	
-func _physics_process(delta):
+func _physics_process(_delta):
 	if(type == "GAME"):
 		multix = get_tree().get_root().get_node("GAME/player").position.x
 		multiy = get_tree().get_root().get_node("GAME/player").position.y

@@ -9,7 +9,7 @@ func _ready():
 	make_game()
 	get_node("world").set_process(true)
 onready var time = OS.get_system_time_msecs()
-func _process(delta):
+func _process(_delta):
 	if(Input.is_key_pressed(KEY_F11)):
 		if(OS.get_system_time_msecs() - time > 100):
 			OS.window_fullscreen = not OS.window_fullscreen
@@ -48,8 +48,14 @@ func make_file(path, data, type):
 		var json_data = parse_json(data)
 		file.store_line(to_json(json_data))
 	file.close()
-#func area_sync():
-#	get_node("touch").position.x = get_node("player").position.x
-#	get_node("touch").position.y = get_node("player").position.y+50
 
+var render = false
 
+func game_stop():
+	$player.get_stop()
+	$world.get_stop()
+	get_node("l").get_stop()
+func game_play():
+	$player.get_play()
+	$world.get_play()
+	get_node("l").get_play()

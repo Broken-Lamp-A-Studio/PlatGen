@@ -27,11 +27,12 @@ func change_texture():
 			get_node("Sprite").texture = load("res://textures/player/left-%d"%m+".png")
 		elif(my<position.y):
 			get_node("Sprite").texture = load("res://textures/player/left-%d"%(m+2)+".png")
-func _physics_process(delta):
+func _physics_process(_delta):
 	change_texture()
 	#if(OS.get_system_time_secs() - time > 5):
 	move_body()
 	light()
+	#print("W")
 func light():
 	get_node("helmet-light").rotation = 3.15+(get_global_mouse_position() - self.position).angle()
 var jump_sys = false
@@ -66,11 +67,23 @@ func move_body():
 	else:
 		jump_access = false
 
+# warning-ignore:unused_argument
 func _on_player_body_entered(body):
 	entered_body += 1
-	print("Touching:"+body.name)
+	#print("Touching:"+body.name)
 
 
+# warning-ignore:unused_argument
 func _on_player_body_exited(body):
 	entered_body -= 1
-	print("End of touching:"+body.name)
+	#print("End of touching:"+body.name)
+
+func get_stop():
+	set_process(false)
+	set_process_input(false)
+	set_physics_process(false)
+
+func get_play():
+	set_process(true)
+	set_process_input(true)
+	set_physics_process(true)
