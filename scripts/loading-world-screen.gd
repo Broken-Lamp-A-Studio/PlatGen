@@ -22,6 +22,7 @@ func _process(_delta):
 	elif(unvisible_all == 1):
 		anim2()
 	elif(unvisible_all == 2):
+		
 		set_process(false)
 		
 onready var t_time = OS.get_system_time_msecs()
@@ -30,6 +31,7 @@ func test():
 		progress += 1
 		if(progress == 100):
 			progress = 0
+			
 			
 		t_time = OS.get_system_time_msecs()
 func change_progress(information, type, progress2):
@@ -56,6 +58,8 @@ func unvisible():
 	get_node("Light2D").enabled = false
 	progress = 0
 	unvisible_all = 1
+	get_tree().get_root().get_node("GAME/player/CanvasLayer/inv").active = true
+	#print(get_tree().get_root().get_node("GAME/player/CanvasLayer/inv").active)
 onready var time1 = OS.get_system_time_msecs()
 func anim2():
 	if(OS.get_system_time_msecs() - time1 > 50):

@@ -1,16 +1,26 @@
-extends Node2D
+extends Control
 
-var node = ""
-var count = 0
-var in_use = false
+var active = false
+var cursor = ""
 
-func in_use2():
-	if(count == 0):
-		in_use = false
-		self.visible = false
-	elif(count != 0):
-		get_node("texture").texture = load("res://textures/inv/txt/"+node+".png")
-		get_node("Label").text = "%d"%count
-	position = get_global_mouse_position()
-func _process(_delta):
-	in_use2()
+func _ready():
+	$main/ItemList.setup(200, 0, 250, 230)
+
+func _input(event):
+	if(active == true and event.is_action_pressed("inv_open")):
+		print($main/ItemList.items)
+		self.visible = not self.visible
+
+
+func get_stop():
+	set_process(false)
+	set_process_input(false)
+	set_physics_process(false)
+
+func get_play():
+	set_process(true)
+	set_process_input(true)
+	set_physics_process(true)
+
+func add_item(name2, texture):
+	$main/ItemList.add_item(name2, load(texture))

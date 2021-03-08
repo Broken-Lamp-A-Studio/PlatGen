@@ -119,9 +119,11 @@ func interact_in_block():
 	var px = get_tree().get_root().get_node("GAME/player").position.x
 	var py = get_tree().get_root().get_node("GAME/player").position.y
 	if(px > position.x-300 and px < position.x+300 and py > position.y-300 and py < position.y+300):
-		if(mx > position.x-25 and mx < position.x+25 and my > position.y-25 and my < position.y+25):
+		if(mx > position.x-25 and mx < position.x+25 and my > position.y-25 and my < position.y+25 and get_tree().get_root().get_node("GAME/player/CanvasLayer/inv").visible == false):
 			get_node("texture").modulate.b = 0
 			if(Input.is_mouse_button_pressed(BUTTON_LEFT)):
+				if not(node_data.name2 == "air"):
+					get_tree().get_root().get_node("GAME/player/CanvasLayer/inv").add_item(node_data.name2, node_data.texture2)
 				node_data.name2 = "air"
 				node_data.texture2 = ""
 				node_data.collision = false
@@ -129,6 +131,7 @@ func interact_in_block():
 				get_node("CollisionShape2D").disabled = true
 				get_node("texture").texture = null
 				save_node()
+				
 		else:
 			get_node("texture").modulate.b = 1
 func replace_it(name2, node2, texture2, gui2, effects2, collision, light, x2, y2):

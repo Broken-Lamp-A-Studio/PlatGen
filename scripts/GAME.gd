@@ -1,5 +1,7 @@
 extends Node2D
 
+var gp = ""
+
 func _ready():
 	get_node("player").set_process(false)
 	get_node("player").set_physics_process(false)
@@ -10,6 +12,7 @@ func _ready():
 	get_node("world").set_process(true)
 onready var time = OS.get_system_time_msecs()
 func _process(_delta):
+	viewport_inv()
 	if(Input.is_key_pressed(KEY_F11)):
 		if(OS.get_system_time_msecs() - time > 100):
 			OS.window_fullscreen = not OS.window_fullscreen
@@ -55,7 +58,13 @@ func game_stop():
 	$player.get_stop()
 	$world.get_stop()
 	get_node("l").get_stop()
+	$player/CanvasLayer/inv.get_stop()
+	$player/CanvasLayer/inv.visible = false
 func game_play():
 	$player.get_play()
 	$world.get_play()
 	get_node("l").get_play()
+	$player/CanvasLayer/inv.get_play()
+func viewport_inv():
+	$player/CanvasLayer/inv.rect_position.x = get_viewport_rect().size.x/2
+	$player/CanvasLayer/inv.rect_position.y = get_viewport_rect().size.y/2

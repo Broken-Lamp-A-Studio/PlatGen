@@ -7,6 +7,7 @@ var jump_access = false
 onready var time = OS.get_system_time_secs()
 onready var time2 = OS.get_system_time_msecs()
 
+
 func change_texture():
 	var mx = get_global_mouse_position().x
 	var my = get_global_mouse_position().y
@@ -27,12 +28,13 @@ func change_texture():
 			get_node("Sprite").texture = load("res://textures/player/left-%d"%m+".png")
 		elif(my<position.y):
 			get_node("Sprite").texture = load("res://textures/player/left-%d"%(m+2)+".png")
+
+
 func _physics_process(_delta):
+
 	change_texture()
-	#if(OS.get_system_time_secs() - time > 5):
 	move_body()
 	light()
-	#print("W")
 func light():
 	get_node("helmet-light").rotation = 3.15+(get_global_mouse_position() - self.position).angle()
 var jump_sys = false
@@ -79,11 +81,11 @@ func _on_player_body_exited(body):
 	#print("End of touching:"+body.name)
 
 func get_stop():
-	set_process(false)
+	mode = RigidBody2D.MODE_STATIC
 	set_process_input(false)
 	set_physics_process(false)
 
 func get_play():
-	set_process(true)
 	set_process_input(true)
 	set_physics_process(true)
+	mode = RigidBody2D.MODE_CHARACTER

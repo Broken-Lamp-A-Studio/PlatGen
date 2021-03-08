@@ -1,10 +1,10 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://scripts/world.gd" type="Script" id=1]
 [ext_resource path="res://scenes/player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scenes/TileMap.tscn" type="PackedScene" id=3]
 [ext_resource path="res://scripts/GAME.gd" type="Script" id=4]
-[ext_resource path="res://scenes/inv/inv.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scenes/inv/inv-m-main.tscn" type="PackedScene" id=5]
 [ext_resource path="res://scenes/loading-world-screen.tscn" type="PackedScene" id=6]
 [ext_resource path="res://scripts/version.gd" type="Script" id=7]
 [ext_resource path="res://scripts/mouse.gd" type="Script" id=8]
@@ -12,6 +12,8 @@
 [ext_resource path="res://scenes/menu/Options.tscn" type="PackedScene" id=10]
 [ext_resource path="res://scenes/menu/Pause_menu.tscn" type="PackedScene" id=11]
 [ext_resource path="res://textures/theme/world_env.tres" type="Environment" id=12]
+[ext_resource path="res://scripts/Music.gd" type="Script" id=13]
+[ext_resource path="res://sounds/soundtracks/full/soundtrack-22.ogg" type="AudioStream" id=14]
 
 [node name="GAME" type="Node2D"]
 script = ExtResource( 4 )
@@ -20,7 +22,7 @@ script = ExtResource( 4 )
 environment = ExtResource( 12 )
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
-color = Color( 0, 0, 0, 1 )
+color = Color( 0.152941, 0.152941, 0.152941, 1 )
 
 [node name="TileMap" parent="." instance=ExtResource( 3 )]
 
@@ -68,12 +70,26 @@ __meta__ = {
 visible = false
 
 [node name="inv" parent="player/CanvasLayer" instance=ExtResource( 5 )]
+visible = false
 
 [node name="mouse" type="Sprite" parent="player/CanvasLayer"]
 scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 9 )
 script = ExtResource( 8 )
 
+[node name="Label" type="Label" parent="player/CanvasLayer/mouse"]
+margin_right = 40.0
+margin_bottom = 14.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="l" parent="." instance=ExtResource( 6 )]
 pause_mode = 2
 visible = false
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 14 )
+volume_db = -15.0
+autoplay = true
+script = ExtResource( 13 )
