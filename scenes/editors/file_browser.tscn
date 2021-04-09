@@ -1,0 +1,29 @@
+[gd_scene format=2]
+
+[node name="file_browser" type="Node2D"]
+
+[node name="theme" type="Control" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="background" type="Panel" parent="theme"]
+margin_left = -300.0
+margin_top = -200.0
+margin_right = 300.0
+margin_bottom = 200.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button" type="Button" parent="theme"]
+margin_left = 189.0
+margin_top = 150.0
+margin_right = 280.0
+margin_bottom = 184.0
+text = "Cancel"
+__meta__ = {
+"_edit_use_anchors_": false
+}

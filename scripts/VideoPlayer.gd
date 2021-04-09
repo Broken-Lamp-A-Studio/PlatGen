@@ -10,6 +10,7 @@ var dir = Directory.new()
 onready var time = OS.get_system_time_secs()
 var size
 func _ready():
+	
 	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 	print("===OS informations===")
 	print("OS:"+OS.get_name())
