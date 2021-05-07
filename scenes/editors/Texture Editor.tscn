@@ -1,0 +1,258 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://scripts/editors/Texture Editor.gd" type="Script" id=1]
+
+[node name="Texture Editor" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = -1024.0
+margin_bottom = -385.0
+mouse_default_cursor_shape = 2
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="texturelist" type="WindowDialog" parent="."]
+margin_right = 336.0
+margin_bottom = 432.0
+window_title = "Texture Editor"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="nt" type="Button" parent="texturelist"]
+margin_left = 8.0
+margin_top = 8.0
+margin_right = 328.0
+margin_bottom = 48.0
+rect_pivot_offset = Vector2( 168, 320 )
+text = "New Texture"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="et" type="Button" parent="texturelist"]
+margin_left = 8.0
+margin_top = 336.0
+margin_right = 328.0
+margin_bottom = 376.0
+rect_pivot_offset = Vector2( 168, 320 )
+text = "Edit selected texture"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="rt" type="Button" parent="texturelist"]
+margin_left = 8.0
+margin_top = 384.0
+margin_right = 328.0
+margin_bottom = 424.0
+rect_pivot_offset = Vector2( 168, 320 )
+text = "Remove texture"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="textures" type="ItemList" parent="texturelist"]
+margin_left = 8.0
+margin_top = 56.0
+margin_right = 328.0
+margin_bottom = 328.0
+allow_reselect = true
+allow_rmb_select = true
+auto_height = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="newtexture" type="WindowDialog" parent="."]
+margin_right = 336.0
+margin_bottom = 128.0
+window_title = "New Texture"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="newtexture"]
+margin_left = 8.0
+margin_top = 16.0
+margin_right = 50.0
+margin_bottom = 30.0
+text = "Name:"
+
+[node name="name" type="LineEdit" parent="newtexture"]
+margin_left = 56.0
+margin_top = 8.0
+margin_right = 320.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="path" type="Label" parent="newtexture"]
+margin_left = 8.0
+margin_top = 48.0
+margin_right = 48.0
+margin_bottom = 62.0
+text = "Path:"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="select_path" type="Button" parent="newtexture"]
+margin_left = 8.0
+margin_top = 80.0
+margin_right = 168.0
+margin_bottom = 120.0
+text = "Select Path"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="create" type="Button" parent="newtexture"]
+margin_left = 176.0
+margin_top = 80.0
+margin_right = 328.0
+margin_bottom = 120.0
+text = "Create"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="edittexture" type="WindowDialog" parent="."]
+margin_right = 336.0
+margin_bottom = 448.0
+window_title = "Edit Texture"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="edittexture"]
+margin_left = 8.0
+margin_top = 8.0
+margin_right = 328.0
+margin_bottom = 192.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="edittexture"]
+margin_left = 8.0
+margin_top = 8.0
+margin_right = 328.0
+margin_bottom = 192.0
+expand = true
+stretch_mode = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="1" type="Line2D" parent="edittexture/TextureRect"]
+points = PoolVector2Array( 12.6379, 11.3011 )
+width = 1.0
+default_color = Color( 1, 0, 0, 1 )
+end_cap_mode = 2
+
+[node name="Offset X" type="Label" parent="edittexture"]
+margin_left = 8.0
+margin_top = 224.0
+margin_right = 63.0
+margin_bottom = 238.0
+text = "Offset X:"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="slider" type="HSlider" parent="edittexture/Offset X"]
+margin_top = 8.0
+margin_right = 320.0
+margin_bottom = 40.0
+min_value = 1.0
+step = 1.0
+value = 50.0
+tick_count = 100
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Offset Y" type="Label" parent="edittexture"]
+margin_left = 8.0
+margin_top = 256.0
+margin_right = 63.0
+margin_bottom = 270.0
+text = "Offset Y:"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="slider" type="HSlider" parent="edittexture/Offset Y"]
+margin_top = 8.0
+margin_right = 320.0
+margin_bottom = 40.0
+min_value = 1.0
+value = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Offset W" type="Label" parent="edittexture"]
+margin_left = 8.0
+margin_top = 288.0
+margin_right = 68.0
+margin_bottom = 302.0
+text = "Offset W:"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="slider" type="HSlider" parent="edittexture/Offset W"]
+margin_top = 8.0
+margin_right = 320.0
+margin_bottom = 40.0
+min_value = 1.0
+value = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Offset H" type="Label" parent="edittexture"]
+margin_left = 8.0
+margin_top = 320.0
+margin_right = 68.0
+margin_bottom = 334.0
+text = "Offset H:"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="slider" type="HSlider" parent="edittexture/Offset H"]
+margin_top = 8.0
+margin_right = 320.0
+margin_bottom = 40.0
+min_value = 1.0
+value = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="FileDialog" type="FileDialog" parent="."]
+margin_right = 576.0
+margin_bottom = 384.0
+popup_exclusive = true
+window_title = "Otwórz plik"
+mode = 0
+access = 2
+current_dir = "/home/gameplayer/Dokumenty/godot-workspace/games/PlatGen/PlatGen"
+current_path = "/home/gameplayer/Dokumenty/godot-workspace/games/PlatGen/PlatGen/"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="pressed" from="texturelist/nt" to="." method="_on_nt_pressed"]
+[connection signal="pressed" from="texturelist/et" to="." method="_on_et_pressed"]
+[connection signal="pressed" from="texturelist/rt" to="." method="_on_rt_pressed"]
+[connection signal="item_selected" from="texturelist/textures" to="." method="_on_textures_item_selected"]
+[connection signal="pressed" from="newtexture/select_path" to="." method="_on_select_path_pressed"]
+[connection signal="pressed" from="newtexture/create" to="." method="_on_create_pressed"]
+[connection signal="popup_hide" from="edittexture" to="." method="_on_edittexture_popup_hide"]
+[connection signal="file_selected" from="FileDialog" to="." method="_on_FileDialog_file_selected"]

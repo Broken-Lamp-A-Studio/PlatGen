@@ -5,9 +5,8 @@ var modlist = []
 var modscripts = []
 
 func load_mod(path):
-	var info = load(path+"/config.tres")
-	modlist += [info]
-	load_script(path+"/"+info.main)
+	var mod = rdfile(path, "var")
+	
 
 func load_script(path):
 	var data = GDScript.new()
@@ -20,3 +19,22 @@ func load_script(path):
 
 func _ready():
 	load_mod("res://base")
+
+static func rdfile(path, type):
+	var data = null
+	var file = File.new()
+	var dir = Directory.new()
+	if(dir.file_exists(path)):
+		file.open(path, File.READ)
+		if(type == "json"):
+			data = parse_json(file.get_line())
+		elif(type == "table"):
+			data = [parse_json(file.get_line())]
+		elif(type == "var"):
+			data = file.get_var()
+		elif(type == "script"):
+			data = file.get_script()
+		else:
+			data = file.get_as_text()
+		file.close()
+	return data

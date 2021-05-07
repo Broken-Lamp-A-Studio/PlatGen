@@ -40,4 +40,4 @@ func get_open():
 	animation = 1
 
 func get_menu(menu):
-	get_tree().get_root().get_node("Menu2/Camera2D/CanvasLayer/GUI/"+menu).get_open()
+	get_tree().get_root().get_node("init/envoirment/Menu2/Camera2D/CanvasLayer/GUI/"+menu).get_open()

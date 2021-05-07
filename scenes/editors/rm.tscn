@@ -1,0 +1,37 @@
+[gd_scene format=2]
+
+[node name="rm" type="WindowDialog"]
+visible = true
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 98.0
+margin_top = 74.0
+margin_right = -1056.0
+margin_bottom = -583.0
+popup_exclusive = true
+window_title = "Remove node"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="background" type="Panel" parent="."]
+margin_right = 206.0
+margin_bottom = 111.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LineEdit" type="LineEdit" parent="."]
+margin_left = 13.773
+margin_top = 28.7222
+margin_right = 188.773
+margin_bottom = 56.7222
+caret_blink = true
+caret_blink_speed = 0.5
+
+[node name="ok" type="Button" parent="."]
+margin_left = 71.8375
+margin_top = 71.7188
+margin_right = 127.838
+margin_bottom = 93.7188
+text = "Ok"

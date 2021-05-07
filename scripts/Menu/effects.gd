@@ -6,8 +6,8 @@ func _ready():
 	rng.randomize()
 	self.energy = 1
 func random_pos():
-	var cx = get_tree().get_root().get_node("Menu2/Camera2D").position.x
-	var cy = get_tree().get_root().get_node("Menu2/Camera2D").position.y
+	var cx = get_tree().get_root().get_node("init/envoirment/Menu2/Camera2D").position.x
+	var cy = get_tree().get_root().get_node("init/envoirment/Menu2/Camera2D").position.y
 	var vx = get_viewport_rect().size.x/2
 	var vy = get_viewport_rect().size.y/2
 	position.x = rng.randf_range(-vx, vx)+cx

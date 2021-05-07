@@ -1,3 +1,56 @@
-[gd_scene format=2]
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://scenes/editors/UpPanel.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scripts/editors/block-editor.gd" type="Script" id=2]
+[ext_resource path="res://scenes/editors/DownPanel.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/editors/background_settings.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/editors/block_options.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scenes/editors/Texture Editor.tscn" type="PackedScene" id=6]
 
 [node name="block-editor" type="Node2D"]
+script = ExtResource( 2 )
+
+[node name="background" type="Panel" parent="."]
+modulate = Color( 0.113725, 0.745098, 0.964706, 1 )
+margin_right = 1365.0
+margin_bottom = 779.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Object" type="Node2D" parent="."]
+
+[node name="gui" type="Control" parent="."]
+margin_right = 1360.0
+margin_bottom = 768.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="UpPanel" parent="gui" instance=ExtResource( 1 )]
+
+[node name="DownPanel" parent="gui" instance=ExtResource( 3 )]
+margin_top = 753.443
+margin_bottom = 754.443
+
+[node name="block_options" parent="gui" instance=ExtResource( 5 )]
+margin_left = 20.7652
+margin_top = 164.258
+margin_right = 20.7252
+margin_bottom = 164.594
+
+[node name="background_settings" parent="gui" instance=ExtResource( 4 )]
+margin_left = 928.0
+margin_top = 58.0
+margin_right = 1296.0
+margin_bottom = 575.0
+
+[node name="Texture Editor" parent="gui" instance=ExtResource( 6 )]
+[connection signal="pressed" from="gui/UpPanel/background_settings" to="." method="_on_background_settings_pressed"]
+[connection signal="popup_hide" from="gui/Texture Editor/texturelist" to="." method="_on_texturelist_popup_hide"]
+
+[editable path="gui/UpPanel"]
+
+[editable path="gui/block_options"]
+
+[editable path="gui/Texture Editor"]

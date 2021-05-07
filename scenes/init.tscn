@@ -1,0 +1,66 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://scenes/Console Debug.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scenes/mouse2.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/VideoPlayer.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scripts/init.gd" type="Script" id=4]
+[ext_resource path="res://scenes/load_screen.tscn" type="PackedScene" id=5]
+[ext_resource path="res://videos/ig.webm" type="VideoStream" id=6]
+
+[node name="init" type="Node2D"]
+script = ExtResource( 4 )
+
+[node name="envoirment" type="ViewportContainer" parent="."]
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="main-stuff" type="CanvasLayer" parent="."]
+layer = 10
+follow_viewport_enable = true
+
+[node name="CenterContainer" type="CenterContainer" parent="main-stuff"]
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="load_screen" parent="main-stuff/CenterContainer" instance=ExtResource( 5 )]
+visible = false
+
+[node name="VideoPlayer" parent="main-stuff/CenterContainer" instance=ExtResource( 3 )]
+margin_left = 20.0
+margin_top = 20.0
+margin_right = 20.0
+margin_bottom = 20.0
+stream = ExtResource( 6 )
+
+[node name="Console Debug" parent="main-stuff/CenterContainer" instance=ExtResource( 1 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 20.0
+margin_top = 20.0
+margin_right = 20.0
+margin_bottom = 20.0
+
+[node name="selectscene" type="FileDialog" parent="main-stuff/CenterContainer/Console Debug"]
+margin_left = 436.0
+margin_top = 246.0
+margin_right = 952.0
+margin_bottom = 592.0
+rect_min_size = Vector2( 150, 52.5 )
+popup_exclusive = true
+window_title = "Otwórz plik"
+dialog_text = "Select a scene:"
+mode = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="mouse2" parent="main-stuff" instance=ExtResource( 2 )]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+current = true
+
+[connection signal="file_selected" from="main-stuff/CenterContainer/Console Debug/selectscene" to="main-stuff/CenterContainer/Console Debug" method="_on_selectscene_file_selected"]

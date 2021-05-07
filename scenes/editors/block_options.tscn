@@ -1,0 +1,91 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://scripts/editors/block_options.gd" type="Script" id=1]
+[ext_resource path="res://textures/theme/fonts/editor-3-font.tres" type="DynamicFont" id=2]
+
+[node name="block_options" type="Control"]
+anchor_top = 0.082
+anchor_right = 0.139
+anchor_bottom = 0.48
+margin_top = 0.0239983
+margin_right = -0.0400238
+margin_bottom = 0.359985
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="background" type="Panel" parent="."]
+margin_right = 189.0
+margin_bottom = 306.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="."]
+margin_left = 37.0
+margin_top = 22.0
+margin_right = 146.0
+margin_bottom = 41.0
+custom_fonts/font = ExtResource( 2 )
+text = "Block Options"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="te" type="CheckButton" parent="."]
+margin_left = 7.09039
+margin_top = 49.6129
+margin_right = 176.09
+margin_bottom = 89.6129
+text = "Texture Editor"
+align = 1
+
+[node name="ce" type="CheckButton" parent="."]
+margin_left = 7.09039
+margin_top = 89.6129
+margin_right = 183.09
+margin_bottom = 129.613
+text = "Collision Editor"
+align = 1
+
+[node name="pe" type="CheckButton" parent="."]
+margin_left = 7.09039
+margin_top = 131.027
+margin_right = 183.09
+margin_bottom = 171.027
+text = "Particles Editor"
+align = 1
+
+[node name="ie" type="CheckButton" parent="."]
+margin_left = 7.09039
+margin_top = 171.027
+margin_right = 183.09
+margin_bottom = 211.027
+text = "Interact Editor"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="se" type="CheckButton" parent="."]
+margin_left = 7.09039
+margin_top = 211.027
+margin_right = 183.09
+margin_bottom = 251.027
+text = "Shader Editor"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ge" type="CheckButton" parent="."]
+margin_left = 7.09039
+margin_top = 251.027
+margin_right = 183.09
+margin_bottom = 291.027
+text = "GUI Editor"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}

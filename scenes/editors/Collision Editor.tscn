@@ -1,0 +1,252 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://scripts/editors/Collision Editor.gd" type="Script" id=1]
+[ext_resource path="res://textures/theme/fonts/pixel_text_1.tres" type="DynamicFont" id=2]
+[ext_resource path="res://textures/editors/collision_editor/collision_shape.png" type="Texture" id=3]
+[ext_resource path="res://textures/editors/collision_editor/collision_lineshape.png" type="Texture" id=4]
+[ext_resource path="res://textures/editors/collision_editor/collision_circleshape.png" type="Texture" id=5]
+
+[node name="Collison Editor" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = -1024.0
+margin_bottom = -385.0
+mouse_default_cursor_shape = 2
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="collisionlist" type="WindowDialog" parent="."]
+margin_right = 336.0
+margin_bottom = 432.0
+window_title = "Collision Editor"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="nc" type="Button" parent="collisionlist"]
+margin_left = 8.0
+margin_top = 8.0
+margin_right = 328.0
+margin_bottom = 48.0
+rect_pivot_offset = Vector2( 168, 320 )
+text = "New Collision"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ec" type="Button" parent="collisionlist"]
+margin_left = 8.0
+margin_top = 336.0
+margin_right = 328.0
+margin_bottom = 376.0
+rect_pivot_offset = Vector2( 168, 320 )
+text = "Edit selected collision"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="rc" type="Button" parent="collisionlist"]
+margin_left = 8.0
+margin_top = 384.0
+margin_right = 328.0
+margin_bottom = 424.0
+rect_pivot_offset = Vector2( 168, 320 )
+text = "Remove collision"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="collisions" type="ItemList" parent="collisionlist"]
+margin_left = 8.0
+margin_top = 56.0
+margin_right = 328.0
+margin_bottom = 328.0
+allow_reselect = true
+auto_height = true
+icon_scale = 2.0
+fixed_icon_size = Vector2( 20, 20 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="editcollision" type="WindowDialog" parent="."]
+visible = true
+margin_right = 336.0
+margin_bottom = 448.0
+window_title = "Edit Collision"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="editcollision"]
+margin_left = 8.0
+margin_top = 8.0
+margin_right = 328.0
+margin_bottom = 192.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="editcollision"]
+margin_left = 8.0
+margin_top = 8.0
+margin_right = 328.0
+margin_bottom = 192.0
+expand = true
+stretch_mode = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="1" type="Line2D" parent="editcollision/TextureRect"]
+points = PoolVector2Array( 12.6379, 11.3011 )
+width = 1.0
+default_color = Color( 1, 0, 0, 1 )
+end_cap_mode = 2
+
+[node name="Offset X" type="Label" parent="editcollision"]
+margin_left = 8.0
+margin_top = 224.0
+margin_right = 63.0
+margin_bottom = 238.0
+text = "Offset X:"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="slider" type="HSlider" parent="editcollision/Offset X"]
+margin_top = 8.0
+margin_right = 320.0
+margin_bottom = 40.0
+min_value = 1.0
+value = 50.0
+tick_count = 100
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Offset Y" type="Label" parent="editcollision"]
+margin_left = 8.0
+margin_top = 256.0
+margin_right = 63.0
+margin_bottom = 270.0
+text = "Offset Y:"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="slider" type="HSlider" parent="editcollision/Offset Y"]
+margin_top = 8.0
+margin_right = 320.0
+margin_bottom = 40.0
+min_value = 1.0
+value = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Offset W" type="Label" parent="editcollision"]
+margin_left = 8.0
+margin_top = 288.0
+margin_right = 68.0
+margin_bottom = 302.0
+text = "Offset W:"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="slider" type="HSlider" parent="editcollision/Offset W"]
+margin_top = 8.0
+margin_right = 320.0
+margin_bottom = 40.0
+min_value = 1.0
+value = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Offset H" type="Label" parent="editcollision"]
+margin_left = 8.0
+margin_top = 320.0
+margin_right = 68.0
+margin_bottom = 334.0
+text = "Offset H:"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="slider" type="HSlider" parent="editcollision/Offset H"]
+margin_top = 8.0
+margin_right = 320.0
+margin_bottom = 40.0
+min_value = 1.0
+value = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="newcollision" type="WindowDialog" parent="."]
+margin_right = 336.0
+margin_bottom = 184.0
+window_title = "New Collision"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="name" type="Label" parent="newcollision"]
+margin_left = 16.0
+margin_top = 16.0
+margin_right = 96.0
+margin_bottom = 44.0
+custom_fonts/font = ExtResource( 2 )
+text = "Name:"
+
+[node name="LineEdit" type="LineEdit" parent="newcollision/name"]
+margin_left = 88.0
+margin_right = 312.0
+margin_bottom = 32.0
+
+[node name="type" type="Label" parent="newcollision"]
+margin_left = 16.0
+margin_top = 80.0
+margin_right = 96.0
+margin_bottom = 108.0
+custom_fonts/font = ExtResource( 2 )
+text = "Type:"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ItemList" type="ItemList" parent="newcollision/type"]
+margin_left = 88.0
+margin_top = -16.0
+margin_right = 312.0
+margin_bottom = 48.0
+items = [ "Rectangle Shape", ExtResource( 3 ), false, "Circle Shape", ExtResource( 5 ), false, "Line Shape", ExtResource( 4 ), false ]
+allow_reselect = true
+max_columns = 2
+same_column_width = true
+icon_mode = 0
+icon_scale = 2.0
+fixed_icon_size = Vector2( 20, 20 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="create" type="Button" parent="newcollision"]
+margin_left = 16.0
+margin_top = 136.0
+margin_right = 320.0
+margin_bottom = 168.0
+text = "Create"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="pressed" from="collisionlist/nc" to="." method="_on_nc_pressed"]
+[connection signal="pressed" from="collisionlist/rc" to="." method="_on_rc_pressed"]
+[connection signal="item_selected" from="collisionlist/collisions" to="." method="_on_collisions_item_selected"]
+[connection signal="item_selected" from="newcollision/type/ItemList" to="." method="_on_ItemList_item_selected"]
+[connection signal="pressed" from="newcollision/create" to="." method="_on_create_pressed"]

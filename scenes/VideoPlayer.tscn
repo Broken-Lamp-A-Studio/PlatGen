@@ -1,26 +1,80 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
-[ext_resource path="res://videos/ig2.webm" type="VideoStream" id=1]
+[ext_resource path="res://videos/ig.webm" type="VideoStream" id=1]
 [ext_resource path="res://textures/skip.png" type="Texture" id=2]
 [ext_resource path="res://scripts/VideoPlayer.gd" type="Script" id=3]
-[ext_resource path="res://scripts/Sprite2.gd" type="Script" id=4]
+
+[sub_resource type="Animation" id=1]
+resource_name = "Sprite_Animation_end"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:vframes")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 1, 10 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "Sprite_Animation_start"
+step = 5.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:vframes")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 10, 1 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, true ]
+}
 
 [node name="VideoPlayer" type="VideoPlayer"]
 margin_right = 1036.0
 margin_bottom = 606.0
 stream = ExtResource( 1 )
-volume_db = -80.0
+volume_db = -1.18
 autoplay = true
 script = ExtResource( 3 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2( 511.143, 301.606 )
-current = true
-
 [node name="Sprite" type="Sprite" parent="."]
 scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 2 )
-script = ExtResource( 4 )
+vframes = 10
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/Sprite_Animation_end = SubResource( 1 )
+anims/Sprite_Animation_start = SubResource( 2 )

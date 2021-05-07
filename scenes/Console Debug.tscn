@@ -1,0 +1,88 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://scripts/Console Debug.gd" type="Script" id=1]
+
+[node name="Console Debug" type="Control"]
+anchor_right = 0.321
+anchor_bottom = 0.374
+margin_right = -0.560028
+margin_bottom = -0.231995
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="WindowDialog" type="WindowDialog" parent="."]
+visible = true
+margin_right = 436.0
+margin_bottom = 287.0
+popup_exclusive = true
+window_title = "Console Debug - Press F1 to open"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="background" type="Panel" parent="WindowDialog"]
+margin_right = 436.0
+margin_bottom = 287.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="WindowDialog"]
+margin_left = 6.0
+margin_top = 13.0
+margin_right = 429.0
+margin_bottom = 235.0
+color = Color( 1, 1, 1, 0.0235294 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel" type="RichTextLabel" parent="WindowDialog"]
+margin_left = 6.0
+margin_top = 13.0
+margin_right = 429.0
+margin_bottom = 235.0
+bbcode_enabled = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LineEdit" type="LineEdit" parent="WindowDialog"]
+margin_left = 6.0
+margin_top = 246.0
+margin_right = 429.0
+margin_bottom = 276.0
+
+[node name="rm" type="Control" parent="WindowDialog"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 98.0
+margin_top = 74.0
+margin_right = -338.0
+margin_bottom = -213.0
+
+[node name="background" type="Panel" parent="WindowDialog/rm"]
+margin_right = 206.0
+margin_bottom = 111.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LineEdit" type="LineEdit" parent="WindowDialog/rm"]
+margin_left = 13.773
+margin_top = 28.7222
+margin_right = 188.773
+margin_bottom = 56.7222
+caret_blink = true
+caret_blink_speed = 0.5
+
+[node name="ok" type="Button" parent="WindowDialog/rm"]
+margin_left = 71.8375
+margin_top = 71.7188
+margin_right = 127.838
+margin_bottom = 93.7188
+text = "Ok"
+[connection signal="pressed" from="WindowDialog/rm/ok" to="." method="_on_ok_pressed"]
