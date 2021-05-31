@@ -9,8 +9,9 @@
 [node name="Collison Editor" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+margin_top = -8.0
 margin_right = -1024.0
-margin_bottom = -385.0
+margin_bottom = -456.0
 mouse_default_cursor_shape = 2
 script = ExtResource( 1 )
 __meta__ = {
@@ -73,119 +74,251 @@ __meta__ = {
 
 [node name="editcollision" type="WindowDialog" parent="."]
 visible = true
-margin_right = 336.0
-margin_bottom = 448.0
+margin_right = 640.0
+margin_bottom = 376.0
 window_title = "Edit Collision"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Panel" type="Panel" parent="editcollision"]
+[node name="Size X" type="Label" parent="editcollision"]
 margin_left = 8.0
-margin_top = 8.0
-margin_right = 328.0
-margin_bottom = 192.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="TextureRect" type="TextureRect" parent="editcollision"]
-margin_left = 8.0
-margin_top = 8.0
-margin_right = 328.0
-margin_bottom = 192.0
-expand = true
-stretch_mode = 3
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="1" type="Line2D" parent="editcollision/TextureRect"]
-points = PoolVector2Array( 12.6379, 11.3011 )
-width = 1.0
-default_color = Color( 1, 0, 0, 1 )
-end_cap_mode = 2
-
-[node name="Offset X" type="Label" parent="editcollision"]
-margin_left = 8.0
-margin_top = 224.0
+margin_top = 16.0
 margin_right = 63.0
-margin_bottom = 238.0
-text = "Offset X:"
+margin_bottom = 30.0
+text = "Size X (for rectangle):"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="slider" type="HSlider" parent="editcollision/Offset X"]
+[node name="slider" type="HSlider" parent="editcollision/Size X"]
 margin_top = 8.0
 margin_right = 320.0
 margin_bottom = 40.0
 min_value = 1.0
-value = 50.0
-tick_count = 100
+max_value = 200.0
+value = 1.0
+tick_count = 200
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Offset Y" type="Label" parent="editcollision"]
+[node name="Size Y" type="Label" parent="editcollision"]
+margin_left = 8.0
+margin_top = 56.0
+margin_right = 63.0
+margin_bottom = 70.0
+text = "Size Y (for rectangle):"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="slider" type="HSlider" parent="editcollision/Size Y"]
+margin_top = 8.0
+margin_right = 320.0
+margin_bottom = 40.0
+min_value = 1.0
+max_value = 200.0
+value = 1.0
+tick_count = 200
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Size R" type="Label" parent="editcollision"]
+margin_left = 8.0
+margin_top = 96.0
+margin_right = 68.0
+margin_bottom = 110.0
+text = "Size R (for circle):"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="slider" type="HSlider" parent="editcollision/Size R"]
+margin_top = 8.0
+margin_right = 320.0
+margin_bottom = 40.0
+min_value = 1.0
+max_value = 200.0
+value = 1.0
+tick_count = 200
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Pos X1" type="Label" parent="editcollision"]
+margin_left = 8.0
+margin_top = 136.0
+margin_right = 166.0
+margin_bottom = 150.0
+text = "Position nr. 1 X (for line):"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="slider" type="HSlider" parent="editcollision/Pos X1"]
+margin_top = 8.0
+margin_right = 320.0
+margin_bottom = 40.0
+min_value = 1.0
+max_value = 200.0
+value = 1.0
+tick_count = 200
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Pos Y1" type="Label" parent="editcollision"]
+margin_left = 8.0
+margin_top = 176.0
+margin_right = 166.0
+margin_bottom = 190.0
+text = "Position nr. 1 Y (for line):"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="slider" type="HSlider" parent="editcollision/Pos Y1"]
+margin_top = 8.0
+margin_right = 320.0
+margin_bottom = 40.0
+min_value = 1.0
+max_value = 200.0
+value = 1.0
+tick_count = 200
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Pos X2" type="Label" parent="editcollision"]
+margin_left = 8.0
+margin_top = 216.0
+margin_right = 166.0
+margin_bottom = 230.0
+text = "Position nr. 2 X (for line):"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="slider" type="HSlider" parent="editcollision/Pos X2"]
+margin_top = 8.0
+margin_right = 320.0
+margin_bottom = 40.0
+min_value = 1.0
+max_value = 200.0
+value = 1.0
+tick_count = 200
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Pos Y2" type="Label" parent="editcollision"]
 margin_left = 8.0
 margin_top = 256.0
-margin_right = 63.0
+margin_right = 166.0
 margin_bottom = 270.0
-text = "Offset Y:"
+text = "Position nr. 2 Y (for line):"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="slider" type="HSlider" parent="editcollision/Offset Y"]
+[node name="slider" type="HSlider" parent="editcollision/Pos Y2"]
 margin_top = 8.0
 margin_right = 320.0
 margin_bottom = 40.0
 min_value = 1.0
+max_value = 200.0
 value = 1.0
+tick_count = 200
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Offset W" type="Label" parent="editcollision"]
+[node name="Position X" type="Label" parent="editcollision"]
 margin_left = 8.0
-margin_top = 288.0
-margin_right = 68.0
-margin_bottom = 302.0
-text = "Offset W:"
+margin_top = 296.0
+margin_right = 166.0
+margin_bottom = 310.0
+text = "Position X:"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="slider" type="HSlider" parent="editcollision/Offset W"]
+[node name="slider" type="HSlider" parent="editcollision/Position X"]
 margin_top = 8.0
 margin_right = 320.0
 margin_bottom = 40.0
-min_value = 1.0
-value = 1.0
+min_value = -100.0
+tick_count = 200
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Offset H" type="Label" parent="editcollision"]
+[node name="Position Y" type="Label" parent="editcollision"]
 margin_left = 8.0
-margin_top = 320.0
-margin_right = 68.0
-margin_bottom = 334.0
-text = "Offset H:"
+margin_top = 336.0
+margin_right = 166.0
+margin_bottom = 350.0
+text = "Position Y:"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="slider" type="HSlider" parent="editcollision/Offset H"]
+[node name="slider" type="HSlider" parent="editcollision/Position Y"]
 margin_top = 8.0
 margin_right = 320.0
 margin_bottom = 40.0
-min_value = 1.0
-value = 1.0
+min_value = -100.0
+tick_count = 200
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Layer" type="Label" parent="editcollision"]
+margin_left = 464.0
+margin_top = 8.0
+margin_right = 509.0
+margin_bottom = 22.0
+text = "Layers:"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="player" type="CheckBox" parent="editcollision/Layer"]
+margin_left = -128.0
+margin_top = 24.0
+margin_right = 24.0
+margin_bottom = 48.0
+text = "Interact with Player"
+
+[node name="block_particles" type="CheckBox" parent="editcollision/Layer"]
+margin_left = -128.0
+margin_top = 48.0
+margin_right = 24.0
+margin_bottom = 72.0
+text = "Interact with block particles"
+
+[node name="items" type="CheckBox" parent="editcollision/Layer"]
+margin_left = -128.0
+margin_top = 72.0
+margin_right = 78.0
+margin_bottom = 96.0
+text = "Interact with items"
+
+[node name="monsters" type="CheckBox" parent="editcollision/Layer"]
+margin_left = -128.0
+margin_top = 96.0
+margin_right = 78.0
+margin_bottom = 120.0
+text = "Interact with monsters"
+
+[node name="monsters2" type="CheckBox" parent="editcollision/Layer"]
+margin_left = -128.0
+margin_top = 120.0
+margin_right = 78.0
+margin_bottom = 144.0
+text = "Interact with liquids"
 
 [node name="newcollision" type="WindowDialog" parent="."]
 margin_right = 336.0
@@ -246,7 +379,17 @@ __meta__ = {
 }
 
 [connection signal="pressed" from="collisionlist/nc" to="." method="_on_nc_pressed"]
+[connection signal="pressed" from="collisionlist/ec" to="." method="_on_ec_pressed"]
 [connection signal="pressed" from="collisionlist/rc" to="." method="_on_rc_pressed"]
 [connection signal="item_selected" from="collisionlist/collisions" to="." method="_on_collisions_item_selected"]
+[connection signal="value_changed" from="editcollision/Size X/slider" to="." method="_on_size_x_slider_value_changed"]
+[connection signal="value_changed" from="editcollision/Size Y/slider" to="." method="_on_size_y_slider_value_changed"]
+[connection signal="value_changed" from="editcollision/Size R/slider" to="." method="_on_size_r_slider_value_changed"]
+[connection signal="value_changed" from="editcollision/Pos X1/slider" to="." method="_on_pos_x_one_slider_value_changed"]
+[connection signal="value_changed" from="editcollision/Pos Y1/slider" to="." method="_on_pos_y_one_slider_value_changed"]
+[connection signal="value_changed" from="editcollision/Pos X2/slider" to="." method="_on_pos_x_two_slider_value_changed"]
+[connection signal="value_changed" from="editcollision/Pos Y2/slider" to="." method="_on_pos_y_two_slider_value_changed"]
+[connection signal="value_changed" from="editcollision/Position X/slider" to="." method="_on_position_x_slider_value_changed"]
+[connection signal="value_changed" from="editcollision/Position Y/slider" to="." method="_on_position_y_slider_value_changed"]
 [connection signal="item_selected" from="newcollision/type/ItemList" to="." method="_on_ItemList_item_selected"]
 [connection signal="pressed" from="newcollision/create" to="." method="_on_create_pressed"]

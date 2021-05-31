@@ -6,7 +6,6 @@ var author = "GamePlayer"
 var devs = ["GamePlayer"]
 ############
 
-var dir = Directory.new()
 onready var time = OS.get_system_time_secs()
 var size
 func _ready():
@@ -25,13 +24,6 @@ func _ready():
 	print("===END===")
 	print("Starting game...")
 	$AnimationPlayer.play("Sprite_Animation_start")
-	dir.open("user://")
-	if not(dir.dir_exists("user://logs")):
-		dir.make_dir("user://logs")
-	if not(dir.dir_exists("user:///save")):
-		dir.make_dir("user:///save")
-	if not(dir.dir_exists("user://user-settings")):
-		dir.make_dir("user:///user-settings")
 	self.visible = true
 	set_process(true)
 	set_process_input(true)
@@ -62,6 +54,7 @@ func _process(_delta):
 		print("Running game!")
 		#self.visible = false
 # warning-ignore:return_value_discarded
+		get_tree().get_root().get_node("init/Music").set_process(true)
 		self.queue_free()
 
 func viewport_changed():
@@ -72,3 +65,9 @@ func viewport_changed():
 	$Sprite.position.x = get_viewport_rect().size.x - $Sprite.texture.get_size().x/4
 	$Sprite.position.y = get_viewport_rect().size.y - $Sprite.texture.get_size().y/2
 
+
+
+func _on_VideoPlayer_finished():
+	get_tree().get_root().get_node("init/Music").set_process(true)
+	print("Removing video from RAM memory...")
+	self.queue_free()

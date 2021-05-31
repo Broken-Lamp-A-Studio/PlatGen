@@ -1,0 +1,78 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://scripts/editors/Particles Editor.gd" type="Script" id=1]
+
+[node name="Particles Editor" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = -8.0
+margin_right = -1024.0
+margin_bottom = -456.0
+mouse_default_cursor_shape = 2
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="particleslist" type="WindowDialog" parent="."]
+margin_right = 336.0
+margin_bottom = 432.0
+window_title = "Particles Editor"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="np" type="Button" parent="particleslist"]
+margin_left = 8.0
+margin_top = 8.0
+margin_right = 328.0
+margin_bottom = 48.0
+rect_pivot_offset = Vector2( 168, 320 )
+text = "New Particle"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ep" type="Button" parent="particleslist"]
+margin_left = 8.0
+margin_top = 336.0
+margin_right = 328.0
+margin_bottom = 376.0
+rect_pivot_offset = Vector2( 168, 320 )
+text = "Edit Particle"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="rp" type="Button" parent="particleslist"]
+margin_left = 8.0
+margin_top = 384.0
+margin_right = 328.0
+margin_bottom = 424.0
+rect_pivot_offset = Vector2( 168, 320 )
+text = "Remove Particle"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="particles" type="ItemList" parent="particleslist"]
+margin_left = 8.0
+margin_top = 56.0
+margin_right = 328.0
+margin_bottom = 328.0
+allow_reselect = true
+auto_height = true
+icon_scale = 2.0
+fixed_icon_size = Vector2( 20, 20 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="editparticle" type="WindowDialog" parent="."]
+visible = true
+margin_right = 336.0
+margin_bottom = 432.0
+window_title = "Edit Particle"
+__meta__ = {
+"_edit_use_anchors_": false
+}

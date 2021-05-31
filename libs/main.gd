@@ -22,6 +22,10 @@ static func mkfile(path, type, data):
 		file.store_string(data)
 	elif(type == "real"):
 		file.store_real(data)
+	elif(type == "script"):
+		var gd = GDScript.new()
+		gd.set_script(data)
+		file.store_line(gd)
 	else:
 		file.store_line(data)
 	file.close()
@@ -48,7 +52,10 @@ static func check(path):
 	if(dir.dir_exists(path)):
 		return true
 	else:
-		return false
+		if(dir.file_exists(path)):
+			return true
+		else:
+			return false
 static func ls(path):
 	var dir = Directory.new()
 	var list = []
@@ -80,13 +87,46 @@ static func rmdir(path):
 			data = dir.get_next()
 		dir.remove(path)
 
-static func checkfile(path):
+static func load_image(path):
+	var texture = ImageTexture.new()
+	var image = Image.new()
+	image.load(path)
+	texture.create_from_image(image)
+	return texture
+
+static func rmfile(path):
 	var dir = Directory.new()
 	if(dir.file_exists(path)):
+		dir.remove(path)
 		return true
 	else:
 		return false
 
-
-
-
+func generate_time():
+	var date = OS.get_datetime()
+	var d = str(date["year"])+"."
+	if(str(date["month"]).length() == 1):
+		d += "0"+str(date["month"])
+	else:
+		d += str(date["month"])
+	d += "."
+	if(str(date["day"]).length() == 1):
+		d += "0"+str(date["day"])
+	else:
+		d += str(date["day"])
+	d += ":"
+	if(str(date["hour"]).length() == 1):
+		d += "0"+str(date["hour"])
+	else:
+		d += str(date["hour"])
+	d += "."
+	if(str(date["minute"]).length() == 1):
+		d += "0"+str(date["minute"])
+	else:
+		d += str(date["minute"])
+	d += "."
+	if(str(date["second"]).length() == 1):
+		d += "0"+str(date["second"])
+	else:
+		d += str(date["second"])
+	return d

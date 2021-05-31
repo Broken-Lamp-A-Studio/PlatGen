@@ -120,3 +120,4 @@ func remove_node(path):
 		get_msg("Node '"+path+"' successfully removed!")
 	else:
 		get_error("Failed to remove '"+path+"' - node not found!")
+

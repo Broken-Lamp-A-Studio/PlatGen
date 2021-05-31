@@ -3,7 +3,7 @@ extends Control
 var vx = 0
 var vy = 0
 
-func _process(delta):
+func _process(_delta):
 	if(vx != get_viewport_rect().size.x or vy != get_viewport_rect().size.y):
 		viewport_changed()
 		vx = get_viewport_rect().size.x
@@ -12,8 +12,8 @@ func _process(delta):
 func viewport_changed():
 	#print("pip")
 	$background.rect_size = self.rect_size
-	$icon.rect_position.x = rect_position.x#+$icon.texture.get_size().x/10
-	$icon.rect_position.y = rect_position.y#+$icon.texture.get_size().y/10
+	$icon.rect_position.x = rect_position.x+$icon.texture.get_size().x/4#+$icon.texture.get_size().x/10
+	$icon.rect_position.y = rect_position.y+$icon.texture.get_size().y/4#+$icon.texture.get_size().y/10
 	$name.rect_position.x = rect_position.x+$icon.texture.get_size().x
 	$name.rect_position.y = rect_position.y+$icon.texture.get_size().y/10
 	$name.rect_size.y = rect_size.y-rect_size.y/10
@@ -29,4 +29,5 @@ func viewport_changed():
 	$load.rect_position.y = 10
 
 func _on_exit_pressed():
-	get_tree().change_scene("res://scenes/Menu2.tscn")
+	#get_tree().change_scene("res://scenes/Menu2.tscn")
+	pass

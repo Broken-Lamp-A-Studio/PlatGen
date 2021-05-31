@@ -1,0 +1,94 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://scripts/editors/gen_block_settings.gd" type="Script" id=1]
+
+[node name="block_settings" type="WindowDialog"]
+visible = true
+anchor_right = 0.235
+anchor_bottom = 0.594
+margin_right = 0.399994
+margin_bottom = -0.192017
+window_title = "Block settings"
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+margin_right = 320.0
+margin_bottom = 456.0
+custom_constants/margin_right = 8
+custom_constants/margin_top = 8
+custom_constants/margin_left = 8
+custom_constants/margin_bottom = 8
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+margin_left = 8.0
+margin_top = 8.0
+margin_right = 312.0
+margin_bottom = 448.0
+
+[node name="blu" type="MarginContainer" parent="MarginContainer/VBoxContainer"]
+margin_right = 304.0
+margin_bottom = 110.0
+custom_constants/margin_right = 5
+custom_constants/margin_top = 5
+custom_constants/margin_left = 5
+custom_constants/margin_bottom = 5
+
+[node name="Block_lookup" type="HBoxContainer" parent="MarginContainer/VBoxContainer/blu"]
+margin_left = 5.0
+margin_top = 5.0
+margin_right = 299.0
+margin_bottom = 105.0
+
+[node name="texture" type="TextureRect" parent="MarginContainer/VBoxContainer/blu/Block_lookup"]
+margin_right = 100.0
+margin_bottom = 100.0
+rect_min_size = Vector2( 100, 100 )
+expand = true
+stretch_mode = 1
+
+[node name="name" type="Label" parent="MarginContainer/VBoxContainer/blu/Block_lookup"]
+margin_left = 104.0
+margin_top = 43.0
+margin_right = 129.0
+margin_bottom = 57.0
+text = "test"
+
+[node name="HSeparator" type="HSeparator" parent="MarginContainer/VBoxContainer"]
+margin_top = 114.0
+margin_right = 304.0
+margin_bottom = 118.0
+
+[node name="VSplitContainer" type="VSplitContainer" parent="MarginContainer/VBoxContainer"]
+margin_top = 122.0
+margin_right = 304.0
+margin_bottom = 182.0
+split_offset = 100
+
+[node name="SpinBox" type="SpinBox" parent="MarginContainer/VBoxContainer/VSplitContainer"]
+margin_right = 304.0
+margin_bottom = 24.0
+
+[node name="SpinBox2" type="SpinBox" parent="MarginContainer/VBoxContainer/VSplitContainer"]
+margin_top = 36.0
+margin_right = 304.0
+margin_bottom = 60.0
+
+[node name="SpinBox3" type="SpinBox" parent="MarginContainer/VBoxContainer/VSplitContainer"]
+margin_top = 36.0
+margin_right = 304.0
+margin_bottom = 60.0
+
+[node name="SpinBox4" type="SpinBox" parent="MarginContainer/VBoxContainer/VSplitContainer"]
+margin_top = 36.0
+margin_right = 304.0
+margin_bottom = 60.0
+
+[node name="VScrollBar" type="VScrollBar" parent="MarginContainer/VBoxContainer/VSplitContainer"]
+margin_right = 12.0
+margin_bottom = 12.0

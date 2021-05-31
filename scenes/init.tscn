@@ -5,9 +5,10 @@
 [ext_resource path="res://scenes/VideoPlayer.tscn" type="PackedScene" id=3]
 [ext_resource path="res://scripts/init.gd" type="Script" id=4]
 [ext_resource path="res://scenes/load_screen.tscn" type="PackedScene" id=5]
-[ext_resource path="res://videos/ig.webm" type="VideoStream" id=6]
+[ext_resource path="res://scenes/Music.tscn" type="PackedScene" id=6]
 
 [node name="init" type="Node2D"]
+process_priority = 1000
 script = ExtResource( 4 )
 
 [node name="envoirment" type="ViewportContainer" parent="."]
@@ -34,7 +35,6 @@ margin_left = 20.0
 margin_top = 20.0
 margin_right = 20.0
 margin_bottom = 20.0
-stream = ExtResource( 6 )
 
 [node name="Console Debug" parent="main-stuff/CenterContainer" instance=ExtResource( 1 )]
 anchor_right = 0.0
@@ -63,4 +63,7 @@ __meta__ = {
 [node name="Camera2D" type="Camera2D" parent="."]
 current = true
 
+[node name="Music" parent="." instance=ExtResource( 6 )]
+
+[connection signal="finished" from="main-stuff/CenterContainer/VideoPlayer" to="main-stuff/CenterContainer/VideoPlayer" method="_on_VideoPlayer_finished"]
 [connection signal="file_selected" from="main-stuff/CenterContainer/Console Debug/selectscene" to="main-stuff/CenterContainer/Console Debug" method="_on_selectscene_file_selected"]

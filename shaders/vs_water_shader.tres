@@ -1,0 +1,39 @@
+[gd_resource type="VisualShader" load_steps=2 format=2]
+
+[sub_resource type="VisualShaderNodeColorOp" id=1]
+output_port_for_preview = 0
+default_input_values = [ 0, Vector3( 0, 0.1, 0.1 ), 1, Vector3( 0, 0.1, 0.1 ) ]
+
+[resource]
+code = "shader_type canvas_item;
+
+
+
+void vertex() {
+// Output:0
+
+}
+
+void fragment() {
+// ColorOp:3
+	vec3 n_in3p0 = vec3(0.00000, 0.10000, 0.10000);
+	vec3 n_in3p1 = vec3(0.00000, 0.10000, 0.10000);
+	vec3 n_out3p0 = vec3(1.0) - (vec3(1.0) - n_in3p0) * (vec3(1.0) - n_in3p1);
+
+// Output:0
+	COLOR.rgb = n_out3p0;
+
+}
+
+void light() {
+// Output:0
+
+}
+"
+graph_offset = Vector2( 191.833, -35 )
+mode = 1
+flags/light_only = false
+nodes/fragment/0/position = Vector2( 780, 180 )
+nodes/fragment/3/node = SubResource( 1 )
+nodes/fragment/3/position = Vector2( 300, 20 )
+nodes/fragment/connections = PoolIntArray( 3, 0, 0, 0 )

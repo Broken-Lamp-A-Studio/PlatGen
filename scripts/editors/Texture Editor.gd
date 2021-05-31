@@ -45,7 +45,7 @@ func _on_create_pressed():
 
 func add_texture2(name2, pt):
 	var atlas = AtlasTexture.new()
-	atlas.atlas = load(pt)
+	atlas.atlas = load_image(pt)
 	if not(atlas.atlas.get_size().x >= 200 or atlas.atlas.get_size().y >= 200):
 		atlas.set_region(Rect2(0, 0, atlas.atlas.get_size().x, atlas.atlas.get_size().y))
 #		atlas.region.x = 0
@@ -53,6 +53,7 @@ func add_texture2(name2, pt):
 #		atlas.region.w = atlas.atlas.get_size().x
 #		atlas.region.h = atlas.atlas.get_size().y
 		$texturelist/textures.add_item(name2, atlas, false)
+		$texturelist/textures.set_item_metadata($texturelist/textures.get_item_count()-1, {"x":0, "y":0})
 	else:
 		symlink.console_output("Texture bigger than 200x200 cannot be loaded!", "err")
 
@@ -95,6 +96,9 @@ func edit_atlas(atlas):
 	$"edittexture/Offset Y/slider".value = atlas_size.position.y
 	$"edittexture/Offset W/slider".value = atlas_size.size.y
 	$"edittexture/Offset H/slider".value = atlas_size.size.x
+	var pos = $texturelist/textures.get_item_metadata(selected)
+	$"edittexture/Pos X/slider".value = pos.x
+	$"edittexture/Pos Y/slider".value = pos.y
 	$edittexture.popup_centered_minsize()
 
 func set_controls():
@@ -116,4 +120,13 @@ func _on_edittexture_popup_hide():
 	var atlas = AtlasTexture.new()
 	atlas.atlas = $edittexture/TextureRect.texture
 	atlas.set_region(atlas_size)
+	var pos = {"x":$"edittexture/Pos X/slider".value, "y":$"edittexture/Pos Y/slider".value}
 	$texturelist/textures.set_item_icon(selected, atlas)
+	$texturelist/textures.set_item_metadata(selected, pos)
+
+func load_image(path2):
+	var texture = ImageTexture.new()
+	var image = Image.new()
+	image.load(path2)
+	texture.create_from_image(image)
+	return texture

@@ -17,7 +17,7 @@ __meta__ = {
 
 [node name="background" type="Panel" parent="."]
 margin_right = 189.0
-margin_bottom = 306.0
+margin_bottom = 329.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -54,6 +54,7 @@ margin_left = 7.09039
 margin_top = 131.027
 margin_right = 183.09
 margin_bottom = 171.027
+disabled = true
 text = "Particles Editor"
 align = 1
 
@@ -62,6 +63,7 @@ margin_left = 7.09039
 margin_top = 171.027
 margin_right = 183.09
 margin_bottom = 211.027
+disabled = true
 text = "Interact Editor"
 align = 1
 __meta__ = {
@@ -69,10 +71,11 @@ __meta__ = {
 }
 
 [node name="se" type="CheckButton" parent="."]
-margin_left = 7.09039
-margin_top = 211.027
-margin_right = 183.09
-margin_bottom = 251.027
+margin_left = 8.0
+margin_top = 209.0
+margin_right = 184.0
+margin_bottom = 249.0
+disabled = true
 text = "Shader Editor"
 align = 1
 __meta__ = {
@@ -84,7 +87,19 @@ margin_left = 7.09039
 margin_top = 251.027
 margin_right = 183.09
 margin_bottom = 291.027
+disabled = true
 text = "GUI Editor"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ge2" type="CheckButton" parent="."]
+margin_top = 289.0
+margin_right = 187.0
+margin_bottom = 329.0
+disabled = true
+text = "Animation Editor"
 align = 1
 __meta__ = {
 "_edit_use_anchors_": false

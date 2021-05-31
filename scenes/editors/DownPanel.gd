@@ -6,7 +6,7 @@ var elements = 0
 
 onready var time = OS.get_system_time_secs()
 
-func _process(delta):
+func _process(_delta):
 	if(vx != get_viewport_rect().size.x or vy != get_viewport_rect().size.y):
 		viewport_changed()
 		vx = get_viewport_rect().size.x

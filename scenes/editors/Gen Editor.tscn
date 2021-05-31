@@ -1,0 +1,371 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://scripts/gen_editor.gd" type="Script" id=1]
+[ext_resource path="res://textures/editors/load.png" type="Texture" id=2]
+[ext_resource path="res://textures/editors/save_as.png" type="Texture" id=3]
+[ext_resource path="res://textures/editors/exit.png" type="Texture" id=4]
+[ext_resource path="res://textures/editors/save.png" type="Texture" id=5]
+
+[node name="Gen Editor" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="render" type="Node2D" parent="."]
+
+[node name="gui" type="Control" parent="."]
+margin_right = 1360.0
+margin_bottom = 768.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CORNER up" type="MarginContainer" parent="gui"]
+anchor_right = 1.0
+margin_bottom = 64.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="PanelContainer" parent="gui/CORNER up"]
+margin_right = 1360.0
+margin_bottom = 64.0
+
+[node name="CORNER down" type="MarginContainer" parent="gui"]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = -64.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="PanelContainer" parent="gui/CORNER down"]
+margin_right = 1360.0
+margin_bottom = 64.0
+
+[node name="CORNER up_left" type="MarginContainer" parent="gui"]
+margin_right = 1360.0
+margin_bottom = 64.0
+custom_constants/margin_left = 15
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="gui/CORNER up_left"]
+margin_left = 15.0
+margin_top = 25.0
+margin_right = 1360.0
+margin_bottom = 39.0
+text = "user://objects/generator.var"
+
+[node name="CORNER up_right" type="MarginContainer" parent="gui"]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -944.0
+margin_bottom = 86.0
+grow_horizontal = 0
+custom_constants/margin_right = 15
+custom_constants/margin_top = 10
+custom_constants/margin_left = 15
+custom_constants/margin_bottom = 30
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="gui/CORNER up_right"]
+margin_left = 15.0
+margin_top = 10.0
+margin_right = 929.0
+margin_bottom = 56.0
+custom_constants/separation = 10
+alignment = 2
+
+[node name="load" type="Button" parent="gui/CORNER up_right/HBoxContainer"]
+modulate = Color( 0.921569, 0.803922, 0, 1 )
+margin_left = 676.0
+margin_right = 728.0
+margin_bottom = 46.0
+grow_horizontal = 2
+grow_vertical = 2
+icon = ExtResource( 2 )
+
+[node name="save_as" type="Button" parent="gui/CORNER up_right/HBoxContainer"]
+modulate = Color( 0, 0.207843, 0.760784, 1 )
+margin_left = 738.0
+margin_right = 790.0
+margin_bottom = 46.0
+grow_horizontal = 2
+grow_vertical = 2
+icon = ExtResource( 3 )
+
+[node name="save" type="Button" parent="gui/CORNER up_right/HBoxContainer"]
+modulate = Color( 0.356863, 0.839216, 0, 1 )
+margin_left = 800.0
+margin_right = 852.0
+margin_bottom = 46.0
+grow_horizontal = 2
+grow_vertical = 2
+icon = ExtResource( 5 )
+
+[node name="exit" type="Button" parent="gui/CORNER up_right/HBoxContainer"]
+modulate = Color( 1, 0.27451, 0.27451, 1 )
+margin_left = 862.0
+margin_right = 914.0
+margin_bottom = 46.0
+grow_horizontal = 2
+grow_vertical = 2
+icon = ExtResource( 4 )
+
+[node name="CORNER down_left" type="MarginContainer" parent="gui"]
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_top = -64.0
+margin_right = 1360.0
+custom_constants/margin_right = 5
+custom_constants/margin_top = 15
+custom_constants/margin_left = 50
+custom_constants/margin_bottom = 15
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="gui/CORNER down_left"]
+margin_left = 50.0
+margin_top = 15.0
+margin_right = 1355.0
+margin_bottom = 49.0
+custom_constants/separation = 10
+
+[node name="seed" type="LineEdit" parent="gui/CORNER down_left/HBoxContainer"]
+margin_right = 78.0
+margin_bottom = 34.0
+text = "00000000"
+max_length = 8
+expand_to_text_length = true
+
+[node name="gen_seed" type="Button" parent="gui/CORNER down_left/HBoxContainer"]
+margin_left = 88.0
+margin_right = 224.0
+margin_bottom = 34.0
+text = "Generate new seed"
+
+[node name="CORNER down_right" type="MarginContainer" parent="gui"]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -272.0
+margin_top = -64.0
+custom_constants/margin_right = 30
+custom_constants/margin_left = 15
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="gui/CORNER down_right"]
+margin_left = 15.0
+margin_right = 242.0
+margin_bottom = 64.0
+alignment = 2
+
+[node name="Label" type="Label" parent="gui/CORNER down_right/HBoxContainer"]
+margin_left = 60.0
+margin_top = 25.0
+margin_right = 227.0
+margin_bottom = 39.0
+text = "PlatGen@Generator Editor"
+
+[node name="left" type="MarginContainer" parent="gui"]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_top = -192.0
+margin_right = 256.0
+margin_bottom = 192.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PanelContainer" type="PanelContainer" parent="gui/left"]
+margin_right = 256.0
+margin_bottom = 384.0
+
+[node name="content" type="MarginContainer" parent="gui/left"]
+margin_right = 256.0
+margin_bottom = 384.0
+custom_constants/margin_right = 10
+custom_constants/margin_top = 10
+custom_constants/margin_left = 10
+custom_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="gui/left/content"]
+margin_left = 10.0
+margin_top = 10.0
+margin_right = 246.0
+margin_bottom = 374.0
+
+[node name="Label" type="Label" parent="gui/left/content/VBoxContainer"]
+margin_right = 236.0
+margin_bottom = 14.0
+text = "Options"
+align = 1
+
+[node name="HSeparator" type="HSeparator" parent="gui/left/content/VBoxContainer"]
+margin_top = 18.0
+margin_right = 236.0
+margin_bottom = 22.0
+
+[node name="MenuButton" type="MenuButton" parent="gui/left/content/VBoxContainer"]
+margin_top = 26.0
+margin_right = 236.0
+margin_bottom = 46.0
+text = "Select"
+items = [ "Blocks/Objects", null, 0, false, false, 0, 0, null, "", false, "Biomes", null, 0, false, false, 1, 0, null, "", false ]
+switch_on_hover = true
+
+[node name="objects" type="VBoxContainer" parent="gui/left/content/VBoxContainer"]
+visible = false
+margin_top = 50.0
+margin_right = 236.0
+margin_bottom = 364.0
+
+[node name="HSeparator" type="HSeparator" parent="gui/left/content/VBoxContainer/objects"]
+margin_right = 236.0
+margin_bottom = 4.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="gui/left/content/VBoxContainer/objects"]
+margin_top = 8.0
+margin_right = 236.0
+margin_bottom = 22.0
+text = "List of objects/blocks:"
+align = 1
+
+[node name="HSeparator2" type="HSeparator" parent="gui/left/content/VBoxContainer/objects"]
+margin_top = 26.0
+margin_right = 236.0
+margin_bottom = 30.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ItemList" type="ItemList" parent="gui/left/content/VBoxContainer/objects"]
+margin_top = 34.0
+margin_right = 236.0
+margin_bottom = 234.0
+rect_min_size = Vector2( 0, 200 )
+allow_reselect = true
+allow_rmb_select = true
+
+[node name="HSeparator3" type="HSeparator" parent="gui/left/content/VBoxContainer/objects"]
+margin_top = 238.0
+margin_right = 236.0
+margin_bottom = 242.0
+
+[node name="new" type="Button" parent="gui/left/content/VBoxContainer/objects"]
+margin_top = 246.0
+margin_right = 236.0
+margin_bottom = 266.0
+text = "New"
+
+[node name="edit selected" type="Button" parent="gui/left/content/VBoxContainer/objects"]
+margin_top = 270.0
+margin_right = 236.0
+margin_bottom = 290.0
+text = "Edit selected object"
+
+[node name="delete" type="Button" parent="gui/left/content/VBoxContainer/objects"]
+margin_top = 294.0
+margin_right = 236.0
+margin_bottom = 314.0
+text = "Delete selected"
+
+[node name="biomes" type="VBoxContainer" parent="gui/left/content/VBoxContainer"]
+visible = false
+margin_top = 50.0
+margin_right = 236.0
+margin_bottom = 364.0
+
+[node name="HSeparator" type="HSeparator" parent="gui/left/content/VBoxContainer/biomes"]
+margin_right = 236.0
+margin_bottom = 4.0
+
+[node name="Label" type="Label" parent="gui/left/content/VBoxContainer/biomes"]
+margin_top = 8.0
+margin_right = 236.0
+margin_bottom = 22.0
+text = "Biomes:"
+align = 1
+
+[node name="HSeparator2" type="HSeparator" parent="gui/left/content/VBoxContainer/biomes"]
+margin_top = 26.0
+margin_right = 236.0
+margin_bottom = 30.0
+
+[node name="ItemList" type="ItemList" parent="gui/left/content/VBoxContainer/biomes"]
+margin_top = 34.0
+margin_right = 236.0
+margin_bottom = 234.0
+rect_min_size = Vector2( 0, 200 )
+allow_reselect = true
+allow_rmb_select = true
+
+[node name="HSeparator3" type="HSeparator" parent="gui/left/content/VBoxContainer/biomes"]
+margin_top = 238.0
+margin_right = 236.0
+margin_bottom = 242.0
+
+[node name="new_biome" type="Button" parent="gui/left/content/VBoxContainer/biomes"]
+margin_top = 246.0
+margin_right = 236.0
+margin_bottom = 266.0
+text = "New Biome"
+
+[node name="edit_selected" type="Button" parent="gui/left/content/VBoxContainer/biomes"]
+margin_top = 270.0
+margin_right = 236.0
+margin_bottom = 290.0
+text = "Edit selected biome"
+
+[node name="delete" type="Button" parent="gui/left/content/VBoxContainer/biomes"]
+margin_top = 294.0
+margin_right = 236.0
+margin_bottom = 314.0
+text = "Delete selected biome"
+
+[node name="save_as" type="FileDialog" parent="."]
+margin_right = 721.0
+margin_bottom = 436.0
+popup_exclusive = true
+window_title = "Zapisz plik"
+resizable = true
+access = 1
+current_dir = "user://home/gameplayer/Dokumenty/godot-workspace/games/PlatGen/PlatGen"
+current_path = "user://home/gameplayer/Dokumenty/godot-workspace/games/PlatGen/PlatGen/"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="load" type="FileDialog" parent="."]
+margin_right = 721.0
+margin_bottom = 436.0
+popup_exclusive = true
+window_title = "Otwórz plik"
+resizable = true
+mode = 0
+access = 1
+current_dir = "user://home/gameplayer/Dokumenty/godot-workspace/games/PlatGen/PlatGen"
+current_path = "user://home/gameplayer/Dokumenty/godot-workspace/games/PlatGen/PlatGen/"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="text_changed" from="gui/CORNER down_left/HBoxContainer/seed" to="." method="_on_seed_text_changed"]
+[connection signal="pressed" from="gui/CORNER down_left/HBoxContainer/gen_seed" to="." method="_on_gen_seed_pressed"]
+[connection signal="file_selected" from="save_as" to="." method="_on_save_as_file_selected"]
+[connection signal="file_selected" from="load" to="." method="_on_load_file_selected"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://scenes/editors/UpPanel.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scripts/editors/block-editor.gd" type="Script" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://scenes/editors/background_settings.tscn" type="PackedScene" id=4]
 [ext_resource path="res://scenes/editors/block_options.tscn" type="PackedScene" id=5]
 [ext_resource path="res://scenes/editors/Texture Editor.tscn" type="PackedScene" id=6]
+[ext_resource path="res://scenes/editors/Collision Editor.tscn" type="PackedScene" id=7]
 
 [node name="block-editor" type="Node2D"]
 script = ExtResource( 2 )
@@ -18,8 +19,6 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Object" type="Node2D" parent="."]
-
 [node name="gui" type="Control" parent="."]
 margin_right = 1360.0
 margin_bottom = 768.0
@@ -28,6 +27,9 @@ __meta__ = {
 }
 
 [node name="UpPanel" parent="gui" instance=ExtResource( 1 )]
+
+[node name="icon" parent="gui/UpPanel" index="1"]
+expand = true
 
 [node name="DownPanel" parent="gui" instance=ExtResource( 3 )]
 margin_top = 753.443
@@ -46,11 +48,64 @@ margin_right = 1296.0
 margin_bottom = 575.0
 
 [node name="Texture Editor" parent="gui" instance=ExtResource( 6 )]
+margin_left = -500.0
+margin_right = -1524.0
+
+[node name="edittexture" parent="gui/Texture Editor" index="2"]
+visible = false
+
+[node name="Collison Editor" parent="gui" instance=ExtResource( 7 )]
+margin_left = -500.0
+margin_right = -1524.0
+
+[node name="editcollision" parent="gui/Collison Editor" index="1"]
+visible = false
+
+[node name="save_as" type="FileDialog" parent="gui"]
+margin_left = 360.0
+margin_top = 108.0
+margin_right = 932.0
+margin_bottom = 479.0
+popup_exclusive = true
+window_title = "Zapisz plik"
+resizable = true
+access = 1
+filters = PoolStringArray( "*.tscn ; Block scene" )
+current_dir = "user://objects/blocks"
+current_path = "user://objects/blocks/"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="load" type="FileDialog" parent="gui"]
+margin_left = 360.0
+margin_top = 108.0
+margin_right = 932.0
+margin_bottom = 479.0
+popup_exclusive = true
+window_title = "Otwórz plik"
+resizable = true
+mode = 0
+access = 1
+filters = PoolStringArray( "*.tscn ; Block scene" )
+current_dir = "user://objects/blocks"
+current_path = "user://objects/blocks/"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="pressed" from="gui/UpPanel/load" to="." method="_on_load_pressed"]
+[connection signal="pressed" from="gui/UpPanel/save_as" to="." method="_on_save_as_pressed"]
+[connection signal="pressed" from="gui/UpPanel/save" to="." method="_on_save_2_pressed"]
 [connection signal="pressed" from="gui/UpPanel/background_settings" to="." method="_on_background_settings_pressed"]
+[connection signal="toggled" from="gui/block_options/ce" to="." method="_on_ce_toggled"]
 [connection signal="popup_hide" from="gui/Texture Editor/texturelist" to="." method="_on_texturelist_popup_hide"]
+[connection signal="popup_hide" from="gui/Collison Editor/collisionlist" to="." method="_on_collisionlist_popup_hide"]
+[connection signal="popup_hide" from="gui/Collison Editor/editcollision" to="." method="_on_editcollision_popup_hide"]
+[connection signal="file_selected" from="gui/save_as" to="." method="_on_save_as_file_selected"]
+[connection signal="file_selected" from="gui/load" to="." method="_on_load_file_selected"]
 
 [editable path="gui/UpPanel"]
-
 [editable path="gui/block_options"]
-
 [editable path="gui/Texture Editor"]
+[editable path="gui/Collison Editor"]

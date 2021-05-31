@@ -6,7 +6,7 @@
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_right = -1024.0
-margin_bottom = -385.0
+margin_bottom = -320.0
 mouse_default_cursor_shape = 2
 script = ExtResource( 1 )
 __meta__ = {
@@ -121,6 +121,7 @@ __meta__ = {
 }
 
 [node name="edittexture" type="WindowDialog" parent="."]
+visible = true
 margin_right = 336.0
 margin_bottom = 448.0
 window_title = "Edit Texture"
@@ -169,7 +170,6 @@ margin_top = 8.0
 margin_right = 320.0
 margin_bottom = 40.0
 min_value = 1.0
-step = 1.0
 value = 50.0
 tick_count = 100
 __meta__ = {
@@ -236,6 +236,46 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Pos X" type="Label" parent="edittexture"]
+margin_left = 8.0
+margin_top = 360.0
+margin_right = 68.0
+margin_bottom = 374.0
+text = "Position X:"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="slider" type="HSlider" parent="edittexture/Pos X"]
+margin_top = 8.0
+margin_right = 320.0
+margin_bottom = 40.0
+min_value = -100.0
+tick_count = 200
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Pos Y" type="Label" parent="edittexture"]
+margin_left = 8.0
+margin_top = 400.0
+margin_right = 75.0
+margin_bottom = 414.0
+text = "Position Y:"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="slider" type="HSlider" parent="edittexture/Pos Y"]
+margin_top = 8.0
+margin_right = 320.0
+margin_bottom = 40.0
+min_value = -100.0
+tick_count = 200
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="FileDialog" type="FileDialog" parent="."]
 margin_right = 576.0
 margin_bottom = 384.0
@@ -248,6 +288,7 @@ current_path = "/home/gameplayer/Dokumenty/godot-workspace/games/PlatGen/PlatGen
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
 [connection signal="pressed" from="texturelist/nt" to="." method="_on_nt_pressed"]
 [connection signal="pressed" from="texturelist/et" to="." method="_on_et_pressed"]
 [connection signal="pressed" from="texturelist/rt" to="." method="_on_rt_pressed"]
