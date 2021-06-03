@@ -23,9 +23,10 @@ config/icon="res://icon.png"
 [autoload]
 
 lib_main="*res://libs/main.gd"
-ServerWebsocketPorts="*res://configs/server_websocket_ports.gd"
-ClientWebsocketPorts="*res://configs/client_websocket_ports.gd"
 MainSymlink="*res://symlinks/main_symlink.gd"
+GeneratorLib="*res://libs/generator_lib.gd"
+ClientWebsocketPorts="*res://configs/client_websocket_ports.gd"
+ServerWebsocketPorts="*res://configs/server_websocket_ports.gd"
 
 [display]
 
@@ -35,6 +36,7 @@ window/size/test_width=1360
 window/size/test_height=768
 mouse_cursor/custom_image="res://textures/mouse.png"
 mouse_cursor/custom_image_hotspot=Vector2( 5, 5 )
+window/stretch/mode="2d"
 
 [global]
 
@@ -143,3 +145,4 @@ ssl/certificates="res://certificates/servcert.crt"
 
 environment/default_clear_color=Color( 0, 0, 0, 1 )
 environment/default_environment="res://default_env.tres"
+quality/dynamic_fonts/use_oversampling=false
