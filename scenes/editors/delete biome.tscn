@@ -1,0 +1,45 @@
+[gd_scene format=2]
+
+[node name="delete biome" type="WindowDialog"]
+visible = true
+margin_right = 224.0
+margin_bottom = 190.0
+window_title = "Delete biome"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+margin_right = 216.0
+margin_bottom = 188.0
+custom_constants/margin_right = 5
+custom_constants/margin_top = 5
+custom_constants/margin_left = 5
+custom_constants/margin_bottom = 5
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer"]
+margin_left = 5.0
+margin_top = 5.0
+margin_right = 217.0
+margin_bottom = 183.0
+follow_focus = true
+scroll_horizontal_enabled = false
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/ScrollContainer"]
+margin_right = 200.0
+margin_bottom = 218.0
+
+[node name="Label" type="Label" parent="MarginContainer/ScrollContainer/VBoxContainer"]
+margin_right = 200.0
+margin_bottom = 14.0
+text = "Select biome:"
+align = 1
+
+[node name="ItemList" type="ItemList" parent="MarginContainer/ScrollContainer/VBoxContainer"]
+margin_top = 18.0
+margin_right = 200.0
+margin_bottom = 218.0
+rect_min_size = Vector2( 200, 200 )

@@ -8,7 +8,7 @@ func _ready():
 
 func _input(event):
 	if(event.is_action_pressed("ui_open_console")):
-		$WindowDialog.popup()
+		$WindowDialog.popup_centered()
 		$WindowDialog/LineEdit.grab_focus()
 	if(event.is_action_pressed("ui_accept") and $WindowDialog/LineEdit.focus_mode and $WindowDialog/LineEdit.text != ""):
 		time = OS.get_datetime()

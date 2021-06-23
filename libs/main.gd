@@ -27,7 +27,7 @@ static func mkfile(path, type, data):
 		gd.set_script(data)
 		file.store_line(gd)
 	else:
-		file.store_line(data)
+		file.store_line(str(data))
 	file.close()
 static func rdfile(path, type):
 	var data = null
@@ -70,7 +70,7 @@ static func ls(path):
 				list += [f]
 			f = dir.get_next()
 		return list
-static func rmdir(path):
+static func rmdir(path, rmfolder = true):
 	var dir = Directory.new()
 	if(dir.dir_exists(path)):
 		dir.open(path)
@@ -85,7 +85,11 @@ static func rmdir(path):
 				else:
 					dir.remove(path+"/"+data)
 			data = dir.get_next()
-		dir.remove(path)
+		if(rmfolder):
+			dir.remove(path)
+		return true
+	else:
+		return false
 
 static func load_image(path):
 	var texture = ImageTexture.new()
@@ -130,3 +134,28 @@ func generate_time():
 	else:
 		d += str(date["second"])
 	return d
+
+func cp(from_path, to_path, cpfolder = true):
+	if(check(from_path)):
+		if(check(to_path) == false and cpfolder):
+			mkdir(to_path)
+		var dir = Directory.new()
+		dir.open(from_path)
+		dir.list_dir_begin()
+		var data = dir.get_next()
+		while not(data == ""):
+			if not(data == "." or data == ".."):
+				if(dir.current_is_dir()):
+					cp(from_path+"/"+data, to_path+"/"+data, true)
+				else:
+					dir.copy(from_path+"/"+data, to_path+"/"+data)
+			data = dir.get_next()
+		return true
+	else:
+		return false
+
+func cpfile(from_path, to_path):
+	var dir = Directory.new()
+	dir.copy(from_path, to_path)
+
+

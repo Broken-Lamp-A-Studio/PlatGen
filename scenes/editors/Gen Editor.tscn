@@ -1,50 +1,52 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://scripts/gen_editor.gd" type="Script" id=1]
 [ext_resource path="res://textures/editors/load.png" type="Texture" id=2]
 [ext_resource path="res://textures/editors/save_as.png" type="Texture" id=3]
 [ext_resource path="res://textures/editors/exit.png" type="Texture" id=4]
 [ext_resource path="res://textures/editors/save.png" type="Texture" id=5]
+[ext_resource path="res://scenes/editors/biome_settings.tscn" type="PackedScene" id=6]
+[ext_resource path="res://scenes/editors/gen_block_settings.tscn" type="PackedScene" id=7]
+[ext_resource path="res://scenes/editors/nblock.tscn" type="PackedScene" id=8]
+[ext_resource path="res://scenes/editors/nbiome.tscn" type="PackedScene" id=9]
+[ext_resource path="res://scenes/editors/delete biome.tscn" type="PackedScene" id=10]
+[ext_resource path="res://scenes/editors/delete object.tscn" type="PackedScene" id=11]
+[ext_resource path="res://textures/theme/main.tres" type="Theme" id=12]
 
 [node name="Gen Editor" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+theme = ExtResource( 12 )
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="render" type="Node2D" parent="."]
+[node name="render" type="TextureRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="gui" type="Control" parent="."]
-margin_right = 1360.0
-margin_bottom = 768.0
+margin_left = 3.85468
+margin_top = 1.33484
+margin_right = 1363.85
+margin_bottom = 769.335
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="CORNER up" type="MarginContainer" parent="gui"]
-anchor_right = 1.0
+anchor_right = 0.995588
 margin_bottom = 64.0
 __meta__ = {
 "_edit_use_anchors_": true
 }
 
 [node name="Panel" type="PanelContainer" parent="gui/CORNER up"]
-margin_right = 1360.0
-margin_bottom = 64.0
-
-[node name="CORNER down" type="MarginContainer" parent="gui"]
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_top = -64.0
-__meta__ = {
-"_edit_use_anchors_": true
-}
-
-[node name="Panel" type="PanelContainer" parent="gui/CORNER down"]
-margin_right = 1360.0
+margin_right = 1353.0
 margin_bottom = 64.0
 
 [node name="CORNER up_left" type="MarginContainer" parent="gui"]
@@ -57,10 +59,10 @@ __meta__ = {
 
 [node name="Label" type="Label" parent="gui/CORNER up_left"]
 margin_left = 15.0
-margin_top = 25.0
+margin_top = 21.0
 margin_right = 1360.0
-margin_bottom = 39.0
-text = "user://objects/generator.var"
+margin_bottom = 43.0
+text = "Unsaved gen."
 
 [node name="CORNER up_right" type="MarginContainer" parent="gui"]
 anchor_left = 1.0
@@ -86,8 +88,8 @@ alignment = 2
 
 [node name="load" type="Button" parent="gui/CORNER up_right/HBoxContainer"]
 modulate = Color( 0.921569, 0.803922, 0, 1 )
-margin_left = 676.0
-margin_right = 728.0
+margin_left = 708.0
+margin_right = 752.0
 margin_bottom = 46.0
 grow_horizontal = 2
 grow_vertical = 2
@@ -95,8 +97,8 @@ icon = ExtResource( 2 )
 
 [node name="save_as" type="Button" parent="gui/CORNER up_right/HBoxContainer"]
 modulate = Color( 0, 0.207843, 0.760784, 1 )
-margin_left = 738.0
-margin_right = 790.0
+margin_left = 762.0
+margin_right = 806.0
 margin_bottom = 46.0
 grow_horizontal = 2
 grow_vertical = 2
@@ -104,8 +106,8 @@ icon = ExtResource( 3 )
 
 [node name="save" type="Button" parent="gui/CORNER up_right/HBoxContainer"]
 modulate = Color( 0.356863, 0.839216, 0, 1 )
-margin_left = 800.0
-margin_right = 852.0
+margin_left = 816.0
+margin_right = 860.0
 margin_bottom = 46.0
 grow_horizontal = 2
 grow_vertical = 2
@@ -113,70 +115,120 @@ icon = ExtResource( 5 )
 
 [node name="exit" type="Button" parent="gui/CORNER up_right/HBoxContainer"]
 modulate = Color( 1, 0.27451, 0.27451, 1 )
-margin_left = 862.0
+margin_left = 870.0
 margin_right = 914.0
 margin_bottom = 46.0
 grow_horizontal = 2
 grow_vertical = 2
 icon = ExtResource( 4 )
 
+[node name="CORNER down" type="MarginContainer" parent="gui"]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = -60.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="PanelContainer" parent="gui/CORNER down"]
+margin_right = 1359.0
+margin_bottom = 60.0
+
+[node name="MarginContainer" type="MarginContainer" parent="gui/CORNER down"]
+margin_right = 1359.0
+margin_bottom = 60.0
+custom_constants/margin_right = 180
+custom_constants/margin_top = 10
+custom_constants/margin_left = 500
+custom_constants/margin_bottom = 10
+
+[node name="HBoxContainer" type="HBoxContainer" parent="gui/CORNER down/MarginContainer"]
+margin_left = 500.0
+margin_top = 10.0
+margin_right = 1179.0
+margin_bottom = 50.0
+
+[node name="refresh_render" type="Button" parent="gui/CORNER down/MarginContainer/HBoxContainer"]
+margin_right = 200.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 200, 0 )
+text = "Refresh render"
+
+[node name="MarginContainer" type="MarginContainer" parent="gui/CORNER down/MarginContainer/HBoxContainer"]
+margin_left = 204.0
+margin_right = 504.0
+margin_bottom = 40.0
+custom_constants/margin_top = 10
+
+[node name="GEN_INFO" type="Label" parent="gui/CORNER down/MarginContainer/HBoxContainer/MarginContainer"]
+margin_top = 10.0
+margin_right = 300.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 300, 30 )
+text = "Unrendered."
+align = 1
+
 [node name="CORNER down_left" type="MarginContainer" parent="gui"]
 anchor_top = 1.0
 anchor_bottom = 1.0
-margin_top = -64.0
-margin_right = 1360.0
+margin_top = -62.0002
+margin_right = 490.0
+margin_bottom = -0.000183105
 custom_constants/margin_right = 5
 custom_constants/margin_top = 15
-custom_constants/margin_left = 50
+custom_constants/margin_left = 25
 custom_constants/margin_bottom = 15
 __meta__ = {
-"_edit_use_anchors_": true
+"_edit_use_anchors_": false
 }
 
 [node name="HBoxContainer" type="HBoxContainer" parent="gui/CORNER down_left"]
-margin_left = 50.0
+margin_left = 25.0
 margin_top = 15.0
-margin_right = 1355.0
-margin_bottom = 49.0
+margin_right = 485.0
+margin_bottom = 47.0
 custom_constants/separation = 10
 
 [node name="seed" type="LineEdit" parent="gui/CORNER down_left/HBoxContainer"]
-margin_right = 78.0
-margin_bottom = 34.0
+margin_right = 160.0
+margin_bottom = 32.0
 text = "00000000"
+align = 1
 max_length = 8
 expand_to_text_length = true
 
 [node name="gen_seed" type="Button" parent="gui/CORNER down_left/HBoxContainer"]
-margin_left = 88.0
-margin_right = 224.0
-margin_bottom = 34.0
+margin_left = 170.0
+margin_right = 420.0
+margin_bottom = 32.0
+rect_min_size = Vector2( 250, 0 )
 text = "Generate new seed"
 
 [node name="CORNER down_right" type="MarginContainer" parent="gui"]
-anchor_left = 1.0
+anchor_left = 0.995592
 anchor_top = 1.0
-anchor_right = 1.0
+anchor_right = 0.996327
 anchor_bottom = 1.0
-margin_left = -272.0
+margin_left = -338.0
 margin_top = -64.0
+margin_bottom = -0.000183105
 custom_constants/margin_right = 30
-custom_constants/margin_left = 15
+custom_constants/margin_left = 0
 __meta__ = {
 "_edit_use_anchors_": true
 }
 
 [node name="HBoxContainer" type="HBoxContainer" parent="gui/CORNER down_right"]
-margin_left = 15.0
-margin_right = 242.0
-margin_bottom = 64.0
+margin_right = 308.0
+margin_bottom = 63.0
 alignment = 2
 
 [node name="Label" type="Label" parent="gui/CORNER down_right/HBoxContainer"]
-margin_left = 60.0
-margin_top = 25.0
-margin_right = 227.0
-margin_bottom = 39.0
+margin_left = 14.0
+margin_top = 20.0
+margin_right = 308.0
+margin_bottom = 42.0
 text = "PlatGen@Generator Editor"
 
 [node name="left" type="MarginContainer" parent="gui"]
@@ -190,12 +242,12 @@ __meta__ = {
 }
 
 [node name="PanelContainer" type="PanelContainer" parent="gui/left"]
-margin_right = 256.0
-margin_bottom = 384.0
+margin_right = 275.0
+margin_bottom = 394.0
 
 [node name="content" type="MarginContainer" parent="gui/left"]
-margin_right = 256.0
-margin_bottom = 384.0
+margin_right = 275.0
+margin_bottom = 394.0
 custom_constants/margin_right = 10
 custom_constants/margin_top = 10
 custom_constants/margin_left = 10
@@ -204,24 +256,24 @@ custom_constants/margin_bottom = 10
 [node name="VBoxContainer" type="VBoxContainer" parent="gui/left/content"]
 margin_left = 10.0
 margin_top = 10.0
-margin_right = 246.0
-margin_bottom = 374.0
+margin_right = 265.0
+margin_bottom = 384.0
 
 [node name="Label" type="Label" parent="gui/left/content/VBoxContainer"]
-margin_right = 236.0
-margin_bottom = 14.0
+margin_right = 255.0
+margin_bottom = 22.0
 text = "Options"
 align = 1
 
 [node name="HSeparator" type="HSeparator" parent="gui/left/content/VBoxContainer"]
-margin_top = 18.0
-margin_right = 236.0
-margin_bottom = 22.0
+margin_top = 26.0
+margin_right = 255.0
+margin_bottom = 30.0
 
 [node name="MenuButton" type="MenuButton" parent="gui/left/content/VBoxContainer"]
-margin_top = 26.0
-margin_right = 236.0
-margin_bottom = 46.0
+margin_top = 34.0
+margin_right = 255.0
+margin_bottom = 60.0
 text = "Select"
 items = [ "Blocks/Objects", null, 0, false, false, 0, 0, null, "", false, "Biomes", null, 0, false, false, 1, 0, null, "", false ]
 switch_on_hover = true
@@ -273,70 +325,542 @@ margin_right = 236.0
 margin_bottom = 266.0
 text = "New"
 
-[node name="edit selected" type="Button" parent="gui/left/content/VBoxContainer/objects"]
-margin_top = 270.0
-margin_right = 236.0
-margin_bottom = 290.0
-text = "Edit selected object"
-
 [node name="delete" type="Button" parent="gui/left/content/VBoxContainer/objects"]
 margin_top = 294.0
 margin_right = 236.0
 margin_bottom = 314.0
-text = "Delete selected"
+text = "Delete"
 
 [node name="biomes" type="VBoxContainer" parent="gui/left/content/VBoxContainer"]
-visible = false
-margin_top = 50.0
-margin_right = 236.0
-margin_bottom = 364.0
+margin_top = 64.0
+margin_right = 255.0
+margin_bottom = 374.0
 
 [node name="HSeparator" type="HSeparator" parent="gui/left/content/VBoxContainer/biomes"]
-margin_right = 236.0
+margin_right = 255.0
 margin_bottom = 4.0
 
 [node name="Label" type="Label" parent="gui/left/content/VBoxContainer/biomes"]
 margin_top = 8.0
-margin_right = 236.0
-margin_bottom = 22.0
+margin_right = 255.0
+margin_bottom = 30.0
 text = "Biomes:"
 align = 1
 
 [node name="HSeparator2" type="HSeparator" parent="gui/left/content/VBoxContainer/biomes"]
-margin_top = 26.0
-margin_right = 236.0
-margin_bottom = 30.0
+margin_top = 34.0
+margin_right = 255.0
+margin_bottom = 38.0
 
 [node name="ItemList" type="ItemList" parent="gui/left/content/VBoxContainer/biomes"]
-margin_top = 34.0
-margin_right = 236.0
-margin_bottom = 234.0
+margin_top = 42.0
+margin_right = 255.0
+margin_bottom = 242.0
 rect_min_size = Vector2( 0, 200 )
 allow_reselect = true
 allow_rmb_select = true
 
 [node name="HSeparator3" type="HSeparator" parent="gui/left/content/VBoxContainer/biomes"]
-margin_top = 238.0
-margin_right = 236.0
-margin_bottom = 242.0
+margin_top = 246.0
+margin_right = 255.0
+margin_bottom = 250.0
 
 [node name="new_biome" type="Button" parent="gui/left/content/VBoxContainer/biomes"]
-margin_top = 246.0
-margin_right = 236.0
-margin_bottom = 266.0
+margin_top = 254.0
+margin_right = 255.0
+margin_bottom = 280.0
 text = "New Biome"
 
-[node name="edit_selected" type="Button" parent="gui/left/content/VBoxContainer/biomes"]
-margin_top = 270.0
-margin_right = 236.0
-margin_bottom = 290.0
-text = "Edit selected biome"
-
 [node name="delete" type="Button" parent="gui/left/content/VBoxContainer/biomes"]
-margin_top = 294.0
-margin_right = 236.0
-margin_bottom = 314.0
+margin_top = 284.0
+margin_right = 255.0
+margin_bottom = 310.0
 text = "Delete selected biome"
+
+[node name="right" type="MarginContainer" parent="gui"]
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = -277.995
+margin_top = -200.0
+margin_right = 0.00476074
+margin_bottom = 193.0
+custom_constants/margin_right = 5
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="gui/right"]
+margin_right = 272.0
+margin_bottom = 393.0
+
+[node name="MarginContainer" type="MarginContainer" parent="gui/right"]
+margin_right = 272.0
+margin_bottom = 393.0
+custom_constants/margin_right = 10
+custom_constants/margin_top = 10
+custom_constants/margin_left = 10
+custom_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="gui/right/MarginContainer"]
+margin_left = 10.0
+margin_top = 10.0
+margin_right = 262.0
+margin_bottom = 383.0
+
+[node name="Label" type="Label" parent="gui/right/MarginContainer/VBoxContainer"]
+margin_right = 252.0
+margin_bottom = 22.0
+text = "Main noise settings"
+align = 1
+
+[node name="HSeparator" type="HSeparator" parent="gui/right/MarginContainer/VBoxContainer"]
+margin_top = 26.0
+margin_right = 252.0
+margin_bottom = 30.0
+
+[node name="Label2" type="Label" parent="gui/right/MarginContainer/VBoxContainer"]
+margin_top = 34.0
+margin_right = 252.0
+margin_bottom = 56.0
+text = "Octaves:"
+
+[node name="octaves" type="SpinBox" parent="gui/right/MarginContainer/VBoxContainer"]
+margin_top = 60.0
+margin_right = 252.0
+margin_bottom = 86.0
+min_value = 1.0
+max_value = 9.0
+value = 4.0
+
+[node name="Label3" type="Label" parent="gui/right/MarginContainer/VBoxContainer"]
+margin_top = 90.0
+margin_right = 252.0
+margin_bottom = 112.0
+text = "Period:"
+
+[node name="period" type="SpinBox" parent="gui/right/MarginContainer/VBoxContainer"]
+margin_top = 116.0
+margin_right = 252.0
+margin_bottom = 142.0
+min_value = 1.0
+step = 0.1
+value = 20.0
+
+[node name="Label4" type="Label" parent="gui/right/MarginContainer/VBoxContainer"]
+margin_top = 146.0
+margin_right = 252.0
+margin_bottom = 168.0
+text = "Persistence:"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="persistence" type="SpinBox" parent="gui/right/MarginContainer/VBoxContainer"]
+margin_top = 172.0
+margin_right = 252.0
+margin_bottom = 198.0
+max_value = 1.0
+step = 0.1
+value = 0.8
+
+[node name="Windows" type="Node" parent="."]
+
+[node name="Biome settings" parent="Windows" instance=ExtResource( 6 )]
+visible = false
+anchor_right = 0.27
+anchor_bottom = 0.5
+margin_right = -0.200012
+margin_bottom = -2.0
+theme = ExtResource( 12 )
+
+[node name="VBoxContainer" parent="Windows/Biome settings/VBoxContainer" index="0"]
+margin_right = 362.0
+margin_bottom = 371.0
+
+[node name="biome_name" parent="Windows/Biome settings/VBoxContainer/VBoxContainer" index="0"]
+margin_right = 357.0
+margin_bottom = 22.0
+
+[node name="HSeparator" parent="Windows/Biome settings/VBoxContainer/VBoxContainer" index="1"]
+margin_top = 26.0
+margin_right = 357.0
+margin_bottom = 30.0
+
+[node name="Label" parent="Windows/Biome settings/VBoxContainer/VBoxContainer" index="2"]
+margin_top = 34.0
+margin_right = 357.0
+margin_bottom = 56.0
+
+[node name="a" parent="Windows/Biome settings/VBoxContainer/VBoxContainer" index="3"]
+margin_top = 60.0
+margin_right = 357.0
+margin_bottom = 86.0
+allow_greater = true
+allow_lesser = true
+
+[node name="Label2" parent="Windows/Biome settings/VBoxContainer/VBoxContainer" index="4"]
+margin_top = 90.0
+margin_right = 357.0
+margin_bottom = 112.0
+
+[node name="b" parent="Windows/Biome settings/VBoxContainer/VBoxContainer" index="5"]
+margin_top = 116.0
+margin_right = 357.0
+margin_bottom = 142.0
+allow_greater = true
+allow_lesser = true
+
+[node name="Label3" parent="Windows/Biome settings/VBoxContainer/VBoxContainer" index="6"]
+margin_top = 146.0
+margin_right = 357.0
+margin_bottom = 168.0
+
+[node name="a2" parent="Windows/Biome settings/VBoxContainer/VBoxContainer" index="7"]
+margin_top = 172.0
+margin_right = 357.0
+margin_bottom = 198.0
+allow_greater = true
+allow_lesser = true
+
+[node name="Label4" parent="Windows/Biome settings/VBoxContainer/VBoxContainer" index="8"]
+margin_top = 202.0
+margin_right = 357.0
+margin_bottom = 224.0
+
+[node name="b2" parent="Windows/Biome settings/VBoxContainer/VBoxContainer" index="9"]
+margin_top = 228.0
+margin_right = 357.0
+margin_bottom = 254.0
+allow_greater = true
+allow_lesser = true
+
+[node name="Label5" parent="Windows/Biome settings/VBoxContainer/VBoxContainer" index="10"]
+margin_top = 258.0
+margin_right = 357.0
+margin_bottom = 280.0
+
+[node name="c" parent="Windows/Biome settings/VBoxContainer/VBoxContainer" index="11"]
+margin_top = 284.0
+margin_right = 357.0
+margin_bottom = 310.0
+allow_greater = true
+allow_lesser = true
+
+[node name="Label6" parent="Windows/Biome settings/VBoxContainer/VBoxContainer" index="12"]
+margin_top = 314.0
+margin_right = 357.0
+margin_bottom = 336.0
+
+[node name="d" parent="Windows/Biome settings/VBoxContainer/VBoxContainer" index="13"]
+margin_top = 340.0
+margin_right = 357.0
+margin_bottom = 366.0
+allow_greater = true
+allow_lesser = true
+
+[node name="block_settings" parent="Windows" instance=ExtResource( 7 )]
+margin_right = 23.4
+margin_bottom = -0.191986
+theme = ExtResource( 12 )
+script = null
+
+[node name="MarginContainer" parent="Windows/block_settings" index="1"]
+margin_right = 328.0
+margin_bottom = 458.0
+
+[node name="VBoxContainer" parent="Windows/block_settings/MarginContainer" index="0"]
+margin_right = 328.0
+
+[node name="blu" parent="Windows/block_settings/MarginContainer/VBoxContainer" index="0"]
+margin_right = 328.0
+
+[node name="Block_lookup" parent="Windows/block_settings/MarginContainer/VBoxContainer/blu" index="0"]
+margin_right = 323.0
+
+[node name="name" parent="Windows/block_settings/MarginContainer/VBoxContainer/blu/Block_lookup" index="1"]
+margin_top = 39.0
+margin_right = 149.0
+margin_bottom = 61.0
+
+[node name="HSeparator" parent="Windows/block_settings/MarginContainer/VBoxContainer" index="1"]
+margin_right = 328.0
+
+[node name="scrollc" parent="Windows/block_settings/MarginContainer/VBoxContainer" index="2"]
+margin_right = 328.0
+scroll_vertical = 0
+
+[node name="VBoxContainer" parent="Windows/block_settings/MarginContainer/VBoxContainer/scrollc" index="0"]
+margin_left = 5.0
+margin_top = 5.0
+margin_right = 315.0
+margin_bottom = 542.0
+
+[node name="Label" parent="Windows/block_settings/MarginContainer/VBoxContainer/scrollc/VBoxContainer" index="0"]
+margin_right = 314.0
+margin_bottom = 22.0
+
+[node name="biomes" parent="Windows/block_settings/MarginContainer/VBoxContainer/scrollc/VBoxContainer" index="1"]
+margin_top = 26.0
+margin_right = 314.0
+margin_bottom = 126.0
+
+[node name="VBoxContainer" parent="Windows/block_settings/MarginContainer/VBoxContainer/scrollc/VBoxContainer/biomes" index="0"]
+margin_left = 5.0
+margin_top = 5.0
+margin_right = 305.0
+margin_bottom = 105.0
+
+[node name="bb" parent="Windows/block_settings/MarginContainer/VBoxContainer/scrollc/VBoxContainer/biomes/VBoxContainer" index="0"]
+margin_right = 300.0
+margin_bottom = 100.0
+rect_min_size = Vector2( 300, 100 )
+
+[node name="HSeparator" parent="Windows/block_settings/MarginContainer/VBoxContainer/scrollc/VBoxContainer" index="2"]
+margin_top = 130.0
+margin_right = 314.0
+margin_bottom = 134.0
+
+[node name="Label2" parent="Windows/block_settings/MarginContainer/VBoxContainer/scrollc/VBoxContainer" index="3"]
+margin_top = 138.0
+margin_right = 314.0
+margin_bottom = 185.0
+
+[node name="Label3" parent="Windows/block_settings/MarginContainer/VBoxContainer/scrollc/VBoxContainer" index="4"]
+margin_top = 189.0
+margin_right = 314.0
+margin_bottom = 211.0
+
+[node name="min_b_pos" parent="Windows/block_settings/MarginContainer/VBoxContainer/scrollc/VBoxContainer" index="5"]
+margin_top = 215.0
+margin_right = 314.0
+margin_bottom = 241.0
+min_value = -10000.0
+max_value = 100000.0
+allow_greater = true
+allow_lesser = true
+
+[node name="Label4" parent="Windows/block_settings/MarginContainer/VBoxContainer/scrollc/VBoxContainer" index="6"]
+margin_top = 245.0
+margin_right = 314.0
+margin_bottom = 267.0
+
+[node name="max_b_pos" parent="Windows/block_settings/MarginContainer/VBoxContainer/scrollc/VBoxContainer" index="7"]
+margin_top = 271.0
+margin_right = 314.0
+margin_bottom = 297.0
+allow_greater = true
+allow_lesser = true
+
+[node name="m_r_h_c" parent="Windows/block_settings/MarginContainer/VBoxContainer/scrollc/VBoxContainer" index="8"]
+margin_top = 301.0
+margin_right = 314.0
+margin_bottom = 327.0
+
+[node name="m_r_h" parent="Windows/block_settings/MarginContainer/VBoxContainer/scrollc/VBoxContainer" index="9"]
+margin_top = 331.0
+margin_right = 314.0
+margin_bottom = 357.0
+allow_greater = true
+allow_lesser = true
+
+[node name="m_r_h_c2" parent="Windows/block_settings/MarginContainer/VBoxContainer/scrollc/VBoxContainer" index="10"]
+margin_top = 361.0
+margin_right = 314.0
+margin_bottom = 387.0
+
+[node name="m_r_h2" parent="Windows/block_settings/MarginContainer/VBoxContainer/scrollc/VBoxContainer" index="11"]
+margin_top = 391.0
+margin_right = 314.0
+margin_bottom = 417.0
+allow_greater = true
+allow_lesser = true
+
+[node name="m_r_h_w" parent="Windows/block_settings/MarginContainer/VBoxContainer/scrollc/VBoxContainer" index="12"]
+margin_top = 421.0
+margin_right = 314.0
+margin_bottom = 447.0
+
+[node name="m_r_w" parent="Windows/block_settings/MarginContainer/VBoxContainer/scrollc/VBoxContainer" index="13"]
+margin_top = 451.0
+margin_right = 314.0
+margin_bottom = 477.0
+allow_greater = true
+allow_lesser = true
+
+[node name="m_r_h_w2" parent="Windows/block_settings/MarginContainer/VBoxContainer/scrollc/VBoxContainer" index="14"]
+margin_top = 481.0
+margin_right = 314.0
+margin_bottom = 507.0
+
+[node name="m_r_w2" parent="Windows/block_settings/MarginContainer/VBoxContainer/scrollc/VBoxContainer" index="15"]
+margin_top = 511.0
+margin_right = 314.0
+margin_bottom = 537.0
+allow_greater = true
+allow_lesser = true
+
+[node name="nbiome" parent="Windows" instance=ExtResource( 9 )]
+visible = false
+anchor_right = 0.3
+margin_right = -3.05176e-05
+theme = ExtResource( 12 )
+
+[node name="VBoxContainer" parent="Windows/nbiome/MarginContainer/ScrollContainer" index="0"]
+margin_left = 5.0
+margin_top = 5.0
+margin_right = 377.0
+margin_bottom = 587.0
+
+[node name="Biome name" parent="Windows/nbiome/MarginContainer/ScrollContainer/VBoxContainer" index="0"]
+margin_right = 372.0
+margin_bottom = 22.0
+
+[node name="biomenm" parent="Windows/nbiome/MarginContainer/ScrollContainer/VBoxContainer" index="1"]
+margin_top = 26.0
+margin_right = 372.0
+margin_bottom = 52.0
+
+[node name="HSeparator" parent="Windows/nbiome/MarginContainer/ScrollContainer/VBoxContainer" index="2"]
+margin_top = 56.0
+margin_right = 372.0
+margin_bottom = 60.0
+
+[node name="Biome name2" parent="Windows/nbiome/MarginContainer/ScrollContainer/VBoxContainer" index="3"]
+margin_top = 64.0
+margin_right = 372.0
+margin_bottom = 86.0
+
+[node name="ColorPicker" parent="Windows/nbiome/MarginContainer/ScrollContainer/VBoxContainer" index="4"]
+margin_left = 4.0
+margin_top = 90.0
+margin_right = 372.0
+margin_bottom = 552.0
+
+[node name="create" parent="Windows/nbiome/MarginContainer/ScrollContainer/VBoxContainer" index="5"]
+margin_top = 556.0
+margin_right = 372.0
+margin_bottom = 582.0
+
+[node name="nblock" parent="Windows" instance=ExtResource( 8 )]
+visible = false
+anchor_right = 0.301
+margin_right = -0.360046
+theme = ExtResource( 12 )
+
+[node name="ScrollContainer" parent="Windows/nblock/MarginContainer" index="0"]
+margin_right = 387.0
+scroll_vertical = 0
+
+[node name="VBoxContainer" parent="Windows/nblock/MarginContainer/ScrollContainer" index="0"]
+margin_left = 5.0
+margin_top = 5.0
+margin_right = 377.0
+margin_bottom = 659.0
+
+[node name="block name" parent="Windows/nblock/MarginContainer/ScrollContainer/VBoxContainer" index="0"]
+margin_right = 372.0
+margin_bottom = 22.0
+
+[node name="LineEdit" parent="Windows/nblock/MarginContainer/ScrollContainer/VBoxContainer" index="1"]
+margin_top = 26.0
+margin_right = 372.0
+margin_bottom = 52.0
+
+[node name="HSeparator" parent="Windows/nblock/MarginContainer/ScrollContainer/VBoxContainer" index="2"]
+margin_top = 56.0
+margin_right = 372.0
+margin_bottom = 60.0
+
+[node name="block flag" parent="Windows/nblock/MarginContainer/ScrollContainer/VBoxContainer" index="3"]
+margin_top = 64.0
+margin_right = 372.0
+margin_bottom = 86.0
+
+[node name="ColorPicker" parent="Windows/nblock/MarginContainer/ScrollContainer/VBoxContainer" index="4"]
+margin_left = 4.0
+margin_top = 90.0
+margin_right = 372.0
+margin_bottom = 552.0
+
+[node name="HSeparator2" parent="Windows/nblock/MarginContainer/ScrollContainer/VBoxContainer" index="5"]
+margin_top = 556.0
+margin_right = 372.0
+margin_bottom = 560.0
+
+[node name="block path" parent="Windows/nblock/MarginContainer/ScrollContainer/VBoxContainer" index="6"]
+margin_top = 564.0
+margin_right = 372.0
+margin_bottom = 586.0
+
+[node name="HBoxContainer" parent="Windows/nblock/MarginContainer/ScrollContainer/VBoxContainer" index="7"]
+margin_top = 590.0
+margin_right = 372.0
+margin_bottom = 616.0
+
+[node name="path" parent="Windows/nblock/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer" index="0"]
+margin_bottom = 26.0
+
+[node name="select" parent="Windows/nblock/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer" index="1"]
+margin_right = 325.0
+margin_bottom = 26.0
+
+[node name="HSeparator3" parent="Windows/nblock/MarginContainer/ScrollContainer/VBoxContainer" index="8"]
+margin_top = 620.0
+margin_right = 372.0
+margin_bottom = 624.0
+
+[node name="create" parent="Windows/nblock/MarginContainer/ScrollContainer/VBoxContainer" index="9"]
+margin_top = 628.0
+margin_right = 372.0
+margin_bottom = 654.0
+
+[node name="delete biome" parent="Windows" instance=ExtResource( 10 )]
+visible = false
+rect_clip_content = true
+theme = ExtResource( 12 )
+popup_exclusive = true
+
+[node name="ScrollContainer" parent="Windows/delete biome/MarginContainer" index="0"]
+margin_right = 215.0
+
+[node name="VBoxContainer" parent="Windows/delete biome/MarginContainer/ScrollContainer" index="0"]
+margin_left = 5.0
+margin_top = 5.0
+margin_right = 205.0
+margin_bottom = 231.0
+
+[node name="Label" parent="Windows/delete biome/MarginContainer/ScrollContainer/VBoxContainer" index="0"]
+margin_bottom = 22.0
+
+[node name="ItemList" parent="Windows/delete biome/MarginContainer/ScrollContainer/VBoxContainer" index="1"]
+margin_top = 26.0
+margin_bottom = 226.0
+auto_height = true
+
+[node name="delete object" parent="Windows" instance=ExtResource( 11 )]
+visible = false
+margin_right = 252.0
+theme = ExtResource( 12 )
+popup_exclusive = true
+
+[node name="ScrollContainer" parent="Windows/delete object/MarginContainer" index="0"]
+margin_right = 215.0
+
+[node name="VBoxContainer" parent="Windows/delete object/MarginContainer/ScrollContainer" index="0"]
+margin_left = 5.0
+margin_top = 5.0
+margin_right = 205.0
+margin_bottom = 231.0
+
+[node name="Label" parent="Windows/delete object/MarginContainer/ScrollContainer/VBoxContainer" index="0"]
+margin_bottom = 22.0
+
+[node name="ItemList" parent="Windows/delete object/MarginContainer/ScrollContainer/VBoxContainer" index="1"]
+margin_top = 26.0
+margin_bottom = 226.0
+auto_height = true
 
 [node name="save_as" type="FileDialog" parent="."]
 margin_right = 721.0
@@ -345,8 +869,8 @@ popup_exclusive = true
 window_title = "Zapisz plik"
 resizable = true
 access = 1
-current_dir = "user://home/gameplayer/Dokumenty/godot-workspace/games/PlatGen/PlatGen"
-current_path = "user://home/gameplayer/Dokumenty/godot-workspace/games/PlatGen/PlatGen/"
+current_dir = "user://"
+current_path = "user://"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -359,13 +883,69 @@ window_title = "Otwórz plik"
 resizable = true
 mode = 0
 access = 1
-current_dir = "user://home/gameplayer/Dokumenty/godot-workspace/games/PlatGen/PlatGen"
-current_path = "user://home/gameplayer/Dokumenty/godot-workspace/games/PlatGen/PlatGen/"
+current_dir = "user://"
+current_path = "user://"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="load_block" type="FileDialog" parent="."]
+margin_right = 556.0
+margin_bottom = 382.0
+popup_exclusive = true
+window_title = "Otwórz plik"
+resizable = true
+mode = 0
+access = 1
+filters = PoolStringArray( "*.tscn ; Scene file" )
+current_dir = "user://"
+current_path = "user://"
+
+[connection signal="pressed" from="gui/CORNER up_right/HBoxContainer/load" to="." method="_on_load_gen_pressed"]
+[connection signal="pressed" from="gui/CORNER up_right/HBoxContainer/save_as" to="." method="_on_save_as_gen_pressed"]
+[connection signal="pressed" from="gui/CORNER up_right/HBoxContainer/save" to="." method="_on_save_gen_pressed"]
+[connection signal="pressed" from="gui/CORNER up_right/HBoxContainer/exit" to="." method="_on_exit_pressed"]
+[connection signal="pressed" from="gui/CORNER down/MarginContainer/HBoxContainer/refresh_render" to="." method="_on_refresh_render_pressed"]
 [connection signal="text_changed" from="gui/CORNER down_left/HBoxContainer/seed" to="." method="_on_seed_text_changed"]
 [connection signal="pressed" from="gui/CORNER down_left/HBoxContainer/gen_seed" to="." method="_on_gen_seed_pressed"]
+[connection signal="item_selected" from="gui/left/content/VBoxContainer/objects/ItemList" to="." method="_objects_item_selected"]
+[connection signal="pressed" from="gui/left/content/VBoxContainer/objects/new" to="." method="_objects_new_pressed"]
+[connection signal="pressed" from="gui/left/content/VBoxContainer/objects/delete" to="." method="_objects_delete_pressed"]
+[connection signal="item_selected" from="gui/left/content/VBoxContainer/biomes/ItemList" to="." method="_biome_item_selected"]
+[connection signal="pressed" from="gui/left/content/VBoxContainer/biomes/new_biome" to="." method="_new_biome_pressed"]
+[connection signal="pressed" from="gui/left/content/VBoxContainer/biomes/delete" to="." method="_biome_delete_pressed"]
+[connection signal="value_changed" from="gui/right/MarginContainer/VBoxContainer/octaves" to="." method="_on_octaves_value_changed"]
+[connection signal="value_changed" from="gui/right/MarginContainer/VBoxContainer/period" to="." method="_on_period_value_changed"]
+[connection signal="value_changed" from="gui/right/MarginContainer/VBoxContainer/persistence" to="." method="_on_persistence_value_changed"]
+[connection signal="value_changed" from="Windows/Biome settings/VBoxContainer/VBoxContainer/a" to="." method="_biome_settings_a_value_changed"]
+[connection signal="value_changed" from="Windows/Biome settings/VBoxContainer/VBoxContainer/b" to="." method="_biome_settings_b_value_changed"]
+[connection signal="value_changed" from="Windows/Biome settings/VBoxContainer/VBoxContainer/a2" to="." method="_biome_settings_atwo_value_changed"]
+[connection signal="value_changed" from="Windows/Biome settings/VBoxContainer/VBoxContainer/b2" to="." method="_biome_settings_btwo_value_changed"]
+[connection signal="value_changed" from="Windows/Biome settings/VBoxContainer/VBoxContainer/c" to="." method="_biome_settings_c_value_changed"]
+[connection signal="value_changed" from="Windows/Biome settings/VBoxContainer/VBoxContainer/d" to="." method="_biome_settings_d_value_changed"]
+[connection signal="multi_selected" from="Windows/block_settings/MarginContainer/VBoxContainer/scrollc/VBoxContainer/biomes/VBoxContainer/bb" to="." method="_object_settings_biome_multi_selected"]
+[connection signal="value_changed" from="Windows/block_settings/MarginContainer/VBoxContainer/scrollc/VBoxContainer/min_b_pos" to="." method="_object_settings_min_b_pos_value_changed"]
+[connection signal="value_changed" from="Windows/block_settings/MarginContainer/VBoxContainer/scrollc/VBoxContainer/max_b_pos" to="." method="_object_settings_max_b_pos_value_changed"]
+[connection signal="toggled" from="Windows/block_settings/MarginContainer/VBoxContainer/scrollc/VBoxContainer/m_r_h_c" to="." method="_object_settings_m_r_h_c_toggled"]
+[connection signal="value_changed" from="Windows/block_settings/MarginContainer/VBoxContainer/scrollc/VBoxContainer/m_r_h" to="." method="_object_settings_m_r_h_text_changed"]
+[connection signal="toggled" from="Windows/block_settings/MarginContainer/VBoxContainer/scrollc/VBoxContainer/m_r_h_c2" to="." method="_object_settings_m_r_h_ctwo_toggled"]
+[connection signal="value_changed" from="Windows/block_settings/MarginContainer/VBoxContainer/scrollc/VBoxContainer/m_r_h2" to="." method="_object_settings_m_r_htwo_value_changed"]
+[connection signal="toggled" from="Windows/block_settings/MarginContainer/VBoxContainer/scrollc/VBoxContainer/m_r_h_w" to="." method="_object_settings_m_r_h_w_toggled"]
+[connection signal="value_changed" from="Windows/block_settings/MarginContainer/VBoxContainer/scrollc/VBoxContainer/m_r_w" to="." method="_object_settings_m_r_w_value_changed"]
+[connection signal="toggled" from="Windows/block_settings/MarginContainer/VBoxContainer/scrollc/VBoxContainer/m_r_h_w2" to="." method="_object_settings_m_r_h_wtwo_toggled"]
+[connection signal="value_changed" from="Windows/block_settings/MarginContainer/VBoxContainer/scrollc/VBoxContainer/m_r_w2" to="." method="_object_settings_m_r_wtwo_value_changed"]
+[connection signal="pressed" from="Windows/nbiome/MarginContainer/ScrollContainer/VBoxContainer/create" to="." method="_nbiome_create_pressed"]
+[connection signal="pressed" from="Windows/nblock/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/select" to="." method="_nblock_select_path_pressed"]
+[connection signal="pressed" from="Windows/nblock/MarginContainer/ScrollContainer/VBoxContainer/create" to="." method="_nblock_create_pressed"]
+[connection signal="item_selected" from="Windows/delete biome/MarginContainer/ScrollContainer/VBoxContainer/ItemList" to="." method="_biome_delete_list"]
+[connection signal="item_selected" from="Windows/delete object/MarginContainer/ScrollContainer/VBoxContainer/ItemList" to="." method="_object_delete_list"]
 [connection signal="file_selected" from="save_as" to="." method="_on_save_as_file_selected"]
 [connection signal="file_selected" from="load" to="." method="_on_load_file_selected"]
+[connection signal="file_selected" from="load_block" to="." method="_on_load_block_file_selected"]
+
+[editable path="Windows/Biome settings"]
+[editable path="Windows/block_settings"]
+[editable path="Windows/nbiome"]
+[editable path="Windows/nblock"]
+[editable path="Windows/delete biome"]
+[editable path="Windows/delete object"]

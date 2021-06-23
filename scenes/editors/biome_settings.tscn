@@ -1,0 +1,112 @@
+[gd_scene format=2]
+
+[node name="Biome settings" type="WindowDialog"]
+visible = true
+anchor_right = 0.241
+anchor_bottom = 0.552
+margin_right = -7.76001
+margin_bottom = -103.936
+popup_exclusive = true
+window_title = "Biome settings"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="MarginContainer" parent="."]
+margin_right = 320.0
+margin_bottom = 320.0
+custom_constants/margin_right = 5
+custom_constants/margin_top = 5
+custom_constants/margin_left = 5
+custom_constants/margin_bottom = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer"]
+margin_left = 5.0
+margin_top = 5.0
+margin_right = 315.0
+margin_bottom = 315.0
+
+[node name="biome_name" type="Label" parent="VBoxContainer/VBoxContainer"]
+margin_right = 310.0
+margin_bottom = 14.0
+text = "Tundra"
+align = 1
+
+[node name="HSeparator" type="HSeparator" parent="VBoxContainer/VBoxContainer"]
+margin_top = 18.0
+margin_right = 310.0
+margin_bottom = 22.0
+
+[node name="Label" type="Label" parent="VBoxContainer/VBoxContainer"]
+margin_top = 26.0
+margin_right = 310.0
+margin_bottom = 40.0
+text = "Minimal render start zone (X):"
+
+[node name="a" type="SpinBox" parent="VBoxContainer/VBoxContainer"]
+margin_top = 44.0
+margin_right = 310.0
+margin_bottom = 68.0
+max_value = 100000.0
+
+[node name="Label2" type="Label" parent="VBoxContainer/VBoxContainer"]
+margin_top = 72.0
+margin_right = 310.0
+margin_bottom = 86.0
+text = "Max render start zone (X):"
+
+[node name="b" type="SpinBox" parent="VBoxContainer/VBoxContainer"]
+margin_top = 90.0
+margin_right = 310.0
+margin_bottom = 114.0
+max_value = 100000.0
+
+[node name="Label3" type="Label" parent="VBoxContainer/VBoxContainer"]
+margin_top = 118.0
+margin_right = 310.0
+margin_bottom = 132.0
+text = "Minimal render start zone (Y):"
+
+[node name="a2" type="SpinBox" parent="VBoxContainer/VBoxContainer"]
+margin_top = 136.0
+margin_right = 310.0
+margin_bottom = 160.0
+max_value = 100000.0
+
+[node name="Label4" type="Label" parent="VBoxContainer/VBoxContainer"]
+margin_top = 164.0
+margin_right = 310.0
+margin_bottom = 178.0
+text = "Max render start zone (Y):"
+
+[node name="b2" type="SpinBox" parent="VBoxContainer/VBoxContainer"]
+margin_top = 182.0
+margin_right = 310.0
+margin_bottom = 206.0
+max_value = 100000.0
+
+[node name="Label5" type="Label" parent="VBoxContainer/VBoxContainer"]
+margin_top = 210.0
+margin_right = 310.0
+margin_bottom = 224.0
+text = "Main Noise minimal render:"
+
+[node name="c" type="SpinBox" parent="VBoxContainer/VBoxContainer"]
+margin_top = 228.0
+margin_right = 310.0
+margin_bottom = 252.0
+max_value = 1.0
+step = 0.001
+
+[node name="Label6" type="Label" parent="VBoxContainer/VBoxContainer"]
+margin_top = 256.0
+margin_right = 310.0
+margin_bottom = 270.0
+text = "Main Noise max render:"
+
+[node name="d" type="SpinBox" parent="VBoxContainer/VBoxContainer"]
+margin_top = 274.0
+margin_right = 310.0
+margin_bottom = 298.0
+max_value = 1.0
+step = 0.001

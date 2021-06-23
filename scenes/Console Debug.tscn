@@ -42,8 +42,9 @@ __meta__ = {
 [node name="RichTextLabel" type="RichTextLabel" parent="WindowDialog"]
 margin_left = 6.0
 margin_top = 13.0
-margin_right = 429.0
-margin_bottom = 235.0
+margin_right = 535.0
+margin_bottom = 290.0
+rect_scale = Vector2( 0.8, 0.8 )
 bbcode_enabled = true
 __meta__ = {
 "_edit_use_anchors_": false
@@ -85,4 +86,5 @@ margin_top = 71.7188
 margin_right = 127.838
 margin_bottom = 93.7188
 text = "Ok"
+
 [connection signal="pressed" from="WindowDialog/rm/ok" to="." method="_on_ok_pressed"]

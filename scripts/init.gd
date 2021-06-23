@@ -10,7 +10,8 @@ onready var main = get_node("/root/lib_main")
 func _ready():
 	initialize_user_tree()
 	network_cfg()
-	$"main-stuff/CenterContainer/Console Debug".open_scene("res://scenes/editors/block-editor.tscn")
+	$"main-stuff/CenterContainer/Console Debug".open_scene("res://scenes/server.tscn")
+	$"main-stuff/CenterContainer/Console Debug".open_scene("res://scenes/client.tscn")
 func set_main_cam(config2):
 	$Camera2D.current = config2
 
@@ -75,3 +76,5 @@ func initialize_user_tree():
 		main.mkdir("user://network_cfg/certificates")
 	if(!main.check("user://debug") and OS.is_debug_build()):
 		main.mkdir("user://debug")
+	if(!main.check("user://client_buffor")):
+		main.mkdir("user://client_buffor")

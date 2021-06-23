@@ -1,0 +1,39 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://scripts/parametres_display.gd" type="Script" id=1]
+
+[node name="parametres" type="Control"]
+visible = false
+anchor_left = 0.5
+anchor_top = 0.533
+anchor_right = 0.5
+anchor_bottom = 0.533
+margin_left = -680.0
+margin_top = -409.344
+margin_right = 680.0
+margin_bottom = 358.656
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+margin_right = 57.0
+margin_bottom = 66.0
+custom_constants/margin_top = 5
+custom_constants/margin_left = 15
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="UpLeft" type="Label" parent="MarginContainer"]
+margin_left = 15.0
+margin_top = 28.0
+margin_right = 57.0
+margin_bottom = 42.0
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = "test"
+__meta__ = {
+"_edit_use_anchors_": false
+}

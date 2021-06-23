@@ -1,0 +1,8 @@
+[gd_scene format=2]
+
+[node name="spectator" type="Node2D"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+current = true
+limit_smoothed = true
+smoothing_enabled = true

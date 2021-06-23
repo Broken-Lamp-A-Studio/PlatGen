@@ -4,6 +4,8 @@ extends Node2D
 onready var symlink = get_node("/root/MainSymlink")
 onready var ports = get_node("/root/ClientWebsocketPorts")
 
+
+
 var _client = WebSocketClient.new()
 var cfg
 var server_name = ""
@@ -69,7 +71,7 @@ func _data():
 				_client.disconnect_from_host(409, "Unknown package.")
 				rm_self()
 		else:
-			_on_server_data(pkg)
+			pass
 	else:
 		symlink.console_output("[Client] Unknown package sent, DISCONNECTING", "")
 		_client.disconnect_from_host(409, "Unknown package.")
@@ -81,6 +83,8 @@ func _connection_stop(data = false):
 		symlink.console_output("[Client] Connection stopped successfully.", "")
 	else:
 		symlink.console_output("[Client] Connection stopped not safely.", "warn")
+		set_process(false)
+
 
 func _connection_err(error = "?"):
 	set_process(false)
@@ -101,9 +105,6 @@ func _server_closed(code = 0, reason = "no reason (timed out?)"):
 	self.name = "TO REMOVE CLIENT%d"%OS.get_system_time_msecs()
 	self.queue_free()
 
-func _exit_tree():
-	_client.disconnect_from_host(100, exit_reason)
-
 onready var _serv_c_time = OS.get_system_time_msecs()
 
 func _serv_connection():
@@ -114,43 +115,19 @@ func _serv_connection():
 		self.queue_free()
 
 func _send_package(data):
-	#symlink.console_output("[Client] Package sent: "+str(data), "")
 	_client.get_peer(1).put_packet(JSON.print(data).to_utf8())
 
 func rm_self():
 	self.name = "TO REMOVE CLIENT%d"%OS.get_system_time_msecs()
 	self.queue_free()
 
-var cfgc = {}
-
 func connect_to_the_server(address, port):
-#	_client.disconnect("connection_closed", self, "_connection_stop")
-#	_client.disconnect("connection_error", self, "_connection_err")
-#	_client.disconnect("connection_established", self, "_connection_made")
-#	_client.disconnect("data_received", self, "_data")
-#	_client.disconnect("server_close_request", self, "_server_closed")
-	cfgc.address = address
-	cfgc.port = port
-	$Timer.start(1)
-
-
-func _on_server_data(json = {}):
-	pass
-
+	MainSymlink._game_client_address = address
+	MainSymlink._game_client_port = port
+	MainSymlink._game_client_cert = SERV_CERT
+	_on_start_connection()
 
 func _on_start_connection():
-#	_client.connect("connection_closed", self, "_connection_stop")
-#	_client.connect("connection_error", self, "_connection_err")
-#	_client.connect("connection_established", self, "_connection_made")
-#	_client.connect("data_received", self, "_data")
-#	_client.connect("server_close_request", self, "_server_closed")
-	_client.verify_ssl = false
-	_client.trusted_ssl_certificate = SERV_CERT
-	var result_client = _client.connect_to_url(cfgc.address+":"+str(cfgc.port))
-	if(result_client == OK):
-		symlink.console_output("[Client] Connection started with ["+cfgc.address+":"+str(cfgc.port)+"]")
-	else:
-		symlink.console_output("[Client] Failed to connect to ["+cfgc.address+":"+str(cfgc.port)+"] by the following error: "+str(result_client))
-		symlink.console_output("[Client] CLIENT SIDE TERMINATED")
-		rm_self()
-	#set_process(true)
+	MainSymlink._load_scene("res://scenes/game_client.tscn")
+	symlink.console_output("[Client] Terminating client side 1...")
+	rm_self()

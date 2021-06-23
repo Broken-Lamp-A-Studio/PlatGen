@@ -1,0 +1,110 @@
+[gd_scene format=2]
+
+[node name="nblock" type="WindowDialog"]
+visible = true
+anchor_right = 0.235
+anchor_bottom = 0.5
+margin_right = 8.39999
+popup_exclusive = true
+window_title = "New block"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+margin_right = 330.0
+margin_bottom = 384.0
+custom_constants/margin_right = 5
+custom_constants/margin_top = 5
+custom_constants/margin_left = 5
+custom_constants/margin_bottom = 5
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer"]
+margin_left = 5.0
+margin_top = 5.0
+margin_right = 325.0
+margin_bottom = 379.0
+follow_focus = true
+scroll_horizontal_enabled = false
+scroll_vertical = 215
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/ScrollContainer"]
+margin_top = -215.0
+margin_right = 308.0
+margin_bottom = 406.0
+
+[node name="block name" type="Label" parent="MarginContainer/ScrollContainer/VBoxContainer"]
+margin_right = 308.0
+margin_bottom = 14.0
+rect_min_size = Vector2( 290, 0 )
+text = "Block name:"
+align = 1
+
+[node name="LineEdit" type="LineEdit" parent="MarginContainer/ScrollContainer/VBoxContainer"]
+margin_top = 18.0
+margin_right = 308.0
+margin_bottom = 42.0
+text = "New block"
+align = 1
+
+[node name="HSeparator" type="HSeparator" parent="MarginContainer/ScrollContainer/VBoxContainer"]
+margin_top = 46.0
+margin_right = 308.0
+margin_bottom = 50.0
+
+[node name="block flag" type="Label" parent="MarginContainer/ScrollContainer/VBoxContainer"]
+margin_top = 54.0
+margin_right = 308.0
+margin_bottom = 68.0
+rect_min_size = Vector2( 290, 0 )
+text = "Block color flag:"
+align = 1
+
+[node name="ColorPicker" type="ColorPicker" parent="MarginContainer/ScrollContainer/VBoxContainer"]
+margin_top = 72.0
+margin_right = 308.0
+margin_bottom = 534.0
+
+[node name="HSeparator2" type="HSeparator" parent="MarginContainer/ScrollContainer/VBoxContainer"]
+margin_top = 538.0
+margin_right = 308.0
+margin_bottom = 542.0
+
+[node name="block path" type="Label" parent="MarginContainer/ScrollContainer/VBoxContainer"]
+margin_top = 546.0
+margin_right = 308.0
+margin_bottom = 560.0
+rect_min_size = Vector2( 290, 0 )
+text = "Path to block file:"
+align = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/ScrollContainer/VBoxContainer"]
+margin_top = 564.0
+margin_right = 308.0
+margin_bottom = 589.0
+rect_min_size = Vector2( 0, 25 )
+
+[node name="path" type="LineEdit" parent="MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer"]
+margin_right = 250.0
+margin_bottom = 25.0
+rect_min_size = Vector2( 250, 0 )
+
+[node name="select" type="Button" parent="MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer"]
+margin_left = 254.0
+margin_right = 305.0
+margin_bottom = 25.0
+text = "Select"
+
+[node name="HSeparator3" type="HSeparator" parent="MarginContainer/ScrollContainer/VBoxContainer"]
+margin_top = 593.0
+margin_right = 308.0
+margin_bottom = 597.0
+
+[node name="create" type="Button" parent="MarginContainer/ScrollContainer/VBoxContainer"]
+margin_top = 601.0
+margin_right = 308.0
+margin_bottom = 621.0
+text = "Create new block"

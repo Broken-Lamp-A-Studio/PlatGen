@@ -3,13 +3,17 @@ extends Node
 var env_textures = []
 var env2_texture = OpenSimplexNoise.new()
 
+func _ready():
+	make_gen(45483)
+	MainSymlink.console_output(str(get_gen_pos(0, Vector2(500, 500))))
+
 func _process(_delta):
 	_render_noise_process()
 	_multiple_render_process()
 
 func get_gen_pos(array_position = 0, noise_position = Vector2(1.0, 1.0)):
 	var noise_texture = env_textures[array_position]
-	return noise_texture.get_noise_2d(noise_position)
+	return noise_texture.get_noise_2d(noise_position.x, noise_position.y)
 
 func make_gen(seed2 = 0000, octaves = 4, period = 20.0, persistence = 0.8, texture = OpenSimplexNoise.new()):
 	env2_texture = texture
@@ -126,3 +130,4 @@ func __UNREG_output_render(node_path):
 	if(output_list.has(node_path)):
 		output_list.remove(output_list.find(node_path))
 
+ 

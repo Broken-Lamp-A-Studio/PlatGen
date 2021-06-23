@@ -27,6 +27,8 @@ MainSymlink="*res://symlinks/main_symlink.gd"
 GeneratorLib="*res://libs/generator_lib.gd"
 ClientWebsocketPorts="*res://configs/client_websocket_ports.gd"
 ServerWebsocketPorts="*res://configs/server_websocket_ports.gd"
+ClientSymlink="*res://networking/client_symlink.gd"
+ServerSymlink="*res://networking/server_symlink.gd"
 
 [display]
 
@@ -118,6 +120,11 @@ ui_end={
 ui_open_console={
 "deadzone": 0.5,
 "events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777244,"unicode":0,"echo":false,"script":null)
+ ]
+}
+ui_open_close_parametres={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777246,"unicode":0,"echo":false,"script":null)
  ]
 }
 
