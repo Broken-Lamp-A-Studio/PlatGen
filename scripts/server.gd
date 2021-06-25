@@ -87,6 +87,7 @@ func _ready():
 	certificate_gen()
 	websocket.private_key = KEY
 	websocket.ssl_certificate = CRT_DATA
+	websocket.ca_chain = CRT_DATA
 	var result = check_ports(ports.min_search_port, ports.max_search_port, "Server")
 		
 	#print(websocket.get_bind_ip())
@@ -110,26 +111,26 @@ func _ready():
 func _process(_delta):
 	if(websocket.is_listening()):
 		websocket.poll()
-		_game_process()
+		#_game_process()
 		_server_process()
 	if(_lobby.is_listening()):
 		_lobby.poll()
 		_lobby_process()
 
 func _client_connected(id, protocol = "none"):
-	print("TT")
 	symlink.console_output("[Server] Client connected with protocol: "+protocol+" - ID: %d"%id, "")
 	clients += [id]
-	_server_regtime += [OS.get_system_time_secs()]
+	ping += [0]
+	_server_regtime += [OS.get_system_time_msecs()]
 	_client_transform += [id, {"x":0, "y":0, "rotation":0, "scale":{"x":1, "y":1}}]
 func _client_disconnected(id, disconnect_cleanly):
+	ping.remove(clients.find(id))
 	if(disconnect_cleanly):
 		symlink.console_output("[Server] Client [%d"%id+"] has been disconnected successfully.", "")
 	else:
 		symlink.console_output("[Server] Client [%d"%id+"] has been disconnected not safely.", "")
 	_server_regtime.remove(clients.find(id))
 	clients.remove(clients.find(id))
-	
 	if(_client_transform.has(id)):
 		_client_transform.remove(_client_transform.find(id)+1)
 		_client_transform.remove(_client_transform.find(id))
@@ -145,32 +146,49 @@ func _exit_tree():
 	if(_lobby.is_listening()):
 		_lobby.stop()
 
-func disconnect_everyone(code, reason):
-	var t = 0
-	while(t != clients.size()):
-		websocket.close(clients[t], code, reason)
-		t += 1
-	clients = []
+var ping = []
+
+func _update_ping(id):
+	ping[clients.find(id)] = OS.get_system_time_msecs() - _server_regtime[clients.find(id)]
+	_server_regtime[clients.find(id)] = OS.get_system_time_msecs()
+
+func _get_data(id):
+	var pck = JSON.parse(websocket.get_peer(id).get_packet().get_string_from_utf8())
+	var error = pck.get_error()
+	if(error != 0):
+		websocket.disconnect_peer(id, 400, "Wrong package.")
+		return 1
+	else:
+		var pkg = pck.result
+		return pkg
+
+onready var package_manager = load("res://networking/server_package_manager.gd")
 
 func _data(client_id):
-	symlink.console_output("[Server] Client [%d"%client_id+"] sended some package.", "")
-	var state_one = false
-	var pck = JSON.parse(websocket.get_peer(client_id).get_packet().get_string_from_utf8())
-	var pkg = pck.result
-	var get_error = pck.get_error()
-	if(get_error == 0):
-		state_one = true
-	if(pkg.has("type") and state_one):
-		if(pkg.type == "content"):
-			_ASK_package_manager(client_id, pkg)
-		else:
-			websocket.disconnect_peer(client_id, 400, "Invalid package sent.")
-			symlink.console_output("[Server].[Err 1] Client '%d"%client_id+"' sent invalid JSON package, so client was kicked.", "")
-	else:
-		websocket.disconnect_peer(client_id, 400, "Invalid package sent.")
-		symlink.console_output("[Server].[Err 1] Client '%d"%client_id+"' sent invalid JSON package, so client was kicked.", "")
+	_update_ping(client_id)
+	var data = _get_data(client_id)
+	package_manager._package_manager(client_id, data)
+
+
+#	symlink.console_output("[Server] Client [%d"%client_id+"] sended some package.", "")
+#	var state_one = false
+#	var pck = JSON.parse(websocket.get_peer(client_id).get_packet().get_string_from_utf8())
+#	var pkg = pck.result
+#	var get_error = pck.get_error()
+#	if(get_error == 0):
+#		state_one = true
+#	if(pkg.has("type") and state_one):
+#		if(pkg.type == "content"):
+#			_ASK_package_manager(client_id, pkg)
+#		else:
+#			websocket.disconnect_peer(client_id, 400, "Invalid package sent.")
+#			symlink.console_output("[Server].[Err 1] Client '%d"%client_id+"' sent invalid JSON package, so client was kicked.", "")
+#	else:
+#		websocket.disconnect_peer(client_id, 400, "Invalid package sent.")
+#		symlink.console_output("[Server].[Err 1] Client '%d"%client_id+"' sent invalid JSON package, so client was kicked.", "")
 
 func send_package(data, client_id):
+	_update_ping(client_id)
 	var check_data = data.typeof()
 	if(check_data == JSON):
 		websocket.get_peer(client_id).put_packet(JSON.print(data).to_utf8())
@@ -292,13 +310,13 @@ var _server_ticker = 0
 
 func _server_process():
 	if(_server_regtime.size() > 0):
-		print("T")
-		if(OS.get_system_time_secs() - _server_regtime[_server_regtime] > 18):
+		if(OS.get_system_time_msecs() - _server_regtime[_server_ticker] > 18000):
 			#clients.remove(_server_ticker)
 			#_server_regtime.remove(_server_ticker)
 			var id = clients[_server_ticker]
 			#_lobby_clients.remove(_server_ticker)
 			websocket.disconnect_peer(id, 504, "Timed out")
+			MainSymlink.console_output("[Server] Disconnecting client ["+str(id)+"] by Timed out.")
 		_server_ticker += 1
 		if(_server_ticker+1 > _server_regtime.size()):
 			_server_ticker = 0
@@ -322,7 +340,8 @@ func _init_game():
 	_prepare_buffor_area()
 	_initialize_game_vars()
 	_initialize_world()
-	_generate_objects_cache()
+	_load_world()
+	#_generate_objects_cache()
 
 func _initialize_game_vars():
 	if(MainSymlink._LOAD_TYPE == "new"):
@@ -386,6 +405,15 @@ func _generate_objects_cache():
 func _prepare_buffor_area():
 	MainSymlink.console_output("[Server - Boot] Preparing buffor area...")
 	_define_world()
+
+func _load_world():
+	var object = load("res://scenes/world_manager.tscn").instance()
+	object._world_config = _world_config
+	object._game_gen = _game_gen
+	object._game_noise_texture = _game_noise_texture
+	object._game_seed = _game_seed
+	object._content_pack = _content_pack
+	self.add_child(object)
 
 func _block_not_found(block_name, client_id):
 	send_package({"block_file":lib_main.rdfile("user://server_buffor/blocks/"+block_name+".tscn", ""), "block_name":block_name, "content":"block_file"}, client_id)

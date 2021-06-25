@@ -1,5 +1,6 @@
 extends Node
 
 
-func _ready():
+func _package_manager(id, pkg):
 	pass
+

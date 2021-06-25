@@ -25,12 +25,8 @@ func _ready():
 	if(cfg.connection_type == "local"):
 		var cert = X509Certificate.new()
 		cert.load("user://network_cfg/certificates/servcert.crt")
-		_client.trusted_ssl_certificate = cert
-		
-		_client.verify_ssl = false
-		_client.connect_to_url(cfg.l_server_url+":"+"%d"%cfg.l_server_port)
-		server_name = cfg.l_server_url+":"+"%d"%cfg.l_server_port
-		set_process(true)
+		SERV_CERT = cert
+		connect_to_the_server(cfg.l_server_url, cfg.l_server_port)
 	else:
 		var cert = X509Certificate.new()
 		cert.load("res://certificates/servcert.crt")
@@ -40,8 +36,9 @@ func _ready():
 		server_name = ports.global_server_address+":"+"%d"%ports.global_server_port
 		set_process(true)
 func _process(_delta):
-	_client.poll()
-	_serv_connection()
+	if(_client.CONNECTION_CONNECTED):
+		_client.poll()
+		_serv_connection()
 
 func _data():
 	_serv_c_time = OS.get_system_time_msecs()
@@ -112,6 +109,7 @@ func _serv_connection():
 		_client.disconnect_from_host(408, "Timed out.")
 		symlink.console_output("[Client] Connection between server was slower than 15 seconds, disconnecting...", "")
 		self.name = "TO REMOVE CLIENT%d"%OS.get_system_time_msecs()
+		set_process(false)
 		self.queue_free()
 
 func _send_package(data):

@@ -20,8 +20,7 @@ func set_music(array = []):
 	get_tree().get_root().get_node("init/Music").set_music(array)
 
 func _load_scene(path):
-	var scene = load(path).instance()
-	get_tree().get_root().get_node("init/main-stuff/CenterContainer/Console Debug").open_scene(scene)
+	get_tree().get_root().get_node("init/main-stuff/CenterContainer/Console Debug").open_scene(path)
 
 var game_version = "0.57"
 

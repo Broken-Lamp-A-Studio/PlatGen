@@ -15,3 +15,5 @@ func _stop_server_listening():
 #func _save_server_world():
 #	if(get_tree().get_root().get_node_or_null("init/envoirment/server")):
 #
+
+var _client_data = []

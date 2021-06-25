@@ -1,7 +1,6 @@
 extends Control
 
 var help = "Available commands: \n  * help - displaying commands; \n * list nodes - listing all nodes from main node; \n * ls gui - loading new scene into init/envoirment (base workspace); \n * rm gui - removing nodes/scenes from init/envoirment; \n * clear - clearing console; \n * exit - closing console;"
-var time = OS.get_datetime()
 func _ready():
 	if(get_node_or_null("selectscene")):
 		$selectscene.add_filter("*.tscn ; Scene file")
@@ -9,46 +8,40 @@ func _ready():
 func _input(event):
 	if(event.is_action_pressed("ui_open_console")):
 		$WindowDialog.popup_centered()
-		$WindowDialog/LineEdit.grab_focus()
-	if(event.is_action_pressed("ui_accept") and $WindowDialog/LineEdit.focus_mode and $WindowDialog/LineEdit.text != ""):
-		time = OS.get_datetime()
-		var h = time["hour"]
-		var m = time["minute"]
-		var s = time["second"]
-		var msg = "["+str(h)+":"+str(m)+":"+str(s)+"] >> "+$WindowDialog/LineEdit.text
+		$"WindowDialog/MarginContainer/MarginContainer2/LineEdit".grab_focus()
+	if(event.is_action_pressed("ui_accept") and $"WindowDialog/MarginContainer/MarginContainer2/LineEdit".focus_mode and $"WindowDialog/MarginContainer/MarginContainer2/LineEdit".text != ""):
+		var msg = "["+lib_main.generate_time()+"] >> "+$"WindowDialog/MarginContainer/MarginContainer2/LineEdit".text
 		print("> "+msg)
-		$WindowDialog/RichTextLabel.bbcode_text += "\n"+"[color=white]"+msg+"[/color]"
-		exec_command($WindowDialog/LineEdit.text)
-		$WindowDialog/LineEdit.text = ""
-		$WindowDialog/LineEdit.release_focus()
+		$"WindowDialog/MarginContainer/MarginContainer/RichTextLabel".bbcode_text += "\n"+"[color=white]"+msg+"[/color]"
+		exec_command($"WindowDialog/MarginContainer/MarginContainer2/LineEdit".text)
+		$"WindowDialog/MarginContainer/MarginContainer2/LineEdit".text = ""
+		$"WindowDialog/MarginContainer/MarginContainer2/LineEdit".release_focus()
+	if(event.is_action_pressed("ui_select") and $WindowDialog/MarginContainer/MarginContainer2/LineEdit.focus_mode):
+		$WindowDialog/MarginContainer/MarginContainer2/LineEdit.release_focus()
+	if(event.is_action_pressed("ui_open_chat") and $WindowDialog.visible):
+		$WindowDialog/MarginContainer/MarginContainer2/LineEdit.grab_focus()
+		#$WindowDialog/MarginContainer/MarginContainer2/LineEdit.text.left($WindowDialog/MarginContainer/MarginContainer2/LineEdit.text.length()-1)
+
+func _process(_delta):
+	_resize_container()
 
 func get_error(text):
-	time = OS.get_datetime()
-	var h = time["hour"]
-	var m = time["minute"]
-	var s = time["second"]
-	var error = "["+str(h)+":"+str(m)+":"+str(s)+"] -!- "+text
+	var error = "["+lib_main.generate_time()+"] -!- "+text
 	print(error)
-	$WindowDialog/RichTextLabel.bbcode_text += "\n"+"[color=red]"+error+"[/color]"
+	$"WindowDialog/MarginContainer/MarginContainer/RichTextLabel".bbcode_text += "\n"+"[color=red]"+error+"[/color]"
+	$WindowDialog/MarginContainer/MarginContainer/RichTextLabel.scroll_to_line($WindowDialog/MarginContainer/MarginContainer/RichTextLabel.get_line_count()-1)
 	$WindowDialog.popup()
 
 func get_warn(text):
-	time = OS.get_datetime()
-	var h = time["hour"]
-	var m = time["minute"]
-	var s = time["second"]
-	var warn = "["+str(h)+":"+str(m)+":"+str(s)+"] -*- "+text
+	var warn = "["+lib_main.generate_time()+"] -*- "+text
 	print(warn)
-	$WindowDialog/RichTextLabel.bbcode_text += "\n"+"[color=yellow]"+warn+"[/color]"
-
+	$"WindowDialog/MarginContainer/MarginContainer/RichTextLabel".bbcode_text += "\n"+"[color=yellow]"+warn+"[/color]"
+	$WindowDialog/MarginContainer/MarginContainer/RichTextLabel.scroll_to_line($WindowDialog/MarginContainer/MarginContainer/RichTextLabel.get_line_count()-1)
 func get_msg(text):
-	time = OS.get_datetime()
-	var h = time["hour"]
-	var m = time["minute"]
-	var s = time["second"]
-	var msg = "["+str(h)+":"+str(m)+":"+str(s)+"] -INFO- "+text
+	var msg = "["+lib_main.generate_time()+"] -INFO- "+text
 	print(msg)
-	$WindowDialog/RichTextLabel.bbcode_text += "\n"+"[color=green]"+msg+"[/color]"
+	$"WindowDialog/MarginContainer/MarginContainer/RichTextLabel".bbcode_text += "\n"+"[color=green]"+msg+"[/color]"
+	$WindowDialog/MarginContainer/MarginContainer/RichTextLabel.scroll_to_line($WindowDialog/MarginContainer/MarginContainer/RichTextLabel.get_line_count()-1)
 
 onready var rm2 = OS.get_system_time_msecs()
 
@@ -60,7 +53,7 @@ func exec_command(command):
 	elif(command == "list nodes"):
 		get_msg(list_childs())
 	elif(command == "clear"):
-		$WindowDialog/RichTextLabel.bbcode_text = ""
+		$"WindowDialog/MarginContainer/MarginContainer/RichTextLabel".bbcode_text = ""
 	elif(command == "rm gui" and get_node_or_null("WindowDialog/rm") and OS.is_debug_build()):
 		$WindowDialog/rm.visible = true
 	elif(command == "help"):
@@ -71,7 +64,7 @@ func exec_command(command):
 		get_warn("Unknown command. Please check if command, what you are looking for is in 'help' command.")
 
 func open_scene(path):
-	var scene = load(path).instance()
+	var scene = load(str(path)).instance()
 	get_tree().get_root().get_node("init/envoirment").add_child(scene)
 	get_msg("Scene '"+path+"' loaded into init/envoirment.")
 
@@ -121,3 +114,6 @@ func remove_node(path):
 	else:
 		get_error("Failed to remove '"+path+"' - node not found!")
 
+func _resize_container():
+	$WindowDialog/MarginContainer.rect_size = $WindowDialog.rect_size
+	#$WindowDialog/MarginContainer/VBoxContainer/RichTextLabel.rect_size.y = $WindowDialog.rect_size.y-$WindowDialog/rm/LineEdit.rect_size.y-20

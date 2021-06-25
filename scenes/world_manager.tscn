@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://world/world_manager.gd" type="Script" id=1]
+
+[node name="world_manager" type="Viewport"]
+size_override_stretch = true
+own_world = true
+transparent_bg = true
+hdr = false
+disable_3d = true
+usage = 1
+gui_snap_controls_to_pixels = false
+script = ExtResource( 1 )

@@ -9,15 +9,17 @@ func _ready():
 	_client.connect("data_received", self, "_data")
 	_client.connect("server_close_request", self, "_server_closed")
 	_client.trusted_ssl_certificate = MainSymlink._game_client_cert
-	_client.verify_ssl = true
-	
-
+	_client.verify_ssl = false
+	_client.connect_to_url(MainSymlink._game_client_address+":"+str(MainSymlink._game_client_port))
+	set_process(true)
 func rm_self():
 	self.name = "TO REMOVE CLIENT%d"%OS.get_system_time_msecs()
+	set_process(false)
 	self.queue_free()
 
 func _send_package(data):
 	_client.get_peer(1).put_packet(JSON.print(data).to_utf8())
+	_update_ping()
 
 onready var _serv_c_time = OS.get_system_time_msecs()
 
@@ -56,8 +58,23 @@ func _connection_made(protocol = "none"):
 	MainSymlink.console_output("[Game Client] Connection established with the following protocol: "+protocol, "")
 
 func _process(_delta):
-	_client.poll()
+	if(_client.CONNECTION_CONNECTED):
+		_client.poll()
+		_serv_connection()
 
+func _get_data():
+	var pck = JSON.parse(_client.get_peer(1).get_packet().get_string_from_utf8())
+	var error = pck.get_error()
+	if(error != 0):
+		_client.disconnect_from_host(400, "Wrong package.")
+		return 1
+	else:
+		var pkg = pck.result
+		return pkg
 
-func _data(client_id):
-	
+onready var package_manager = load("res://networking/client_package_manager.gd")
+
+func _data():
+	_update_ping()
+	var data = _get_data()
+	package_manager._package_manager(data)

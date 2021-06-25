@@ -1,0 +1,10 @@
+[gd_scene format=2]
+
+[node name="main" type="Viewport"]
+size = Vector2( 1, 1 )
+transparent_bg = true
+hdr = false
+disable_3d = true
+usage = 1
+gui_disable_input = true
+gui_snap_controls_to_pixels = false
