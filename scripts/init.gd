@@ -10,12 +10,14 @@ onready var main = get_node("/root/lib_main")
 func _ready():
 	initialize_user_tree()
 	network_cfg()
-	$"main-stuff/CenterContainer/Console Debug".open_scene("res://scenes/server.tscn")
-	$"main-stuff/CenterContainer/Console Debug".open_scene("res://scenes/client.tscn")
+	#OS.window_fullscreen = true
+	#$"main-stuff/CenterContainer/Console Debug".open_scene("res://scenes/server.tscn")
+	#$"main-stuff/CenterContainer/Console Debug".open_scene("res://scenes/client.tscn")
 func set_main_cam(config2):
 	$Camera2D.current = config2
 
 func _process(_delta):
+	_load_process()
 	if(vx != get_viewport_rect().size.x or vy != get_viewport_rect().size.y):
 		vx = get_viewport_rect().size.x
 		vy = get_viewport_rect().size.y
@@ -78,3 +80,73 @@ func initialize_user_tree():
 		main.mkdir("user://debug")
 	if(!main.check("user://client_buffor")):
 		main.mkdir("user://client_buffor")
+
+
+func _on_VideoPlayer_finished():
+	$"main-stuff/load_screen".popup("Initializing...", 10)
+	clear_workspace()
+	_load_safe(["res://scenes/Main Menu.tscn"])
+	#load_enviroment("res://scenes/client.tscn", true, false)
+
+func clear_workspace():
+	var rng = RandomNumberGenerator.new()
+	rng.randomize()
+	for child in $envoirment.get_children():
+		child.name = "TO REMOVE ENTITY%d"%OS.get_system_time_msecs()+str(round(rng.randf_range(-99999, 99999)))
+		child.queue_free()
+
+func load_enviroment(path, show_load_screen = true, initialize_load_screen = true, set_progress = -1):
+	if(show_load_screen):
+		if(set_progress == -1):
+			if(initialize_load_screen):
+				$"main-stuff/load_screen".popup("Loading '"+str(path.get_file().get_basename())+"'...", 50)
+			else:
+				if(check_popup_load_screen()):
+					$"main-stuff/load_screen".update_progress("Loading '"+str(path.get_file().get_basename())+"'...", 50)
+				else:
+					$"main-stuff/load_screen".popup("Loading '"+str(path.get_file().get_basename())+"'...", 50)
+		else:
+			if(initialize_load_screen):
+				$"main-stuff/load_screen".popup("Loading '"+str(path.get_file().get_basename())+"'...", set_progress)
+			else:
+				if(check_popup_load_screen()):
+					$"main-stuff/load_screen".update_progress("Loading '"+str(path.get_file().get_basename())+"'...", set_progress)
+				else:
+					$"main-stuff/load_screen".popup("Loading '"+str(path.get_file().get_basename())+"'...", set_progress)
+		
+	else:
+		$"main-stuff/load_screen".hide()
+	$"main-stuff/CenterContainer/Console Debug".open_scene(str(path))
+
+func get_progress():
+	return $"main-stuff/load_screen/ProgressBar".value
+
+func set_progress(progress):
+	$"main-stuff/load_screen/ProgressBar".value = int(progress)
+
+var to_load = []
+var to_load_size = 0
+onready var time3 = OS.get_system_time_msecs()
+
+func check_popup_load_screen():
+	if($"main-stuff/load_screen".visible):
+		return true
+	else:
+		return false
+
+func _load_process():
+	if(to_load.size() > 0 and OS.get_system_time_msecs() - time3 > 5000):
+		time3 = OS.get_system_time_msecs()
+		to_load_size -= 1
+		load_enviroment(to_load[0], true, false, get_progress()+(to_load_size))
+		to_load.remove(0)
+		if(to_load.size() == 0):
+			_loaded()
+
+func _load_safe(array = []):
+	to_load = array
+	to_load_size = round(100/array.size())
+	set_progress(0)
+
+func _loaded():
+	$"main-stuff/load_screen".hide()

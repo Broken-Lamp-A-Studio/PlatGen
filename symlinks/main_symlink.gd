@@ -3,6 +3,24 @@ extends Node
 
 var console = "init/main-stuff/CenterContainer/Console Debug"
 
+func popup_logo():
+	get_tree().get_root().get_node("init/main-stuff/CenterContainer/PlatGen_move").popup()
+
+func hide_logo():
+	get_tree().get_root().get_node("init/main-stuff/CenterContainer/PlatGen_move").hide()
+
+func switch_logo():
+	get_tree().get_root().get_node("init/main-stuff/CenterContainer/PlatGen_move/AnimationPlayer").play("show_down2")
+
+func show_info(text):
+	get_tree().get_root().get_node("init/main-stuff/CenterContainer/message").show_info(text)
+
+func show_warn(text):
+	get_tree().get_root().get_node("init/main-stuff/CenterContainer/message").show_warn(text)
+
+func show_error(text):
+	get_tree().get_root().get_node("init/main-stuff/CenterContainer/message").show_error(text)
+
 func console_output(msg, _type = "info"):
 	if(get_tree().get_root().get_node_or_null(console)):
 		if not(_type) or _type == "info":

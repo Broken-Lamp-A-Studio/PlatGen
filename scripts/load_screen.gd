@@ -1,33 +1,56 @@
-extends Node2D
+extends Control
 
+onready var time = OS.get_system_time_msecs()
 
+func popup(work_text, progress):
+	MainSymlink.popup_logo()
+	logo_p = true
+	time = OS.get_system_time_msecs()
+	$ProgressBar/Label.text = work_text
+	$ProgressBar.value = progress
+	set_tip()
 
-func viewport_changed():
-	$main_sprite.rect_size.x = get_viewport_rect().size.x
-	$main_sprite.rect_size.y = get_viewport_rect().size.y
-	$main_sprite.rect_position.x = 0
-	$main_sprite.rect_position.y = 0
-	$tip.rect_position.x = get_viewport_rect().size.x/2-$tip.rect_size.x/2
-	$tip.rect_position.y = get_viewport_rect().size.y-get_viewport_rect().size.y/2.4
-	$Node2D.scale.x = get_viewport_rect().size.x/1360-0.2
-	$Node2D.scale.y = get_viewport_rect().size.y/768-0.2
-	$Node2D.position.x = get_viewport_rect().size.x/2#-$Node2D/loading_icon.rect_size.x/2
-	$Node2D.position.y = get_viewport_rect().size.y-get_viewport_rect().size.y/5
-	$ProgressBar.rect_position.x = get_viewport_rect().size.x/2-$ProgressBar.rect_size.x/2
-	$ProgressBar.rect_position.y = get_viewport_rect().size.y-get_viewport_rect().size.y/10
-	$Label.rect_position.x = get_viewport_rect().size.x/2-$Label.rect_size.x/2
-	$Label.rect_position.y = get_viewport_rect().size.y-get_viewport_rect().size.y/7
+func update_progress(work_text, progress):
+	$ProgressBar/Label.text = work_text
+	$ProgressBar.value = progress
 
-var vx = 0
-var vy = 0
-var in_load = false
-onready var loading_anim_time = OS.get_system_time_msecs()
+func hide():
+	MainSymlink.switch_logo()
+
+var tips = [
+	"Don't try produce more energy than machines can take.",
+	"If you don't want to get electrocuted, use a screwdriver.",
+	"Always take only things that are useful to you.",
+	"The so-called AbyssMaker is a creature inhabiting the Abyss of the Underworld.",
+]
+
+func set_tip():
+	$tip.text = "Tip:\n"+get_tip()
+
+func get_tip():
+	if(tips.size() > 0):
+		var rng = RandomNumberGenerator.new()
+		rng.randomize()
+		var selected = round(rng.randf_range(0, tips.size()-1))
+		return tips[selected]
+	else:
+		return "?"
+
+var logo_p = false
 
 func _process(_delta):
-	if(vx != get_viewport_rect().size.x or vy != get_viewport_rect().size.y):
-		vx = get_viewport_rect().size.x
-		vy = get_viewport_rect().size.y
-		viewport_changed()
-	if(in_load == true and OS.get_system_time_msecs() - loading_anim_time > 10):
-		$Node2D.rotate(0.02)
-		loading_anim_time = OS.get_system_time_msecs()
+	if(logo_p and OS.get_system_time_msecs() - time > 1000):
+		MainSymlink.hide_logo()
+		time = OS.get_system_time_msecs()
+		logo_p = false
+
+
+func _on_AnimationPlayer_animation_finished(anim_name):
+	if(anim_name == "show_up"):
+		self.visible = true
+	
+
+
+func _on_AnimationPlayer_animation_started(anim_name):
+	if(anim_name == "show_down2"):
+		self.visible = false

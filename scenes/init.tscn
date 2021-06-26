@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://scenes/Console Debug.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/mouse2.tscn" type="PackedScene" id=2]
@@ -8,6 +8,60 @@
 [ext_resource path="res://scenes/Music.tscn" type="PackedScene" id=6]
 [ext_resource path="res://scenes/parametres.tscn" type="PackedScene" id=7]
 [ext_resource path="res://textures/theme/main.tres" type="Theme" id=8]
+[ext_resource path="res://scenes/PlatGen_move.tscn" type="PackedScene" id=9]
+[ext_resource path="res://scenes/message.tscn" type="PackedScene" id=10]
+
+[sub_resource type="Animation" id=1]
+resource_name = "show_down2"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("MarginContainer/TextureRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1, 1.3 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("MarginContainer/TextureRect2:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.3, 1.2, 1.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("MarginContainer/TextureRect2:rect_scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.3, 1.2, 1.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 2, 2 ), Vector2( 1, 1 ), Vector2( 1, 1 ), Vector2( 1e-05, 1e-05 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("MarginContainer/TextureRect2:rect_position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.3, 1.2, 1.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( -50, 250 ), Vector2( 310, 317 ), Vector2( 310, 317 ), Vector2( 680, 384 ) ]
+}
 
 [node name="init" type="Node2D"]
 process_priority = 1000
@@ -22,40 +76,61 @@ __meta__ = {
 layer = 10
 follow_viewport_enable = true
 
+[node name="load_screen" parent="main-stuff" instance=ExtResource( 5 )]
+visible = false
+rect_min_size = Vector2( 600, 600 )
+
 [node name="CenterContainer" type="CenterContainer" parent="main-stuff"]
-margin_right = 40.0
-margin_bottom = 40.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+use_top_left = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="load_screen" parent="main-stuff/CenterContainer" instance=ExtResource( 5 )]
+[node name="message" parent="main-stuff/CenterContainer" instance=ExtResource( 10 )]
 visible = false
-
-[node name="VideoPlayer" parent="main-stuff/CenterContainer" instance=ExtResource( 3 )]
-margin_left = 20.0
-margin_top = 20.0
-margin_right = 20.0
-margin_bottom = 20.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = -41.0
+margin_top = -1.0
+margin_right = 40.0
+margin_bottom = 0.0
 
 [node name="parametres" parent="main-stuff/CenterContainer" instance=ExtResource( 7 )]
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 20.0
-margin_top = 20.0
-margin_right = 20.0
-margin_bottom = 20.0
+margin_left = 0.0
+margin_top = 0.0
+margin_right = 0.0
+margin_bottom = 0.0
 theme = ExtResource( 8 )
+
+[node name="PlatGen_move" parent="main-stuff/CenterContainer" instance=ExtResource( 9 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+
+[node name="TextureRect2" parent="main-stuff/CenterContainer/PlatGen_move/MarginContainer" index="1"]
+margin_left = 0.0
+margin_top = 0.0
+margin_right = 1360.0
+margin_bottom = 768.0
+rect_scale = Vector2( 1, 1 )
+
+[node name="AnimationPlayer" parent="main-stuff/CenterContainer/PlatGen_move" index="1"]
+anims/show_down2 = SubResource( 1 )
+
+[node name="VideoPlayer" parent="main-stuff/CenterContainer" instance=ExtResource( 3 )]
+margin_right = 0.0
+margin_bottom = 0.0
 
 [node name="Console Debug" parent="main-stuff/CenterContainer" instance=ExtResource( 1 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 20.0
-margin_top = 20.0
-margin_right = 20.0
-margin_bottom = 20.0
+margin_right = 0.0
+margin_bottom = 0.0
 
 [node name="selectscene" type="FileDialog" parent="main-stuff/CenterContainer/Console Debug"]
 margin_left = 436.0
@@ -78,5 +153,10 @@ current = true
 
 [node name="Music" parent="." instance=ExtResource( 6 )]
 
+[connection signal="animation_finished" from="main-stuff/CenterContainer/PlatGen_move/AnimationPlayer" to="main-stuff/load_screen" method="_on_AnimationPlayer_animation_finished"]
+[connection signal="animation_started" from="main-stuff/CenterContainer/PlatGen_move/AnimationPlayer" to="main-stuff/load_screen" method="_on_AnimationPlayer_animation_started"]
+[connection signal="finished" from="main-stuff/CenterContainer/VideoPlayer" to="." method="_on_VideoPlayer_finished"]
 [connection signal="finished" from="main-stuff/CenterContainer/VideoPlayer" to="main-stuff/CenterContainer/VideoPlayer" method="_on_VideoPlayer_finished"]
 [connection signal="file_selected" from="main-stuff/CenterContainer/Console Debug/selectscene" to="main-stuff/CenterContainer/Console Debug" method="_on_selectscene_file_selected"]
+
+[editable path="main-stuff/CenterContainer/PlatGen_move"]

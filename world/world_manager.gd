@@ -1,9 +1,15 @@
 extends Node
 
-
+var _object_cache = []
 
 func _ready():
 	MainSymlink.console_output("[World] Instance initialized!")
+
+func _init_cache():
+	for block in _content_pack.blocks:
+		var block_dump = load(block.path).instance()
+		_object_cache += [{"type":"block", "name":block_dump.name, "dump":block_dump}]
+		
 
 var _world_config = {"mode":"spectator"}
 var _game_gen = []
@@ -12,7 +18,8 @@ var _game_seed = 000000
 var rng = RandomNumberGenerator.new()
 var _content_pack = {"blocks":[], "characters":[], "events":[]}
 
-func _load_object
+func _load_object(x, y):
+	pass
 
 func _initialize_object(x, y):
 	var noise = _game_noise_texture.get_noise_2d(x, y)

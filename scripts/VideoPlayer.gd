@@ -52,6 +52,7 @@ func _process(_delta):
 		if(Input.is_key_pressed(KEY_ESCAPE)):
 			print("Countdown canceled...")
 		print("Running game!")
+		emit_signal("finished")
 		#self.visible = false
 # warning-ignore:return_value_discarded
 		get_tree().get_root().get_node("init/Music").set_process(true)

@@ -265,10 +265,10 @@ func _lobby_data(id):
 					_lobby_send_package(id, {"type":"cert", "cert":lib_main.rdfile("user://network_cfg/certificates/servcert.crt", ""), "port":ClientWebsocketPorts.local_server_port})
 				else:
 					_lobby.disconnect_peer(id, 1200, "This nickname is already online on the server. Try again.")
-					symlink.console_output("[Lobby] Client '"+id+"' sent nickname that was already registered in database, so client was kicked.", "")
+					symlink.console_output("[Lobby] Client '"+str(id)+"' sent nickname that was already registered in database, so client was kicked.", "")
 			else:
 				_lobby.disconnect_peer(id, 400, "Invalid package sent.")
-				symlink.console_output("[Lobby].[Err 3] Client '"+id+"' sent invalid JSON package, so client was kicked.", "")
+				symlink.console_output("[Lobby].[Err 3] Client '"+str(id)+"' sent invalid JSON package, so client was kicked.", "")
 		elif(pkg.type == "READY"):
 			# send ready info
 			_lobby_send_package(id, {"type":"READY"})
