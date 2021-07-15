@@ -17,8 +17,14 @@ _global_script_class_icons={
 config/name="PlatGen"
 run/main_scene="res://scenes/init.tscn"
 boot_splash/image="res://boot.png"
+boot_splash/fullsize=false
+boot_splash/use_filter=false
 boot_splash/bg_color=Color( 0, 0, 0, 1 )
 config/icon="res://icon.png"
+
+[audio]
+
+enable_audio_input=true
 
 [autoload]
 
@@ -43,6 +49,10 @@ window/stretch/mode="2d"
 [global]
 
 Scatting=false
+
+[gui]
+
+theme/custom="res://textures/theme/main.tres"
 
 [input]
 
@@ -132,14 +142,26 @@ ui_open_chat={
 "events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":84,"unicode":0,"echo":false,"script":null)
  ]
 }
+ui_right_click={
+"deadzone": 0.5,
+"events": [ Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"button_mask":0,"position":Vector2( 0, 0 ),"global_position":Vector2( 0, 0 ),"factor":1.0,"button_index":2,"pressed":false,"doubleclick":false,"script":null)
+ ]
+}
 
 [layer_names]
 
 2d_render/layer_1="Main"
 2d_physics/layer_1="Player"
 2d_render/layer_2="second"
-2d_physics/layer_2="block"
+2d_physics/layer_2="Block"
 2d_render/layer_3="3"
+2d_physics/layer_3="Block Interact"
+2d_physics/layer_4="Block Interact 2"
+2d_physics/layer_5="Enemy"
+2d_physics/layer_6="Enemy Interact"
+2d_physics/layer_7="Enemy Interact 2"
+2d_physics/layer_8="Player Interact"
+2d_physics/layer_9="Player Interact 2"
 
 [locale]
 
@@ -155,6 +177,11 @@ ssl/certificates="res://certificates/servcert.crt"
 
 [rendering]
 
+quality/driver/fallback_to_gles2=true
+2d/options/use_nvidia_rect_flicker_workaround=true
+quality/intended_usage/framebuffer_allocation=0
+quality/intended_usage/framebuffer_allocation.mobile=0
+2d/options/ninepatch_mode=0
 environment/default_clear_color=Color( 0, 0, 0, 1 )
 environment/default_environment="res://default_env.tres"
 quality/dynamic_fonts/use_oversampling=false

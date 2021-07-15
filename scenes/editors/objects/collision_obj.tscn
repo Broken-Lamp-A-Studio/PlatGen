@@ -1,5 +1,0 @@
-[gd_scene format=2]
-
-[node name="obj" type="StaticBody2D"]
-position = Vector2( -72.7513, 73.4317 )
-scale = Vector2( 0.743691, 0.620327 )

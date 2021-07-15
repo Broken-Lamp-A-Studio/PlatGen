@@ -8,6 +8,8 @@ onready var server_cfg = get_node("/root/ServerWebsocketPorts")
 onready var main = get_node("/root/lib_main")
 
 func _ready():
+	_load_sound_settings()
+	_load_graphics_settings()
 	initialize_user_tree()
 	network_cfg()
 	#OS.window_fullscreen = true
@@ -83,6 +85,7 @@ func initialize_user_tree():
 
 
 func _on_VideoPlayer_finished():
+	time3 = OS.get_system_time_msecs()
 	$"main-stuff/load_screen".popup("Initializing...", 10)
 	clear_workspace()
 	_load_safe(["res://scenes/Main Menu.tscn"])
@@ -150,3 +153,44 @@ func _load_safe(array = []):
 
 func _loaded():
 	$"main-stuff/load_screen".hide()
+
+func _load_graphics_settings():
+	var data = MainSymlink.graphics_settings
+	OS.window_fullscreen = data.window_fullscreen
+	OS.window_size.x = data.window_size_x
+	OS.window_size.y = data.window_size_y
+	OS.set_window_always_on_top(data.window_top)
+	OS.vsync_enabled = data.vsync
+	OS.screen_orientation = data.screen_orientation
+	OS.window_borderless = data.border
+
+func _load_sound_settings():
+	var data = MainSymlink.sound_settings
+	#var input = MainSymlink.sound_input
+	var output = MainSymlink.sound_output
+	
+#	if(input.has(data.input_selected)):
+#		MainSymlink.verify_sound_input = true
+#		AudioServer.capture_set_device(data.input_selected)
+#	else:
+#		MainSymlink.verify_sound_input = false
+#		if(AudioServer.capture_get_device_list().size() > 0):
+#			AudioServer.capture_set_device(AudioServer.capture_get_device_list()[0])
+	
+	if(output.has(data.output_selected)):
+		MainSymlink.verify_sound_output = true
+		if(AudioServer.device != data.output_selected):
+			AudioServer.device = data.output_selected
+	else:
+		MainSymlink.verify_sound_output = false
+		AudioServer.device = "Default"
+	
+	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Master"), data.master)
+	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Game_music"), data.music)
+	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Effects"), data.effects)
+	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Inv_effects"), data.inv_effects)
+	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Machines"), data.machines)
+	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Dialogs"), data.dialogs)
+	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Videos"), data.videos)
+	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Voicechat"), data.voicechat)
+	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("MainVoice"), data.voice)

@@ -1,0 +1,4180 @@
+[gd_scene load_steps=73 format=2]
+
+[ext_resource path="res://scripts/editors/block_editor2.gd" type="Script" id=1]
+[ext_resource path="res://textures/editors/exit.png" type="Texture" id=2]
+[ext_resource path="res://textures/theme/main.tres" type="Theme" id=3]
+[ext_resource path="res://textures/editors/save_as.png" type="Texture" id=4]
+[ext_resource path="res://textures/editors/save.png" type="Texture" id=5]
+[ext_resource path="res://textures/editors/pen.png" type="Texture" id=6]
+[ext_resource path="res://textures/editors/load.png" type="Texture" id=7]
+[ext_resource path="res://scenes/editors/edit_text.tscn" type="PackedScene" id=8]
+[ext_resource path="res://textures/theme/ultimate_themes/grabber_area_1.tres" type="StyleBox" id=9]
+[ext_resource path="res://textures/theme/ultimate_themes/selected_focus_1.tres" type="StyleBox" id=10]
+[ext_resource path="res://textures/theme/ultimate_themes/background_5.tres" type="StyleBox" id=11]
+[ext_resource path="res://textures/theme/ultimate_themes/camera_border_1.tres" type="StyleBox" id=12]
+[ext_resource path="res://textures/theme/ultimate_themes/node_graph_1.tres" type="StyleBox" id=13]
+[ext_resource path="res://textures/theme/ultimate_themes/read_only_1.tres" type="StyleBox" id=14]
+[ext_resource path="res://textures/theme/ultimate_themes/background_3.tres" type="StyleBox" id=15]
+[ext_resource path="res://textures/theme/ultimate_themes/background_2.tres" type="StyleBox" id=16]
+[ext_resource path="res://textures/theme/ultimate_themes/grabber_area_h_1.tres" type="StyleBox" id=17]
+[ext_resource path="res://textures/theme/ultimate_themes/selected_1.tres" type="StyleBox" id=18]
+[ext_resource path="res://textures/theme/ultimate_themes/background_4.tres" type="StyleBox" id=19]
+[ext_resource path="res://textures/theme/ultimate_themes/grabber_pressed_1.tres" type="StyleBox" id=20]
+[ext_resource path="res://textures/theme/ultimate_themes/scroll_focus_1.tres" type="StyleBox" id=21]
+[ext_resource path="res://textures/theme/ultimate_themes/background_disabled_1.tres" type="StyleBox" id=22]
+[ext_resource path="res://textures/theme/ultimate_themes/scroll_1.tres" type="StyleBox" id=23]
+[ext_resource path="res://textures/theme/ultimate_themes/background_1.tres" type="StyleBox" id=24]
+[ext_resource path="res://textures/theme/ultimate_themes/grabber_h_1.tres" type="StyleBox" id=25]
+[ext_resource path="res://textures/theme/ultimate_themes/hover_pressed_1.tres" type="StyleBox" id=26]
+[ext_resource path="res://textures/theme/ultimate_themes/focus_1.tres" type="StyleBox" id=27]
+[ext_resource path="res://textures/theme/ultimate_themes/grabber_1.tres" type="StyleBox" id=28]
+[ext_resource path="res://textures/theme/ultimate_themes/separator_1.tres" type="StyleBox" id=29]
+[ext_resource path="res://textures/theme/ultimate_themes/pressed_1.tres" type="StyleBox" id=30]
+[ext_resource path="res://textures/theme/ultimate_themes/icons/check_1.png" type="Texture" id=31]
+[ext_resource path="res://textures/theme/ultimate_themes/icons/on_disabled_1.png" type="Texture" id=32]
+[ext_resource path="res://textures/theme/ultimate_themes/icons/uncheck_1.png" type="Texture" id=33]
+[ext_resource path="res://textures/theme/ultimate_themes/icons/off_disabled_1.png" type="Texture" id=34]
+[ext_resource path="res://textures/editors/close.png" type="Texture" id=35]
+[ext_resource path="res://textures/theme/ultimate_themes/fonts/default_font.tres" type="DynamicFont" id=36]
+[ext_resource path="res://textures/theme/ultimate_themes/icons/on_1.png" type="Texture" id=37]
+[ext_resource path="res://textures/theme/ultimate_themes/normal_1.tres" type="StyleBox" id=38]
+[ext_resource path="res://textures/theme/ultimate_themes/disabled_1.tres" type="StyleBox" id=39]
+[ext_resource path="res://textures/theme/ultimate_themes/hover_1.tres" type="StyleBox" id=40]
+[ext_resource path="res://textures/theme/ultimate_themes/fonts/Normal_font_1.tres" type="DynamicFont" id=41]
+[ext_resource path="res://textures/theme/ultimate_themes/fonts/Large_font_1.tres" type="DynamicFont" id=42]
+[ext_resource path="res://textures/theme/ultimate_themes/icons/grabber_h_1.png" type="Texture" id=43]
+[ext_resource path="res://textures/theme/ultimate_themes/icons/off_1.png" type="Texture" id=44]
+[ext_resource path="res://textures/theme/ultimate_themes/icons/arrow_1.png" type="Texture" id=45]
+[ext_resource path="res://textures/theme/ultimate_themes/icons/grabber_1.png" type="Texture" id=46]
+[ext_resource path="res://textures/theme/ultimate_themes/icons/tick_1.png" type="Texture" id=47]
+[ext_resource path="res://textures/theme/ultimate_themes/icons/updown_1.png" type="Texture" id=48]
+[ext_resource path="res://textures/theme/ultimate_themes/icons/grabber_disabled_1.png" type="Texture" id=49]
+[ext_resource path="res://textures/theme/ultimate_themes/icons/dec_1.png" type="Texture" id=50]
+[ext_resource path="res://textures/theme/ultimate_themes/icons/inc_h_1.png" type="Texture" id=51]
+[ext_resource path="res://textures/theme/ultimate_themes/icons/inc_1.png" type="Texture" id=52]
+[ext_resource path="res://textures/theme/ultimate_themes/icons/dec_h_1.png" type="Texture" id=53]
+[ext_resource path="res://textures/theme/ultimate_themes/icons/incd_1.png" type="Texture" id=54]
+[ext_resource path="res://textures/theme/ultimate_themes/icons/decd_1.png" type="Texture" id=55]
+[ext_resource path="res://textures/theme/ultimate_themes/icons/incd_h_1.png" type="Texture" id=56]
+[ext_resource path="res://textures/theme/ultimate_themes/icons/decd_h_1.png" type="Texture" id=57]
+[ext_resource path="res://textures/theme/ultimate_themes/window_background_1.tres" type="StyleBox" id=58]
+
+[sub_resource type="StyleBoxEmpty" id=1]
+
+[sub_resource type="Theme" id=2]
+Button/colors/font_color = Color( 0, 0, 0, 1 )
+Button/colors/font_color_disabled = Color( 0, 0, 0, 1 )
+Button/colors/font_color_hover = Color( 0, 0, 0, 1 )
+Button/colors/font_color_pressed = Color( 0, 0, 0, 1 )
+Button/constants/hseparation = 2
+Button/fonts/font = null
+Button/styles/disabled = null
+Button/styles/focus = null
+Button/styles/hover = null
+Button/styles/normal = null
+Button/styles/pressed = null
+CheckBox/colors/font_color = Color( 0, 0, 0, 1 )
+CheckBox/colors/font_color_disabled = Color( 0, 0, 0, 1 )
+CheckBox/colors/font_color_hover = Color( 0, 0, 0, 1 )
+CheckBox/colors/font_color_hover_pressed = Color( 0, 0, 0, 1 )
+CheckBox/colors/font_color_pressed = Color( 0, 0, 0, 1 )
+CheckBox/constants/check_vadjust = 0
+CheckBox/constants/hseparation = 4
+CheckBox/fonts/font = null
+CheckBox/icons/checked = null
+CheckBox/icons/radio_checked = null
+CheckBox/icons/radio_unchecked = null
+CheckBox/icons/unchecked = null
+CheckBox/styles/disabled = null
+CheckBox/styles/focus = null
+CheckBox/styles/hover = null
+CheckBox/styles/hover_pressed = null
+CheckBox/styles/normal = null
+CheckBox/styles/pressed = null
+CheckButton/colors/font_color = Color( 0, 0, 0, 1 )
+CheckButton/colors/font_color_disabled = Color( 0, 0, 0, 1 )
+CheckButton/colors/font_color_hover = Color( 0, 0, 0, 1 )
+CheckButton/colors/font_color_hover_pressed = Color( 0, 0, 0, 1 )
+CheckButton/colors/font_color_pressed = Color( 0, 0, 0, 1 )
+CheckButton/constants/check_vadjust = 0
+CheckButton/constants/hseparation = 4
+CheckButton/fonts/font = null
+CheckButton/icons/off = null
+CheckButton/icons/off_disabled = null
+CheckButton/icons/on = null
+CheckButton/icons/on_disabled = null
+CheckButton/styles/disabled = null
+CheckButton/styles/focus = null
+CheckButton/styles/hover = null
+CheckButton/styles/hover_pressed = null
+CheckButton/styles/normal = null
+CheckButton/styles/pressed = null
+ColorPicker/constants/h_width = 30
+ColorPicker/constants/label_width = 10
+ColorPicker/constants/margin = 4
+ColorPicker/constants/sv_height = 256
+ColorPicker/constants/sv_width = 256
+ColorPicker/icons/add_preset = null
+ColorPicker/icons/color_hue = null
+ColorPicker/icons/color_sample = null
+ColorPicker/icons/overbright_indicator = null
+ColorPicker/icons/preset_bg = null
+ColorPicker/icons/screen_picker = null
+ColorPickerButton/colors/font_color = Color( 0, 0, 0, 1 )
+ColorPickerButton/colors/font_color_disabled = Color( 0, 0, 0, 1 )
+ColorPickerButton/colors/font_color_hover = Color( 0, 0, 0, 1 )
+ColorPickerButton/colors/font_color_pressed = Color( 0, 0, 0, 1 )
+ColorPickerButton/constants/hseparation = 2
+ColorPickerButton/fonts/font = null
+ColorPickerButton/icons/bg = null
+ColorPickerButton/styles/disabled = null
+ColorPickerButton/styles/focus = null
+ColorPickerButton/styles/hover = null
+ColorPickerButton/styles/normal = null
+ColorPickerButton/styles/pressed = null
+Dialogs/constants/button_margin = 32
+Dialogs/constants/margin = 8
+FileDialog/colors/file_icon_modulate = Color( 0, 0, 0, 1 )
+FileDialog/colors/files_disabled = Color( 0, 0, 0, 1 )
+FileDialog/colors/folder_icon_modulate = Color( 0, 0, 0, 1 )
+FileDialog/icons/file = null
+FileDialog/icons/folder = null
+FileDialog/icons/parent_folder = null
+FileDialog/icons/reload = null
+FileDialog/icons/toggle_hidden = null
+Fonts/fonts/large = null
+Fonts/fonts/normal = null
+GraphEdit/colors/activity = Color( 0, 0, 0, 1 )
+GraphEdit/colors/grid_major = Color( 0, 0, 0, 1 )
+GraphEdit/colors/grid_minor = Color( 0, 0, 0, 1 )
+GraphEdit/colors/selection_fill = Color( 0, 0, 0, 1 )
+GraphEdit/colors/selection_stroke = Color( 0, 0, 0, 1 )
+GraphEdit/constants/bezier_len_neg = 160
+GraphEdit/constants/bezier_len_pos = 80
+GraphEdit/constants/port_grab_distance_horizontal = 48
+GraphEdit/constants/port_grab_distance_vertical = 6
+GraphEdit/icons/minimap = null
+GraphEdit/icons/minus = null
+GraphEdit/icons/more = null
+GraphEdit/icons/reset = null
+GraphEdit/icons/snap = null
+GraphEdit/styles/bg = null
+GraphEditMinimap/colors/resizer_color = Color( 0, 0, 0, 1 )
+GraphEditMinimap/icons/resizer = null
+GraphEditMinimap/styles/bg = null
+GraphEditMinimap/styles/camera = null
+GraphEditMinimap/styles/node = null
+GraphNode/colors/close_color = Color( 0, 0, 0, 1 )
+GraphNode/colors/resizer_color = Color( 0, 0, 0, 1 )
+GraphNode/colors/title_color = Color( 0, 0, 0, 1 )
+GraphNode/constants/close_offset = 18
+GraphNode/constants/port_offset = 3
+GraphNode/constants/separation = 1
+GraphNode/constants/title_offset = 20
+GraphNode/fonts/title_font = null
+GraphNode/icons/close = null
+GraphNode/icons/port = null
+GraphNode/icons/resizer = null
+GraphNode/styles/breakpoint = null
+GraphNode/styles/comment = null
+GraphNode/styles/commentfocus = null
+GraphNode/styles/defaultfocus = null
+GraphNode/styles/defaultframe = null
+GraphNode/styles/frame = null
+GraphNode/styles/position = null
+GraphNode/styles/selectedframe = null
+GridContainer/constants/hseparation = 4
+GridContainer/constants/vseparation = 4
+HBoxContainer/constants/separation = 4
+HScrollBar/icons/decrement = null
+HScrollBar/icons/decrement_highlight = null
+HScrollBar/icons/increment = null
+HScrollBar/icons/increment_highlight = null
+HScrollBar/styles/grabber = null
+HScrollBar/styles/grabber_highlight = null
+HScrollBar/styles/grabber_pressed = null
+HScrollBar/styles/scroll = null
+HScrollBar/styles/scroll_focus = null
+HSeparator/constants/separation = 4
+HSeparator/styles/separator = null
+HSlider/icons/grabber = null
+HSlider/icons/grabber_disabled = null
+HSlider/icons/grabber_highlight = null
+HSlider/icons/tick = null
+HSlider/styles/grabber_area = null
+HSlider/styles/grabber_area_highlight = null
+HSlider/styles/slider = null
+HSplitContainer/constants/autohide = 1
+HSplitContainer/constants/separation = 12
+HSplitContainer/icons/grabber = null
+HSplitContainer/styles/bg = null
+Icons/icons/close = null
+ItemList/colors/font_color = Color( 0, 0, 0, 1 )
+ItemList/colors/font_color_selected = Color( 0, 0, 0, 1 )
+ItemList/colors/guide_color = Color( 0, 0, 0, 1 )
+ItemList/constants/hseparation = 4
+ItemList/constants/icon_margin = 4
+ItemList/constants/line_separation = 2
+ItemList/constants/vseparation = 2
+ItemList/fonts/font = null
+ItemList/styles/bg = null
+ItemList/styles/bg_focus = null
+ItemList/styles/cursor = null
+ItemList/styles/cursor_unfocused = null
+ItemList/styles/selected = null
+ItemList/styles/selected_focus = null
+Label/colors/font_color = Color( 0, 0, 0, 1 )
+Label/colors/font_color_shadow = Color( 0, 0, 0, 1 )
+Label/colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+Label/constants/line_spacing = 3
+Label/constants/shadow_as_outline = 0
+Label/constants/shadow_offset_x = 1
+Label/constants/shadow_offset_y = 1
+Label/fonts/font = null
+Label/styles/normal = null
+LineEdit/colors/clear_button_color = Color( 0, 0, 0, 1 )
+LineEdit/colors/clear_button_color_pressed = Color( 0, 0, 0, 1 )
+LineEdit/colors/cursor_color = Color( 0, 0, 0, 1 )
+LineEdit/colors/font_color = Color( 0, 0, 0, 1 )
+LineEdit/colors/font_color_selected = Color( 0, 0, 0, 1 )
+LineEdit/colors/font_color_uneditable = Color( 0, 0, 0, 1 )
+LineEdit/colors/selection_color = Color( 0, 0, 0, 1 )
+LineEdit/constants/minimum_spaces = 12
+LineEdit/fonts/font = null
+LineEdit/icons/clear = null
+LineEdit/styles/focus = null
+LineEdit/styles/normal = null
+LineEdit/styles/read_only = null
+LinkButton/colors/font_color = Color( 0, 0, 0, 1 )
+LinkButton/colors/font_color_hover = Color( 0, 0, 0, 1 )
+LinkButton/colors/font_color_pressed = Color( 0, 0, 0, 1 )
+LinkButton/constants/underline_spacing = 2
+LinkButton/fonts/font = null
+LinkButton/styles/focus = null
+MarginContainer/constants/margin_bottom = 0
+MarginContainer/constants/margin_left = 0
+MarginContainer/constants/margin_right = 0
+MarginContainer/constants/margin_top = 0
+MenuButton/colors/font_color = Color( 0, 0, 0, 1 )
+MenuButton/colors/font_color_disabled = Color( 0, 0, 0, 1 )
+MenuButton/colors/font_color_hover = Color( 0, 0, 0, 1 )
+MenuButton/colors/font_color_pressed = Color( 0, 0, 0, 1 )
+MenuButton/constants/hseparation = 3
+MenuButton/fonts/font = null
+MenuButton/styles/disabled = null
+MenuButton/styles/focus = null
+MenuButton/styles/hover = null
+MenuButton/styles/normal = null
+MenuButton/styles/pressed = null
+OptionButton/colors/font_color = Color( 0, 0, 0, 1 )
+OptionButton/colors/font_color_disabled = Color( 0, 0, 0, 1 )
+OptionButton/colors/font_color_hover = Color( 0, 0, 0, 1 )
+OptionButton/colors/font_color_pressed = Color( 0, 0, 0, 1 )
+OptionButton/constants/arrow_margin = 2
+OptionButton/constants/hseparation = 2
+OptionButton/fonts/font = null
+OptionButton/icons/arrow = null
+OptionButton/styles/disabled = null
+OptionButton/styles/focus = null
+OptionButton/styles/hover = null
+OptionButton/styles/normal = null
+OptionButton/styles/pressed = null
+Panel/styles/panel = SubResource( 1 )
+PanelContainer/styles/panel = null
+PopupDialog/styles/panel = null
+PopupMenu/colors/font_color = Color( 0, 0, 0, 1 )
+PopupMenu/colors/font_color_accel = Color( 0, 0, 0, 1 )
+PopupMenu/colors/font_color_disabled = Color( 0, 0, 0, 1 )
+PopupMenu/colors/font_color_hover = Color( 0, 0, 0, 1 )
+PopupMenu/colors/font_color_separator = Color( 0, 0, 0, 1 )
+PopupMenu/constants/hseparation = 4
+PopupMenu/constants/vseparation = 4
+PopupMenu/fonts/font = null
+PopupMenu/icons/checked = null
+PopupMenu/icons/radio_checked = null
+PopupMenu/icons/radio_unchecked = null
+PopupMenu/icons/submenu = null
+PopupMenu/icons/unchecked = null
+PopupMenu/styles/hover = null
+PopupMenu/styles/labeled_separator_left = null
+PopupMenu/styles/labeled_separator_right = null
+PopupMenu/styles/panel = null
+PopupMenu/styles/panel_disabled = null
+PopupMenu/styles/separator = null
+PopupPanel/styles/panel = null
+ProgressBar/colors/font_color = Color( 0, 0, 0, 1 )
+ProgressBar/colors/font_color_shadow = Color( 0, 0, 0, 1 )
+ProgressBar/fonts/font = null
+ProgressBar/styles/bg = null
+ProgressBar/styles/fg = null
+RichTextLabel/colors/default_color = Color( 0, 0, 0, 1 )
+RichTextLabel/colors/font_color_selected = Color( 0, 0, 0, 1 )
+RichTextLabel/colors/font_color_shadow = Color( 0, 0, 0, 1 )
+RichTextLabel/colors/selection_color = Color( 0, 0, 0, 1 )
+RichTextLabel/constants/line_separation = 1
+RichTextLabel/constants/shadow_as_outline = 0
+RichTextLabel/constants/shadow_offset_x = 1
+RichTextLabel/constants/shadow_offset_y = 1
+RichTextLabel/constants/table_hseparation = 3
+RichTextLabel/constants/table_vseparation = 3
+RichTextLabel/fonts/bold_font = null
+RichTextLabel/fonts/bold_italics_font = null
+RichTextLabel/fonts/italics_font = null
+RichTextLabel/fonts/mono_font = null
+RichTextLabel/fonts/normal_font = null
+RichTextLabel/styles/focus = null
+RichTextLabel/styles/normal = null
+ScrollContainer/styles/bg = null
+SpinBox/icons/updown = null
+TabContainer/colors/font_color_bg = Color( 0, 0, 0, 1 )
+TabContainer/colors/font_color_disabled = Color( 0, 0, 0, 1 )
+TabContainer/colors/font_color_fg = Color( 0, 0, 0, 1 )
+TabContainer/constants/hseparation = 4
+TabContainer/constants/label_valign_bg = 2
+TabContainer/constants/label_valign_fg = 0
+TabContainer/constants/side_margin = 8
+TabContainer/constants/top_margin = 24
+TabContainer/fonts/font = null
+TabContainer/icons/decrement = null
+TabContainer/icons/decrement_highlight = null
+TabContainer/icons/increment = null
+TabContainer/icons/increment_highlight = null
+TabContainer/icons/menu = null
+TabContainer/icons/menu_highlight = null
+TabContainer/styles/panel = null
+TabContainer/styles/tab_bg = null
+TabContainer/styles/tab_disabled = null
+TabContainer/styles/tab_fg = null
+Tabs/colors/font_color_bg = Color( 0, 0, 0, 1 )
+Tabs/colors/font_color_disabled = Color( 0, 0, 0, 1 )
+Tabs/colors/font_color_fg = Color( 0, 0, 0, 1 )
+Tabs/constants/hseparation = 4
+Tabs/constants/label_valign_bg = 2
+Tabs/constants/label_valign_fg = 0
+Tabs/constants/top_margin = 24
+Tabs/fonts/font = null
+Tabs/icons/close = null
+Tabs/icons/decrement = null
+Tabs/icons/decrement_highlight = null
+Tabs/icons/increment = null
+Tabs/icons/increment_highlight = null
+Tabs/styles/button = null
+Tabs/styles/button_pressed = null
+Tabs/styles/panel = null
+Tabs/styles/tab_bg = null
+Tabs/styles/tab_disabled = null
+Tabs/styles/tab_fg = null
+TextEdit/colors/background_color = Color( 0, 0, 0, 1 )
+TextEdit/colors/bookmark_color = Color( 0, 0, 0, 1 )
+TextEdit/colors/brace_mismatch_color = Color( 0, 0, 0, 1 )
+TextEdit/colors/breakpoint_color = Color( 0, 0, 0, 1 )
+TextEdit/colors/caret_background_color = Color( 0, 0, 0, 1 )
+TextEdit/colors/caret_color = Color( 0, 0, 0, 1 )
+TextEdit/colors/code_folding_color = Color( 0, 0, 0, 1 )
+TextEdit/colors/completion_background_color = Color( 0, 0, 0, 1 )
+TextEdit/colors/completion_existing_color = Color( 0, 0, 0, 1 )
+TextEdit/colors/completion_font_color = Color( 0, 0, 0, 1 )
+TextEdit/colors/completion_scroll_color = Color( 0, 0, 0, 1 )
+TextEdit/colors/completion_selected_color = Color( 0, 0, 0, 1 )
+TextEdit/colors/current_line_color = Color( 0, 0, 0, 1 )
+TextEdit/colors/executing_line_color = Color( 0, 0, 0, 1 )
+TextEdit/colors/font_color = Color( 0, 0, 0, 1 )
+TextEdit/colors/font_color_readonly = Color( 0, 0, 0, 1 )
+TextEdit/colors/font_color_selected = Color( 0, 0, 0, 1 )
+TextEdit/colors/function_color = Color( 0, 0, 0, 1 )
+TextEdit/colors/line_number_color = Color( 0, 0, 0, 1 )
+TextEdit/colors/mark_color = Color( 0, 0, 0, 1 )
+TextEdit/colors/member_variable_color = Color( 0, 0, 0, 1 )
+TextEdit/colors/number_color = Color( 0, 0, 0, 1 )
+TextEdit/colors/safe_line_number_color = Color( 0, 0, 0, 1 )
+TextEdit/colors/selection_color = Color( 0, 0, 0, 1 )
+TextEdit/colors/symbol_color = Color( 0, 0, 0, 1 )
+TextEdit/colors/word_highlighted_color = Color( 0, 0, 0, 1 )
+TextEdit/constants/completion_lines = 7
+TextEdit/constants/completion_max_width = 50
+TextEdit/constants/completion_scroll_width = 3
+TextEdit/constants/line_spacing = 4
+TextEdit/fonts/font = null
+TextEdit/icons/fold = null
+TextEdit/icons/folded = null
+TextEdit/icons/space = null
+TextEdit/icons/tab = null
+TextEdit/styles/completion = null
+TextEdit/styles/focus = null
+TextEdit/styles/normal = null
+TextEdit/styles/read_only = null
+ToolButton/colors/font_color = Color( 0, 0, 0, 1 )
+ToolButton/colors/font_color_disabled = Color( 0, 0, 0, 1 )
+ToolButton/colors/font_color_hover = Color( 0, 0, 0, 1 )
+ToolButton/colors/font_color_pressed = Color( 0, 0, 0, 1 )
+ToolButton/constants/hseparation = 3
+ToolButton/fonts/font = null
+ToolButton/styles/disabled = null
+ToolButton/styles/focus = null
+ToolButton/styles/hover = null
+ToolButton/styles/normal = null
+ToolButton/styles/pressed = null
+TooltipLabel/colors/font_color = Color( 0, 0, 0, 1 )
+TooltipLabel/colors/font_color_shadow = Color( 0, 0, 0, 1 )
+TooltipLabel/constants/shadow_offset_x = 1
+TooltipLabel/constants/shadow_offset_y = 1
+TooltipLabel/fonts/font = null
+TooltipPanel/styles/panel = null
+Tree/colors/custom_button_font_highlight = Color( 0, 0, 0, 1 )
+Tree/colors/drop_position_color = Color( 0, 0, 0, 1 )
+Tree/colors/font_color = Color( 0, 0, 0, 1 )
+Tree/colors/font_color_selected = Color( 0, 0, 0, 1 )
+Tree/colors/guide_color = Color( 0, 0, 0, 1 )
+Tree/colors/relationship_line_color = Color( 0, 0, 0, 1 )
+Tree/colors/title_button_color = Color( 0, 0, 0, 1 )
+Tree/constants/button_margin = 4
+Tree/constants/draw_guides = 1
+Tree/constants/draw_relationship_lines = 0
+Tree/constants/hseparation = 4
+Tree/constants/item_margin = 12
+Tree/constants/scroll_border = 4
+Tree/constants/scroll_speed = 12
+Tree/constants/vseparation = 4
+Tree/fonts/font = null
+Tree/fonts/title_button_font = null
+Tree/icons/arrow = null
+Tree/icons/arrow_collapsed = null
+Tree/icons/checked = null
+Tree/icons/select_arrow = null
+Tree/icons/unchecked = null
+Tree/icons/updown = null
+Tree/styles/bg = null
+Tree/styles/bg_focus = null
+Tree/styles/button_pressed = null
+Tree/styles/cursor = null
+Tree/styles/cursor_unfocused = null
+Tree/styles/custom_button = null
+Tree/styles/custom_button_hover = null
+Tree/styles/custom_button_pressed = null
+Tree/styles/selected = null
+Tree/styles/selected_focus = null
+Tree/styles/title_button_hover = null
+Tree/styles/title_button_normal = null
+Tree/styles/title_button_pressed = null
+VBoxContainer/constants/separation = 4
+VScrollBar/icons/decrement = null
+VScrollBar/icons/decrement_highlight = null
+VScrollBar/icons/increment = null
+VScrollBar/icons/increment_highlight = null
+VScrollBar/styles/grabber = null
+VScrollBar/styles/grabber_highlight = null
+VScrollBar/styles/grabber_pressed = null
+VScrollBar/styles/scroll = null
+VScrollBar/styles/scroll_focus = null
+VSeparator/constants/separation = 4
+VSeparator/styles/separator = null
+VSlider/icons/grabber = null
+VSlider/icons/grabber_disabled = null
+VSlider/icons/grabber_highlight = null
+VSlider/icons/tick = null
+VSlider/styles/grabber_area = null
+VSlider/styles/grabber_area_highlight = null
+VSlider/styles/slider = null
+VSplitContainer/constants/autohide = 1
+VSplitContainer/constants/separation = 12
+VSplitContainer/icons/grabber = null
+VSplitContainer/styles/bg = null
+WindowDialog/colors/title_color = Color( 0, 0, 0, 1 )
+WindowDialog/constants/close_h_ofs = 18
+WindowDialog/constants/close_v_ofs = 18
+WindowDialog/constants/scaleborder_size = 4
+WindowDialog/constants/title_height = 20
+WindowDialog/fonts/title_font = null
+WindowDialog/icons/close = null
+WindowDialog/icons/close_highlight = null
+WindowDialog/styles/panel = null
+
+[sub_resource type="StyleBoxFlat" id=3]
+
+[sub_resource type="StyleBoxFlat" id=4]
+
+[sub_resource type="StyleBoxFlat" id=5]
+
+[sub_resource type="StyleBoxFlat" id=6]
+
+[sub_resource type="StyleBoxFlat" id=7]
+
+[sub_resource type="StyleBoxFlat" id=8]
+bg_color = Color( 0.6, 0.6, 0.6, 0 )
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color( 0, 0.721569, 0.839216, 1 )
+
+[sub_resource type="StyleBoxFlat" id=9]
+
+[sub_resource type="StyleBoxFlat" id=10]
+bg_color = Color( 0.6, 0.6, 0.6, 0 )
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color( 0.945098, 1, 0, 1 )
+
+[sub_resource type="StyleBoxEmpty" id=11]
+
+[sub_resource type="StyleBoxFlat" id=12]
+bg_color = Color( 0, 0.34902, 0.235294, 1 )
+
+[sub_resource type="StyleBoxLine" id=13]
+color = Color( 0, 0.278431, 0.756863, 1 )
+grow_begin = 2.0
+thickness = 2
+vertical = true
+
+[sub_resource type="Theme" id=14]
+default_font = ExtResource( 36 )
+Button/colors/font_color = Color( 1, 1, 1, 1 )
+Button/colors/font_color_disabled = Color( 0.356863, 0.356863, 0.356863, 1 )
+Button/colors/font_color_hover = Color( 0.858824, 0.843137, 0.254902, 1 )
+Button/colors/font_color_pressed = Color( 0.164706, 0.454902, 0, 1 )
+Button/constants/hseparation = 15
+Button/fonts/font = null
+Button/styles/disabled = ExtResource( 39 )
+Button/styles/focus = ExtResource( 27 )
+Button/styles/hover = ExtResource( 40 )
+Button/styles/normal = ExtResource( 38 )
+Button/styles/pressed = ExtResource( 30 )
+CheckBox/colors/font_color = Color( 1, 1, 1, 1 )
+CheckBox/colors/font_color_disabled = Color( 0.286275, 0.286275, 0.286275, 1 )
+CheckBox/colors/font_color_hover = Color( 0.886275, 0.843137, 0.180392, 1 )
+CheckBox/colors/font_color_hover_pressed = Color( 0.313726, 0.858824, 0.0901961, 1 )
+CheckBox/colors/font_color_pressed = Color( 0.109804, 0.72549, 0.866667, 1 )
+CheckBox/constants/check_vadjust = 0
+CheckBox/constants/hseparation = 5
+CheckBox/fonts/font = null
+CheckBox/icons/checked = ExtResource( 31 )
+CheckBox/icons/radio_checked = ExtResource( 31 )
+CheckBox/icons/radio_unchecked = ExtResource( 33 )
+CheckBox/icons/unchecked = ExtResource( 33 )
+CheckBox/styles/disabled = ExtResource( 39 )
+CheckBox/styles/focus = ExtResource( 27 )
+CheckBox/styles/hover = ExtResource( 40 )
+CheckBox/styles/hover_pressed = ExtResource( 26 )
+CheckBox/styles/normal = ExtResource( 38 )
+CheckBox/styles/pressed = ExtResource( 30 )
+CheckButton/colors/font_color = Color( 1, 1, 1, 1 )
+CheckButton/colors/font_color_disabled = Color( 0.439216, 0.439216, 0.439216, 1 )
+CheckButton/colors/font_color_hover = Color( 0.839216, 0.815686, 0.168627, 1 )
+CheckButton/colors/font_color_hover_pressed = Color( 0.435294, 0.843137, 0.133333, 1 )
+CheckButton/colors/font_color_pressed = Color( 0.133333, 0.788235, 0.858824, 1 )
+CheckButton/constants/check_vadjust = 0
+CheckButton/constants/hseparation = 5
+CheckButton/fonts/font = null
+CheckButton/icons/off = ExtResource( 44 )
+CheckButton/icons/off_disabled = ExtResource( 34 )
+CheckButton/icons/on = ExtResource( 37 )
+CheckButton/icons/on_disabled = ExtResource( 32 )
+CheckButton/styles/disabled = ExtResource( 39 )
+CheckButton/styles/focus = ExtResource( 27 )
+CheckButton/styles/hover = ExtResource( 40 )
+CheckButton/styles/hover_pressed = ExtResource( 26 )
+CheckButton/styles/normal = ExtResource( 38 )
+CheckButton/styles/pressed = ExtResource( 30 )
+ColorPicker/constants/h_width = 30
+ColorPicker/constants/label_width = 10
+ColorPicker/constants/margin = 4
+ColorPicker/constants/sv_height = 256
+ColorPicker/constants/sv_width = 256
+ColorPicker/icons/add_preset = null
+ColorPicker/icons/color_hue = null
+ColorPicker/icons/color_sample = null
+ColorPicker/icons/overbright_indicator = null
+ColorPicker/icons/preset_bg = null
+ColorPicker/icons/screen_picker = null
+ColorPickerButton/colors/font_color = Color( 1, 1, 1, 1 )
+ColorPickerButton/colors/font_color_disabled = Color( 0.32549, 0.32549, 0.32549, 1 )
+ColorPickerButton/colors/font_color_hover = Color( 0.866667, 0.835294, 0.00784314, 1 )
+ColorPickerButton/colors/font_color_pressed = Color( 0.290196, 0.890196, 0.121569, 1 )
+ColorPickerButton/constants/hseparation = 2
+ColorPickerButton/fonts/font = null
+ColorPickerButton/icons/bg = ExtResource( 33 )
+ColorPickerButton/styles/disabled = ExtResource( 39 )
+ColorPickerButton/styles/focus = ExtResource( 27 )
+ColorPickerButton/styles/hover = ExtResource( 40 )
+ColorPickerButton/styles/normal = ExtResource( 38 )
+ColorPickerButton/styles/pressed = ExtResource( 30 )
+Dialogs/constants/button_margin = 32
+Dialogs/constants/margin = 8
+FileDialog/colors/file_icon_modulate = Color( 0.180392, 0.756863, 0.717647, 1 )
+FileDialog/colors/files_disabled = Color( 0.396078, 0.396078, 0.396078, 1 )
+FileDialog/colors/folder_icon_modulate = Color( 0.141176, 0.301961, 0.784314, 1 )
+FileDialog/icons/file = null
+FileDialog/icons/folder = null
+FileDialog/icons/parent_folder = null
+FileDialog/icons/reload = null
+FileDialog/icons/toggle_hidden = null
+Fonts/fonts/large = ExtResource( 42 )
+Fonts/fonts/normal = ExtResource( 41 )
+GraphEdit/colors/activity = Color( 0.517647, 0.807843, 0.137255, 1 )
+GraphEdit/colors/grid_major = Color( 0.14902, 0.72549, 0.8, 1 )
+GraphEdit/colors/grid_minor = Color( 0.109804, 0.427451, 0.831373, 1 )
+GraphEdit/colors/selection_fill = Color( 0.156863, 0.792157, 0.152941, 1 )
+GraphEdit/colors/selection_stroke = Color( 0.792157, 0.168627, 0.168627, 1 )
+GraphEdit/constants/bezier_len_neg = 160
+GraphEdit/constants/bezier_len_pos = 80
+GraphEdit/constants/port_grab_distance_horizontal = 48
+GraphEdit/constants/port_grab_distance_vertical = 6
+GraphEdit/icons/minimap = null
+GraphEdit/icons/minus = null
+GraphEdit/icons/more = null
+GraphEdit/icons/reset = null
+GraphEdit/icons/snap = null
+GraphEdit/styles/bg = ExtResource( 24 )
+GraphEditMinimap/colors/resizer_color = Color( 0.129412, 0.776471, 0.541176, 1 )
+GraphEditMinimap/icons/resizer = null
+GraphEditMinimap/styles/bg = ExtResource( 24 )
+GraphEditMinimap/styles/camera = ExtResource( 12 )
+GraphEditMinimap/styles/node = ExtResource( 13 )
+GraphNode/colors/close_color = Color( 0.25098, 0.25098, 0.25098, 1 )
+GraphNode/colors/resizer_color = Color( 0.392157, 0.796078, 0.141176, 1 )
+GraphNode/colors/title_color = Color( 0.870588, 0.14902, 0.14902, 1 )
+GraphNode/constants/close_offset = 18
+GraphNode/constants/port_offset = 3
+GraphNode/constants/separation = 1
+GraphNode/constants/title_offset = 20
+GraphNode/fonts/title_font = null
+GraphNode/icons/close = null
+GraphNode/icons/port = null
+GraphNode/icons/resizer = null
+GraphNode/styles/breakpoint = SubResource( 3 )
+GraphNode/styles/comment = SubResource( 4 )
+GraphNode/styles/commentfocus = SubResource( 5 )
+GraphNode/styles/defaultfocus = SubResource( 6 )
+GraphNode/styles/defaultframe = SubResource( 7 )
+GraphNode/styles/frame = SubResource( 8 )
+GraphNode/styles/position = SubResource( 9 )
+GraphNode/styles/selectedframe = SubResource( 10 )
+GridContainer/constants/hseparation = 4
+GridContainer/constants/vseparation = 4
+HBoxContainer/constants/separation = 4
+HScrollBar/icons/decrement = null
+HScrollBar/icons/decrement_highlight = null
+HScrollBar/icons/increment = null
+HScrollBar/icons/increment_highlight = null
+HScrollBar/styles/grabber = ExtResource( 28 )
+HScrollBar/styles/grabber_highlight = ExtResource( 25 )
+HScrollBar/styles/grabber_pressed = ExtResource( 20 )
+HScrollBar/styles/scroll = ExtResource( 23 )
+HScrollBar/styles/scroll_focus = ExtResource( 21 )
+HSeparator/constants/separation = 4
+HSeparator/styles/separator = ExtResource( 29 )
+HSlider/icons/grabber = ExtResource( 46 )
+HSlider/icons/grabber_disabled = ExtResource( 49 )
+HSlider/icons/grabber_highlight = ExtResource( 43 )
+HSlider/icons/tick = ExtResource( 47 )
+HSlider/styles/grabber_area = ExtResource( 9 )
+HSlider/styles/grabber_area_highlight = ExtResource( 17 )
+HSlider/styles/slider = ExtResource( 23 )
+HSplitContainer/constants/autohide = 1
+HSplitContainer/constants/separation = 12
+HSplitContainer/icons/grabber = ExtResource( 46 )
+HSplitContainer/styles/bg = ExtResource( 24 )
+Icons/icons/close = ExtResource( 35 )
+ItemList/colors/font_color = Color( 1, 1, 1, 1 )
+ItemList/colors/font_color_selected = Color( 0.823529, 0.839216, 0.168627, 1 )
+ItemList/colors/guide_color = Color( 0.137255, 0.470588, 0.839216, 1 )
+ItemList/constants/hseparation = 4
+ItemList/constants/icon_margin = 4
+ItemList/constants/line_separation = 2
+ItemList/constants/vseparation = 2
+ItemList/fonts/font = null
+ItemList/styles/bg = ExtResource( 24 )
+ItemList/styles/bg_focus = ExtResource( 19 )
+ItemList/styles/cursor = null
+ItemList/styles/cursor_unfocused = null
+ItemList/styles/selected = ExtResource( 18 )
+ItemList/styles/selected_focus = ExtResource( 10 )
+Label/colors/font_color = Color( 1, 1, 1, 1 )
+Label/colors/font_color_shadow = Color( 0, 0, 0, 1 )
+Label/colors/font_outline_modulate = Color( 0.52549, 0.52549, 0.52549, 1 )
+Label/constants/line_spacing = 3
+Label/constants/shadow_as_outline = 0
+Label/constants/shadow_offset_x = 1
+Label/constants/shadow_offset_y = 1
+Label/fonts/font = null
+Label/styles/normal = null
+LineEdit/colors/clear_button_color = Color( 1, 0, 0, 1 )
+LineEdit/colors/clear_button_color_pressed = Color( 0.886275, 0.819608, 0.121569, 1 )
+LineEdit/colors/cursor_color = Color( 0.533333, 0.533333, 0.533333, 1 )
+LineEdit/colors/font_color = Color( 1, 1, 1, 1 )
+LineEdit/colors/font_color_selected = Color( 0.886275, 0.854902, 0.105882, 1 )
+LineEdit/colors/font_color_uneditable = Color( 0.298039, 0.298039, 0.298039, 1 )
+LineEdit/colors/selection_color = Color( 0.4, 0.827451, 0.129412, 1 )
+LineEdit/constants/minimum_spaces = 12
+LineEdit/fonts/font = null
+LineEdit/icons/clear = ExtResource( 35 )
+LineEdit/styles/focus = ExtResource( 27 )
+LineEdit/styles/normal = ExtResource( 38 )
+LineEdit/styles/read_only = ExtResource( 14 )
+LinkButton/colors/font_color = Color( 1, 1, 1, 1 )
+LinkButton/colors/font_color_hover = Color( 0.886275, 0.858824, 0.152941, 1 )
+LinkButton/colors/font_color_pressed = Color( 0.109804, 0.796078, 0.847059, 1 )
+LinkButton/constants/underline_spacing = 2
+LinkButton/fonts/font = null
+LinkButton/styles/focus = ExtResource( 27 )
+MarginContainer/constants/margin_bottom = 0
+MarginContainer/constants/margin_left = 0
+MarginContainer/constants/margin_right = 0
+MarginContainer/constants/margin_top = 0
+MenuButton/colors/font_color = Color( 1, 1, 1, 1 )
+MenuButton/colors/font_color_disabled = Color( 0.443137, 0.443137, 0.443137, 1 )
+MenuButton/colors/font_color_hover = Color( 0.843137, 0.819608, 0.109804, 1 )
+MenuButton/colors/font_color_pressed = Color( 0.180392, 0.882353, 0.0901961, 1 )
+MenuButton/constants/hseparation = 3
+MenuButton/fonts/font = null
+MenuButton/styles/disabled = ExtResource( 39 )
+MenuButton/styles/focus = ExtResource( 27 )
+MenuButton/styles/hover = ExtResource( 40 )
+MenuButton/styles/normal = ExtResource( 38 )
+MenuButton/styles/pressed = ExtResource( 30 )
+OptionButton/colors/font_color = Color( 1, 1, 1, 1 )
+OptionButton/colors/font_color_disabled = Color( 0.403922, 0.403922, 0.403922, 1 )
+OptionButton/colors/font_color_hover = Color( 0.839216, 0.8, 0.133333, 1 )
+OptionButton/colors/font_color_pressed = Color( 0.219608, 0.858824, 0.137255, 1 )
+OptionButton/constants/arrow_margin = 2
+OptionButton/constants/hseparation = 2
+OptionButton/fonts/font = null
+OptionButton/icons/arrow = ExtResource( 45 )
+OptionButton/styles/disabled = ExtResource( 39 )
+OptionButton/styles/focus = ExtResource( 27 )
+OptionButton/styles/hover = ExtResource( 40 )
+OptionButton/styles/normal = ExtResource( 38 )
+OptionButton/styles/pressed = ExtResource( 30 )
+Panel/styles/panel = ExtResource( 16 )
+PanelContainer/styles/panel = ExtResource( 16 )
+PopupDialog/styles/panel = ExtResource( 24 )
+PopupMenu/colors/font_color = Color( 1, 1, 1, 1 )
+PopupMenu/colors/font_color_accel = Color( 0.407843, 0.121569, 0.807843, 1 )
+PopupMenu/colors/font_color_disabled = Color( 0.313726, 0.313726, 0.313726, 1 )
+PopupMenu/colors/font_color_hover = Color( 0.870588, 0.866667, 0.12549, 1 )
+PopupMenu/colors/font_color_separator = Color( 0, 0.301961, 0.454902, 1 )
+PopupMenu/constants/hseparation = 4
+PopupMenu/constants/vseparation = 4
+PopupMenu/fonts/font = null
+PopupMenu/icons/checked = ExtResource( 31 )
+PopupMenu/icons/radio_checked = ExtResource( 31 )
+PopupMenu/icons/radio_unchecked = ExtResource( 33 )
+PopupMenu/icons/submenu = null
+PopupMenu/icons/unchecked = ExtResource( 33 )
+PopupMenu/styles/hover = ExtResource( 40 )
+PopupMenu/styles/labeled_separator_left = ExtResource( 29 )
+PopupMenu/styles/labeled_separator_right = ExtResource( 29 )
+PopupMenu/styles/panel = ExtResource( 16 )
+PopupMenu/styles/panel_disabled = ExtResource( 22 )
+PopupMenu/styles/separator = ExtResource( 29 )
+PopupPanel/styles/panel = ExtResource( 24 )
+ProgressBar/colors/font_color = Color( 1, 1, 1, 1 )
+ProgressBar/colors/font_color_shadow = Color( 0.368627, 0.368627, 0.368627, 1 )
+ProgressBar/fonts/font = null
+ProgressBar/styles/bg = ExtResource( 15 )
+ProgressBar/styles/fg = ExtResource( 24 )
+RichTextLabel/colors/default_color = Color( 1, 1, 1, 1 )
+RichTextLabel/colors/font_color_selected = Color( 0.886275, 0.839216, 0.113725, 1 )
+RichTextLabel/colors/font_color_shadow = Color( 0.364706, 0.364706, 0.364706, 1 )
+RichTextLabel/colors/selection_color = Color( 0.443137, 0.862745, 0.129412, 1 )
+RichTextLabel/constants/line_separation = 1
+RichTextLabel/constants/shadow_as_outline = 0
+RichTextLabel/constants/shadow_offset_x = 1
+RichTextLabel/constants/shadow_offset_y = 1
+RichTextLabel/constants/table_hseparation = 3
+RichTextLabel/constants/table_vseparation = 3
+RichTextLabel/fonts/bold_font = null
+RichTextLabel/fonts/bold_italics_font = null
+RichTextLabel/fonts/italics_font = null
+RichTextLabel/fonts/mono_font = null
+RichTextLabel/fonts/normal_font = null
+RichTextLabel/styles/focus = ExtResource( 27 )
+RichTextLabel/styles/normal = ExtResource( 38 )
+ScrollContainer/styles/bg = SubResource( 11 )
+SpinBox/icons/updown = ExtResource( 48 )
+TabContainer/colors/font_color_bg = Color( 0.611765, 0.611765, 0.611765, 1 )
+TabContainer/colors/font_color_disabled = Color( 1, 0, 0, 1 )
+TabContainer/colors/font_color_fg = Color( 0.333333, 0.576471, 0, 1 )
+TabContainer/constants/hseparation = 4
+TabContainer/constants/label_valign_bg = 2
+TabContainer/constants/label_valign_fg = 0
+TabContainer/constants/side_margin = 8
+TabContainer/constants/top_margin = 24
+TabContainer/fonts/font = null
+TabContainer/icons/decrement = ExtResource( 50 )
+TabContainer/icons/decrement_highlight = ExtResource( 53 )
+TabContainer/icons/increment = ExtResource( 52 )
+TabContainer/icons/increment_highlight = ExtResource( 51 )
+TabContainer/icons/menu = null
+TabContainer/icons/menu_highlight = null
+TabContainer/styles/panel = ExtResource( 16 )
+TabContainer/styles/tab_bg = ExtResource( 19 )
+TabContainer/styles/tab_disabled = ExtResource( 15 )
+TabContainer/styles/tab_fg = ExtResource( 24 )
+Tabs/colors/font_color_bg = Color( 0.72549, 0.72549, 0.72549, 1 )
+Tabs/colors/font_color_disabled = Color( 0.941176, 0.0705882, 0.0705882, 1 )
+Tabs/colors/font_color_fg = Color( 0.258824, 0.545098, 0, 1 )
+Tabs/constants/hseparation = 4
+Tabs/constants/label_valign_bg = 2
+Tabs/constants/label_valign_fg = 0
+Tabs/constants/top_margin = 24
+Tabs/fonts/font = null
+Tabs/icons/close = ExtResource( 35 )
+Tabs/icons/decrement = ExtResource( 50 )
+Tabs/icons/decrement_highlight = ExtResource( 53 )
+Tabs/icons/increment = ExtResource( 52 )
+Tabs/icons/increment_highlight = ExtResource( 51 )
+Tabs/styles/button = ExtResource( 38 )
+Tabs/styles/button_pressed = ExtResource( 30 )
+Tabs/styles/panel = ExtResource( 16 )
+Tabs/styles/tab_bg = ExtResource( 19 )
+Tabs/styles/tab_disabled = ExtResource( 15 )
+Tabs/styles/tab_fg = ExtResource( 24 )
+TextEdit/colors/background_color = Color( 0.509804, 0.509804, 0.509804, 1 )
+TextEdit/colors/bookmark_color = Color( 0.843137, 0.603922, 0.145098, 1 )
+TextEdit/colors/brace_mismatch_color = Color( 0.764706, 0.682353, 0.12549, 1 )
+TextEdit/colors/breakpoint_color = Color( 0.898039, 0.109804, 0.109804, 1 )
+TextEdit/colors/caret_background_color = Color( 0.352941, 0.176471, 0.176471, 1 )
+TextEdit/colors/caret_color = Color( 1, 0.517647, 0.517647, 1 )
+TextEdit/colors/code_folding_color = Color( 0.419608, 0.870588, 0.839216, 1 )
+TextEdit/colors/completion_background_color = Color( 0.768627, 0.768627, 0.768627, 1 )
+TextEdit/colors/completion_existing_color = Color( 0.211765, 0.521569, 0, 1 )
+TextEdit/colors/completion_font_color = Color( 0.145098, 0.964706, 0, 1 )
+TextEdit/colors/completion_scroll_color = Color( 0.882353, 0.964706, 0.690196, 1 )
+TextEdit/colors/completion_selected_color = Color( 0.890196, 0.862745, 0.156863, 1 )
+TextEdit/colors/current_line_color = Color( 0, 0.513726, 0.537255, 1 )
+TextEdit/colors/executing_line_color = Color( 0.137255, 0.827451, 0.329412, 1 )
+TextEdit/colors/font_color = Color( 1, 1, 1, 1 )
+TextEdit/colors/font_color_readonly = Color( 1, 0.615686, 0.984314, 1 )
+TextEdit/colors/font_color_selected = Color( 0.886275, 0.894118, 0.0784314, 1 )
+TextEdit/colors/function_color = Color( 1, 0, 0, 1 )
+TextEdit/colors/line_number_color = Color( 0.129412, 0.105882, 0.831373, 1 )
+TextEdit/colors/mark_color = Color( 0.866667, 0.556863, 0.117647, 1 )
+TextEdit/colors/member_variable_color = Color( 0.698039, 0.87451, 0.145098, 1 )
+TextEdit/colors/number_color = Color( 0.235294, 0.529412, 0, 1 )
+TextEdit/colors/safe_line_number_color = Color( 0, 0.729412, 0.258824, 1 )
+TextEdit/colors/selection_color = Color( 0, 0.705882, 1, 1 )
+TextEdit/colors/symbol_color = Color( 0.945098, 0.435294, 0.0862745, 1 )
+TextEdit/colors/word_highlighted_color = Color( 1, 0.415686, 0.415686, 1 )
+TextEdit/constants/completion_lines = 7
+TextEdit/constants/completion_max_width = 50
+TextEdit/constants/completion_scroll_width = 3
+TextEdit/constants/line_spacing = 4
+TextEdit/fonts/font = null
+TextEdit/icons/fold = null
+TextEdit/icons/folded = null
+TextEdit/icons/space = null
+TextEdit/icons/tab = ExtResource( 52 )
+TextEdit/styles/completion = SubResource( 12 )
+TextEdit/styles/focus = ExtResource( 27 )
+TextEdit/styles/normal = ExtResource( 38 )
+TextEdit/styles/read_only = ExtResource( 14 )
+ToolButton/colors/font_color = Color( 1, 1, 1, 1 )
+ToolButton/colors/font_color_disabled = Color( 0.501961, 0.501961, 0.501961, 1 )
+ToolButton/colors/font_color_hover = Color( 0.929412, 0.898039, 0.0745098, 1 )
+ToolButton/colors/font_color_pressed = Color( 0.356863, 0.898039, 0.0823529, 1 )
+ToolButton/constants/hseparation = 3
+ToolButton/fonts/font = null
+ToolButton/styles/disabled = ExtResource( 39 )
+ToolButton/styles/focus = ExtResource( 27 )
+ToolButton/styles/hover = ExtResource( 40 )
+ToolButton/styles/normal = ExtResource( 38 )
+ToolButton/styles/pressed = ExtResource( 30 )
+TooltipLabel/colors/font_color = Color( 1, 1, 1, 1 )
+TooltipLabel/colors/font_color_shadow = Color( 0.623529, 0.623529, 0.623529, 1 )
+TooltipLabel/constants/shadow_offset_x = 1
+TooltipLabel/constants/shadow_offset_y = 1
+TooltipLabel/fonts/font = null
+TooltipPanel/styles/panel = ExtResource( 16 )
+Tree/colors/custom_button_font_highlight = Color( 0.552941, 0.462745, 1, 1 )
+Tree/colors/drop_position_color = Color( 1, 0.423529, 0.423529, 1 )
+Tree/colors/font_color = Color( 1, 1, 1, 1 )
+Tree/colors/font_color_selected = Color( 0.917647, 0.92549, 0.0666667, 1 )
+Tree/colors/guide_color = Color( 0.309804, 0.870588, 0.0823529, 1 )
+Tree/colors/relationship_line_color = Color( 0.545098, 0.545098, 0.545098, 1 )
+Tree/colors/title_button_color = Color( 0, 0.65098, 0.623529, 1 )
+Tree/constants/button_margin = 4
+Tree/constants/draw_guides = 1
+Tree/constants/draw_relationship_lines = 0
+Tree/constants/hseparation = 4
+Tree/constants/item_margin = 12
+Tree/constants/scroll_border = 4
+Tree/constants/scroll_speed = 12
+Tree/constants/vseparation = 4
+Tree/fonts/font = null
+Tree/fonts/title_button_font = null
+Tree/icons/arrow = null
+Tree/icons/arrow_collapsed = null
+Tree/icons/checked = ExtResource( 31 )
+Tree/icons/select_arrow = null
+Tree/icons/unchecked = ExtResource( 33 )
+Tree/icons/updown = ExtResource( 48 )
+Tree/styles/bg = ExtResource( 24 )
+Tree/styles/bg_focus = ExtResource( 11 )
+Tree/styles/button_pressed = ExtResource( 30 )
+Tree/styles/cursor = null
+Tree/styles/cursor_unfocused = null
+Tree/styles/custom_button = null
+Tree/styles/custom_button_hover = null
+Tree/styles/custom_button_pressed = null
+Tree/styles/selected = ExtResource( 27 )
+Tree/styles/selected_focus = ExtResource( 26 )
+Tree/styles/title_button_hover = null
+Tree/styles/title_button_normal = null
+Tree/styles/title_button_pressed = null
+VBoxContainer/constants/separation = 4
+VScrollBar/icons/decrement = ExtResource( 55 )
+VScrollBar/icons/decrement_highlight = ExtResource( 57 )
+VScrollBar/icons/increment = ExtResource( 54 )
+VScrollBar/icons/increment_highlight = ExtResource( 56 )
+VScrollBar/styles/grabber = ExtResource( 28 )
+VScrollBar/styles/grabber_highlight = ExtResource( 25 )
+VScrollBar/styles/grabber_pressed = ExtResource( 20 )
+VScrollBar/styles/scroll = ExtResource( 23 )
+VScrollBar/styles/scroll_focus = ExtResource( 21 )
+VSeparator/constants/separation = 4
+VSeparator/styles/separator = SubResource( 13 )
+VSlider/icons/grabber = ExtResource( 46 )
+VSlider/icons/grabber_disabled = ExtResource( 49 )
+VSlider/icons/grabber_highlight = ExtResource( 43 )
+VSlider/icons/tick = ExtResource( 47 )
+VSlider/styles/grabber_area = ExtResource( 9 )
+VSlider/styles/grabber_area_highlight = ExtResource( 17 )
+VSlider/styles/slider = ExtResource( 23 )
+VSplitContainer/constants/autohide = 1
+VSplitContainer/constants/separation = 12
+VSplitContainer/icons/grabber = null
+VSplitContainer/styles/bg = ExtResource( 16 )
+WindowDialog/colors/title_color = Color( 0.337255, 0.780392, 0.113725, 1 )
+WindowDialog/constants/close_h_ofs = 18
+WindowDialog/constants/close_v_ofs = 18
+WindowDialog/constants/scaleborder_size = 10
+WindowDialog/constants/title_height = 20
+WindowDialog/fonts/title_font = null
+WindowDialog/icons/close = ExtResource( 35 )
+WindowDialog/icons/close_highlight = ExtResource( 35 )
+WindowDialog/styles/panel = ExtResource( 58 )
+
+[node name="Object Editor" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 3 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="background" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0.2, 0.235294, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="object" type="Node2D" parent="."]
+
+[node name="OBJECT_REG" type="Node" parent="object"]
+
+[node name="Panel" type="Panel" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = SubResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="GUI" type="Node" parent="."]
+
+[node name="UpPanel" type="MarginContainer" parent="GUI"]
+anchor_right = 1.0
+anchor_bottom = 0.073
+margin_bottom = 7.936
+theme = ExtResource( 3 )
+custom_constants/margin_right = 5
+custom_constants/margin_top = 5
+custom_constants/margin_left = 5
+custom_constants/margin_bottom = 5
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="GUI/UpPanel"]
+margin_left = 5.0
+margin_top = 5.0
+margin_right = 1355.0
+margin_bottom = 59.0
+
+[node name="enviroment" type="MarginContainer" parent="GUI/UpPanel"]
+margin_left = 5.0
+margin_top = 5.0
+margin_right = 1355.0
+margin_bottom = 59.0
+custom_constants/margin_right = 5
+custom_constants/margin_top = 5
+custom_constants/margin_left = 5
+custom_constants/margin_bottom = 5
+
+[node name="left" type="HBoxContainer" parent="GUI/UpPanel/enviroment"]
+margin_left = 5.0
+margin_top = 5.0
+margin_right = 1345.0
+margin_bottom = 49.0
+
+[node name="icon" type="TextureRect" parent="GUI/UpPanel/enviroment/left"]
+margin_right = 44.0
+margin_bottom = 44.0
+rect_min_size = Vector2( 44, 44 )
+expand = true
+stretch_mode = 1
+
+[node name="name" type="Label" parent="GUI/UpPanel/enviroment/left"]
+margin_left = 48.0
+margin_top = 11.0
+margin_right = 648.0
+margin_bottom = 33.0
+rect_min_size = Vector2( 600, 0 )
+text = "Unnamed."
+
+[node name="right" type="HBoxContainer" parent="GUI/UpPanel/enviroment"]
+margin_left = 5.0
+margin_top = 5.0
+margin_right = 1345.0
+margin_bottom = 49.0
+alignment = 2
+
+[node name="load" type="Button" parent="GUI/UpPanel/enviroment/right"]
+margin_left = 1104.0
+margin_right = 1148.0
+margin_bottom = 44.0
+icon = ExtResource( 7 )
+
+[node name="save_as" type="Button" parent="GUI/UpPanel/enviroment/right"]
+margin_left = 1152.0
+margin_right = 1196.0
+margin_bottom = 44.0
+icon = ExtResource( 4 )
+
+[node name="save" type="Button" parent="GUI/UpPanel/enviroment/right"]
+margin_left = 1200.0
+margin_right = 1244.0
+margin_bottom = 44.0
+icon = ExtResource( 5 )
+
+[node name="bgcolor" type="Button" parent="GUI/UpPanel/enviroment/right"]
+margin_left = 1248.0
+margin_right = 1292.0
+margin_bottom = 44.0
+icon = ExtResource( 6 )
+
+[node name="exit" type="Button" parent="GUI/UpPanel/enviroment/right"]
+margin_left = 1296.0
+margin_right = 1340.0
+margin_bottom = 44.0
+icon = ExtResource( 2 )
+
+[node name="DownPanel" type="MarginContainer" parent="GUI"]
+anchor_top = 0.93
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = -0.23999
+theme = ExtResource( 3 )
+custom_constants/margin_right = 5
+custom_constants/margin_top = 5
+custom_constants/margin_left = 5
+custom_constants/margin_bottom = 5
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="GUI/DownPanel"]
+margin_left = 5.0
+margin_top = 5.0
+margin_right = 1355.0
+margin_bottom = 49.0
+
+[node name="enviroment" type="MarginContainer" parent="GUI/DownPanel"]
+margin_left = 5.0
+margin_top = 5.0
+margin_right = 1355.0
+margin_bottom = 49.0
+custom_constants/margin_right = 5
+custom_constants/margin_top = 5
+custom_constants/margin_left = 20
+custom_constants/margin_bottom = 5
+
+[node name="left" type="HBoxContainer" parent="GUI/DownPanel/enviroment"]
+margin_left = 20.0
+margin_top = 5.0
+margin_right = 1345.0
+margin_bottom = 39.0
+
+[node name="sc" type="CheckBox" parent="GUI/DownPanel/enviroment/left"]
+margin_right = 199.0
+margin_bottom = 34.0
+pressed = true
+text = "Show Collisions"
+
+[node name="VSeparator" type="VSeparator" parent="GUI/DownPanel/enviroment/left"]
+margin_left = 203.0
+margin_right = 207.0
+margin_bottom = 34.0
+
+[node name="sen" type="CheckBox" parent="GUI/DownPanel/enviroment/left"]
+margin_left = 211.0
+margin_right = 499.0
+margin_bottom = 34.0
+pressed = true
+text = "Show Entity Navigation"
+
+[node name="Vs" type="VSeparator" parent="GUI/DownPanel/enviroment/left"]
+margin_left = 503.0
+margin_right = 507.0
+margin_bottom = 34.0
+
+[node name="LeftPanel" type="MarginContainer" parent="GUI"]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_top = -158.0
+margin_right = 371.0
+margin_bottom = 247.0
+theme = ExtResource( 3 )
+custom_constants/margin_right = 5
+custom_constants/margin_top = 5
+custom_constants/margin_left = 5
+custom_constants/margin_bottom = 5
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="GUI/LeftPanel"]
+margin_left = 5.0
+margin_top = 5.0
+margin_right = 366.0
+margin_bottom = 400.0
+
+[node name="enviroment" type="MarginContainer" parent="GUI/LeftPanel"]
+margin_left = 5.0
+margin_top = 5.0
+margin_right = 366.0
+margin_bottom = 400.0
+custom_constants/margin_right = 5
+custom_constants/margin_top = 5
+custom_constants/margin_left = 5
+custom_constants/margin_bottom = 5
+
+[node name="s" type="ScrollContainer" parent="GUI/LeftPanel/enviroment"]
+margin_left = 5.0
+margin_top = 5.0
+margin_right = 356.0
+margin_bottom = 390.0
+
+[node name="e" type="HBoxContainer" parent="GUI/LeftPanel/enviroment/s"]
+margin_left = 5.0
+margin_top = 5.0
+margin_right = 335.0
+margin_bottom = 599.0
+
+[node name="e" type="VBoxContainer" parent="GUI/LeftPanel/enviroment/s/e"]
+margin_right = 330.0
+margin_bottom = 594.0
+
+[node name="info_1" type="Label" parent="GUI/LeftPanel/enviroment/s/e/e"]
+margin_right = 330.0
+margin_bottom = 22.0
+rect_min_size = Vector2( 230, 0 )
+text = "Object Tree"
+align = 1
+
+[node name="HSeparator" type="HSeparator" parent="GUI/LeftPanel/enviroment/s/e/e"]
+margin_top = 26.0
+margin_right = 330.0
+margin_bottom = 30.0
+
+[node name="tree" type="Tree" parent="GUI/LeftPanel/enviroment/s/e/e"]
+margin_top = 34.0
+margin_right = 330.0
+margin_bottom = 334.0
+rect_min_size = Vector2( 330, 300 )
+allow_reselect = true
+hide_root = true
+
+[node name="HSeparator2" type="HSeparator" parent="GUI/LeftPanel/enviroment/s/e/e"]
+margin_top = 338.0
+margin_right = 330.0
+margin_bottom = 342.0
+
+[node name="HSeparator3" type="HSeparator" parent="GUI/LeftPanel/enviroment/s/e/e"]
+margin_top = 346.0
+margin_right = 330.0
+margin_bottom = 350.0
+
+[node name="info_2" type="Label" parent="GUI/LeftPanel/enviroment/s/e/e"]
+margin_top = 354.0
+margin_right = 330.0
+margin_bottom = 376.0
+text = "Add elements"
+align = 1
+
+[node name="HSeparator4" type="HSeparator" parent="GUI/LeftPanel/enviroment/s/e/e"]
+margin_top = 380.0
+margin_right = 330.0
+margin_bottom = 384.0
+
+[node name="nt" type="Button" parent="GUI/LeftPanel/enviroment/s/e/e"]
+margin_top = 388.0
+margin_right = 330.0
+margin_bottom = 414.0
+text = "New texture"
+
+[node name="nc" type="Button" parent="GUI/LeftPanel/enviroment/s/e/e"]
+margin_top = 418.0
+margin_right = 330.0
+margin_bottom = 444.0
+text = "New collision"
+
+[node name="ns" type="Button" parent="GUI/LeftPanel/enviroment/s/e/e"]
+margin_top = 448.0
+margin_right = 330.0
+margin_bottom = 474.0
+disabled = true
+text = "New Shader"
+
+[node name="na" type="Button" parent="GUI/LeftPanel/enviroment/s/e/e"]
+margin_top = 478.0
+margin_right = 330.0
+margin_bottom = 504.0
+disabled = true
+text = "New Animation"
+__meta__ = {
+"_editor_description_": "Unavailable. In future it will be fixed. Please use Godot Animation Editor instead."
+}
+
+[node name="np" type="Button" parent="GUI/LeftPanel/enviroment/s/e/e"]
+margin_top = 508.0
+margin_right = 330.0
+margin_bottom = 534.0
+text = "New Particle"
+
+[node name="nl" type="Button" parent="GUI/LeftPanel/enviroment/s/e/e"]
+margin_top = 538.0
+margin_right = 330.0
+margin_bottom = 564.0
+text = "New Light"
+
+[node name="nlo" type="Button" parent="GUI/LeftPanel/enviroment/s/e/e"]
+margin_top = 568.0
+margin_right = 330.0
+margin_bottom = 594.0
+text = "New LightOccluder"
+
+[node name="RightPanel" type="MarginContainer" parent="GUI"]
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = -434.0
+margin_top = -158.0
+margin_bottom = 237.0
+theme = ExtResource( 3 )
+custom_constants/margin_right = 5
+custom_constants/margin_top = 5
+custom_constants/margin_left = 5
+custom_constants/margin_bottom = 5
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="GUI/RightPanel"]
+margin_left = 5.0
+margin_top = 5.0
+margin_right = 429.0
+margin_bottom = 390.0
+
+[node name="enviroment" type="MarginContainer" parent="GUI/RightPanel"]
+margin_left = 5.0
+margin_top = 5.0
+margin_right = 429.0
+margin_bottom = 390.0
+custom_constants/margin_right = 5
+custom_constants/margin_top = 5
+custom_constants/margin_left = 5
+custom_constants/margin_bottom = 5
+
+[node name="s" type="ScrollContainer" parent="GUI/RightPanel/enviroment"]
+margin_left = 5.0
+margin_top = 5.0
+margin_right = 419.0
+margin_bottom = 380.0
+
+[node name="e" type="HBoxContainer" parent="GUI/RightPanel/enviroment/s"]
+margin_left = 5.0
+margin_top = 5.0
+margin_right = 405.0
+margin_bottom = 35.0
+
+[node name="e" type="VBoxContainer" parent="GUI/RightPanel/enviroment/s/e"]
+margin_right = 400.0
+margin_bottom = 30.0
+
+[node name="info_1" type="Label" parent="GUI/RightPanel/enviroment/s/e/e"]
+margin_right = 400.0
+margin_bottom = 22.0
+rect_min_size = Vector2( 400, 0 )
+text = "Properties"
+align = 1
+
+[node name="HSeparator" type="HSeparator" parent="GUI/RightPanel/enviroment/s/e/e"]
+margin_top = 26.0
+margin_right = 400.0
+margin_bottom = 30.0
+
+[node name="texture" type="VBoxContainer" parent="GUI/RightPanel/enviroment/s/e/e"]
+visible = false
+margin_top = 34.0
+margin_right = 394.0
+margin_bottom = 1096.0
+
+[node name="Offset" type="VBoxContainer" parent="GUI/RightPanel/enviroment/s/e/e/texture"]
+margin_right = 394.0
+margin_bottom = 172.0
+
+[node name="info_1" type="Label" parent="GUI/RightPanel/enviroment/s/e/e/texture/Offset"]
+margin_right = 394.0
+margin_bottom = 22.0
+text = "Offset"
+align = 1
+
+[node name="c" type="HBoxContainer" parent="GUI/RightPanel/enviroment/s/e/e/texture/Offset"]
+margin_top = 26.0
+margin_right = 394.0
+margin_bottom = 52.0
+alignment = 1
+
+[node name="info_1" type="Label" parent="GUI/RightPanel/enviroment/s/e/e/texture/Offset/c"]
+margin_left = 101.0
+margin_top = 2.0
+margin_right = 221.0
+margin_bottom = 24.0
+text = "Centered: "
+
+[node name="centered" type="OptionButton" parent="GUI/RightPanel/enviroment/s/e/e/texture/Offset/c"]
+margin_left = 225.0
+margin_right = 292.0
+margin_bottom = 26.0
+text = "True"
+items = [ "True", null, false, 0, null, "False", null, false, 1, null ]
+selected = 0
+
+[node name="x" type="HBoxContainer" parent="GUI/RightPanel/enviroment/s/e/e/texture/Offset"]
+margin_top = 56.0
+margin_right = 394.0
+margin_bottom = 82.0
+alignment = 1
+
+[node name="info_1" type="Label" parent="GUI/RightPanel/enviroment/s/e/e/texture/Offset/x"]
+margin_left = 50.0
+margin_top = 2.0
+margin_right = 170.0
+margin_bottom = 24.0
+text = "Offset X: "
+
+[node name="x" type="SpinBox" parent="GUI/RightPanel/enviroment/s/e/e/texture/Offset/x"]
+margin_left = 174.0
+margin_right = 344.0
+margin_bottom = 26.0
+allow_greater = true
+allow_lesser = true
+
+[node name="y" type="HBoxContainer" parent="GUI/RightPanel/enviroment/s/e/e/texture/Offset"]
+margin_top = 86.0
+margin_right = 394.0
+margin_bottom = 112.0
+alignment = 1
+
+[node name="info_1" type="Label" parent="GUI/RightPanel/enviroment/s/e/e/texture/Offset/y"]
+margin_left = 50.0
+margin_top = 2.0
+margin_right = 170.0
+margin_bottom = 24.0
+text = "Offset Y: "
+
+[node name="y" type="SpinBox" parent="GUI/RightPanel/enviroment/s/e/e/texture/Offset/y"]
+margin_left = 174.0
+margin_right = 344.0
+margin_bottom = 26.0
+allow_greater = true
+allow_lesser = true
+
+[node name="fh" type="HBoxContainer" parent="GUI/RightPanel/enviroment/s/e/e/texture/Offset"]
+margin_top = 116.0
+margin_right = 394.0
+margin_bottom = 142.0
+alignment = 1
+
+[node name="info_1" type="Label" parent="GUI/RightPanel/enviroment/s/e/e/texture/Offset/fh"]
+margin_left = 117.0
+margin_top = 2.0
+margin_right = 200.0
+margin_bottom = 24.0
+text = "Flip H: "
+
+[node name="fh" type="OptionButton" parent="GUI/RightPanel/enviroment/s/e/e/texture/Offset/fh"]
+margin_left = 204.0
+margin_right = 277.0
+margin_bottom = 26.0
+text = "False"
+items = [ "True", null, false, 0, null, "False", null, false, 1, null ]
+selected = 1
+
+[node name="fv" type="HBoxContainer" parent="GUI/RightPanel/enviroment/s/e/e/texture/Offset"]
+margin_top = 146.0
+margin_right = 394.0
+margin_bottom = 172.0
+alignment = 1
+
+[node name="info_1" type="Label" parent="GUI/RightPanel/enviroment/s/e/e/texture/Offset/fv"]
+margin_left = 117.0
+margin_top = 2.0
+margin_right = 200.0
+margin_bottom = 24.0
+text = "Flip V: "
+
+[node name="fv" type="OptionButton" parent="GUI/RightPanel/enviroment/s/e/e/texture/Offset/fv"]
+margin_left = 204.0
+margin_right = 277.0
+margin_bottom = 26.0
+text = "False"
+items = [ "True", null, false, 0, null, "False", null, false, 1, null ]
+selected = 1
+
+[node name="HSeparator" type="HSeparator" parent="GUI/RightPanel/enviroment/s/e/e/texture"]
+margin_top = 176.0
+margin_right = 394.0
+margin_bottom = 180.0
+
+[node name="Animation" type="VBoxContainer" parent="GUI/RightPanel/enviroment/s/e/e/texture"]
+margin_top = 184.0
+margin_right = 394.0
+margin_bottom = 356.0
+
+[node name="info_1" type="Label" parent="GUI/RightPanel/enviroment/s/e/e/texture/Animation"]
+margin_right = 394.0
+margin_bottom = 22.0
+text = "Animation"
+align = 1
+
+[node name="hf" type="HBoxContainer" parent="GUI/RightPanel/enviroment/s/e/e/texture/Animation"]
+margin_top = 26.0
+margin_right = 394.0
+margin_bottom = 52.0
+alignment = 1
+
+[node name="info_1" type="Label" parent="GUI/RightPanel/enviroment/s/e/e/texture/Animation/hf"]
+margin_left = 52.0
+margin_top = 2.0
+margin_right = 168.0
+margin_bottom = 24.0
+text = "Hframes: "
+
+[node name="hf" type="SpinBox" parent="GUI/RightPanel/enviroment/s/e/e/texture/Animation/hf"]
+margin_left = 172.0
+margin_right = 342.0
+margin_bottom = 26.0
+max_value = 1.0
+value = 1.0
+allow_greater = true
+
+[node name="vf" type="HBoxContainer" parent="GUI/RightPanel/enviroment/s/e/e/texture/Animation"]
+margin_top = 56.0
+margin_right = 394.0
+margin_bottom = 82.0
+alignment = 1
+
+[node name="info_1" type="Label" parent="GUI/RightPanel/enviroment/s/e/e/texture/Animation/vf"]
+margin_left = 52.0
+margin_top = 2.0
+margin_right = 168.0
+margin_bottom = 24.0
+text = "Vframes: "
+
+[node name="vf" type="SpinBox" parent="GUI/RightPanel/enviroment/s/e/e/texture/Animation/vf"]
+margin_left = 172.0
+margin_right = 342.0
+margin_bottom = 26.0
+max_value = 1.0
+value = 1.0
+allow_greater = true
+
+[node name="f" type="HBoxContainer" parent="GUI/RightPanel/enviroment/s/e/e/texture/Animation"]
+margin_top = 86.0
+margin_right = 394.0
+margin_bottom = 112.0
+alignment = 1
+
+[node name="info_1" type="Label" parent="GUI/RightPanel/enviroment/s/e/e/texture/Animation/f"]
+margin_left = 58.0
+margin_top = 2.0
+margin_right = 161.0
+margin_bottom = 24.0
+text = "Frames: "
+
+[node name="f" type="SpinBox" parent="GUI/RightPanel/enviroment/s/e/e/texture/Animation/f"]
+margin_left = 165.0
+margin_right = 335.0
+margin_bottom = 26.0
+max_value = 1.0
+allow_greater = true
+
+[node name="xf" type="HBoxContainer" parent="GUI/RightPanel/enviroment/s/e/e/texture/Animation"]
+margin_top = 116.0
+margin_right = 394.0
+margin_bottom = 142.0
+alignment = 1
+
+[node name="info_1" type="Label" parent="GUI/RightPanel/enviroment/s/e/e/texture/Animation/xf"]
+margin_top = 2.0
+margin_right = 220.0
+margin_bottom = 24.0
+text = "Frames Coords X: "
+
+[node name="xf" type="SpinBox" parent="GUI/RightPanel/enviroment/s/e/e/texture/Animation/xf"]
+margin_left = 224.0
+margin_right = 394.0
+margin_bottom = 26.0
+max_value = 1.0
+allow_greater = true
+
+[node name="yf" type="HBoxContainer" parent="GUI/RightPanel/enviroment/s/e/e/texture/Animation"]
+margin_top = 146.0
+margin_right = 394.0
+margin_bottom = 172.0
+alignment = 1
+
+[node name="info_1" type="Label" parent="GUI/RightPanel/enviroment/s/e/e/texture/Animation/yf"]
+margin_top = 2.0
+margin_right = 220.0
+margin_bottom = 24.0
+text = "Frames Coords Y: "
+
+[node name="yf" type="SpinBox" parent="GUI/RightPanel/enviroment/s/e/e/texture/Animation/yf"]
+margin_left = 224.0
+margin_right = 394.0
+margin_bottom = 26.0
+max_value = 1.0
+allow_greater = true
+
+[node name="HSeparator2" type="HSeparator" parent="GUI/RightPanel/enviroment/s/e/e/texture"]
+margin_top = 360.0
+margin_right = 394.0
+margin_bottom = 364.0
+
+[node name="Region" type="VBoxContainer" parent="GUI/RightPanel/enviroment/s/e/e/texture"]
+margin_top = 368.0
+margin_right = 394.0
+margin_bottom = 570.0
+
+[node name="info_1" type="Label" parent="GUI/RightPanel/enviroment/s/e/e/texture/Region"]
+margin_right = 394.0
+margin_bottom = 22.0
+text = "Region"
+align = 1
+
+[node name="e" type="HBoxContainer" parent="GUI/RightPanel/enviroment/s/e/e/texture/Region"]
+margin_top = 26.0
+margin_right = 394.0
+margin_bottom = 52.0
+alignment = 1
+
+[node name="info_1" type="Label" parent="GUI/RightPanel/enviroment/s/e/e/texture/Region/e"]
+margin_left = 107.0
+margin_top = 2.0
+margin_right = 210.0
+margin_bottom = 24.0
+text = "Enabled: "
+
+[node name="e" type="OptionButton" parent="GUI/RightPanel/enviroment/s/e/e/texture/Region/e"]
+margin_left = 214.0
+margin_right = 287.0
+margin_bottom = 26.0
+text = "False"
+items = [ "True", null, false, 0, null, "False", null, false, 1, null ]
+selected = 1
+
+[node name="rx" type="HBoxContainer" parent="GUI/RightPanel/enviroment/s/e/e/texture/Region"]
+margin_top = 56.0
+margin_right = 394.0
+margin_bottom = 82.0
+alignment = 1
+
+[node name="info_1" type="Label" parent="GUI/RightPanel/enviroment/s/e/e/texture/Region/rx"]
+margin_left = 70.0
+margin_top = 2.0
+margin_right = 150.0
+margin_bottom = 24.0
+text = "Rect X:"
+
+[node name="rx" type="SpinBox" parent="GUI/RightPanel/enviroment/s/e/e/texture/Region/rx"]
+margin_left = 154.0
+margin_right = 324.0
+margin_bottom = 26.0
+allow_greater = true
+
+[node name="ry" type="HBoxContainer" parent="GUI/RightPanel/enviroment/s/e/e/texture/Region"]
+margin_top = 86.0
+margin_right = 394.0
+margin_bottom = 112.0
+alignment = 1
+
+[node name="info_1" type="Label" parent="GUI/RightPanel/enviroment/s/e/e/texture/Region/ry"]
+margin_left = 70.0
+margin_top = 2.0
+margin_right = 150.0
+margin_bottom = 24.0
+text = "Rect Y:"
+
+[node name="ry" type="SpinBox" parent="GUI/RightPanel/enviroment/s/e/e/texture/Region/ry"]
+margin_left = 154.0
+margin_right = 324.0
+margin_bottom = 26.0
+allow_greater = true
+
+[node name="rw" type="HBoxContainer" parent="GUI/RightPanel/enviroment/s/e/e/texture/Region"]
+margin_top = 116.0
+margin_right = 394.0
+margin_bottom = 142.0
+alignment = 1
+
+[node name="info_1" type="Label" parent="GUI/RightPanel/enviroment/s/e/e/texture/Region/rw"]
+margin_left = 67.0
+margin_top = 2.0
+margin_right = 153.0
+margin_bottom = 24.0
+text = "Rect W:"
+
+[node name="rw" type="SpinBox" parent="GUI/RightPanel/enviroment/s/e/e/texture/Region/rw"]
+margin_left = 157.0
+margin_right = 327.0
+margin_bottom = 26.0
+allow_greater = true
+
+[node name="rh" type="HBoxContainer" parent="GUI/RightPanel/enviroment/s/e/e/texture/Region"]
+margin_top = 146.0
+margin_right = 394.0
+margin_bottom = 172.0
+alignment = 1
+
+[node name="info_1" type="Label" parent="GUI/RightPanel/enviroment/s/e/e/texture/Region/rh"]
+margin_left = 70.0
+margin_top = 2.0
+margin_right = 150.0
+margin_bottom = 24.0
+text = "Rect H:"
+
+[node name="rh" type="SpinBox" parent="GUI/RightPanel/enviroment/s/e/e/texture/Region/rh"]
+margin_left = 154.0
+margin_right = 324.0
+margin_bottom = 26.0
+allow_greater = true
+
+[node name="f" type="HBoxContainer" parent="GUI/RightPanel/enviroment/s/e/e/texture/Region"]
+margin_top = 176.0
+margin_right = 394.0
+margin_bottom = 202.0
+alignment = 1
+
+[node name="info_1" type="Label" parent="GUI/RightPanel/enviroment/s/e/e/texture/Region/f"]
+margin_left = 100.0
+margin_top = 2.0
+margin_right = 217.0
+margin_bottom = 24.0
+text = "Filter Clip:"
+
+[node name="f" type="OptionButton" parent="GUI/RightPanel/enviroment/s/e/e/texture/Region/f"]
+margin_left = 221.0
+margin_right = 294.0
+margin_bottom = 26.0
+text = "False"
+items = [ "True", null, false, 0, null, "False", null, false, 1, null ]
+selected = 1
+
+[node name="HSeparator3" type="HSeparator" parent="GUI/RightPanel/enviroment/s/e/e/texture"]
+margin_top = 574.0
+margin_right = 394.0
+margin_bottom = 578.0
+
+[node name="Texture" type="VBoxContainer" parent="GUI/RightPanel/enviroment/s/e/e/texture"]
+margin_top = 582.0
+margin_right = 394.0
+margin_bottom = 664.0
+
+[node name="info_1" type="Label" parent="GUI/RightPanel/enviroment/s/e/e/texture/Texture"]
+margin_right = 394.0
+margin_bottom = 22.0
+text = "Texture"
+align = 1
+
+[node name="t" type="HBoxContainer" parent="GUI/RightPanel/enviroment/s/e/e/texture/Texture"]
+margin_top = 26.0
+margin_right = 394.0
+margin_bottom = 52.0
+alignment = 1
+
+[node name="info_1" type="Label" parent="GUI/RightPanel/enviroment/s/e/e/texture/Texture/t"]
+margin_left = 111.0
+margin_top = 2.0
+margin_right = 218.0
+margin_bottom = 24.0
+text = "Texture: "
+
+[node name="t" type="OptionButton" parent="GUI/RightPanel/enviroment/s/e/e/texture/Texture/t"]
+margin_left = 222.0
+margin_right = 282.0
+margin_bottom = 26.0
+text = "New"
+items = [ "New", null, false, 0, null, "Edit", null, false, 1, null, "Load from file", null, false, 2, null ]
+selected = 0
+
+[node name="nm" type="HBoxContainer" parent="GUI/RightPanel/enviroment/s/e/e/texture/Texture"]
+margin_top = 56.0
+margin_right = 394.0
+margin_bottom = 82.0
+alignment = 1
+
+[node name="info_1" type="Label" parent="GUI/RightPanel/enviroment/s/e/e/texture/Texture/nm"]
+margin_left = 88.0
+margin_top = 2.0
+margin_right = 242.0
+margin_bottom = 24.0
+text = "Normal Map: "
+
+[node name="nm" type="OptionButton" parent="GUI/RightPanel/enviroment/s/e/e/texture/Texture/nm"]
+margin_left = 246.0
+margin_right = 306.0
+margin_bottom = 26.0
+text = "New"
+items = [ "New", null, false, 0, null, "Edit", null, false, 1, null, "Load from file", null, false, 2, null ]
+selected = 0
+
+[node name="HSeparator4" type="HSeparator" parent="GUI/RightPanel/enviroment/s/e/e/texture"]
+margin_top = 668.0
+margin_right = 394.0
+margin_bottom = 672.0
+
+[node name="Transform" type="VBoxContainer" parent="GUI/RightPanel/enviroment/s/e/e/texture"]
+margin_top = 676.0
+margin_right = 394.0
+margin_bottom = 908.0
+
+[node name="info_1" type="Label" parent="GUI/RightPanel/enviroment/s/e/e/texture/Transform"]
+margin_right = 394.0
+margin_bottom = 22.0
+text = "Transform"
+align = 1
+
+[node name="px" type="HBoxContainer" parent="GUI/RightPanel/enviroment/s/e/e/texture/Transform"]
+margin_top = 26.0
+margin_right = 394.0
+margin_bottom = 52.0
+alignment = 1
+
+[node name="info_1" type="Label" parent="GUI/RightPanel/enviroment/s/e/e/texture/Transform/px"]
+margin_left = 44.0
+margin_top = 2.0
+margin_right = 176.0
+margin_bottom = 24.0
+text = "Position X: "
+
+[node name="SpinBox" type="SpinBox" parent="GUI/RightPanel/enviroment/s/e/e/texture/Transform/px"]
+margin_left = 180.0
+margin_right = 350.0
+margin_bottom = 26.0
+allow_greater = true
+allow_lesser = true
+
+[node name="py" type="HBoxContainer" parent="GUI/RightPanel/enviroment/s/e/e/texture/Transform"]
+margin_top = 56.0
+margin_right = 394.0
+margin_bottom = 82.0
+alignment = 1
+
+[node name="info_1" type="Label" parent="GUI/RightPanel/enviroment/s/e/e/texture/Transform/py"]
+margin_left = 44.0
+margin_top = 2.0
+margin_right = 176.0
+margin_bottom = 24.0
+text = "Position Y: "
+
+[node name="SpinBox" type="SpinBox" parent="GUI/RightPanel/enviroment/s/e/e/texture/Transform/py"]
+margin_left = 180.0
+margin_right = 350.0
+margin_bottom = 26.0
+allow_greater = true
+allow_lesser = true
+
+[node name="r" type="HBoxContainer" parent="GUI/RightPanel/enviroment/s/e/e/texture/Transform"]
+margin_top = 86.0
+margin_right = 394.0
+margin_bottom = 112.0
+alignment = 1
+
+[node name="info_1" type="Label" parent="GUI/RightPanel/enviroment/s/e/e/texture/Transform/r"]
+margin_left = 55.0
+margin_top = 2.0
+margin_right = 165.0
+margin_bottom = 24.0
+text = "Rotation: "
+
+[node name="SpinBox" type="SpinBox" parent="GUI/RightPanel/enviroment/s/e/e/texture/Transform/r"]
+margin_left = 169.0
+margin_right = 339.0
+margin_bottom = 26.0
+min_value = -180.0
+max_value = 180.0
+
+[node name="sx" type="HBoxContainer" parent="GUI/RightPanel/enviroment/s/e/e/texture/Transform"]
+margin_top = 116.0
+margin_right = 394.0
+margin_bottom = 142.0
+alignment = 1
+
+[node name="info_1" type="Label" parent="GUI/RightPanel/enviroment/s/e/e/texture/Transform/sx"]
+margin_left = 58.0
+margin_top = 2.0
+margin_right = 161.0
+margin_bottom = 24.0
+text = "Scale X: "
+
+[node name="SpinBox" type="SpinBox" parent="GUI/RightPanel/enviroment/s/e/e/texture/Transform/sx"]
+margin_left = 165.0
+margin_right = 335.0
+margin_bottom = 26.0
+min_value = -180.0
+max_value = 180.0
+
+[node name="sy" type="HBoxContainer" parent="GUI/RightPanel/enviroment/s/e/e/texture/Transform"]
+margin_top = 146.0
+margin_right = 394.0
+margin_bottom = 172.0
+alignment = 1
+
+[node name="info_1" type="Label" parent="GUI/RightPanel/enviroment/s/e/e/texture/Transform/sy"]
+margin_left = 58.0
+margin_top = 2.0
+margin_right = 161.0
+margin_bottom = 24.0
+text = "Scale Y: "
+
+[node name="SpinBox" type="SpinBox" parent="GUI/RightPanel/enviroment/s/e/e/texture/Transform/sy"]
+margin_left = 165.0
+margin_right = 335.0
+margin_bottom = 26.0
+min_value = -180.0
+max_value = 180.0
+
+[node name="z" type="HBoxContainer" parent="GUI/RightPanel/enviroment/s/e/e/texture/Transform"]
+margin_top = 176.0
+margin_right = 394.0
+margin_bottom = 202.0
+alignment = 1
+
+[node name="info_1" type="Label" parent="GUI/RightPanel/enviroment/s/e/e/texture/Transform/z"]
+margin_left = 55.0
+margin_top = 2.0
+margin_right = 165.0
+margin_bottom = 24.0
+text = "Z Index: "
+
+[node name="SpinBox" type="SpinBox" parent="GUI/RightPanel/enviroment/s/e/e/texture/Transform/z"]
+margin_left = 169.0
+margin_right = 339.0
+margin_bottom = 26.0
+min_value = -180.0
+max_value = 180.0
+
+[node name="z2" type="HBoxContainer" parent="GUI/RightPanel/enviroment/s/e/e/texture/Transform"]
+margin_top = 206.0
+margin_right = 394.0
+margin_bottom = 232.0
+alignment = 1
+
+[node name="z" type="CheckBox" parent="GUI/RightPanel/enviroment/s/e/e/texture/Transform/z2"]
+margin_left = 108.0
+margin_right = 286.0
+margin_bottom = 26.0
+pressed = true
+text = "Z as Relative"
+
+[node name="HSeparator5" type="HSeparator" parent="GUI/RightPanel/enviroment/s/e/e/texture"]
+margin_top = 912.0
+margin_right = 394.0
+margin_bottom = 916.0
+
+[node name="Visibility" type="VBoxContainer" parent="GUI/RightPanel/enviroment/s/e/e/texture"]
+margin_top = 920.0
+margin_right = 394.0
+margin_bottom = 1062.0
+
+[node name="info_1" type="Label" parent="GUI/RightPanel/enviroment/s/e/e/texture/Visibility"]
+margin_right = 394.0
+margin_bottom = 22.0
+text = "Visibility"
+align = 1
+
+[node name="v" type="HBoxContainer" parent="GUI/RightPanel/enviroment/s/e/e/texture/Visibility"]
+margin_top = 26.0
+margin_right = 394.0
+margin_bottom = 52.0
+alignment = 1
+
+[node name="v" type="CheckBox" parent="GUI/RightPanel/enviroment/s/e/e/texture/Visibility/v"]
+margin_left = 149.0
+margin_right = 245.0
+margin_bottom = 26.0
+pressed = true
+text = "Visible"
+
+[node name="m" type="HBoxContainer" parent="GUI/RightPanel/enviroment/s/e/e/texture/Visibility"]
+margin_top = 56.0
+margin_right = 394.0
+margin_bottom = 82.0
+alignment = 1
+
+[node name="info_1" type="Label" parent="GUI/RightPanel/enviroment/s/e/e/texture/Visibility/m"]
+margin_left = 85.0
+margin_top = 2.0
+margin_right = 204.0
+margin_bottom = 24.0
+text = "Modulate: "
+
+[node name="m" type="ColorPickerButton" parent="GUI/RightPanel/enviroment/s/e/e/texture/Visibility/m"]
+margin_left = 208.0
+margin_right = 308.0
+margin_bottom = 26.0
+rect_min_size = Vector2( 100, 0 )
+color = Color( 1, 1, 1, 1 )
+
+[node name="sm" type="HBoxContainer" parent="GUI/RightPanel/enviroment/s/e/e/texture/Visibility"]
+margin_top = 86.0
+margin_right = 394.0
+margin_bottom = 112.0
+alignment = 1
+
+[node name="info_1" type="Label" parent="GUI/RightPanel/enviroment/s/e/e/texture/Visibility/sm"]
+margin_left = 56.0
+margin_top = 2.0
+margin_right = 233.0
+margin_bottom = 24.0
+text = "Self Modulate: "
+
+[node name="sm" type="ColorPickerButton" parent="GUI/RightPanel/enviroment/s/e/e/texture/Visibility/sm"]
+margin_left = 237.0
+margin_right = 337.0
+margin_bottom = 26.0
+rect_min_size = Vector2( 100, 0 )
+color = Color( 1, 1, 1, 1 )
+
+[node name="sbp" type="HBoxContainer" parent="GUI/RightPanel/enviroment/s/e/e/texture/Visibility"]
+margin_top = 116.0
+margin_right = 394.0
+margin_bottom = 142.0
+alignment = 1
+
+[node name="sbp" type="CheckBox" parent="GUI/RightPanel/enviroment/s/e/e/texture/Visibility/sbp"]
+margin_left = 69.0
+margin_right = 325.0
+margin_bottom = 26.0
+text = "Show Behind Parent"
+
+[node name="node2d" type="VBoxContainer" parent="GUI/RightPanel/enviroment/s/e/e"]
+visible = false
+margin_top = 34.0
+margin_right = 400.0
+margin_bottom = 420.0
+
+[node name="Transform" type="VBoxContainer" parent="GUI/RightPanel/enviroment/s/e/e/node2d"]
+margin_right = 400.0
+margin_bottom = 232.0
+
+[node name="info_1" type="Label" parent="GUI/RightPanel/enviroment/s/e/e/node2d/Transform"]
+margin_right = 400.0
+margin_bottom = 22.0
+text = "Transform"
+align = 1
+
+[node name="px" type="HBoxContainer" parent="GUI/RightPanel/enviroment/s/e/e/node2d/Transform"]
+margin_top = 26.0
+margin_right = 400.0
+margin_bottom = 52.0
+alignment = 1
+
+[node name="info_1" type="Label" parent="GUI/RightPanel/enviroment/s/e/e/node2d/Transform/px"]
+margin_left = 47.0
+margin_top = 2.0
+margin_right = 179.0
+margin_bottom = 24.0
+text = "Position X: "
+
+[node name="SpinBox" type="SpinBox" parent="GUI/RightPanel/enviroment/s/e/e/node2d/Transform/px"]
+margin_left = 183.0
+margin_right = 353.0
+margin_bottom = 26.0
+step = 0.01
+allow_greater = true
+allow_lesser = true
+
+[node name="py" type="HBoxContainer" parent="GUI/RightPanel/enviroment/s/e/e/node2d/Transform"]
+margin_top = 56.0
+margin_right = 400.0
+margin_bottom = 82.0
+alignment = 1
+
+[node name="info_1" type="Label" parent="GUI/RightPanel/enviroment/s/e/e/node2d/Transform/py"]
+margin_left = 47.0
+margin_top = 2.0
+margin_right = 179.0
+margin_bottom = 24.0
+text = "Position Y: "
+
+[node name="SpinBox" type="SpinBox" parent="GUI/RightPanel/enviroment/s/e/e/node2d/Transform/py"]
+margin_left = 183.0
+margin_right = 353.0
+margin_bottom = 26.0
+step = 0.01
+allow_greater = true
+allow_lesser = true
+
+[node name="r" type="HBoxContainer" parent="GUI/RightPanel/enviroment/s/e/e/node2d/Transform"]
+margin_top = 86.0
+margin_right = 400.0
+margin_bottom = 112.0
+alignment = 1
+
+[node name="info_1" type="Label" parent="GUI/RightPanel/enviroment/s/e/e/node2d/Transform/r"]
+margin_left = 58.0
+margin_top = 2.0
+margin_right = 168.0
+margin_bottom = 24.0
+text = "Rotation: "
+
+[node name="SpinBox" type="SpinBox" parent="GUI/RightPanel/enviroment/s/e/e/node2d/Transform/r"]
+margin_left = 172.0
+margin_right = 342.0
+margin_bottom = 26.0
+min_value = -180.0
+max_value = 180.0
+
+[node name="sx" type="HBoxContainer" parent="GUI/RightPanel/enviroment/s/e/e/node2d/Transform"]
+margin_top = 116.0
+margin_right = 400.0
+margin_bottom = 142.0
+alignment = 1
+
+[node name="info_1" type="Label" parent="GUI/RightPanel/enviroment/s/e/e/node2d/Transform/sx"]
+margin_left = 61.0
+margin_top = 2.0
+margin_right = 164.0
+margin_bottom = 24.0
+text = "Scale X: "
+
+[node name="SpinBox" type="SpinBox" parent="GUI/RightPanel/enviroment/s/e/e/node2d/Transform/sx"]
+margin_left = 168.0
+margin_right = 338.0
+margin_bottom = 26.0
+min_value = -180.0
+max_value = 180.0
+step = 0.01
+
+[node name="sy" type="HBoxContainer" parent="GUI/RightPanel/enviroment/s/e/e/node2d/Transform"]
+margin_top = 146.0
+margin_right = 400.0
+margin_bottom = 172.0
+alignment = 1
+
+[node name="info_1" type="Label" parent="GUI/RightPanel/enviroment/s/e/e/node2d/Transform/sy"]
+margin_left = 61.0
+margin_top = 2.0
+margin_right = 164.0
+margin_bottom = 24.0
+text = "Scale Y: "
+
+[node name="SpinBox" type="SpinBox" parent="GUI/RightPanel/enviroment/s/e/e/node2d/Transform/sy"]
+margin_left = 168.0
+margin_right = 338.0
+margin_bottom = 26.0
+min_value = -180.0
+max_value = 180.0
+step = 0.01
+
+[node name="z" type="HBoxContainer" parent="GUI/RightPanel/enviroment/s/e/e/node2d/Transform"]
+margin_top = 176.0
+margin_right = 400.0
+margin_bottom = 202.0
+alignment = 1
+
+[node name="info_1" type="Label" parent="GUI/RightPanel/enviroment/s/e/e/node2d/Transform/z"]
+margin_left = 58.0
+margin_top = 2.0
+margin_right = 168.0
+margin_bottom = 24.0
+text = "Z Index: "
+
+[node name="SpinBox" type="SpinBox" parent="GUI/RightPanel/enviroment/s/e/e/node2d/Transform/z"]
+margin_left = 172.0
+margin_right = 342.0
+margin_bottom = 26.0
+min_value = -180.0
+max_value = 180.0
+
+[node name="z2" type="HBoxContainer" parent="GUI/RightPanel/enviroment/s/e/e/node2d/Transform"]
+margin_top = 206.0
+margin_right = 400.0
+margin_bottom = 232.0
+alignment = 1
+
+[node name="z" type="CheckBox" parent="GUI/RightPanel/enviroment/s/e/e/node2d/Transform/z2"]
+margin_left = 111.0
+margin_right = 289.0
+margin_bottom = 26.0
+pressed = true
+text = "Z as Relative"
+
+[node name="HSeparator" type="HSeparator" parent="GUI/RightPanel/enviroment/s/e/e/node2d"]
+margin_top = 236.0
+margin_right = 400.0
+margin_bottom = 240.0
+
+[node name="Visibility" type="VBoxContainer" parent="GUI/RightPanel/enviroment/s/e/e/node2d"]
+margin_top = 244.0
+margin_right = 400.0
+margin_bottom = 386.0
+
+[node name="info_1" type="Label" parent="GUI/RightPanel/enviroment/s/e/e/node2d/Visibility"]
+margin_right = 400.0
+margin_bottom = 22.0
+text = "Visibility"
+align = 1
+
+[node name="v" type="HBoxContainer" parent="GUI/RightPanel/enviroment/s/e/e/node2d/Visibility"]
+margin_top = 26.0
+margin_right = 400.0
+margin_bottom = 52.0
+alignment = 1
+
+[node name="v" type="CheckBox" parent="GUI/RightPanel/enviroment/s/e/e/node2d/Visibility/v"]
+margin_left = 152.0
+margin_right = 248.0
+margin_bottom = 26.0
+pressed = true
+text = "Visible"
+
+[node name="m" type="HBoxContainer" parent="GUI/RightPanel/enviroment/s/e/e/node2d/Visibility"]
+margin_top = 56.0
+margin_right = 400.0
+margin_bottom = 82.0
+alignment = 1
+
+[node name="info_1" type="Label" parent="GUI/RightPanel/enviroment/s/e/e/node2d/Visibility/m"]
+margin_left = 88.0
+margin_top = 2.0
+margin_right = 207.0
+margin_bottom = 24.0
+text = "Modulate: "
+
+[node name="m" type="ColorPickerButton" parent="GUI/RightPanel/enviroment/s/e/e/node2d/Visibility/m"]
+margin_left = 211.0
+margin_right = 311.0
+margin_bottom = 26.0
+rect_min_size = Vector2( 100, 0 )
+color = Color( 1, 1, 1, 1 )
+
+[node name="sm" type="HBoxContainer" parent="GUI/RightPanel/enviroment/s/e/e/node2d/Visibility"]
+margin_top = 86.0
+margin_right = 400.0
+margin_bottom = 112.0
+alignment = 1
+
+[node name="info_1" type="Label" parent="GUI/RightPanel/enviroment/s/e/e/node2d/Visibility/sm"]
+margin_left = 59.0
+margin_top = 2.0
+margin_right = 236.0
+margin_bottom = 24.0
+text = "Self Modulate: "
+
+[node name="sm" type="ColorPickerButton" parent="GUI/RightPanel/enviroment/s/e/e/node2d/Visibility/sm"]
+margin_left = 240.0
+margin_right = 340.0
+margin_bottom = 26.0
+rect_min_size = Vector2( 100, 0 )
+color = Color( 1, 1, 1, 1 )
+
+[node name="sbp" type="HBoxContainer" parent="GUI/RightPanel/enviroment/s/e/e/node2d/Visibility"]
+margin_top = 116.0
+margin_right = 400.0
+margin_bottom = 142.0
+alignment = 1
+
+[node name="sbp" type="CheckBox" parent="GUI/RightPanel/enviroment/s/e/e/node2d/Visibility/sbp"]
+margin_left = 72.0
+margin_right = 328.0
+margin_bottom = 26.0
+text = "Show Behind Parent"
+
+[node name="cstatic" type="VBoxContainer" parent="GUI/RightPanel/enviroment/s/e/e"]
+visible = false
+margin_top = 34.0
+margin_right = 501.0
+margin_bottom = 1162.0
+
+[node name="cfg" type="VBoxContainer" parent="GUI/RightPanel/enviroment/s/e/e/cstatic"]
+margin_right = 501.0
+margin_bottom = 142.0
+
+[node name="info_1" type="Label" parent="GUI/RightPanel/enviroment/s/e/e/cstatic/cfg"]
+margin_right = 501.0
+margin_bottom = 22.0
+text = "Static Body CFG"
+align = 1
+
+[node name="clvx" type="HBoxContainer" parent="GUI/RightPanel/enviroment/s/e/e/cstatic/cfg"]
+margin_top = 26.0
+margin_right = 501.0
+margin_bottom = 52.0
+
+[node name="info_1" type="Label" parent="GUI/RightPanel/enviroment/s/e/e/cstatic/cfg/clvx"]
+margin_top = 2.0
+margin_right = 327.0
+margin_bottom = 24.0
+text = "Constant Linear Velocity X: "
+align = 1
+
+[node name="SpinBox" type="SpinBox" parent="GUI/RightPanel/enviroment/s/e/e/cstatic/cfg/clvx"]
+margin_left = 331.0
+margin_right = 501.0
+margin_bottom = 26.0
+allow_greater = true
+allow_lesser = true
+
+[node name="clvy" type="HBoxContainer" parent="GUI/RightPanel/enviroment/s/e/e/cstatic/cfg"]
+margin_top = 56.0
+margin_right = 501.0
+margin_bottom = 82.0
+
+[node name="info_1" type="Label" parent="GUI/RightPanel/enviroment/s/e/e/cstatic/cfg/clvy"]
+margin_top = 2.0
+margin_right = 327.0
+margin_bottom = 24.0
+text = "Constant Linear Velocity Y: "
+align = 1
+
+[node name="SpinBox" type="SpinBox" parent="GUI/RightPanel/enviroment/s/e/e/cstatic/cfg/clvy"]
+margin_left = 331.0
+margin_right = 501.0
+margin_bottom = 26.0
+allow_greater = true
+allow_lesser = true
+
+[node name="cav" type="HBoxContainer" parent="GUI/RightPanel/enviroment/s/e/e/cstatic/cfg"]
+margin_top = 86.0
+margin_right = 501.0
+margin_bottom = 112.0
+
+[node name="info_1" type="Label" parent="GUI/RightPanel/enviroment/s/e/e/cstatic/cfg/cav"]
+margin_top = 2.0
+margin_right = 314.0
+margin_bottom = 24.0
+text = "Constant Angular Velocity: "
+align = 1
+
+[node name="SpinBox" type="SpinBox" parent="GUI/RightPanel/enviroment/s/e/e/cstatic/cfg/cav"]
+margin_left = 318.0
+margin_right = 488.0
+margin_bottom = 26.0
+allow_greater = true
+allow_lesser = true
+
+[node name="p" type="CheckBox" parent="GUI/RightPanel/enviroment/s/e/e/cstatic/cfg"]
+margin_top = 116.0
+margin_right = 501.0
+margin_bottom = 142.0
+text = "Pickable"
+
+[node name="HSeparator" type="HSeparator" parent="GUI/RightPanel/enviroment/s/e/e/cstatic"]
+margin_top = 146.0
+margin_right = 501.0
+margin_bottom = 150.0
+
+[node name="c" type="VBoxContainer" parent="GUI/RightPanel/enviroment/s/e/e/cstatic"]
+margin_top = 154.0
+margin_right = 501.0
+margin_bottom = 636.0
+
+[node name="info_1" type="Label" parent="GUI/RightPanel/enviroment/s/e/e/cstatic/c"]
+margin_right = 501.0
+margin_bottom = 22.0
+text = "Collision"
+align = 1
+
+[node name="info_2" type="Label" parent="GUI/RightPanel/enviroment/s/e/e/cstatic/c"]
+margin_top = 26.0
+margin_right = 501.0
+margin_bottom = 48.0
+text = "Layers:"
+align = 1
+
+[node name="s" type="ScrollContainer" parent="GUI/RightPanel/enviroment/s/e/e/cstatic/c"]
+margin_top = 52.0
+margin_right = 501.0
+margin_bottom = 252.0
+rect_min_size = Vector2( 0, 200 )
+
+[node name="e" type="HBoxContainer" parent="GUI/RightPanel/enviroment/s/e/e/cstatic/c/s"]
+margin_left = 5.0
+margin_top = 5.0
+margin_right = 5.0
+margin_bottom = 5.0
+
+[node name="e" type="VBoxContainer" parent="GUI/RightPanel/enviroment/s/e/e/cstatic/c/s/e"]
+
+[node name="info_3" type="Label" parent="GUI/RightPanel/enviroment/s/e/e/cstatic/c"]
+margin_top = 256.0
+margin_right = 501.0
+margin_bottom = 278.0
+text = "Masks:"
+align = 1
+
+[node name="s2" type="ScrollContainer" parent="GUI/RightPanel/enviroment/s/e/e/cstatic/c"]
+margin_top = 282.0
+margin_right = 501.0
+margin_bottom = 482.0
+rect_min_size = Vector2( 0, 200 )
+
+[node name="e" type="HBoxContainer" parent="GUI/RightPanel/enviroment/s/e/e/cstatic/c/s2"]
+margin_left = 5.0
+margin_top = 5.0
+margin_right = 5.0
+margin_bottom = 5.0
+
+[node name="e" type="VBoxContainer" parent="GUI/RightPanel/enviroment/s/e/e/cstatic/c/s2/e"]
+
+[node name="HSeparator2" type="HSeparator" parent="GUI/RightPanel/enviroment/s/e/e/cstatic"]
+margin_top = 640.0
+margin_right = 501.0
+margin_bottom = 644.0
+
+[node name="Transform" type="VBoxContainer" parent="GUI/RightPanel/enviroment/s/e/e/cstatic"]
+margin_top = 648.0
+margin_right = 501.0
+margin_bottom = 880.0
+
+[node name="info_1" type="Label" parent="GUI/RightPanel/enviroment/s/e/e/cstatic/Transform"]
+margin_right = 501.0
+margin_bottom = 22.0
+text = "Transform"
+align = 1
+
+[node name="px" type="HBoxContainer" parent="GUI/RightPanel/enviroment/s/e/e/cstatic/Transform"]
+margin_top = 26.0
+margin_right = 501.0
+margin_bottom = 52.0
+alignment = 1
+
+[node name="info_1" type="Label" parent="GUI/RightPanel/enviroment/s/e/e/cstatic/Transform/px"]
+margin_left = 97.0
+margin_top = 2.0
+margin_right = 229.0
+margin_bottom = 24.0
+text = "Position X: "
+
+[node name="SpinBox" type="SpinBox" parent="GUI/RightPanel/enviroment/s/e/e/cstatic/Transform/px"]
+margin_left = 233.0
+margin_right = 403.0
+margin_bottom = 26.0
+allow_greater = true
+allow_lesser = true
+
+[node name="py" type="HBoxContainer" parent="GUI/RightPanel/enviroment/s/e/e/cstatic/Transform"]
+margin_top = 56.0
+margin_right = 501.0
+margin_bottom = 82.0
+alignment = 1
+
+[node name="info_1" type="Label" parent="GUI/RightPanel/enviroment/s/e/e/cstatic/Transform/py"]
+margin_left = 97.0
+margin_top = 2.0
+margin_right = 229.0
+margin_bottom = 24.0
+text = "Position Y: "
+
+[node name="SpinBox" type="SpinBox" parent="GUI/RightPanel/enviroment/s/e/e/cstatic/Transform/py"]
+margin_left = 233.0
+margin_right = 403.0
+margin_bottom = 26.0
+allow_greater = true
+allow_lesser = true
+
+[node name="r" type="HBoxContainer" parent="GUI/RightPanel/enviroment/s/e/e/cstatic/Transform"]
+margin_top = 86.0
+margin_right = 501.0
+margin_bottom = 112.0
+alignment = 1
+
+[node name="info_1" type="Label" parent="GUI/RightPanel/enviroment/s/e/e/cstatic/Transform/r"]
+margin_left = 108.0
+margin_top = 2.0
+margin_right = 218.0
+margin_bottom = 24.0
+text = "Rotation: "
+
+[node name="SpinBox" type="SpinBox" parent="GUI/RightPanel/enviroment/s/e/e/cstatic/Transform/r"]
+margin_left = 222.0
+margin_right = 392.0
+margin_bottom = 26.0
+min_value = -180.0
+max_value = 180.0
+
+[node name="sx" type="HBoxContainer" parent="GUI/RightPanel/enviroment/s/e/e/cstatic/Transform"]
+margin_top = 116.0
+margin_right = 501.0
+margin_bottom = 142.0
+alignment = 1
+
+[node name="info_1" type="Label" parent="GUI/RightPanel/enviroment/s/e/e/cstatic/Transform/sx"]
+margin_left = 112.0
+margin_top = 2.0
+margin_right = 215.0
+margin_bottom = 24.0
+text = "Scale X: "
+
+[node name="SpinBox" type="SpinBox" parent="GUI/RightPanel/enviroment/s/e/e/cstatic/Transform/sx"]
+margin_left = 219.0
+margin_right = 389.0
+margin_bottom = 26.0
+min_value = -180.0
+max_value = 180.0
+
+[node name="sy" type="HBoxContainer" parent="GUI/RightPanel/enviroment/s/e/e/cstatic/Transform"]
+margin_top = 146.0
+margin_right = 501.0
+margin_bottom = 172.0
+alignment = 1
+
+[node name="info_1" type="Label" parent="GUI/RightPanel/enviroment/s/e/e/cstatic/Transform/sy"]
+margin_left = 112.0
+margin_top = 2.0
+margin_right = 215.0
+margin_bottom = 24.0
+text = "Scale Y: "
+
+[node name="SpinBox" type="SpinBox" parent="GUI/RightPanel/enviroment/s/e/e/cstatic/Transform/sy"]
+margin_left = 219.0
+margin_right = 389.0
+margin_bottom = 26.0
+min_value = -180.0
+max_value = 180.0
+
+[node name="z" type="HBoxContainer" parent="GUI/RightPanel/enviroment/s/e/e/cstatic/Transform"]
+margin_top = 176.0
+margin_right = 501.0
+margin_bottom = 202.0
+alignment = 1
+
+[node name="info_1" type="Label" parent="GUI/RightPanel/enviroment/s/e/e/cstatic/Transform/z"]
+margin_left = 108.0
+margin_top = 2.0
+margin_right = 218.0
+margin_bottom = 24.0
+text = "Z Index: "
+
+[node name="SpinBox" type="SpinBox" parent="GUI/RightPanel/enviroment/s/e/e/cstatic/Transform/z"]
+margin_left = 222.0
+margin_right = 392.0
+margin_bottom = 26.0
+min_value = -180.0
+max_value = 180.0
+
+[node name="z2" type="HBoxContainer" parent="GUI/RightPanel/enviroment/s/e/e/cstatic/Transform"]
+margin_top = 206.0
+margin_right = 501.0
+margin_bottom = 232.0
+alignment = 1
+
+[node name="z" type="CheckBox" parent="GUI/RightPanel/enviroment/s/e/e/cstatic/Transform/z2"]
+margin_left = 161.0
+margin_right = 339.0
+margin_bottom = 26.0
+pressed = true
+text = "Z as Relative"
+
+[node name="HSeparator3" type="HSeparator" parent="GUI/RightPanel/enviroment/s/e/e/cstatic"]
+margin_top = 884.0
+margin_right = 501.0
+margin_bottom = 888.0
+
+[node name="Visibility" type="VBoxContainer" parent="GUI/RightPanel/enviroment/s/e/e/cstatic"]
+margin_top = 892.0
+margin_right = 501.0
+margin_bottom = 1034.0
+
+[node name="info_1" type="Label" parent="GUI/RightPanel/enviroment/s/e/e/cstatic/Visibility"]
+margin_right = 501.0
+margin_bottom = 22.0
+text = "Visibility"
+align = 1
+
+[node name="v" type="HBoxContainer" parent="GUI/RightPanel/enviroment/s/e/e/cstatic/Visibility"]
+margin_top = 26.0
+margin_right = 501.0
+margin_bottom = 52.0
+alignment = 1
+
+[node name="v" type="CheckBox" parent="GUI/RightPanel/enviroment/s/e/e/cstatic/Visibility/v"]
+margin_left = 202.0
+margin_right = 298.0
+margin_bottom = 26.0
+pressed = true
+text = "Visible"
+
+[node name="m" type="HBoxContainer" parent="GUI/RightPanel/enviroment/s/e/e/cstatic/Visibility"]
+margin_top = 56.0
+margin_right = 501.0
+margin_bottom = 82.0
+alignment = 1
+
+[node name="info_1" type="Label" parent="GUI/RightPanel/enviroment/s/e/e/cstatic/Visibility/m"]
+margin_left = 139.0
+margin_top = 2.0
+margin_right = 258.0
+margin_bottom = 24.0
+text = "Modulate: "
+
+[node name="m" type="ColorPickerButton" parent="GUI/RightPanel/enviroment/s/e/e/cstatic/Visibility/m"]
+margin_left = 262.0
+margin_right = 362.0
+margin_bottom = 26.0
+rect_min_size = Vector2( 100, 0 )
+color = Color( 1, 1, 1, 1 )
+
+[node name="sm" type="HBoxContainer" parent="GUI/RightPanel/enviroment/s/e/e/cstatic/Visibility"]
+margin_top = 86.0
+margin_right = 501.0
+margin_bottom = 112.0
+alignment = 1
+
+[node name="info_1" type="Label" parent="GUI/RightPanel/enviroment/s/e/e/cstatic/Visibility/sm"]
+margin_left = 110.0
+margin_top = 2.0
+margin_right = 287.0
+margin_bottom = 24.0
+text = "Self Modulate: "
+
+[node name="sm" type="ColorPickerButton" parent="GUI/RightPanel/enviroment/s/e/e/cstatic/Visibility/sm"]
+margin_left = 291.0
+margin_right = 391.0
+margin_bottom = 26.0
+rect_min_size = Vector2( 100, 0 )
+color = Color( 1, 1, 1, 1 )
+
+[node name="sbp" type="HBoxContainer" parent="GUI/RightPanel/enviroment/s/e/e/cstatic/Visibility"]
+margin_top = 116.0
+margin_right = 501.0
+margin_bottom = 142.0
+alignment = 1
+
+[node name="sbp" type="CheckBox" parent="GUI/RightPanel/enviroment/s/e/e/cstatic/Visibility/sbp"]
+margin_left = 122.0
+margin_right = 378.0
+margin_bottom = 26.0
+text = "Show Behind Parent"
+
+[node name="HSeparator4" type="HSeparator" parent="GUI/RightPanel/enviroment/s/e/e/cstatic"]
+margin_top = 1038.0
+margin_right = 501.0
+margin_bottom = 1042.0
+
+[node name="Collision" type="VBoxContainer" parent="GUI/RightPanel/enviroment/s/e/e/cstatic"]
+margin_top = 1046.0
+margin_right = 501.0
+margin_bottom = 1128.0
+
+[node name="info_1" type="Label" parent="GUI/RightPanel/enviroment/s/e/e/cstatic/Collision"]
+margin_right = 501.0
+margin_bottom = 22.0
+text = "Collision"
+
+[node name="sx" type="HBoxContainer" parent="GUI/RightPanel/enviroment/s/e/e/cstatic/Collision"]
+margin_top = 26.0
+margin_right = 501.0
+margin_bottom = 52.0
+
+[node name="info_1" type="Label" parent="GUI/RightPanel/enviroment/s/e/e/cstatic/Collision/sx"]
+margin_top = 2.0
+margin_right = 90.0
+margin_bottom = 24.0
+text = "Size X: "
+
+[node name="sx" type="SpinBox" parent="GUI/RightPanel/enviroment/s/e/e/cstatic/Collision/sx"]
+margin_left = 94.0
+margin_right = 264.0
+margin_bottom = 26.0
+allow_greater = true
+
+[node name="sy" type="HBoxContainer" parent="GUI/RightPanel/enviroment/s/e/e/cstatic/Collision"]
+margin_top = 56.0
+margin_right = 501.0
+margin_bottom = 82.0
+
+[node name="info_1" type="Label" parent="GUI/RightPanel/enviroment/s/e/e/cstatic/Collision/sy"]
+margin_top = 2.0
+margin_right = 90.0
+margin_bottom = 24.0
+text = "Size Y: "
+
+[node name="sy" type="SpinBox" parent="GUI/RightPanel/enviroment/s/e/e/cstatic/Collision/sy"]
+margin_left = 94.0
+margin_right = 264.0
+margin_bottom = 26.0
+allow_greater = true
+
+[node name="particle" type="VBoxContainer" parent="GUI/RightPanel/enviroment/s/e/e"]
+visible = false
+margin_top = 34.0
+margin_right = 400.0
+margin_bottom = 34.0
+
+[node name="Windows" type="Node" parent="."]
+
+[node name="ChangeBackground" type="WindowDialog" parent="Windows"]
+margin_left = -500.0
+margin_right = -97.0
+margin_bottom = 482.0
+theme = ExtResource( 3 )
+window_title = "Background"
+resizable = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="s" type="ScrollContainer" parent="Windows/ChangeBackground"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="e" type="HBoxContainer" parent="Windows/ChangeBackground/s"]
+margin_left = 5.0
+margin_top = 5.0
+margin_right = 397.0
+margin_bottom = 487.0
+
+[node name="e" type="VBoxContainer" parent="Windows/ChangeBackground/s/e"]
+margin_right = 392.0
+margin_bottom = 482.0
+
+[node name="enviroment" type="MarginContainer" parent="Windows/ChangeBackground/s/e/e"]
+margin_right = 392.0
+margin_bottom = 482.0
+custom_constants/margin_right = 10
+custom_constants/margin_top = 10
+custom_constants/margin_left = 10
+custom_constants/margin_bottom = 10
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorPicker" type="ColorPicker" parent="Windows/ChangeBackground/s/e/e/enviroment"]
+margin_left = 10.0
+margin_top = 10.0
+margin_right = 382.0
+margin_bottom = 472.0
+
+[node name="new_texture" type="WindowDialog" parent="Windows"]
+margin_right = 511.0
+margin_bottom = 170.0
+theme = ExtResource( 3 )
+popup_exclusive = true
+window_title = "New Texture"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="enviroment" type="MarginContainer" parent="Windows/new_texture"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_constants/margin_right = 5
+custom_constants/margin_top = 5
+custom_constants/margin_left = 5
+custom_constants/margin_bottom = 5
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="s" type="ScrollContainer" parent="Windows/new_texture/enviroment"]
+margin_left = 5.0
+margin_top = 5.0
+margin_right = 506.0
+margin_bottom = 165.0
+
+[node name="e" type="HBoxContainer" parent="Windows/new_texture/enviroment/s"]
+margin_left = 5.0
+margin_top = 5.0
+margin_right = 487.0
+margin_bottom = 145.0
+
+[node name="e" type="VBoxContainer" parent="Windows/new_texture/enviroment/s/e"]
+margin_right = 482.0
+margin_bottom = 140.0
+
+[node name="n" type="HBoxContainer" parent="Windows/new_texture/enviroment/s/e/e"]
+margin_right = 482.0
+margin_bottom = 26.0
+
+[node name="info_1" type="Label" parent="Windows/new_texture/enviroment/s/e/e/n"]
+margin_top = 2.0
+margin_right = 77.0
+margin_bottom = 24.0
+text = "Name: "
+
+[node name="name" type="LineEdit" parent="Windows/new_texture/enviroment/s/e/e/n"]
+margin_left = 81.0
+margin_right = 481.0
+margin_bottom = 26.0
+rect_min_size = Vector2( 400, 0 )
+
+[node name="HSeparator" type="HSeparator" parent="Windows/new_texture/enviroment/s/e/e"]
+margin_top = 30.0
+margin_right = 482.0
+margin_bottom = 34.0
+
+[node name="t" type="HBoxContainer" parent="Windows/new_texture/enviroment/s/e/e"]
+margin_top = 38.0
+margin_right = 482.0
+margin_bottom = 64.0
+
+[node name="info_1" type="Label" parent="Windows/new_texture/enviroment/s/e/e/t"]
+margin_top = 2.0
+margin_right = 71.0
+margin_bottom = 24.0
+text = "Type: "
+
+[node name="type" type="OptionButton" parent="Windows/new_texture/enviroment/s/e/e/t"]
+margin_left = 75.0
+margin_right = 168.0
+margin_bottom = 26.0
+text = "Built-in"
+items = [ "Built-in", null, false, 0, null, "By path", null, false, 1, null ]
+selected = 0
+
+[node name="HSeparator2" type="HSeparator" parent="Windows/new_texture/enviroment/s/e/e"]
+margin_top = 68.0
+margin_right = 482.0
+margin_bottom = 72.0
+
+[node name="p" type="HBoxContainer" parent="Windows/new_texture/enviroment/s/e/e"]
+margin_top = 76.0
+margin_right = 482.0
+margin_bottom = 102.0
+
+[node name="info_1" type="Label" parent="Windows/new_texture/enviroment/s/e/e/p"]
+margin_top = 2.0
+margin_right = 68.0
+margin_bottom = 24.0
+text = "Path: "
+
+[node name="path" type="LineEdit" parent="Windows/new_texture/enviroment/s/e/e/p"]
+margin_left = 72.0
+margin_right = 407.0
+margin_bottom = 26.0
+rect_min_size = Vector2( 335, 0 )
+
+[node name="select" type="Button" parent="Windows/new_texture/enviroment/s/e/e/p"]
+margin_left = 411.0
+margin_right = 482.0
+margin_bottom = 26.0
+text = "Select"
+
+[node name="HSeparator3" type="HSeparator" parent="Windows/new_texture/enviroment/s/e/e"]
+margin_top = 106.0
+margin_right = 482.0
+margin_bottom = 110.0
+
+[node name="c" type="Button" parent="Windows/new_texture/enviroment/s/e/e"]
+margin_top = 114.0
+margin_right = 482.0
+margin_bottom = 140.0
+text = "Create"
+
+[node name="select_texture" type="FileDialog" parent="Windows"]
+margin_right = 861.0
+margin_bottom = 487.0
+theme = ExtResource( 3 )
+popup_exclusive = true
+window_title = "Otwórz plik"
+resizable = true
+mode = 0
+access = 2
+filters = PoolStringArray( "*.png ; PNG File", "*.jpg ; JPG File" )
+current_dir = "/"
+current_path = "/"
+
+[node name="new_collision" type="WindowDialog" parent="Windows"]
+margin_right = 453.0
+margin_bottom = 165.0
+theme = ExtResource( 3 )
+popup_exclusive = true
+window_title = "New Collision"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="enviroment" type="MarginContainer" parent="Windows/new_collision"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_constants/margin_right = 5
+custom_constants/margin_top = 5
+custom_constants/margin_left = 5
+custom_constants/margin_bottom = 5
+
+[node name="s" type="ScrollContainer" parent="Windows/new_collision/enviroment"]
+margin_left = 5.0
+margin_top = 5.0
+margin_right = 448.0
+margin_bottom = 160.0
+
+[node name="e" type="HBoxContainer" parent="Windows/new_collision/enviroment/s"]
+margin_left = 5.0
+margin_top = 5.0
+margin_right = 426.0
+margin_bottom = 145.0
+
+[node name="e" type="VBoxContainer" parent="Windows/new_collision/enviroment/s/e"]
+margin_right = 421.0
+margin_bottom = 140.0
+
+[node name="n" type="HBoxContainer" parent="Windows/new_collision/enviroment/s/e/e"]
+margin_right = 421.0
+margin_bottom = 26.0
+
+[node name="info_1" type="Label" parent="Windows/new_collision/enviroment/s/e/e/n"]
+margin_top = 2.0
+margin_right = 77.0
+margin_bottom = 24.0
+text = "Name: "
+
+[node name="name" type="LineEdit" parent="Windows/new_collision/enviroment/s/e/e/n"]
+margin_left = 81.0
+margin_right = 421.0
+margin_bottom = 26.0
+rect_min_size = Vector2( 340, 0 )
+
+[node name="HSeparator" type="HSeparator" parent="Windows/new_collision/enviroment/s/e/e"]
+margin_top = 30.0
+margin_right = 421.0
+margin_bottom = 34.0
+
+[node name="t" type="HBoxContainer" parent="Windows/new_collision/enviroment/s/e/e"]
+margin_top = 38.0
+margin_right = 421.0
+margin_bottom = 64.0
+
+[node name="info_1" type="Label" parent="Windows/new_collision/enviroment/s/e/e/t"]
+margin_top = 2.0
+margin_right = 170.0
+margin_bottom = 24.0
+text = "Collision type: "
+
+[node name="type" type="OptionButton" parent="Windows/new_collision/enviroment/s/e/e/t"]
+margin_left = 174.0
+margin_right = 267.0
+margin_bottom = 26.0
+text = "Square"
+items = [ "Square", null, false, 0, false, "Circle", null, false, 0, false ]
+selected = 0
+
+[node name="HSeparator2" type="HSeparator" parent="Windows/new_collision/enviroment/s/e/e"]
+margin_top = 68.0
+margin_right = 421.0
+margin_bottom = 72.0
+
+[node name="t2" type="HBoxContainer" parent="Windows/new_collision/enviroment/s/e/e"]
+margin_top = 76.0
+margin_right = 421.0
+margin_bottom = 102.0
+
+[node name="info_1" type="Label" parent="Windows/new_collision/enviroment/s/e/e/t2"]
+margin_top = 2.0
+margin_right = 173.0
+margin_bottom = 24.0
+text = "Collision body: "
+
+[node name="type2" type="OptionButton" parent="Windows/new_collision/enviroment/s/e/e/t2"]
+margin_left = 177.0
+margin_right = 257.0
+margin_bottom = 26.0
+disabled = true
+text = "Static"
+items = [ "Static", null, false, 0, null, "Rigid", null, false, 1, null, "Kinematic", null, false, 2, null ]
+selected = 0
+
+[node name="HSeparator3" type="HSeparator" parent="Windows/new_collision/enviroment/s/e/e"]
+margin_top = 106.0
+margin_right = 421.0
+margin_bottom = 110.0
+
+[node name="create" type="Button" parent="Windows/new_collision/enviroment/s/e/e"]
+margin_top = 114.0
+margin_right = 421.0
+margin_bottom = 140.0
+text = "Create"
+
+[node name="new_shader" type="WindowDialog" parent="Windows"]
+margin_right = 414.0
+margin_bottom = 197.0
+theme = ExtResource( 3 )
+popup_exclusive = true
+window_title = "New Shader"
+
+[node name="enviroment" type="MarginContainer" parent="Windows/new_shader"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_constants/margin_right = 5
+custom_constants/margin_top = 5
+custom_constants/margin_left = 5
+custom_constants/margin_bottom = 5
+
+[node name="s" type="ScrollContainer" parent="Windows/new_shader/enviroment"]
+margin_left = 5.0
+margin_top = 5.0
+margin_right = 409.0
+margin_bottom = 192.0
+
+[node name="e" type="HBoxContainer" parent="Windows/new_shader/enviroment/s"]
+margin_left = 5.0
+margin_top = 5.0
+margin_right = 392.0
+margin_bottom = 183.0
+
+[node name="e" type="VBoxContainer" parent="Windows/new_shader/enviroment/s/e"]
+margin_right = 387.0
+margin_bottom = 140.0
+
+[node name="n" type="HBoxContainer" parent="Windows/new_shader/enviroment/s/e/e"]
+margin_right = 387.0
+margin_bottom = 26.0
+
+[node name="info_1" type="Label" parent="Windows/new_shader/enviroment/s/e/e/n"]
+margin_top = 2.0
+margin_right = 77.0
+margin_bottom = 24.0
+text = "Name: "
+
+[node name="name" type="LineEdit" parent="Windows/new_shader/enviroment/s/e/e/n"]
+margin_left = 81.0
+margin_right = 381.0
+margin_bottom = 26.0
+rect_min_size = Vector2( 300, 0 )
+
+[node name="HSeparator" type="HSeparator" parent="Windows/new_shader/enviroment/s/e/e"]
+margin_top = 30.0
+margin_right = 387.0
+margin_bottom = 34.0
+
+[node name="t" type="HBoxContainer" parent="Windows/new_shader/enviroment/s/e/e"]
+margin_top = 38.0
+margin_right = 387.0
+margin_bottom = 64.0
+
+[node name="info_1" type="Label" parent="Windows/new_shader/enviroment/s/e/e/t"]
+margin_top = 2.0
+margin_right = 71.0
+margin_bottom = 24.0
+text = "Type: "
+
+[node name="type" type="OptionButton" parent="Windows/new_shader/enviroment/s/e/e/t"]
+margin_left = 75.0
+margin_right = 168.0
+margin_bottom = 26.0
+text = "Built-in"
+items = [ "Built-in", null, false, 0, null, "By path", null, false, 1, null ]
+selected = 0
+
+[node name="HSeparator2" type="HSeparator" parent="Windows/new_shader/enviroment/s/e/e"]
+margin_top = 68.0
+margin_right = 387.0
+margin_bottom = 72.0
+
+[node name="p" type="HBoxContainer" parent="Windows/new_shader/enviroment/s/e/e"]
+margin_top = 76.0
+margin_right = 387.0
+margin_bottom = 102.0
+
+[node name="info_1" type="Label" parent="Windows/new_shader/enviroment/s/e/e/p"]
+margin_top = 2.0
+margin_right = 68.0
+margin_bottom = 24.0
+text = "Path: "
+
+[node name="path" type="LineEdit" parent="Windows/new_shader/enviroment/s/e/e/p"]
+margin_left = 72.0
+margin_right = 312.0
+margin_bottom = 26.0
+rect_min_size = Vector2( 240, 0 )
+
+[node name="select" type="Button" parent="Windows/new_shader/enviroment/s/e/e/p"]
+margin_left = 316.0
+margin_right = 387.0
+margin_bottom = 26.0
+text = "Select"
+
+[node name="HSeparator3" type="HSeparator" parent="Windows/new_shader/enviroment/s/e/e"]
+margin_top = 106.0
+margin_right = 387.0
+margin_bottom = 110.0
+
+[node name="s" type="HBoxContainer" parent="Windows/new_shader/enviroment/s/e/e"]
+margin_top = 114.0
+margin_right = 387.0
+margin_bottom = 140.0
+
+[node name="info_1" type="Label" parent="Windows/new_shader/enviroment/s/e/e/s"]
+margin_top = 2.0
+margin_right = 172.0
+margin_bottom = 24.0
+text = "Load to node: "
+
+[node name="set" type="OptionButton" parent="Windows/new_shader/enviroment/s/e/e/s"]
+margin_left = 176.0
+margin_right = 192.0
+margin_bottom = 26.0
+
+[node name="HSeparator4" type="HSeparator" parent="Windows/new_shader/enviroment/s/e/e"]
+margin_right = 40.0
+margin_bottom = 4.0
+
+[node name="create" type="Button" parent="Windows/new_shader/enviroment/s/e/e"]
+margin_right = 4.0
+margin_bottom = 26.0
+text = "Create & load"
+
+[node name="select_shader" type="FileDialog" parent="Windows"]
+margin_right = 707.0
+margin_bottom = 363.0
+theme = ExtResource( 3 )
+popup_exclusive = true
+window_title = "Otwórz plik"
+resizable = true
+mode = 0
+access = 2
+filters = PoolStringArray( "*.vs ; VisualShader", "*.shader ; Shader code" )
+current_dir = "/"
+current_path = "/"
+
+[node name="edit_shader" parent="Windows" instance=ExtResource( 8 )]
+visible = false
+
+[node name="new_animation" type="WindowDialog" parent="Windows"]
+margin_right = 263.0
+margin_bottom = 88.0
+theme = ExtResource( 3 )
+popup_exclusive = true
+window_title = "New Animation"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="enviroment" type="MarginContainer" parent="Windows/new_animation"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_constants/margin_right = 5
+custom_constants/margin_top = 5
+custom_constants/margin_left = 5
+custom_constants/margin_bottom = 5
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="s" type="ScrollContainer" parent="Windows/new_animation/enviroment"]
+margin_left = 5.0
+margin_top = 5.0
+margin_right = 258.0
+margin_bottom = 83.0
+
+[node name="e" type="HBoxContainer" parent="Windows/new_animation/enviroment/s"]
+margin_left = 5.0
+margin_top = 5.0
+margin_right = 246.0
+margin_bottom = 69.0
+
+[node name="e" type="VBoxContainer" parent="Windows/new_animation/enviroment/s/e"]
+margin_right = 241.0
+margin_bottom = 64.0
+
+[node name="n" type="HBoxContainer" parent="Windows/new_animation/enviroment/s/e/e"]
+margin_right = 241.0
+margin_bottom = 26.0
+
+[node name="info_1" type="Label" parent="Windows/new_animation/enviroment/s/e/e/n"]
+margin_top = 2.0
+margin_right = 77.0
+margin_bottom = 24.0
+text = "Name: "
+
+[node name="name" type="LineEdit" parent="Windows/new_animation/enviroment/s/e/e/n"]
+margin_left = 81.0
+margin_right = 241.0
+margin_bottom = 26.0
+
+[node name="HSeparator" type="HSeparator" parent="Windows/new_animation/enviroment/s/e/e"]
+margin_top = 30.0
+margin_right = 241.0
+margin_bottom = 34.0
+
+[node name="create" type="Button" parent="Windows/new_animation/enviroment/s/e/e"]
+margin_top = 38.0
+margin_right = 241.0
+margin_bottom = 64.0
+text = "Create"
+
+[node name="new_particle" type="WindowDialog" parent="Windows"]
+margin_right = 326.0
+margin_bottom = 88.0
+theme = ExtResource( 3 )
+popup_exclusive = true
+window_title = "New Particle"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="enviroment" type="MarginContainer" parent="Windows/new_particle"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_constants/margin_right = 5
+custom_constants/margin_top = 5
+custom_constants/margin_left = 5
+custom_constants/margin_bottom = 5
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="s" type="ScrollContainer" parent="Windows/new_particle/enviroment"]
+margin_left = 5.0
+margin_top = 5.0
+margin_right = 321.0
+margin_bottom = 83.0
+
+[node name="e" type="HBoxContainer" parent="Windows/new_particle/enviroment/s"]
+margin_left = 5.0
+margin_top = 5.0
+margin_right = 306.0
+margin_bottom = 69.0
+
+[node name="e" type="VBoxContainer" parent="Windows/new_particle/enviroment/s/e"]
+margin_right = 301.0
+margin_bottom = 64.0
+
+[node name="n" type="HBoxContainer" parent="Windows/new_particle/enviroment/s/e/e"]
+margin_right = 301.0
+margin_bottom = 26.0
+
+[node name="info_1" type="Label" parent="Windows/new_particle/enviroment/s/e/e/n"]
+margin_top = 2.0
+margin_right = 77.0
+margin_bottom = 24.0
+text = "Name: "
+
+[node name="name" type="LineEdit" parent="Windows/new_particle/enviroment/s/e/e/n"]
+margin_left = 81.0
+margin_right = 301.0
+margin_bottom = 26.0
+rect_min_size = Vector2( 220, 0 )
+
+[node name="HSeparator" type="HSeparator" parent="Windows/new_particle/enviroment/s/e/e"]
+margin_top = 30.0
+margin_right = 301.0
+margin_bottom = 34.0
+
+[node name="create" type="Button" parent="Windows/new_particle/enviroment/s/e/e"]
+margin_top = 38.0
+margin_right = 301.0
+margin_bottom = 64.0
+text = "Create"
+
+[node name="new_light" type="WindowDialog" parent="Windows"]
+margin_right = 409.0
+margin_bottom = 161.0
+theme = ExtResource( 3 )
+popup_exclusive = true
+window_title = "New Light"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="environment" type="MarginContainer" parent="Windows/new_light"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_constants/margin_right = 5
+custom_constants/margin_top = 5
+custom_constants/margin_left = 5
+custom_constants/margin_bottom = 5
+
+[node name="s" type="ScrollContainer" parent="Windows/new_light/environment"]
+margin_left = 5.0
+margin_top = 5.0
+margin_right = 404.0
+margin_bottom = 156.0
+
+[node name="e" type="HBoxContainer" parent="Windows/new_light/environment/s"]
+margin_left = 5.0
+margin_top = 5.0
+margin_right = 387.0
+margin_bottom = 145.0
+
+[node name="e" type="VBoxContainer" parent="Windows/new_light/environment/s/e"]
+margin_right = 382.0
+margin_bottom = 140.0
+
+[node name="n" type="HBoxContainer" parent="Windows/new_light/environment/s/e/e"]
+margin_right = 382.0
+margin_bottom = 26.0
+
+[node name="info_1" type="Label" parent="Windows/new_light/environment/s/e/e/n"]
+margin_top = 2.0
+margin_right = 77.0
+margin_bottom = 24.0
+text = "Name: "
+
+[node name="name" type="LineEdit" parent="Windows/new_light/environment/s/e/e/n"]
+margin_left = 81.0
+margin_right = 381.0
+margin_bottom = 26.0
+rect_min_size = Vector2( 300, 0 )
+
+[node name="HSeparator" type="HSeparator" parent="Windows/new_light/environment/s/e/e"]
+margin_top = 30.0
+margin_right = 382.0
+margin_bottom = 34.0
+
+[node name="p" type="HBoxContainer" parent="Windows/new_light/environment/s/e/e"]
+margin_top = 38.0
+margin_right = 382.0
+margin_bottom = 64.0
+
+[node name="info_1" type="Label" parent="Windows/new_light/environment/s/e/e/p"]
+margin_top = 2.0
+margin_right = 68.0
+margin_bottom = 24.0
+text = "Path: "
+
+[node name="path" type="LineEdit" parent="Windows/new_light/environment/s/e/e/p"]
+margin_left = 72.0
+margin_right = 307.0
+margin_bottom = 26.0
+rect_min_size = Vector2( 235, 0 )
+
+[node name="select" type="Button" parent="Windows/new_light/environment/s/e/e/p"]
+margin_left = 311.0
+margin_right = 382.0
+margin_bottom = 26.0
+text = "Select"
+
+[node name="HSeparator2" type="HSeparator" parent="Windows/new_light/environment/s/e/e"]
+margin_top = 68.0
+margin_right = 382.0
+margin_bottom = 72.0
+
+[node name="t" type="HBoxContainer" parent="Windows/new_light/environment/s/e/e"]
+margin_top = 76.0
+margin_right = 382.0
+margin_bottom = 102.0
+
+[node name="info_1" type="Label" parent="Windows/new_light/environment/s/e/e/t"]
+margin_top = 2.0
+margin_right = 169.0
+margin_bottom = 24.0
+text = "Texture type: "
+
+[node name="type" type="OptionButton" parent="Windows/new_light/environment/s/e/e/t"]
+margin_left = 173.0
+margin_right = 266.0
+margin_bottom = 26.0
+text = "Built-in"
+items = [ "Built-in", null, false, 0, null, "By path", null, false, 1, null ]
+selected = 0
+
+[node name="HSeparator3" type="HSeparator" parent="Windows/new_light/environment/s/e/e"]
+margin_top = 106.0
+margin_right = 382.0
+margin_bottom = 110.0
+
+[node name="create" type="Button" parent="Windows/new_light/environment/s/e/e"]
+margin_top = 114.0
+margin_right = 382.0
+margin_bottom = 140.0
+text = "Create"
+
+[node name="select_light_texture" type="FileDialog" parent="Windows"]
+margin_right = 329.0
+margin_bottom = 130.0
+theme = ExtResource( 3 )
+popup_exclusive = true
+window_title = "Otwórz plik"
+resizable = true
+mode = 0
+access = 2
+filters = PoolStringArray( "*.png ; PNG File", "*.jpg ; JPG File" )
+current_dir = "/"
+current_path = "/"
+
+[node name="new_lightoccluder" type="WindowDialog" parent="Windows"]
+margin_right = 361.0
+margin_bottom = 88.0
+theme = ExtResource( 3 )
+popup_exclusive = true
+window_title = "New Light Occluder"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="environment" type="MarginContainer" parent="Windows/new_lightoccluder"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_constants/margin_right = 5
+custom_constants/margin_top = 5
+custom_constants/margin_left = 5
+custom_constants/margin_bottom = 5
+
+[node name="s" type="ScrollContainer" parent="Windows/new_lightoccluder/environment"]
+margin_left = 5.0
+margin_top = 5.0
+margin_right = 356.0
+margin_bottom = 83.0
+
+[node name="e" type="HBoxContainer" parent="Windows/new_lightoccluder/environment/s"]
+margin_left = 5.0
+margin_top = 5.0
+margin_right = 336.0
+margin_bottom = 69.0
+
+[node name="e" type="VBoxContainer" parent="Windows/new_lightoccluder/environment/s/e"]
+margin_right = 331.0
+margin_bottom = 64.0
+
+[node name="n" type="HBoxContainer" parent="Windows/new_lightoccluder/environment/s/e/e"]
+margin_right = 331.0
+margin_bottom = 26.0
+
+[node name="info_1" type="Label" parent="Windows/new_lightoccluder/environment/s/e/e/n"]
+margin_top = 2.0
+margin_right = 77.0
+margin_bottom = 24.0
+text = "Name: "
+
+[node name="name" type="LineEdit" parent="Windows/new_lightoccluder/environment/s/e/e/n"]
+margin_left = 81.0
+margin_right = 331.0
+margin_bottom = 26.0
+rect_min_size = Vector2( 250, 0 )
+
+[node name="HSeparator" type="HSeparator" parent="Windows/new_lightoccluder/environment/s/e/e"]
+margin_top = 30.0
+margin_right = 331.0
+margin_bottom = 34.0
+
+[node name="create" type="Button" parent="Windows/new_lightoccluder/environment/s/e/e"]
+margin_top = 38.0
+margin_right = 331.0
+margin_bottom = 64.0
+text = "Create"
+
+[node name="edit_texture" type="WindowDialog" parent="Windows"]
+margin_right = 320.0
+margin_bottom = 384.0
+theme = ExtResource( 3 )
+popup_exclusive = true
+window_title = "Edit Texture"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="background" type="ColorRect" parent="Windows/edit_texture"]
+margin_left = 5.0
+margin_top = 5.0
+margin_right = 315.0
+margin_bottom = 216.0
+rect_min_size = Vector2( 300, 200 )
+color = Color( 0.239216, 0.239216, 0.239216, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="environment" type="MarginContainer" parent="Windows/edit_texture"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_constants/margin_right = 5
+custom_constants/margin_top = 5
+custom_constants/margin_left = 5
+custom_constants/margin_bottom = 5
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="s" type="ScrollContainer" parent="Windows/edit_texture/environment"]
+margin_left = 5.0
+margin_top = 5.0
+margin_right = 315.0
+margin_bottom = 379.0
+theme = SubResource( 14 )
+
+[node name="e" type="HBoxContainer" parent="Windows/edit_texture/environment/s"]
+margin_right = 310.0
+margin_bottom = 607.0
+
+[node name="e" type="VBoxContainer" parent="Windows/edit_texture/environment/s/e"]
+margin_right = 310.0
+margin_bottom = 607.0
+
+[node name="t" type="ScrollContainer" parent="Windows/edit_texture/environment/s/e/e"]
+margin_right = 310.0
+margin_bottom = 213.0
+rect_min_size = Vector2( 310, 213 )
+
+[node name="e" type="HBoxContainer" parent="Windows/edit_texture/environment/s/e/e/t"]
+margin_right = 310.0
+margin_bottom = 210.0
+
+[node name="e" type="VBoxContainer" parent="Windows/edit_texture/environment/s/e/e/t/e"]
+margin_right = 310.0
+margin_bottom = 210.0
+
+[node name="texture" type="TextureRect" parent="Windows/edit_texture/environment/s/e/e/t/e/e"]
+margin_right = 310.0
+margin_bottom = 210.0
+rect_min_size = Vector2( 310, 210 )
+
+[node name="Line2D" type="Line2D" parent="Windows/edit_texture/environment/s/e/e/t/e/e/texture"]
+points = PoolVector2Array( 0, 0, 0, 0, 0, 0, 0, 0 )
+width = 5.0
+default_color = Color( 1, 0, 0, 1 )
+
+[node name="HSeparator" type="HSeparator" parent="Windows/edit_texture/environment/s/e/e"]
+margin_top = 217.0
+margin_right = 310.0
+margin_bottom = 221.0
+
+[node name="atlas" type="VBoxContainer" parent="Windows/edit_texture/environment/s/e/e"]
+margin_top = 225.0
+margin_right = 310.0
+margin_bottom = 517.0
+
+[node name="info_1" type="Label" parent="Windows/edit_texture/environment/s/e/e/atlas"]
+margin_right = 310.0
+margin_bottom = 22.0
+text = "Atlas Texture Options"
+align = 1
+
+[node name="rx" type="HBoxContainer" parent="Windows/edit_texture/environment/s/e/e/atlas"]
+margin_top = 26.0
+margin_right = 310.0
+margin_bottom = 52.0
+alignment = 1
+
+[node name="info_1" type="Label" parent="Windows/edit_texture/environment/s/e/e/atlas/rx"]
+margin_left = 10.0
+margin_top = 2.0
+margin_right = 126.0
+margin_bottom = 24.0
+text = "Region X: "
+align = 1
+
+[node name="SpinBox" type="SpinBox" parent="Windows/edit_texture/environment/s/e/e/atlas/rx"]
+margin_left = 130.0
+margin_right = 300.0
+margin_bottom = 26.0
+
+[node name="ry" type="HBoxContainer" parent="Windows/edit_texture/environment/s/e/e/atlas"]
+margin_top = 56.0
+margin_right = 310.0
+margin_bottom = 82.0
+alignment = 1
+
+[node name="info_1" type="Label" parent="Windows/edit_texture/environment/s/e/e/atlas/ry"]
+margin_left = 10.0
+margin_top = 2.0
+margin_right = 126.0
+margin_bottom = 24.0
+text = "Region Y: "
+align = 1
+
+[node name="SpinBox" type="SpinBox" parent="Windows/edit_texture/environment/s/e/e/atlas/ry"]
+margin_left = 130.0
+margin_right = 300.0
+margin_bottom = 26.0
+
+[node name="rw" type="HBoxContainer" parent="Windows/edit_texture/environment/s/e/e/atlas"]
+margin_top = 86.0
+margin_right = 310.0
+margin_bottom = 112.0
+alignment = 1
+
+[node name="info_1" type="Label" parent="Windows/edit_texture/environment/s/e/e/atlas/rw"]
+margin_left = 7.0
+margin_top = 2.0
+margin_right = 129.0
+margin_bottom = 24.0
+text = "Region W: "
+align = 1
+
+[node name="SpinBox" type="SpinBox" parent="Windows/edit_texture/environment/s/e/e/atlas/rw"]
+margin_left = 133.0
+margin_right = 303.0
+margin_bottom = 26.0
+
+[node name="rh" type="HBoxContainer" parent="Windows/edit_texture/environment/s/e/e/atlas"]
+margin_top = 116.0
+margin_right = 310.0
+margin_bottom = 142.0
+alignment = 1
+
+[node name="info_1" type="Label" parent="Windows/edit_texture/environment/s/e/e/atlas/rh"]
+margin_left = 10.0
+margin_top = 2.0
+margin_right = 126.0
+margin_bottom = 24.0
+text = "Region H: "
+align = 1
+
+[node name="SpinBox" type="SpinBox" parent="Windows/edit_texture/environment/s/e/e/atlas/rh"]
+margin_left = 130.0
+margin_right = 300.0
+margin_bottom = 26.0
+
+[node name="mx" type="HBoxContainer" parent="Windows/edit_texture/environment/s/e/e/atlas"]
+margin_top = 146.0
+margin_right = 310.0
+margin_bottom = 172.0
+alignment = 1
+
+[node name="info_1" type="Label" parent="Windows/edit_texture/environment/s/e/e/atlas/mx"]
+margin_left = 7.0
+margin_top = 2.0
+margin_right = 129.0
+margin_bottom = 24.0
+text = "Margin X: "
+align = 1
+
+[node name="SpinBox" type="SpinBox" parent="Windows/edit_texture/environment/s/e/e/atlas/mx"]
+margin_left = 133.0
+margin_right = 303.0
+margin_bottom = 26.0
+
+[node name="my" type="HBoxContainer" parent="Windows/edit_texture/environment/s/e/e/atlas"]
+margin_top = 176.0
+margin_right = 310.0
+margin_bottom = 202.0
+alignment = 1
+
+[node name="info_1" type="Label" parent="Windows/edit_texture/environment/s/e/e/atlas/my"]
+margin_left = 7.0
+margin_top = 2.0
+margin_right = 129.0
+margin_bottom = 24.0
+text = "Margin Y: "
+align = 1
+
+[node name="SpinBox" type="SpinBox" parent="Windows/edit_texture/environment/s/e/e/atlas/my"]
+margin_left = 133.0
+margin_right = 303.0
+margin_bottom = 26.0
+
+[node name="mw" type="HBoxContainer" parent="Windows/edit_texture/environment/s/e/e/atlas"]
+margin_top = 206.0
+margin_right = 310.0
+margin_bottom = 232.0
+alignment = 1
+
+[node name="info_1" type="Label" parent="Windows/edit_texture/environment/s/e/e/atlas/mw"]
+margin_left = 4.0
+margin_top = 2.0
+margin_right = 132.0
+margin_bottom = 24.0
+text = "Margin W: "
+align = 1
+
+[node name="SpinBox" type="SpinBox" parent="Windows/edit_texture/environment/s/e/e/atlas/mw"]
+margin_left = 136.0
+margin_right = 306.0
+margin_bottom = 26.0
+
+[node name="mh" type="HBoxContainer" parent="Windows/edit_texture/environment/s/e/e/atlas"]
+margin_top = 236.0
+margin_right = 310.0
+margin_bottom = 262.0
+alignment = 1
+
+[node name="info_1" type="Label" parent="Windows/edit_texture/environment/s/e/e/atlas/mh"]
+margin_left = 7.0
+margin_top = 2.0
+margin_right = 129.0
+margin_bottom = 24.0
+text = "Margin H: "
+align = 1
+
+[node name="SpinBox" type="SpinBox" parent="Windows/edit_texture/environment/s/e/e/atlas/mh"]
+margin_left = 133.0
+margin_right = 303.0
+margin_bottom = 26.0
+
+[node name="fc" type="HBoxContainer" parent="Windows/edit_texture/environment/s/e/e/atlas"]
+margin_top = 266.0
+margin_right = 310.0
+margin_bottom = 292.0
+
+[node name="fc" type="CheckBox" parent="Windows/edit_texture/environment/s/e/e/atlas/fc"]
+margin_right = 138.0
+margin_bottom = 26.0
+text = "Filter Clip"
+
+[node name="HSeparator2" type="HSeparator" parent="Windows/edit_texture/environment/s/e/e"]
+margin_top = 521.0
+margin_right = 310.0
+margin_bottom = 525.0
+
+[node name="texture_set" type="VBoxContainer" parent="Windows/edit_texture/environment/s/e/e"]
+margin_top = 529.0
+margin_right = 310.0
+margin_bottom = 607.0
+
+[node name="info_1" type="Label" parent="Windows/edit_texture/environment/s/e/e/texture_set"]
+margin_right = 310.0
+margin_bottom = 22.0
+text = "Texture Settings"
+
+[node name="info_2" type="Label" parent="Windows/edit_texture/environment/s/e/e/texture_set"]
+margin_top = 26.0
+margin_right = 310.0
+margin_bottom = 48.0
+text = "Path: "
+
+[node name="p" type="HBoxContainer" parent="Windows/edit_texture/environment/s/e/e/texture_set"]
+margin_top = 52.0
+margin_right = 310.0
+margin_bottom = 78.0
+
+[node name="path" type="LineEdit" parent="Windows/edit_texture/environment/s/e/e/texture_set/p"]
+margin_right = 160.0
+margin_bottom = 26.0
+
+[node name="select" type="Button" parent="Windows/edit_texture/environment/s/e/e/texture_set/p"]
+margin_left = 164.0
+margin_right = 235.0
+margin_bottom = 26.0
+text = "Select"
+
+[node name="texture_type" type="WindowDialog" parent="Windows"]
+margin_right = 320.0
+margin_bottom = 68.0
+theme = ExtResource( 3 )
+popup_exclusive = true
+window_title = "Texture Type"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="environment" type="MarginContainer" parent="Windows/texture_type"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_constants/margin_right = 5
+custom_constants/margin_top = 5
+custom_constants/margin_left = 5
+custom_constants/margin_bottom = 5
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="e" type="VBoxContainer" parent="Windows/texture_type/environment"]
+margin_left = 5.0
+margin_top = 5.0
+margin_right = 315.0
+margin_bottom = 63.0
+
+[node name="type" type="OptionButton" parent="Windows/texture_type/environment/e"]
+margin_right = 310.0
+margin_bottom = 26.0
+text = "Built-in"
+items = [ "Built-in", null, false, 0, null, "By path", null, false, 1, null ]
+selected = 0
+
+[node name="next" type="Button" parent="Windows/texture_type/environment/e"]
+margin_top = 30.0
+margin_right = 310.0
+margin_bottom = 56.0
+text = "Next"
+
+[node name="change_texture" type="FileDialog" parent="Windows"]
+margin_right = 369.0
+margin_bottom = 130.0
+theme = ExtResource( 3 )
+popup_exclusive = true
+window_title = "Otwórz plik"
+resizable = true
+mode = 0
+access = 2
+filters = PoolStringArray( "*.png ; PNG File", "*.jpg ; JPG File" )
+current_dir = "/"
+current_path = "/"
+
+[node name="texture_type2" type="WindowDialog" parent="Windows"]
+margin_right = 320.0
+margin_bottom = 68.0
+theme = ExtResource( 3 )
+popup_exclusive = true
+window_title = "Texture Type"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="environment" type="MarginContainer" parent="Windows/texture_type2"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_constants/margin_right = 5
+custom_constants/margin_top = 5
+custom_constants/margin_left = 5
+custom_constants/margin_bottom = 5
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="e" type="VBoxContainer" parent="Windows/texture_type2/environment"]
+margin_left = 5.0
+margin_top = 5.0
+margin_right = 315.0
+margin_bottom = 63.0
+
+[node name="type" type="OptionButton" parent="Windows/texture_type2/environment/e"]
+margin_right = 310.0
+margin_bottom = 26.0
+text = "Built-in"
+items = [ "Built-in", null, false, 0, null, "By path", null, false, 1, null ]
+selected = 0
+
+[node name="next" type="Button" parent="Windows/texture_type2/environment/e"]
+margin_top = 30.0
+margin_right = 310.0
+margin_bottom = 56.0
+text = "Next"
+
+[node name="change_texture2" type="FileDialog" parent="Windows"]
+margin_right = 553.0
+margin_bottom = 152.0
+theme = ExtResource( 3 )
+popup_exclusive = true
+window_title = "Otwórz plik"
+resizable = true
+mode = 0
+access = 2
+filters = PoolStringArray( "*.png ; PNG File", "*.jpg ; JPG File" )
+current_dir = "/"
+current_path = "/"
+
+[node name="edit_texture2" type="WindowDialog" parent="Windows"]
+margin_right = 320.0
+margin_bottom = 384.0
+theme = ExtResource( 3 )
+popup_exclusive = true
+window_title = "Edit Normal Map"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="background" type="ColorRect" parent="Windows/edit_texture2"]
+margin_left = 5.0
+margin_top = 5.0
+margin_right = 315.0
+margin_bottom = 216.0
+rect_min_size = Vector2( 300, 200 )
+color = Color( 0.239216, 0.239216, 0.239216, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="environment" type="MarginContainer" parent="Windows/edit_texture2"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_constants/margin_right = 5
+custom_constants/margin_top = 5
+custom_constants/margin_left = 5
+custom_constants/margin_bottom = 5
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="s" type="ScrollContainer" parent="Windows/edit_texture2/environment"]
+margin_left = 5.0
+margin_top = 5.0
+margin_right = 315.0
+margin_bottom = 379.0
+theme = SubResource( 14 )
+
+[node name="e" type="HBoxContainer" parent="Windows/edit_texture2/environment/s"]
+margin_right = 310.0
+margin_bottom = 607.0
+
+[node name="e" type="VBoxContainer" parent="Windows/edit_texture2/environment/s/e"]
+margin_right = 310.0
+margin_bottom = 607.0
+
+[node name="t" type="ScrollContainer" parent="Windows/edit_texture2/environment/s/e/e"]
+margin_right = 310.0
+margin_bottom = 213.0
+rect_min_size = Vector2( 310, 213 )
+
+[node name="e" type="HBoxContainer" parent="Windows/edit_texture2/environment/s/e/e/t"]
+margin_right = 310.0
+margin_bottom = 210.0
+
+[node name="e" type="VBoxContainer" parent="Windows/edit_texture2/environment/s/e/e/t/e"]
+margin_right = 310.0
+margin_bottom = 210.0
+
+[node name="texture" type="TextureRect" parent="Windows/edit_texture2/environment/s/e/e/t/e/e"]
+margin_right = 310.0
+margin_bottom = 210.0
+rect_min_size = Vector2( 310, 210 )
+
+[node name="Line2D" type="Line2D" parent="Windows/edit_texture2/environment/s/e/e/t/e/e/texture"]
+points = PoolVector2Array( 0, 0, 0, 0, 0, 0, 0, 0 )
+width = 5.0
+default_color = Color( 1, 0, 0, 1 )
+
+[node name="HSeparator" type="HSeparator" parent="Windows/edit_texture2/environment/s/e/e"]
+margin_top = 217.0
+margin_right = 310.0
+margin_bottom = 221.0
+
+[node name="atlas" type="VBoxContainer" parent="Windows/edit_texture2/environment/s/e/e"]
+margin_top = 225.0
+margin_right = 310.0
+margin_bottom = 517.0
+
+[node name="info_1" type="Label" parent="Windows/edit_texture2/environment/s/e/e/atlas"]
+margin_right = 310.0
+margin_bottom = 22.0
+text = "Atlas Texture Options"
+align = 1
+
+[node name="rx" type="HBoxContainer" parent="Windows/edit_texture2/environment/s/e/e/atlas"]
+margin_top = 26.0
+margin_right = 310.0
+margin_bottom = 52.0
+alignment = 1
+
+[node name="info_1" type="Label" parent="Windows/edit_texture2/environment/s/e/e/atlas/rx"]
+margin_left = 10.0
+margin_top = 2.0
+margin_right = 126.0
+margin_bottom = 24.0
+text = "Region X: "
+align = 1
+
+[node name="SpinBox" type="SpinBox" parent="Windows/edit_texture2/environment/s/e/e/atlas/rx"]
+margin_left = 130.0
+margin_right = 300.0
+margin_bottom = 26.0
+
+[node name="ry" type="HBoxContainer" parent="Windows/edit_texture2/environment/s/e/e/atlas"]
+margin_top = 56.0
+margin_right = 310.0
+margin_bottom = 82.0
+alignment = 1
+
+[node name="info_1" type="Label" parent="Windows/edit_texture2/environment/s/e/e/atlas/ry"]
+margin_left = 10.0
+margin_top = 2.0
+margin_right = 126.0
+margin_bottom = 24.0
+text = "Region Y: "
+align = 1
+
+[node name="SpinBox" type="SpinBox" parent="Windows/edit_texture2/environment/s/e/e/atlas/ry"]
+margin_left = 130.0
+margin_right = 300.0
+margin_bottom = 26.0
+
+[node name="rw" type="HBoxContainer" parent="Windows/edit_texture2/environment/s/e/e/atlas"]
+margin_top = 86.0
+margin_right = 310.0
+margin_bottom = 112.0
+alignment = 1
+
+[node name="info_1" type="Label" parent="Windows/edit_texture2/environment/s/e/e/atlas/rw"]
+margin_left = 7.0
+margin_top = 2.0
+margin_right = 129.0
+margin_bottom = 24.0
+text = "Region W: "
+align = 1
+
+[node name="SpinBox" type="SpinBox" parent="Windows/edit_texture2/environment/s/e/e/atlas/rw"]
+margin_left = 133.0
+margin_right = 303.0
+margin_bottom = 26.0
+
+[node name="rh" type="HBoxContainer" parent="Windows/edit_texture2/environment/s/e/e/atlas"]
+margin_top = 116.0
+margin_right = 310.0
+margin_bottom = 142.0
+alignment = 1
+
+[node name="info_1" type="Label" parent="Windows/edit_texture2/environment/s/e/e/atlas/rh"]
+margin_left = 10.0
+margin_top = 2.0
+margin_right = 126.0
+margin_bottom = 24.0
+text = "Region H: "
+align = 1
+
+[node name="SpinBox" type="SpinBox" parent="Windows/edit_texture2/environment/s/e/e/atlas/rh"]
+margin_left = 130.0
+margin_right = 300.0
+margin_bottom = 26.0
+
+[node name="mx" type="HBoxContainer" parent="Windows/edit_texture2/environment/s/e/e/atlas"]
+margin_top = 146.0
+margin_right = 310.0
+margin_bottom = 172.0
+alignment = 1
+
+[node name="info_1" type="Label" parent="Windows/edit_texture2/environment/s/e/e/atlas/mx"]
+margin_left = 7.0
+margin_top = 2.0
+margin_right = 129.0
+margin_bottom = 24.0
+text = "Margin X: "
+align = 1
+
+[node name="SpinBox" type="SpinBox" parent="Windows/edit_texture2/environment/s/e/e/atlas/mx"]
+margin_left = 133.0
+margin_right = 303.0
+margin_bottom = 26.0
+
+[node name="my" type="HBoxContainer" parent="Windows/edit_texture2/environment/s/e/e/atlas"]
+margin_top = 176.0
+margin_right = 310.0
+margin_bottom = 202.0
+alignment = 1
+
+[node name="info_1" type="Label" parent="Windows/edit_texture2/environment/s/e/e/atlas/my"]
+margin_left = 7.0
+margin_top = 2.0
+margin_right = 129.0
+margin_bottom = 24.0
+text = "Margin Y: "
+align = 1
+
+[node name="SpinBox" type="SpinBox" parent="Windows/edit_texture2/environment/s/e/e/atlas/my"]
+margin_left = 133.0
+margin_right = 303.0
+margin_bottom = 26.0
+
+[node name="mw" type="HBoxContainer" parent="Windows/edit_texture2/environment/s/e/e/atlas"]
+margin_top = 206.0
+margin_right = 310.0
+margin_bottom = 232.0
+alignment = 1
+
+[node name="info_1" type="Label" parent="Windows/edit_texture2/environment/s/e/e/atlas/mw"]
+margin_left = 4.0
+margin_top = 2.0
+margin_right = 132.0
+margin_bottom = 24.0
+text = "Margin W: "
+align = 1
+
+[node name="SpinBox" type="SpinBox" parent="Windows/edit_texture2/environment/s/e/e/atlas/mw"]
+margin_left = 136.0
+margin_right = 306.0
+margin_bottom = 26.0
+
+[node name="mh" type="HBoxContainer" parent="Windows/edit_texture2/environment/s/e/e/atlas"]
+margin_top = 236.0
+margin_right = 310.0
+margin_bottom = 262.0
+alignment = 1
+
+[node name="info_1" type="Label" parent="Windows/edit_texture2/environment/s/e/e/atlas/mh"]
+margin_left = 7.0
+margin_top = 2.0
+margin_right = 129.0
+margin_bottom = 24.0
+text = "Margin H: "
+align = 1
+
+[node name="SpinBox" type="SpinBox" parent="Windows/edit_texture2/environment/s/e/e/atlas/mh"]
+margin_left = 133.0
+margin_right = 303.0
+margin_bottom = 26.0
+
+[node name="fc" type="HBoxContainer" parent="Windows/edit_texture2/environment/s/e/e/atlas"]
+margin_top = 266.0
+margin_right = 310.0
+margin_bottom = 292.0
+
+[node name="fc" type="CheckBox" parent="Windows/edit_texture2/environment/s/e/e/atlas/fc"]
+margin_right = 138.0
+margin_bottom = 26.0
+text = "Filter Clip"
+
+[node name="HSeparator2" type="HSeparator" parent="Windows/edit_texture2/environment/s/e/e"]
+margin_top = 521.0
+margin_right = 310.0
+margin_bottom = 525.0
+
+[node name="texture_set" type="VBoxContainer" parent="Windows/edit_texture2/environment/s/e/e"]
+margin_top = 529.0
+margin_right = 310.0
+margin_bottom = 607.0
+
+[node name="info_1" type="Label" parent="Windows/edit_texture2/environment/s/e/e/texture_set"]
+margin_right = 310.0
+margin_bottom = 22.0
+text = "Texture Settings"
+
+[node name="info_2" type="Label" parent="Windows/edit_texture2/environment/s/e/e/texture_set"]
+margin_top = 26.0
+margin_right = 310.0
+margin_bottom = 48.0
+text = "Path: "
+
+[node name="p" type="HBoxContainer" parent="Windows/edit_texture2/environment/s/e/e/texture_set"]
+margin_top = 52.0
+margin_right = 310.0
+margin_bottom = 78.0
+
+[node name="path" type="LineEdit" parent="Windows/edit_texture2/environment/s/e/e/texture_set/p"]
+margin_right = 160.0
+margin_bottom = 26.0
+
+[node name="select" type="Button" parent="Windows/edit_texture2/environment/s/e/e/texture_set/p"]
+margin_left = 164.0
+margin_right = 235.0
+margin_bottom = 26.0
+text = "Select"
+
+[node name="texture_type3" type="WindowDialog" parent="Windows"]
+margin_right = 320.0
+margin_bottom = 68.0
+theme = ExtResource( 3 )
+popup_exclusive = true
+window_title = "Texture Type"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="environment" type="MarginContainer" parent="Windows/texture_type3"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_constants/margin_right = 5
+custom_constants/margin_top = 5
+custom_constants/margin_left = 5
+custom_constants/margin_bottom = 5
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="e" type="VBoxContainer" parent="Windows/texture_type3/environment"]
+margin_left = 5.0
+margin_top = 5.0
+margin_right = 315.0
+margin_bottom = 63.0
+
+[node name="type" type="OptionButton" parent="Windows/texture_type3/environment/e"]
+margin_right = 310.0
+margin_bottom = 26.0
+text = "Built-in"
+items = [ "Built-in", null, false, 0, null, "By path", null, false, 1, null ]
+selected = 0
+
+[node name="next" type="Button" parent="Windows/texture_type3/environment/e"]
+margin_top = 30.0
+margin_right = 310.0
+margin_bottom = 56.0
+text = "Next"
+
+[node name="change_texture3" type="FileDialog" parent="Windows"]
+margin_right = 553.0
+margin_bottom = 152.0
+theme = ExtResource( 3 )
+popup_exclusive = true
+window_title = "Otwórz plik"
+resizable = true
+mode = 0
+access = 2
+filters = PoolStringArray( "*.png ; PNG File", "*.jpg ; JPG File" )
+current_dir = "/"
+current_path = "/"
+
+[node name="save_as" type="FileDialog" parent="Windows"]
+margin_right = 329.0
+margin_bottom = 130.0
+theme = ExtResource( 3 )
+popup_exclusive = true
+window_title = "Zapisz plik"
+resizable = true
+access = 2
+filters = PoolStringArray( "*.tscn ; Scene File" )
+current_dir = "/home/gameplayer/Dokumenty/godot-workspace/games/PlatGen/PlatGen"
+current_path = "/home/gameplayer/Dokumenty/godot-workspace/games/PlatGen/PlatGen/"
+
+[node name="load" type="FileDialog" parent="Windows"]
+margin_right = 329.0
+margin_bottom = 130.0
+theme = ExtResource( 3 )
+popup_exclusive = true
+window_title = "Otwórz plik"
+resizable = true
+mode = 0
+access = 2
+filters = PoolStringArray( "*.tscn ; Scene File" )
+current_dir = "/"
+current_path = "/"
+
+[connection signal="pressed" from="GUI/UpPanel/enviroment/right/load" to="." method="_on_load_object_pressed"]
+[connection signal="pressed" from="GUI/UpPanel/enviroment/right/save_as" to="." method="_on_save_as_object_pressed"]
+[connection signal="pressed" from="GUI/UpPanel/enviroment/right/save" to="." method="_on_save_object_pressed"]
+[connection signal="pressed" from="GUI/UpPanel/enviroment/right/bgcolor" to="." method="_on_bgcolor_object_pressed"]
+[connection signal="pressed" from="GUI/UpPanel/enviroment/right/exit" to="." method="_on_exit_pressed"]
+[connection signal="toggled" from="GUI/DownPanel/enviroment/left/sc" to="." method="_on_sc_toggled"]
+[connection signal="toggled" from="GUI/DownPanel/enviroment/left/sen" to="." method="_on_sen_toggled"]
+[connection signal="item_selected" from="GUI/LeftPanel/enviroment/s/e/e/tree" to="." method="_on_tree_item_selected"]
+[connection signal="pressed" from="GUI/LeftPanel/enviroment/s/e/e/nt" to="." method="_on_new_texture_pressed"]
+[connection signal="pressed" from="GUI/LeftPanel/enviroment/s/e/e/nc" to="." method="_on_new_collision_pressed"]
+[connection signal="pressed" from="GUI/LeftPanel/enviroment/s/e/e/ns" to="." method="_on_new_shader_pressed"]
+[connection signal="pressed" from="GUI/LeftPanel/enviroment/s/e/e/np" to="." method="_on_new_particle_pressed"]
+[connection signal="pressed" from="GUI/LeftPanel/enviroment/s/e/e/nl" to="." method="_on_new_light_pressed"]
+[connection signal="pressed" from="GUI/LeftPanel/enviroment/s/e/e/nlo" to="." method="_on_new_light_occluder_pressed"]
+[connection signal="value_changed" from="GUI/RightPanel/enviroment/s/e/e/node2d/Transform/px/SpinBox" to="." method="_on_Node2d_pos_x_value_changed"]
+[connection signal="value_changed" from="GUI/RightPanel/enviroment/s/e/e/node2d/Transform/py/SpinBox" to="." method="_on_Node2d_pos_y_value_changed"]
+[connection signal="value_changed" from="GUI/RightPanel/enviroment/s/e/e/node2d/Transform/r/SpinBox" to="." method="_on_Node2d_rotation_value_changed"]
+[connection signal="value_changed" from="GUI/RightPanel/enviroment/s/e/e/node2d/Transform/sx/SpinBox" to="." method="_on_Node2d_scale_x_value_changed"]
+[connection signal="value_changed" from="GUI/RightPanel/enviroment/s/e/e/node2d/Transform/sy/SpinBox" to="." method="_on_Node2d_scale_y_value_changed"]
+[connection signal="value_changed" from="GUI/RightPanel/enviroment/s/e/e/node2d/Transform/z/SpinBox" to="." method="_on_Node2d_z_index_value_changed"]
+[connection signal="toggled" from="GUI/RightPanel/enviroment/s/e/e/node2d/Transform/z2/z" to="." method="_on_Node2d_z_2_toggled"]
+[connection signal="toggled" from="GUI/RightPanel/enviroment/s/e/e/node2d/Visibility/v/v" to="." method="_on_Node2d_visible_toggled"]
+[connection signal="color_changed" from="GUI/RightPanel/enviroment/s/e/e/node2d/Visibility/m/m" to="." method="_on_Node2d_modulate_color_changed"]
+[connection signal="color_changed" from="GUI/RightPanel/enviroment/s/e/e/node2d/Visibility/sm/sm" to="." method="_on_Node2d_self_modulate_color_changed"]
+[connection signal="toggled" from="GUI/RightPanel/enviroment/s/e/e/node2d/Visibility/sbp/sbp" to="." method="_on_Node2d_sbp_toggled"]
+[connection signal="color_changed" from="Windows/ChangeBackground/s/e/e/enviroment/ColorPicker" to="." method="_on_ColorPicker_color_changed"]
+[connection signal="pressed" from="Windows/new_texture/enviroment/s/e/e/p/select" to="." method="_on_select_texture_path_pressed"]
+[connection signal="pressed" from="Windows/new_texture/enviroment/s/e/e/c" to="." method="_on_create_texture_pressed"]
+[connection signal="file_selected" from="Windows/select_texture" to="." method="_on_select_texture_file_selected"]
+[connection signal="pressed" from="Windows/new_collision/enviroment/s/e/e/create" to="." method="_on_create_collision_pressed"]
+[connection signal="pressed" from="Windows/new_particle/enviroment/s/e/e/create" to="." method="_on_create_particle_pressed"]
+[connection signal="pressed" from="Windows/new_light/environment/s/e/e/p/select" to="." method="_on_select_texture_light_pressed"]
+[connection signal="pressed" from="Windows/new_light/environment/s/e/e/create" to="." method="_on_create_light_pressed"]
+[connection signal="file_selected" from="Windows/select_light_texture" to="." method="_on_select_light_texture_file_selected"]
+[connection signal="pressed" from="Windows/new_lightoccluder/environment/s/e/e/create" to="." method="_on_create_light_occluder_pressed"]
+[connection signal="file_selected" from="Windows/save_as" to="." method="_on_save_as_file_selected"]
+[connection signal="file_selected" from="Windows/load" to="." method="_on_load_file_selected"]

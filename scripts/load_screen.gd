@@ -2,6 +2,8 @@ extends Control
 
 onready var time = OS.get_system_time_msecs()
 
+
+
 func popup(work_text, progress):
 	MainSymlink.popup_logo()
 	logo_p = true

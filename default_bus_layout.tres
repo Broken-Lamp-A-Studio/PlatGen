@@ -1,7 +1,9 @@
-[gd_resource type="AudioBusLayout" format=2]
+[gd_resource type="AudioBusLayout" load_steps=2 format=2]
+
+[sub_resource type="AudioEffectRecord" id=1]
+resource_name = "Record"
 
 [resource]
-bus/0/send = "Machines"
 bus/1/name = "Game_music"
 bus/1/solo = false
 bus/1/mute = false
@@ -24,5 +26,37 @@ bus/4/name = "Machines"
 bus/4/solo = false
 bus/4/mute = false
 bus/4/bypass_fx = false
-bus/4/volume_db = 0.0
+bus/4/volume_db = -0.00828743
 bus/4/send = "Master"
+bus/5/name = "Videos"
+bus/5/solo = false
+bus/5/mute = false
+bus/5/bypass_fx = false
+bus/5/volume_db = 0.00282288
+bus/5/send = "Master"
+bus/6/name = "Monsters"
+bus/6/solo = false
+bus/6/mute = false
+bus/6/bypass_fx = false
+bus/6/volume_db = 0.0
+bus/6/send = "Master"
+bus/7/name = "Voicechat"
+bus/7/solo = false
+bus/7/mute = false
+bus/7/bypass_fx = false
+bus/7/volume_db = -0.0149536
+bus/7/send = "Master"
+bus/8/name = "MainVoice"
+bus/8/solo = false
+bus/8/mute = true
+bus/8/bypass_fx = false
+bus/8/volume_db = -0.00606537
+bus/8/send = "Master"
+bus/8/effect/0/effect = SubResource( 1 )
+bus/8/effect/0/enabled = true
+bus/9/name = "Dialogs"
+bus/9/solo = false
+bus/9/mute = false
+bus/9/bypass_fx = false
+bus/9/volume_db = 0.0
+bus/9/send = "Master"

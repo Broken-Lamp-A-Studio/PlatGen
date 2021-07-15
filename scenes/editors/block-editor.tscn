@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://scenes/editors/UpPanel.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scripts/editors/block-editor.gd" type="Script" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://scenes/editors/block_options.tscn" type="PackedScene" id=5]
 [ext_resource path="res://scenes/editors/Texture Editor.tscn" type="PackedScene" id=6]
 [ext_resource path="res://scenes/editors/Collision Editor.tscn" type="PackedScene" id=7]
+[ext_resource path="res://textures/theme/main.tres" type="Theme" id=8]
 
 [node name="block-editor" type="Node2D"]
 script = ExtResource( 2 )
@@ -22,11 +23,13 @@ __meta__ = {
 [node name="gui" type="Control" parent="."]
 margin_right = 1360.0
 margin_bottom = 768.0
+theme = ExtResource( 8 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="UpPanel" parent="gui" instance=ExtResource( 1 )]
+theme = ExtResource( 8 )
 
 [node name="icon" parent="gui/UpPanel" index="1"]
 expand = true
@@ -44,8 +47,8 @@ margin_bottom = 164.594
 [node name="background_settings" parent="gui" instance=ExtResource( 4 )]
 margin_left = 928.0
 margin_top = 58.0
-margin_right = 1296.0
-margin_bottom = 575.0
+margin_right = 1335.0
+margin_bottom = 582.0
 
 [node name="Texture Editor" parent="gui" instance=ExtResource( 6 )]
 margin_left = -500.0

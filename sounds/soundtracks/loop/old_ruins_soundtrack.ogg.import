@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/old_ruins_soundtrack.ogg-52cbb125fc0352acddbc320d1bb11f55.oggstr"
+
+[deps]
+
+source_file="res://sounds/soundtracks/loop/old_ruins_soundtrack.ogg"
+dest_files=[ "res://.import/old_ruins_soundtrack.ogg-52cbb125fc0352acddbc320d1bb11f55.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

@@ -1,0 +1,160 @@
+[gd_scene load_steps=14 format=2]
+
+[ext_resource path="res://packages/texture_packs/world_texture pack/blocks/default/dirt_with_grass.png" type="Texture" id=1]
+[ext_resource path="res://packages/block_packs/default/dirt_animation_3.tres" type="Material" id=2]
+[ext_resource path="res://packages/block_packs/default/dirt_animation_2.tres" type="Material" id=3]
+[ext_resource path="res://packages/block_packs/default/dirt_animation.tres" type="Material" id=4]
+[ext_resource path="res://packages/block_packs/default/particles_material.tres" type="Material" id=5]
+[ext_resource path="res://packages/block_packs/default/scripts/dirt_with_grass.gd" type="Script" id=6]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 6.50309, 25.0218 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 24.6762, 6.37862 )
+
+[sub_resource type="OccluderPolygon2D" id=3]
+polygon = PoolVector2Array( 25, 25, -25, 25, -25, -25, 25, -25 )
+
+[sub_resource type="CanvasItemMaterial" id=4]
+particles_animation = true
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="Gradient" id=5]
+offsets = PoolRealArray( 0.00664452, 1 )
+colors = PoolColorArray( 0.135498, 0.433594, 0, 1, 0, 0.574219, 0.183929, 1 )
+
+[sub_resource type="GradientTexture" id=6]
+gradient = SubResource( 5 )
+
+[sub_resource type="ParticlesMaterial" id=7]
+lifetime_randomness = 0.45
+emission_shape = 2
+emission_box_extents = Vector3( -30, 2, 3 )
+flag_align_y = true
+flag_rotate_y = true
+flag_disable_z = true
+direction = Vector3( 0.1, 0, 0 )
+spread = 26.89
+gravity = Vector3( 0.1, 1, 0 )
+initial_velocity = 0.01
+angular_velocity = 298.87
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+color_ramp = SubResource( 6 )
+anim_speed = 26.57
+
+[node name="dirt" type="Node2D"]
+process_priority = -10
+script = ExtResource( 6 )
+
+[node name="OBJECT_REG" type="Node" parent="."]
+
+[node name="textures" type="Node2D" parent="."]
+
+[node name="main" type="Sprite" parent="textures"]
+texture = ExtResource( 1 )
+
+[node name="collisions" type="Node2D" parent="."]
+
+[node name="main" type="StaticBody2D" parent="collisions"]
+collision_layer = 2
+collision_mask = 4
+
+[node name="collision" type="CollisionPolygon2D" parent="collisions/main"]
+polygon = PoolVector2Array( 25, 25, -25, 25, -25, -25, 25, -25 )
+
+[node name="left" type="RigidBody2D" parent="collisions"]
+collision_layer = 4
+collision_mask = 6
+mode = 1
+contacts_reported = 5
+contact_monitor = true
+
+[node name="collision" type="CollisionShape2D" parent="collisions/left"]
+position = Vector2( -25, 0 )
+shape = SubResource( 1 )
+
+[node name="right" type="RigidBody2D" parent="collisions"]
+collision_layer = 4
+collision_mask = 6
+mode = 1
+contacts_reported = 5
+contact_monitor = true
+
+[node name="collision" type="CollisionShape2D" parent="collisions/right"]
+position = Vector2( 25, 0 )
+shape = SubResource( 1 )
+
+[node name="top" type="RigidBody2D" parent="collisions"]
+collision_layer = 4
+collision_mask = 6
+mode = 1
+contacts_reported = 5
+contact_monitor = true
+
+[node name="collision" type="CollisionShape2D" parent="collisions/top"]
+position = Vector2( 0, -25 )
+shape = SubResource( 2 )
+
+[node name="down" type="RigidBody2D" parent="collisions"]
+collision_layer = 4
+collision_mask = 6
+mode = 1
+contacts_reported = 5
+contact_monitor = true
+
+[node name="collision" type="CollisionShape2D" parent="collisions/down"]
+position = Vector2( 0, 25 )
+shape = SubResource( 2 )
+
+[node name="lightoccluders" type="Node2D" parent="."]
+visible = false
+
+[node name="main" type="LightOccluder2D" parent="lightoccluders"]
+occluder = SubResource( 3 )
+
+[node name="particles" type="Node2D" parent="."]
+
+[node name="up" type="Particles2D" parent="particles"]
+material = SubResource( 4 )
+position = Vector2( 0, -25 )
+emitting = false
+amount = 30
+one_shot = true
+process_material = SubResource( 7 )
+
+[node name="left" type="Particles2D" parent="particles"]
+material = ExtResource( 5 )
+position = Vector2( -25, 0 )
+emitting = false
+amount = 30
+one_shot = true
+process_material = ExtResource( 4 )
+
+[node name="right" type="Particles2D" parent="particles"]
+material = ExtResource( 5 )
+position = Vector2( 25, 0 )
+emitting = false
+amount = 30
+one_shot = true
+process_material = ExtResource( 3 )
+
+[node name="down" type="Particles2D" parent="particles"]
+material = ExtResource( 5 )
+position = Vector2( 0, 25 )
+emitting = false
+amount = 30
+one_shot = true
+process_material = ExtResource( 2 )
+
+[connection signal="body_entered" from="collisions/left" to="." method="_on_left_body_entered"]
+[connection signal="body_exited" from="collisions/left" to="." method="_on_left_body_exited"]
+[connection signal="body_entered" from="collisions/right" to="." method="_on_right_body_entered"]
+[connection signal="body_exited" from="collisions/right" to="." method="_on_right_body_exited"]
+[connection signal="body_entered" from="collisions/top" to="." method="_on_top_body_entered"]
+[connection signal="body_exited" from="collisions/top" to="." method="_on_top_body_exited"]
+[connection signal="body_entered" from="collisions/down" to="." method="_on_down_body_entered"]
+[connection signal="body_exited" from="collisions/down" to="." method="_on_down_body_exited"]

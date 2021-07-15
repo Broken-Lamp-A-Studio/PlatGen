@@ -6,3 +6,6 @@ func _process(_delta):
 
 func get_text():
 	return $MarginContainer/TextEdit.text
+
+func set_text(text):
+	$MarginContainer/TextEdit.text = text

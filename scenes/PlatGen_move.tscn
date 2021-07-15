@@ -131,7 +131,6 @@ __meta__ = {
 }
 
 [node name="TextureRect" type="TextureRect" parent="MarginContainer"]
-modulate = Color( 1, 1, 1, 0 )
 margin_right = 1360.0
 margin_bottom = 768.0
 rect_min_size = Vector2( 1360, 768 )
@@ -140,13 +139,9 @@ expand = true
 stretch_mode = 1
 
 [node name="TextureRect2" type="TextureRect" parent="MarginContainer"]
-modulate = Color( 1, 1, 1, 0 )
 material = SubResource( 3 )
-margin_left = -50.0
-margin_top = 250.0
-margin_right = 1310.0
-margin_bottom = 1018.0
-rect_scale = Vector2( 2, 2 )
+margin_right = 1360.0
+margin_bottom = 768.0
 texture = ExtResource( 1 )
 stretch_mode = 3
 

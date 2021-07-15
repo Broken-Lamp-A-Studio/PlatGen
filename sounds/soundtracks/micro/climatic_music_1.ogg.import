@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/climatic_music_1.ogg-e00175a08f9a9737513940417e6726a3.oggstr"
+
+[deps]
+
+source_file="res://sounds/soundtracks/micro/climatic_music_1.ogg"
+dest_files=[ "res://.import/climatic_music_1.ogg-e00175a08f9a9737513940417e6726a3.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

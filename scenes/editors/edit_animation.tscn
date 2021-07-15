@@ -1,0 +1,149 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://textures/theme/main.tres" type="Theme" id=1]
+[ext_resource path="res://textures/editors/animation_editor/stop.png" type="Texture" id=2]
+[ext_resource path="res://textures/editors/animation_editor/arrow_left.png" type="Texture" id=3]
+[ext_resource path="res://textures/editors/animation_editor/arrow_right.png" type="Texture" id=4]
+[ext_resource path="res://textures/editors/animation_editor/arrow_right2.png" type="Texture" id=5]
+[ext_resource path="res://textures/editors/animation_editor/arrow_left2.png" type="Texture" id=6]
+[ext_resource path="res://textures/editors/animation_editor/autoload.png" type="Texture" id=7]
+
+[node name="edit_animation" type="WindowDialog"]
+visible = true
+margin_right = 883.0
+margin_bottom = 314.0
+theme = ExtResource( 1 )
+popup_exclusive = true
+window_title = "Edit Animation"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="enviroment" type="MarginContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_constants/margin_right = 10
+custom_constants/margin_top = 10
+custom_constants/margin_left = 10
+custom_constants/margin_bottom = 10
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="s" type="ScrollContainer" parent="enviroment"]
+margin_left = 10.0
+margin_top = 10.0
+margin_right = 873.0
+margin_bottom = 304.0
+
+[node name="e" type="HBoxContainer" parent="enviroment/s"]
+margin_left = 5.0
+margin_top = 5.0
+margin_right = 866.0
+margin_bottom = 254.0
+
+[node name="e" type="VBoxContainer" parent="enviroment/s/e"]
+margin_right = 861.0
+margin_bottom = 249.0
+
+[node name="up" type="HBoxContainer" parent="enviroment/s/e/e"]
+margin_right = 861.0
+margin_bottom = 29.0
+
+[node name="arrow_left" type="Button" parent="enviroment/s/e/e/up"]
+margin_right = 29.0
+margin_bottom = 29.0
+icon = ExtResource( 3 )
+
+[node name="arrow_left2" type="Button" parent="enviroment/s/e/e/up"]
+margin_left = 33.0
+margin_right = 62.0
+margin_bottom = 29.0
+icon = ExtResource( 6 )
+
+[node name="stop" type="Button" parent="enviroment/s/e/e/up"]
+margin_left = 66.0
+margin_right = 95.0
+margin_bottom = 29.0
+icon = ExtResource( 2 )
+
+[node name="arrow_right2" type="Button" parent="enviroment/s/e/e/up"]
+margin_left = 99.0
+margin_right = 128.0
+margin_bottom = 29.0
+icon = ExtResource( 5 )
+
+[node name="arrow_right" type="Button" parent="enviroment/s/e/e/up"]
+margin_left = 132.0
+margin_right = 161.0
+margin_bottom = 29.0
+icon = ExtResource( 4 )
+
+[node name="SpinBox" type="SpinBox" parent="enviroment/s/e/e/up"]
+margin_left = 165.0
+margin_right = 335.0
+margin_bottom = 29.0
+
+[node name="VSeparator" type="VSeparator" parent="enviroment/s/e/e/up"]
+margin_left = 339.0
+margin_right = 343.0
+margin_bottom = 29.0
+
+[node name="animation" type="MenuButton" parent="enviroment/s/e/e/up"]
+margin_left = 347.0
+margin_right = 456.0
+margin_bottom = 29.0
+text = "Animation"
+
+[node name="select" type="OptionButton" parent="enviroment/s/e/e/up"]
+margin_left = 460.0
+margin_right = 660.0
+margin_bottom = 29.0
+rect_min_size = Vector2( 200, 0 )
+
+[node name="autoload" type="Button" parent="enviroment/s/e/e/up"]
+margin_left = 664.0
+margin_right = 693.0
+margin_bottom = 29.0
+icon = ExtResource( 7 )
+
+[node name="MenuButton" type="MenuButton" parent="enviroment/s/e/e/up"]
+margin_left = 697.0
+margin_right = 861.0
+margin_bottom = 29.0
+text = "Edit Animation"
+
+[node name="HSeparator" type="HSeparator" parent="enviroment/s/e/e"]
+margin_top = 33.0
+margin_right = 861.0
+margin_bottom = 37.0
+
+[node name="animation_nodes" type="MarginContainer" parent="enviroment/s/e/e"]
+margin_top = 41.0
+margin_right = 861.0
+margin_bottom = 241.0
+rect_min_size = Vector2( 0, 200 )
+custom_constants/margin_right = 5
+custom_constants/margin_top = 5
+custom_constants/margin_left = 5
+custom_constants/margin_bottom = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="enviroment/s/e/e/animation_nodes"]
+margin_left = 5.0
+margin_top = 5.0
+margin_right = 856.0
+margin_bottom = 195.0
+
+[node name="a" type="HBoxContainer" parent="enviroment/s/e/e/animation_nodes/VBoxContainer"]
+margin_right = 851.0
+margin_bottom = 26.0
+
+[node name="add" type="Button" parent="enviroment/s/e/e/animation_nodes/VBoxContainer/a"]
+margin_right = 104.0
+margin_bottom = 26.0
+text = "Add path"
+
+[node name="HSeparator2" type="HSeparator" parent="enviroment/s/e/e"]
+margin_top = 245.0
+margin_right = 861.0
+margin_bottom = 249.0

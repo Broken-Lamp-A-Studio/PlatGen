@@ -62,15 +62,25 @@ tracks/3/keys = {
 "update": 0,
 "values": [ Vector2( -50, 250 ), Vector2( 310, 317 ), Vector2( 310, 317 ), Vector2( 680, 384 ) ]
 }
+tracks/4/type = "value"
+tracks/4/path = NodePath(".:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 1.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
 
 [node name="init" type="Node2D"]
 process_priority = 1000
 script = ExtResource( 4 )
 
-[node name="envoirment" type="ViewportContainer" parent="."]
-__meta__ = {
-"_edit_use_anchors_": false
-}
+[node name="envoirment" type="CanvasLayer" parent="."]
+follow_viewport_enable = true
 
 [node name="main-stuff" type="CanvasLayer" parent="."]
 layer = 10
@@ -83,6 +93,8 @@ rect_min_size = Vector2( 600, 600 )
 [node name="CenterContainer" type="CenterContainer" parent="main-stuff"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+mouse_filter = 2
+input_pass_on_modal_close_click = false
 use_top_left = true
 __meta__ = {
 "_edit_use_anchors_": false
@@ -92,10 +104,11 @@ __meta__ = {
 visible = false
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = -41.0
-margin_top = -1.0
-margin_right = 40.0
-margin_bottom = 0.0
+margin_left = -150.0
+margin_top = -33.0
+margin_right = 150.0
+margin_bottom = 32.0
+rect_min_size = Vector2( 300, 65 )
 
 [node name="parametres" parent="main-stuff/CenterContainer" instance=ExtResource( 7 )]
 anchor_left = 0.0
@@ -106,18 +119,22 @@ margin_left = 0.0
 margin_top = 0.0
 margin_right = 0.0
 margin_bottom = 0.0
+mouse_filter = 2
+input_pass_on_modal_close_click = false
 theme = ExtResource( 8 )
 
 [node name="PlatGen_move" parent="main-stuff/CenterContainer" instance=ExtResource( 9 )]
+visible = false
 anchor_right = 0.0
 anchor_bottom = 0.0
+mouse_filter = 2
+input_pass_on_modal_close_click = false
+
+[node name="TextureRect" parent="main-stuff/CenterContainer/PlatGen_move/MarginContainer" index="0"]
+modulate = Color( 1, 1, 1, 0 )
 
 [node name="TextureRect2" parent="main-stuff/CenterContainer/PlatGen_move/MarginContainer" index="1"]
-margin_left = 0.0
-margin_top = 0.0
-margin_right = 1360.0
-margin_bottom = 768.0
-rect_scale = Vector2( 1, 1 )
+modulate = Color( 1, 1, 1, 0 )
 
 [node name="AnimationPlayer" parent="main-stuff/CenterContainer/PlatGen_move" index="1"]
 anims/show_down2 = SubResource( 1 )
@@ -125,6 +142,9 @@ anims/show_down2 = SubResource( 1 )
 [node name="VideoPlayer" parent="main-stuff/CenterContainer" instance=ExtResource( 3 )]
 margin_right = 0.0
 margin_bottom = 0.0
+mouse_filter = 2
+input_pass_on_modal_close_click = false
+bus = "Videos"
 
 [node name="Console Debug" parent="main-stuff/CenterContainer" instance=ExtResource( 1 )]
 anchor_right = 0.0
