@@ -1652,34 +1652,45 @@ rect_min_size = Vector2( 0, 400 )
 margin_left = 5.0
 margin_top = 5.0
 margin_right = 699.0
-margin_bottom = 66.0
+margin_bottom = 89.0
 
 [node name="e" type="VBoxContainer" parent="MarginContainer/a/settings_control/s/e"]
 margin_right = 694.0
-margin_bottom = 61.0
+margin_bottom = 84.0
 custom_constants/separation = 5
 
 [node name="Label" type="Label" parent="MarginContainer/a/settings_control/s/e/e"]
 margin_right = 694.0
 margin_bottom = 22.0
 
-[node name="backup3" type="HBoxContainer" parent="MarginContainer/a/settings_control/s/e/e"]
+[node name="load" type="HBoxContainer" parent="MarginContainer/a/settings_control/s/e/e"]
 margin_top = 27.0
 margin_right = 694.0
-margin_bottom = 30.0
+margin_bottom = 53.0
 
-[node name="a" type="VSeparator" parent="MarginContainer/a/settings_control/s/e/e/backup3"]
+[node name="a" type="VSeparator" parent="MarginContainer/a/settings_control/s/e/e/load"]
 margin_right = 20.0
-margin_bottom = 3.0
+margin_bottom = 26.0
 custom_constants/separation = 20
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Label" type="Label" parent="MarginContainer/a/settings_control/s/e/e/load"]
+margin_left = 24.0
+margin_top = 2.0
+margin_right = 24.0
+margin_bottom = 24.0
+
+[node name="Button" type="Button" parent="MarginContainer/a/settings_control/s/e/e/load"]
+margin_left = 28.0
+margin_right = 32.0
+margin_bottom = 26.0
+
 [node name="backup2" type="HBoxContainer" parent="MarginContainer/a/settings_control/s/e/e"]
-margin_top = 35.0
+margin_top = 58.0
 margin_right = 694.0
-margin_bottom = 61.0
+margin_bottom = 84.0
 
 [node name="a" type="VSeparator" parent="MarginContainer/a/settings_control/s/e/e/backup2"]
 margin_right = 20.0
